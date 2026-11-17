@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Tóm tắt và luyện tập Ch1–6 môn Introduction to Financial Accounting (IFRS): cốt lõi, neo nhớ, bút toán mẫu, flashcards, trắc nghiệm, luyện Nợ/Có.">
+<meta name="description" content="Tóm tắt và luyện tập song ngữ Việt–Anh Ch1–6 môn Introduction to Financial Accounting (IFRS). Bilingual Vietnamese–English study guide for Chapters 1–6.">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Sổ Tay Kế Toán Tài Chính</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,7 +52,7 @@ code{font-size:.9em;background:var(--chip);padding:.05em .35em;border-radius:3px
 .top{padding-block:18px 10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1240px;margin:0 auto}
 .brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;text-decoration:none;color:var(--ink)}
 .brand b{font-family:var(--f-display);font-weight:800;font-stretch:78%;font-size:1.3rem;letter-spacing:.01em;text-transform:uppercase}
-.brand span{font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+.brand > span{font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
 .pill{font-family:var(--f-mono);font-size:.78rem;border:1px solid var(--rule-2);border-radius:999px;padding:.2rem .7rem;color:var(--muted);white-space:nowrap}
 .shell{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px;display:grid;grid-template-columns:232px minmax(0,1fr);gap:28px;align-items:start}
 .nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 14px);display:flex;flex-direction:column;gap:2px}
@@ -267,34 +267,42 @@ input[type=number]{font-family:var(--f-mono);text-align:right}
 .totals .box .n{font-size:1.4rem;font-weight:600;display:block}
 .totals .box.match{border-color:var(--ok)}
 @media (prefers-reduced-motion:no-preference){.fc .back{animation:rise .22s ease-out}@keyframes rise{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}}
+
+/* language switch */
+:root:not([data-lang="en"]) [data-l="en"], :root[data-lang="en"] [data-l="vi"]{display:none!important}
+.top-r{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.lang{display:inline-flex;border:1px solid var(--ink);border-radius:999px;overflow:hidden}
+.lang button{font:600 .76rem/1 var(--f-mono);letter-spacing:.08em;border:0;background:transparent;color:var(--ink);padding:.45rem .8rem;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 </style>
+<script>try{if(localStorage.getItem("stk-lang")==='"en"'){document.documentElement.setAttribute("data-lang","en");document.documentElement.setAttribute("lang","en");}}catch(e){}</script>
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="#ban-do"><b>Sổ Tay Kế Toán Tài Chính</b><span>Introduction to Financial Accounting · IFRS · Ch1–6</span></a>
-  <span class="pill" id="pill-known">0 thẻ đã nhớ</span>
+  <a class="brand" href="#ban-do"><b><span data-l="vi">Sổ Tay Kế Toán Tài Chính</span><span data-l="en">Financial Accounting Handbook</span></b><span>Introduction to Financial Accounting · IFRS · Ch1–6</span></a>
+  <div class="top-r"><span class="pill" id="pill-known"></span><div class="lang" role="group" aria-label="Ngôn ngữ / Language"><button type="button" data-setlang="vi" aria-pressed="true" title="Tiếng Việt">VI</button><button type="button" data-setlang="en" aria-pressed="false" title="English">EN</button></div></div>
 </header>
 
 <div class="shell">
 <nav class="nav" aria-label="Mục lục">
-  <a href="#ban-do"><span class="k">MAP</span><span class="lbl">Bản đồ &amp; công thức</span></a>
-  <span class="grp">Chương</span>
-  <a href="#ch1"><span class="k">CH1</span><span class="lbl">Khung khái niệm &amp; BCTC</span></a>
-  <a href="#ch2"><span class="k">CH2</span><span class="lbl">Ghi nhận giao dịch</span></a>
-  <a href="#ch3"><span class="k">CH3</span><span class="lbl">Kế toán dồn tích</span></a>
-  <a href="#ch4"><span class="k">CH4</span><span class="lbl">Trình bày BCTC (IAS 1)</span></a>
-  <a href="#ch5"><span class="k">CH5</span><span class="lbl">Kiểm soát nội bộ, tiền, phải thu</span></a>
-  <a href="#ch6"><span class="k">CH6</span><span class="lbl">Hàng tồn kho</span></a>
-  <span class="grp">Luyện tập</span>
-  <a href="#flashcards"><span class="k">THẺ</span><span class="lbl">Flashcards</span></a>
-  <a href="#trac-nghiem"><span class="k">QUIZ</span><span class="lbl">Trắc nghiệm</span></a>
-  <a href="#no-co"><span class="k">NỢ/CÓ</span><span class="lbl">Luyện định khoản</span></a>
-  <a href="#cong-cu"><span class="k">LAB</span><span class="lbl">Tồn kho &amp; đối chiếu NH</span></a>
+  <a href="#ban-do"><span class="k">MAP</span><span class="lbl"><span data-l="vi">Bản đồ &amp; công thức</span><span data-l="en">Map &amp; formulas</span></span></a>
+  <span class="grp"><span data-l="vi">Chương</span><span data-l="en">Chapters</span></span>
+  <a href="#ch1"><span class="k">CH1</span><span class="lbl"><span data-l="vi">Khung khái niệm &amp; BCTC</span><span data-l="en">Framework &amp; statements</span></span></a>
+  <a href="#ch2"><span class="k">CH2</span><span class="lbl"><span data-l="vi">Ghi nhận giao dịch</span><span data-l="en">Recording transactions</span></span></a>
+  <a href="#ch3"><span class="k">CH3</span><span class="lbl"><span data-l="vi">Kế toán dồn tích</span><span data-l="en">Accrual accounting</span></span></a>
+  <a href="#ch4"><span class="k">CH4</span><span class="lbl"><span data-l="vi">Trình bày BCTC (IAS 1)</span><span data-l="en">Presentation (IAS 1)</span></span></a>
+  <a href="#ch5"><span class="k">CH5</span><span class="lbl"><span data-l="vi">Kiểm soát nội bộ, tiền, phải thu</span><span data-l="en">Control, cash, receivables</span></span></a>
+  <a href="#ch6"><span class="k">CH6</span><span class="lbl"><span data-l="vi">Hàng tồn kho</span><span data-l="en">Inventory</span></span></a>
+  <span class="grp"><span data-l="vi">Luyện tập</span><span data-l="en">Practice</span></span>
+  <a href="#flashcards"><span class="k"><span data-l="vi">THẺ</span><span data-l="en">CARDS</span></span><span class="lbl">Flashcards</span></a>
+  <a href="#trac-nghiem"><span class="k">QUIZ</span><span class="lbl"><span data-l="vi">Trắc nghiệm</span><span data-l="en">Quiz</span></span></a>
+  <a href="#no-co"><span class="k"><span data-l="vi">NỢ/CÓ</span><span data-l="en">DR/CR</span></span><span class="lbl"><span data-l="vi">Luyện định khoản</span><span data-l="en">Debit/credit drill</span></span></a>
+  <a href="#cong-cu"><span class="k">LAB</span><span class="lbl"><span data-l="vi">Tồn kho &amp; đối chiếu NH</span><span data-l="en">Inventory &amp; bank rec</span></span></a>
 </nav>
 
 <main>
 <!-- ======================= OVERVIEW ======================= -->
-<section class="sheet" data-view="ban-do">
+<section class="sheet" data-view="ban-do" data-l="vi">
   <p class="eyebrow"><span class="tag">Bản đồ</span>Tóm tắt slide Chương 1–6</p>
   <h1>Sáu chương, một phương trình</h1>
   <div class="hero-eq" aria-label="Assets bằng Liabilities cộng Equity">A <span class="op">=</span> L <span class="op">+</span> E</div>
@@ -350,7 +358,7 @@ input[type=number]{font-family:var(--f-mono);text-align:right}
 </section>
 
 <!-- ======================= CH1 ======================= -->
-<section class="sheet" data-view="ch1" hidden>
+<section class="sheet" data-view="ch1" data-l="vi" hidden>
   <p class="eyebrow"><span class="tag">Ch1</span>Conceptual Framework &amp; Financial Statements</p>
   <h1>Khung khái niệm và bốn báo cáo tài chính</h1>
   <div class="core"><span class="lab">Cốt lõi</span><p>Kế toán đo lường hoạt động kinh doanh, xử lý thành báo cáo và truyền đạt cho người ra quyết định. Thông tin chỉ hữu ích khi <b>phù hợp</b> và <b>trình bày trung thực</b>. Bốn báo cáo đều đứng trên phương trình <b>A = L + E</b>.</p></div>
@@ -485,7 +493,7 @@ input[type=number]{font-family:var(--f-mono);text-align:right}
 </section>
 
 <!-- ======================= CH2 ======================= -->
-<section class="sheet" data-view="ch2" hidden>
+<section class="sheet" data-view="ch2" data-l="vi" hidden>
   <p class="eyebrow"><span class="tag">Ch2</span>Recording Business Transactions</p>
   <h1>Ghi nhận giao dịch: Nợ, Có và bảng cân đối thử</h1>
   <div class="core"><span class="lab">Cốt lõi</span><p>Mỗi giao dịch có hai mặt: nhận một thứ và đưa ra một thứ. <b>Ghi sổ kép</b> ghi cả hai mặt sao cho <b>tổng Nợ = tổng Có</b>, nhờ vậy phương trình A = L + E luôn cân.</p></div>
@@ -651,7 +659,7 @@ Cash | | 2,100
 </section>
 
 <!-- ======================= CH3 ======================= -->
-<section class="sheet" data-view="ch3" hidden>
+<section class="sheet" data-view="ch3" data-l="vi" hidden>
   <p class="eyebrow"><span class="tag">Ch3</span>Accrual Accounting</p>
   <h1>Kế toán dồn tích, bút toán điều chỉnh và khóa sổ</h1>
   <div class="core"><span class="lab">Cốt lõi</span><p>Ghi doanh thu khi <b>đã thực hiện (earned)</b> và chi phí khi <b>đã phát sinh (incurred)</b>, dù đã thu chi tiền hay chưa. Cuối kỳ, <b>bút toán điều chỉnh</b> đưa từng tài khoản về đúng kỳ của nó. Sau đó doanh thu, chi phí và cổ tức được <b>khóa sổ</b> vào retained earnings.</p></div>
@@ -832,7 +840,7 @@ Dividends 3,200 | Revenues 7,500
 </section>
 
 <!-- ======================= CH4 ======================= -->
-<section class="sheet" data-view="ch4" hidden>
+<section class="sheet" data-view="ch4" data-l="vi" hidden>
   <p class="eyebrow"><span class="tag">Ch4</span>Presentation of Financial Statements</p>
   <h1>Trình bày báo cáo tài chính theo IAS 1</h1>
   <div class="core"><span class="lab">Cốt lõi</span><p>Ch1–3 trả lời “ghi cái gì”. Ch4 trả lời “<b>trình bày thế nào</b>” để người đọc hiểu và so sánh được: báo cáo thường niên gồm những gì, bộ BCTC đầy đủ theo IAS 1, các nguyên tắc chung, và cấu trúc của từng báo cáo.</p></div>
@@ -976,7 +984,7 @@ Dividends 3,200 | Revenues 7,500
 </section>
 
 <!-- ======================= CH5 ======================= -->
-<section class="sheet" data-view="ch5" hidden>
+<section class="sheet" data-view="ch5" data-l="vi" hidden>
   <p class="eyebrow"><span class="tag">Ch5</span>Internal Control, Cash, and Receivables</p>
   <h1>Kiểm soát nội bộ, tiền và các khoản phải thu</h1>
   <div class="core"><span class="lab">Cốt lõi</span><p>Tiền là tài sản dễ bị lấy cắp nhất, nên cần kiểm soát nội bộ và <b>đối chiếu ngân hàng</b>. Phải thu phải trình bày theo <b>số dự kiến thu được</b>: ước tính phần không thu được và ghi chi phí ngay trong kỳ tạo ra doanh thu (allowance method).</p></div>
@@ -1138,7 +1146,7 @@ Interest Revenue | | 15
 </section>
 
 <!-- ======================= CH6 ======================= -->
-<section class="sheet" data-view="ch6" hidden>
+<section class="sheet" data-view="ch6" data-l="vi" hidden>
   <p class="eyebrow"><span class="tag">Ch6</span>Inventory and Merchandising Operations</p>
   <h1>Hàng tồn kho và hoạt động thương mại</h1>
   <div class="core"><span class="lab">Cốt lõi</span><p>Hàng tồn kho là <b>tài sản</b> cho đến khi giao cho khách. Lúc đó giá gốc của nó chuyển thành <b>chi phí (COGS)</b>. FIFO, LIFO và bình quân chỉ chia tổng <b>hàng có để bán</b> thành hai phần: giá vốn và tồn kho cuối kỳ. Tồn kho không bao giờ được ghi cao hơn số có thể bán được (NRV).</p></div>
@@ -1282,26 +1290,1016 @@ Accounts Payable | | 1,000
   <div class="pager"><a href="#ch5">← Ch5</a><a href="#flashcards">Luyện tập · Flashcards →</a></div>
 </section>
 
+<!-- ======================= OVERVIEW (EN) ======================= -->
+<section class="sheet" data-view="ban-do" data-l="en">
+  <p class="eyebrow"><span class="tag">Map</span>Summary of the slides, Chapters 1–6</p>
+  <h1>Six chapters, one equation</h1>
+  <div class="hero-eq" aria-label="Assets equal Liabilities plus Equity">A <span class="op">=</span> L <span class="op">+</span> E</div>
+  <p class="prose">Everything in these six chapters comes back to one sentence: <b>a business’s assets are financed either by liabilities or by equity</b>. Double-entry bookkeeping (Ch2) keeps the equation in balance. Accrual accounting (Ch3) decides <i>when</i> to record. IAS 1 (Ch4) decides how to <i>present</i>. Ch5 and Ch6 apply all of it to three key accounts: cash, receivables and inventory.</p>
+
+  <h2>How to use this page</h2>
+  <ol class="steps">
+    <li><span class="k">01</span><b>Read the core</b><span class="t">Each chapter opens with one or two sentences that hold the main idea. Understand them before the details.</span></li>
+    <li><span class="k">02</span><b>Attach a memory hook</b><span class="t">The yellow boxes are rules, images or phrases that make the key points stick.</span></li>
+    <li><span class="k">03</span><b>Test yourself</b><span class="t">Flashcards, quizzes and debit/credit drills. Cards marked “not yet” come back until you know them.</span></li>
+  </ol>
+
+  <h2>The accounting cycle: where each chapter fits</h2>
+  <ol class="cycle">
+    <li><b>A transaction occurs</b><a href="#ch2">Ch2 · 2.1</a></li>
+    <li><b>Analyze it and record it in the journal</b><a href="#ch2">Ch2 · 2.3–2.4</a></li>
+    <li><b>Post to the ledger</b><a href="#ch2">Ch2 · 2.4</a></li>
+    <li><b>Prepare the trial balance</b><a href="#ch2">Ch2 · 2.5</a></li>
+    <li><b>Adjusting entries</b><a href="#ch3">Ch3 · 3.3</a></li>
+    <li><b>Adjusted trial balance</b><a href="#ch3">Ch3 · 3.3</a></li>
+    <li><b>Prepare and present the financial statements</b><a href="#ch1">Ch1</a> · <a href="#ch3">Ch3</a> · <a href="#ch4">Ch4</a></li>
+    <li><b>Close the books</b><a href="#ch3">Ch3 · 3.5</a></li>
+  </ol>
+
+  <h2>Chapter by chapter</h2>
+  <div class="chgrid">
+    <a class="chcard" href="#ch1"><span class="k">CH1</span><b>Conceptual framework &amp; statements</b><p>Useful information must be relevant and faithfully represented. The four statements link through net income and equity.</p><span class="prog" data-prog="1"></span></a>
+    <a class="chcard" href="#ch2"><span class="k">CH2</span><b>Recording transactions</b><p>Every transaction has two sides. Total debits always equal total credits, so the accounting equation always balances.</p><span class="prog" data-prog="2"></span></a>
+    <a class="chcard" href="#ch3"><span class="k">CH3</span><b>Accrual accounting</b><p>Record revenue when earned and expenses when incurred, not when cash moves. Adjusting entries do this at period end.</p><span class="prog" data-prog="3"></span></a>
+    <a class="chcard" href="#ch4"><span class="k">CH4</span><b>Presentation (IAS 1)</b><p>The complete set of statements and the general features: materiality, no offsetting, comparatives, consistency.</p><span class="prog" data-prog="4"></span></a>
+    <a class="chcard" href="#ch5"><span class="k">CH5</span><b>Internal control, cash, receivables</b><p>Internal control removes the opportunity for fraud. A bank reconciliation makes two balances agree. Receivables are shown at the amount expected to be collected.</p><span class="prog" data-prog="5"></span></a>
+    <a class="chcard" href="#ch6"><span class="k">CH6</span><b>Inventory</b><p>FIFO, LIFO and average cost only split goods available into COGS and ending inventory. Inventory is carried at the lower of cost and NRV.</p><span class="prog" data-prog="6"></span></a>
+  </div>
+
+  <h2>Formulas to know by heart</h2>
+  <div class="scroll"><table class="data formulas">
+    <thead><tr><th>Formula</th><th>Used for</th><th>Ch</th></tr></thead>
+    <tbody>
+      <tr><td>A = L + E</td><td>The base of every statement; E = A − L is the owners’ residual interest</td><td>1, 2</td></tr>
+      <tr><td>NI = Revenues &amp; gains − Expenses &amp; losses</td><td>Net income on the income statement</td><td>1</td></tr>
+      <tr><td>Ending RE = Beginning RE + NI − Dividends</td><td>Retained earnings; dividends are not an expense</td><td>1, 3</td></tr>
+      <tr><td>Beginning + Increases − Decreases = Ending</td><td>Find the missing amount in a T-account (cash paid, cash collected, payments to suppliers)</td><td>2, 5</td></tr>
+      <tr><td>Straight-line depreciation = Cost ÷ Useful life</td><td>24,000 ÷ 5 = 4,800 a year = 400 a month</td><td>3</td></tr>
+      <tr><td>Book value = Cost − Accumulated depreciation</td><td>Carrying amount of PPE on the balance sheet</td><td>3</td></tr>
+      <tr><td>Net AR = AR − Allowance</td><td>Receivables at the amount expected to be collected</td><td>5</td></tr>
+      <tr><td>Interest = Principal × Rate × Time</td><td>Interest on a note; Time = months ÷ 12</td><td>5</td></tr>
+      <tr><td>BI + Purchases − EI = COGS</td><td>The COGS model; rearrange it to estimate ending inventory</td><td>6</td></tr>
+      <tr><td>Gross profit % = Gross profit ÷ Net sales</td><td>Gross profit method for estimating inventory</td><td>6</td></tr>
+      <tr><td>NRV = Estimated selling price − Costs to complete &amp; sell</td><td>Inventory at the lower of cost and NRV</td><td>6</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:.88rem">Assessment schedule from the syllabus: Quiz 1 (week 4) covers Ch1–3; Quiz 2 (week 9) covers Ch4–6; the midterm (week 11) covers Ch1–7. Ch7 is not on this page yet.</p>
+</section>
+
+<!-- ======================= CH1 (EN) ======================= -->
+<section class="sheet" data-view="ch1" data-l="en" hidden>
+  <p class="eyebrow"><span class="tag">Ch1</span>Conceptual Framework &amp; Financial Statements</p>
+  <h1>The conceptual framework and the four financial statements</h1>
+  <div class="core"><span class="lab">The core</span><p>Accounting measures business activity, processes it into reports and communicates the results to decision makers. Information is useful only when it is <b>relevant</b> and <b>faithfully represented</b>. All four statements rest on one equation: <b>A = L + E</b>.</p></div>
+  <ul class="lo">
+    <li><a href="#ch1-11-en"><b>1.1</b>What accounting does</a></li>
+    <li><a href="#ch1-12-en"><b>1.2</b>The IFRS framework</a></li>
+    <li><a href="#ch1-13-en"><b>1.3</b>The four statements</a></li>
+    <li><a href="#ch1-14-en"><b>1.4</b>How they link</a></li>
+    <li><a href="#ch1-15-en"><b>1.5</b>Ethics</a></li>
+  </ul>
+
+  <div class="prose">
+  <h2 id="ch1-11-en"><span class="sec">1.1</span>Accounting is the language of business</h2>
+  <p>Accounting is an <b>information system</b> that does three things: it <b>measures</b> business activities, <b>processes</b> the data into reports and <b>communicates</b> the results to decision makers. It works as a loop: business activity is recorded in the system, the system produces financial statements, and the statements shape the next round of business decisions.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th></th><th>Financial accounting</th><th>Managerial accounting</th></tr></thead>
+    <tbody>
+      <tr><td>Serves</td><td>People <b>outside</b> the company: investors, creditors, government agencies, the public</td><td>Managers <b>inside</b> the company</td></tr>
+      <tr><td>Produces</td><td>Financial statements prepared under accounting standards</td><td>Budgets, forecasts and projections</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <p><b>Standards:</b> IFRS are issued by the <b>IASB</b>; US GAAP is issued by the <b>FASB</b>. This course follows IFRS.</p>
+
+  <h2 id="ch1-12-en"><span class="sec">1.2</span>The conceptual framework</h2>
+  <p>The conceptual framework answers the “why, who, what and how” of financial reporting. It is the foundation the IASB and FASB use to develop and review standards. Read its five levels from top to bottom:</p>
+  </div>
+  <div class="ladder">
+    <div><span class="lv">Objective</span><div>Provide financial information that is useful to existing and potential investors, lenders and other creditors when they decide whether to provide resources to the entity.</div></div>
+    <div><span class="lv">Information</span><div>General-purpose financial reports about economic resources, claims against them, and changes in both.</div></div>
+    <div><span class="lv">Qualitative characteristics</span><div class="boxes"><span><b>Fundamental:</b> Relevance</span><span>Faithful representation</span><span><b>Enhancing:</b> Comparability</span><span>Verifiability</span><span>Timeliness</span><span>Understandability</span></div></div>
+    <div><span class="lv">Constraint &amp; assumptions</span><div class="boxes"><span>Cost constraint</span><span>Accrual accounting</span><span>Going concern</span></div></div>
+    <div><span class="lv">Elements</span><div class="boxes"><span>Assets</span><span>Liabilities</span><span>Equity</span><span>Income</span><span>Expenses</span></div></div>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Relevance</h3><p>Information that is <b>capable of making a difference to a decision</b>.</p><ul><li>Predictive value</li><li>Confirmatory value</li><li>Materiality</li></ul></div>
+    <div class="box"><h3>Faithful representation</h3><p>The numbers and descriptions <b>match what actually happened</b>.</p><ul><li>Completeness</li><li>Neutrality</li><li>Free from error</li></ul></div>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Two gatekeeper questions: “Does it help the decision?” and “Is it true?”</span>
+    <p>The first question is <b>relevance</b>; the second is <b>faithful representation</b>. Remember the four enhancing characteristics as <b>C-V-T-U</b>: “<b>C</b>an <b>V</b>iewers <b>T</b>rust <b>U</b>s?” — Comparability, Verifiability, Timeliness, Understandability.</p>
+  </div>
+  <div class="prose">
+  <h3>Constraint and assumptions</h3>
+  <ul>
+    <li><b>Cost constraint:</b> the benefit of information must exceed the cost of providing it.</li>
+    <li><b>Economic entity:</b> the company’s activities are kept separate from its owners and from other entities.</li>
+    <li><b>Periodicity (time period):</b> activity is divided into reporting periods.</li>
+    <li><b>Monetary unit:</b> money is the common unit of measure.</li>
+    <li><b>Accrual accounting:</b> transactions are recorded in the period in which the events occur (details in Ch3).</li>
+    <li><b>Going concern:</b> the company is assumed to operate long enough to meet its objectives and commitments.</li>
+  </ul>
+
+  <h3>The accounting equation</h3>
+  <p><b>Assets</b> are resources expected to provide future benefits. <b>Liabilities</b> are outsiders’ claims (debts). <b>Equity</b> is the owners’ claim, the residual: E = A − L. Exhibit 1-4:</p>
+  </div>
+  <div class="eq"><div class="blk">1,000<small>Assets</small></div><span class="op">=</span><div class="blk">600<small>Liabilities</small></div><span class="op">+</span><div class="blk">400<small>Equity</small></div></div>
+  <div class="prose">
+  <p>Shareholders’ equity has two parts: <b>paid-in capital</b> (what shareholders put in) and <b>retained earnings</b> (profits earned and kept in the business). Retained earnings change in three ways:</p>
+  </div>
+  <div class="flow">
+    <div class="st"><b>Beginning RE</b><small>Opening balance</small></div><span class="ar">±</span>
+    <div class="st"><b>Net income</b><small>Revenues − Expenses (or a net loss)</small></div><span class="ar">−</span>
+    <div class="st"><b>Dividends</b><small>Distributions of assets to shareholders</small></div><span class="ar">=</span>
+    <div class="st"><b>Ending RE</b><small>Closing balance</small></div>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch1-13-en"><span class="sec">1.3</span>Four statements answer four questions</h2>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>The reader asks</th><th>Statement</th><th>Answered by</th></tr></thead>
+    <tbody>
+      <tr><td>How well did the company perform during the year?</td><td>Statement of comprehensive income (income statement)</td><td>Revenues − Expenses = Net income; ± OCI = Total comprehensive income</td></tr>
+      <tr><td>Why did equity change?</td><td>Statement of changes in equity</td><td>Beginning equity + Total comprehensive income − Dividends ± owner transactions = Ending equity</td></tr>
+      <tr><td>What does the company own and owe at year end?</td><td>Statement of financial position (balance sheet)</td><td>Assets = Liabilities + Equity</td></tr>
+      <tr><td>How much cash did it generate and spend?</td><td>Statement of cash flows</td><td>Operating ± Investing ± Financing = Net cash flows</td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid2">
+    <div class="box"><h3>Balance sheet</h3><ul><li><b>Current assets:</b> used up or turned into cash within one operating cycle (cash, short-term investments, AR, prepaid expenses)</li><li><b>Long-term assets:</b> PPE, long-term investments, intangibles</li><li><b>Current liabilities:</b> due within one year (AP, salaries payable, short-term notes, accrued liabilities)</li><li><b>Long-term liabilities:</b> long-term notes, bonds payable</li></ul></div>
+    <div class="box"><h3>Statement of cash flows</h3><ul><li><b>Operating:</b> cash from selling goods and services to customers</li><li><b>Investing:</b> buying and selling long-term assets</li><li><b>Financing:</b> borrowing, repaying debt and equity transactions (issuing shares, paying dividends)</li></ul><p class="muted">Equity can also include treasury stock (repurchased shares with no votes or dividends) and accumulated OCI.</p></div>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">One snapshot, three movies</span>
+    <p>The balance sheet is a <b>snapshot at one moment</b> (“as at 31 December”). The income statement, statement of changes in equity and statement of cash flows are <b>movies of the whole period</b> (“for the year ended”). If a question says “at a specific point in time”, the answer is the balance sheet.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch1-14-en"><span class="sec">1.4</span>How the statements link</h2>
+  <p>Prepare them in this order, because the last number of one statement feeds the next. Figures from the RedLotus Security June example in Ch3:</p>
+  </div>
+  <div class="flow">
+    <div class="st"><b>Income statement</b><small>Revenue 7,500 − Expenses 4,600</small><span class="n mono">NI = 2,900</span></div><span class="ar">→</span>
+    <div class="st"><b>Changes in equity</b><small>68,800 + 2,900 − 3,200</small><span class="n mono">Equity = 68,500</span></div><span class="ar">→</span>
+    <div class="st"><b>Balance sheet</b><small>Total equity 68,500 + Liabilities 14,800</small><span class="n mono">Assets = 83,300</span></div>
+  </div>
+  <div class="prose"><p>The statement of cash flows connects to the balance sheet through <b>ending cash</b>: the ending cash balance on the cash flow statement equals the Cash line on the balance sheet.</p></div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Net income flows downhill</span>
+    <p>Income statement → changes in equity → balance sheet. Net income flows into equity, and equity flows into the balance sheet. If the balance sheet does not balance, check net income and dividends first.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch1-15-en"><span class="sec">1.5</span>Ethics in accounting</h2>
+  <p>Three factors shape a decision: <b>economic</b> (maximizing benefit), <b>legal</b> (complying with the law) and <b>ethical</b> (some actions are profitable and legal yet still wrong). IESBA sets five principles for professional accountants:</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Mindset</h3><ul><li><b>Integrity</b></li><li><b>Objectivity</b></li></ul></div>
+    <div class="box"><h3>Skill</h3><ul><li><b>Professional competence &amp; due care</b></li></ul></div>
+    <div class="box"><h3>Conduct</h3><ul><li><b>Confidentiality</b></li><li><b>Professional behavior</b></li></ul></div>
+  </div>
+
+  <div class="traps"><span class="stamp">Common traps</span>
+    <ul>
+      <li><b>Dividends are not an expense.</b> They reduce retained earnings but never appear on the income statement.</li>
+      <li><b>Retained earnings are not cash.</b> They are accumulated profits kept in the business, already spread across many kinds of assets.</li>
+      <li>When an owner spends personal money on personal matters, the company <b>records nothing</b> (economic entity).</li>
+      <li>Relevance includes <b>materiality</b>; faithful representation includes <b>neutrality</b>. Questions often swap the two.</li>
+      <li>Cash paid for long-term assets is an <b>investing</b> cash flow, not operating.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Quick recall — answer before you open</span>
+    <details><summary>Assets 1,000, liabilities 600. What is equity?</summary><p>400, because E = A − L.</p></details>
+    <details><summary>Beginning RE 18,800, NI 2,900, dividends 3,200. Ending RE?</summary><p>18,800 + 2,900 − 3,200 = 18,500.</p></details>
+    <details><summary>Of the IS, SCE and BS, which is prepared last, and why?</summary><p>The balance sheet. It needs ending equity from the statement of changes in equity, which in turn needs net income from the income statement.</p></details>
+    <details><summary>Which is a fundamental characteristic: timeliness or faithful representation?</summary><p>Faithful representation. Timeliness is an enhancing characteristic (C-V-T-U).</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="flashcards" data-ch="1">Ch1 flashcards</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="1">Ch1 quiz</button></div>
+  <div class="pager"><a href="#ban-do">← Map</a><a href="#ch2">Ch2 · Recording transactions →</a></div>
+</section>
+
+<!-- ======================= CH2 (EN) ======================= -->
+<section class="sheet" data-view="ch2" data-l="en" hidden>
+  <p class="eyebrow"><span class="tag">Ch2</span>Recording Business Transactions</p>
+  <h1>Recording transactions: debits, credits and the trial balance</h1>
+  <div class="core"><span class="lab">The core</span><p>Every transaction has two sides: you receive something and you give something. <b>Double-entry bookkeeping</b> records both sides so that <b>total debits = total credits</b>, which keeps A = L + E in balance at all times.</p></div>
+  <ul class="lo">
+    <li><a href="#ch2-21-en"><b>2.1</b>What a transaction is</a></li>
+    <li><a href="#ch2-22-en"><b>2.2</b>Types of accounts</a></li>
+    <li><a href="#ch2-23-en"><b>2.3</b>Debit and credit rules</a></li>
+    <li><a href="#ch2-24-en"><b>2.4</b>Journal &amp; ledger</a></li>
+    <li><a href="#ch2-25-en"><b>2.5</b>Trial balance</a></li>
+  </ul>
+  <div class="prose">
+  <h2 id="ch2-21-en"><span class="sec">2.1</span>What a transaction is</h2>
+  <p>A <b>transaction</b> is any event that <b>has a financial impact</b> on the business <b>and can be measured reliably</b>. In every exchange the business gives something and receives something. Accounting records both sides.</p>
+  <p>Example from the slides: a RedLotus shareholder remodels their own home with personal funds. The company <b>records no entry</b> because this is not a transaction of the company.</p>
+
+  <h2 id="ch2-22-en"><span class="sec">2.2</span>Accounts and account types</h2>
+  <p>An <b>account</b> is the record of all changes in a particular asset, liability or equity during a period. It is accounting’s basic summary device.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Assets</h3><ul><li><b>Cash</b>: currency, bank balances, certificates of deposit, checks</li><li><b>Accounts receivable</b>: customers’ promises to pay later for goods or services</li><li><b>Notes receivable</b>: written promises with an interest rate and a due date</li><li><b>Inventory</b>: goods held for sale</li><li><b>Prepaid expenses</b>: costs paid in advance (insurance, rent)</li><li><b>PPE</b>: land, buildings, equipment</li></ul></div>
+    <div class="box"><h3>Liabilities</h3><ul><li><b>Accounts payable</b>: promises to pay suppliers</li><li><b>Notes payable</b>: written promises to pay a future amount</li><li><b>Accrued liabilities</b>: expenses incurred but not yet paid</li></ul></div>
+    <div class="box"><h3>Equity</h3><ul><li><b>Share capital</b>: what shareholders invested through shares</li><li><b>Retained earnings</b>: cumulative profits less losses and dividends</li><li><b>Dividends</b>: distributions of profit to shareholders</li><li><b>Income (revenue)</b>: increases equity</li><li><b>Expenses</b>: decrease equity</li></ul></div>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch2-23-en"><span class="sec">2.3</span>T-accounts and the rules of debit and credit</h2>
+  <p>A T-account has a <b>left side, the debit</b>, and a <b>right side, the credit</b>. Debit and credit just mean left and right; neither is good or bad. <b>The account type decides which side is the increase side.</b> The increase side is also the side of the normal balance.</p>
+  </div>
+  <div class="rules">
+    <div class="rule"><div class="nm">Assets</div><div class="sides"><div class="up dr">+ increase<small>Debit</small></div><div>− decrease<small>Credit</small></div></div></div>
+    <div class="rule"><div class="nm">Dividends</div><div class="sides"><div class="up dr">+ increase<small>Debit</small></div><div>− decrease<small>Credit</small></div></div></div>
+    <div class="rule"><div class="nm">Expenses</div><div class="sides"><div class="up dr">+ increase<small>Debit</small></div><div>− decrease<small>Credit</small></div></div></div>
+    <div class="rule"><div class="nm">Liabilities</div><div class="sides"><div>− decrease<small>Debit</small></div><div class="up cr">+ increase<small>Credit</small></div></div></div>
+    <div class="rule"><div class="nm">Share capital · RE</div><div class="sides"><div>− decrease<small>Debit</small></div><div class="up cr">+ increase<small>Credit</small></div></div></div>
+    <div class="rule"><div class="nm">Income / Revenue</div><div class="sides"><div>− decrease<small>Debit</small></div><div class="up cr">+ increase<small>Credit</small></div></div></div>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big"><span class="dr">DEA</span> up with debits · <span class="cr">LER</span> up with credits</span>
+    <p><b class="dr">D</b>ividends, <b class="dr">E</b>xpenses and <b class="dr">A</b>ssets increase with a debit. <b class="cr">L</b>iabilities, <b class="cr">E</b>quity and <b class="cr">R</b>evenue increase with a credit. Together they spell “DEALER”.</p>
+    <p><b>The logic, so you don’t have to memorize it:</b> assets sit on the left of the equation, so they increase on the left (debit). L and E sit on the right, so they increase on the right (credit). Revenue increases equity, so it is a credit. Expenses and dividends decrease equity, so they are debits.</p>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <p><b>Why does your bank “credit” your account when you deposit money?</b> Because the bank is looking at its own books: your deposit is money it owes you, a liability, and liabilities increase with a credit. On <i>your</i> books the same deposit is a debit to Cash. Debit and credit only make sense from the point of view of whoever keeps the books.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch2-24-en"><span class="sec">2.4</span>Journalizing and posting</h2>
+  <p>The flow of data: a transaction occurs → it is analyzed → it is recorded in the <b>journal</b> (in date order) → it is posted to the <b>ledger</b> (account by account).</p>
+  <ol>
+    <li>Identify the accounts affected and classify each one (A, L or E).</li>
+    <li>Decide whether each account increases or decreases, and therefore whether it is a debit or a credit.</li>
+    <li>Record the entry in the journal in standard form: debit account first, credit account indented, with an explanation.</li>
+    <li>Post to T-accounts if asked, then check that A = L + E still balances.</li>
+  </ol>
+  <h3>Worked example: RedLotus Security’s 11 transactions</h3>
+  </div>
+  <pre class="je">@(1)
+Cash | 50,000 |
+Share Capital | | 50,000
+# Issued shares for cash. A +50,000 = E +50,000
+@(2)
+Land | 40,000 |
+Cash | | 40,000
+# Paid cash for land. One asset swapped for another; total A unchanged
+@(3)
+Supplies | 3,700 |
+Accounts Payable | | 3,700
+# Bought supplies on account. A +3,700 = L +3,700
+@(4)
+Cash | 7,000 |
+Service Revenue | | 7,000
+# Performed services for cash
+@(5)
+Accounts Receivable | 3,000 |
+Service Revenue | | 3,000
+# Performed services for UPS on account
+@(6)
+Rent Expense | 1,100 |
+Salary Expense | 1,200 |
+Utilities Expense | 400 |
+Cash | | 2,700
+# Paid expenses in cash (compound entry: 3 debits, 1 credit)
+@(7)
+Accounts Payable | 1,900 |
+Cash | | 1,900
+# Paid part of the payable from transaction (3)
+@(8)
+No entry | |
+# A shareholder remodels a personal home with personal funds
+@(9)
+Cash | 1,000 |
+Accounts Receivable | | 1,000
+# Collected from a customer
+@(10)
+Cash | 22,000 |
+Land | | 20,000
+Gain on Sale of Land | | 2,000
+# Sold land that cost 20,000 for 22,000
+@(11)
+Dividends | 2,100 |
+Cash | | 2,100
+# Declared and paid dividends</pre>
+
+  <div class="prose">
+  <h2 id="ch2-25-en"><span class="sec">2.5</span>The trial balance</h2>
+  <p>A trial balance lists <b>every account and its balance</b> (assets first, then liabilities and equity), shows that <b>total debits = total credits</b>, is usually prepared at period end and is the starting point for the financial statements.</p>
+  </div>
+  <div class="tgrid">
+    <pre class="ta" data-title="Cash" data-hl="1">(1) 50,000 | (2) 40,000
+(4) 7,000 | (6) 2,700
+(9) 1,000 | (7) 1,900
+(10) 22,000 | (11) 2,100
+= Bal 33,300 |</pre>
+    <pre class="ta" data-title="Accounts Payable">(7) 1,900 | (3) 3,700
+= | Bal 1,800</pre>
+    <pre class="ta" data-title="Land">(2) 40,000 | (10) 20,000
+= Bal 20,000 |</pre>
+  </div>
+  <div class="scroll"><table class="fs">
+    <tr class="h"><td>RedLotus · Trial balance</td><td class="n dr">Debit</td><td class="n cr">Credit</td></tr>
+    <tr><td>Cash</td><td class="n">33,300</td><td></td></tr>
+    <tr><td>Accounts receivable</td><td class="n">2,000</td><td></td></tr>
+    <tr><td>Supplies</td><td class="n">3,700</td><td></td></tr>
+    <tr><td>Land</td><td class="n">20,000</td><td></td></tr>
+    <tr><td>Accounts payable</td><td></td><td class="n">1,800</td></tr>
+    <tr><td>Share capital</td><td></td><td class="n">50,000</td></tr>
+    <tr><td>Dividends</td><td class="n">2,100</td><td></td></tr>
+    <tr><td>Service revenue</td><td></td><td class="n">10,000</td></tr>
+    <tr><td>Gain on sale of land</td><td></td><td class="n">2,000</td></tr>
+    <tr><td>Rent expense</td><td class="n">1,100</td><td></td></tr>
+    <tr><td>Salary expense</td><td class="n">1,200</td><td></td></tr>
+    <tr><td>Utilities expense</td><td class="n">400</td><td></td></tr>
+    <tr class="tot"><td>Total</td><td class="n">63,800</td><td class="n">63,800</td></tr>
+  </table></div>
+  <div class="prose">
+  <h3>Analyzing accounts: find the missing number</h3>
+  <p>Every T-account follows: <b>Beginning balance + Increases − Decreases = Ending balance</b>. Know any three and you can solve for the fourth.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Account</th><th>Given</th><th>Solve for x</th></tr></thead>
+    <tbody>
+      <tr><td>Cash</td><td>Beginning 33,000; receipts 8,000; ending 35,000</td><td class="mono">33,000 + 8,000 − x = 35,000 → cash paid x = 6,000</td></tr>
+      <tr><td>Accounts receivable</td><td>Beginning 6,000; sales on account 10,000; ending 5,000</td><td class="mono">6,000 + 10,000 − x = 5,000 → collections x = 11,000</td></tr>
+      <tr><td>Accounts payable</td><td>Beginning 9,000; purchases on account 6,000; ending 11,000</td><td class="mono">9,000 + 6,000 − x = 11,000 → payments x = 4,000</td></tr>
+    </tbody>
+  </table></div>
+  <div class="traps"><span class="stamp">Common traps</span>
+    <ul>
+      <li><b>Collecting a receivable is not revenue</b>; the revenue was recorded when the service was performed. <b>Paying a payable is not an expense.</b></li>
+      <li><b>Buying supplies creates an asset</b>, not an expense (the expense comes when they are used; see Ch3).</li>
+      <li>Selling land at a profit: the difference goes to <b>Gain on sale of land</b> (credit), not to Service revenue.</li>
+      <li>A balanced trial balance <b>does not prove there are no errors</b>. Posting to the wrong account (debiting Equipment instead of Supplies) or leaving out a whole transaction still balances.</li>
+      <li>Dividends carry a debit balance like expenses, but they are <b>not an expense</b>.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Quick recall</span>
+    <details><summary>Paid 1,900 to a supplier on account. Debit what, credit what?</summary><p>Debit Accounts Payable 1,900 / credit Cash 1,900. An asset and a liability both decrease.</p></details>
+    <details><summary>Why do expenses increase with a debit?</summary><p>Because expenses reduce equity, and equity decreases on the debit side.</p></details>
+    <details><summary>Beginning AR 6,000, sales on account 10,000, ending AR 5,000. How much was collected?</summary><p>11,000.</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="no-co" data-ch="2">Ch2 debit/credit drill</button><button class="btn" type="button" data-go="flashcards" data-ch="2">Ch2 flashcards</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="2">Ch2 quiz</button></div>
+  <div class="pager"><a href="#ch1">← Ch1</a><a href="#ch3">Ch3 · Accrual accounting →</a></div>
+</section>
+
+<!-- ======================= CH3 (EN) ======================= -->
+<section class="sheet" data-view="ch3" data-l="en" hidden>
+  <p class="eyebrow"><span class="tag">Ch3</span>Accrual Accounting</p>
+  <h1>Accrual accounting, adjusting entries and closing</h1>
+  <div class="core"><span class="lab">The core</span><p>Record revenue when it is <b>earned</b> and expenses when they are <b>incurred</b>, whether or not cash has moved. At period end, <b>adjusting entries</b> put every account into its proper period. Revenues, expenses and dividends are then <b>closed</b> into retained earnings.</p></div>
+  <ul class="lo">
+    <li><a href="#ch3-31-en"><b>3.1</b>Accrual vs cash basis</a></li>
+    <li><a href="#ch3-32-en"><b>3.2</b>Revenue &amp; expense recognition</a></li>
+    <li><a href="#ch3-33-en"><b>3.3</b>Adjusting entries</a></li>
+    <li><a href="#ch3-34-en"><b>3.4</b>Preparing the statements</a></li>
+    <li><a href="#ch3-35-en"><b>3.5</b>Closing</a></li>
+  </ul>
+  <div class="prose">
+  <h2 id="ch3-31-en"><span class="sec">3.1</span>Accrual basis and cash basis</h2>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Accrual accounting</h3><p>Records the effects of transactions <b>when they occur</b>. It records cash transactions (collections from customers, paying salaries, borrowing, issuing shares) and non-cash ones (sales and purchases on account, accrued expenses, depreciation, using up supplies and prepaid expenses, earning revenue received in advance).</p></div>
+    <div class="box"><h3>Cash-basis accounting</h3><p>Records only cash receipts and cash payments. It ignores economic substance, produces incomplete statements and is used only by businesses that do not follow accounting standards.</p></div>
+  </div>
+  <div class="prose">
+  <p><b>Time-period concept:</b> information is reported at regular intervals. The basic period is one year; interim reports cover shorter periods. About 60% of large companies (Amazon, eBay, YUM! Brands) use the calendar year.</p>
+  </div>
+  <div class="anchor"><span class="lab">The opening question in the slides</span>
+    <p>Deposit 80,000 in the bank; buy a business for 60,000 (building 40,000, inventory 20,000); earn 10,000 in cash for services; <b>buy supplies for 5,000</b>; pay a 2,000 utility bill. Net income?</p>
+    <span class="big">8,000, because buying supplies ≠ an expense</span>
+    <p>The expense arises when supplies are <b>used</b>, not when they are bought. If the question does not say they were used, assume they were not: 10,000 − 2,000 = 8,000. If it says they were all used, the answer is 3,000.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch3-32-en"><span class="sec">3.2</span>Recognizing revenue and expenses</h2>
+  <p>The <b>revenue principle</b> answers two questions: <b>when</b> to record revenue and <b>how much</b> to record (the cash or fair value expected to be received). Per the slides, revenue is recognized when:</p>
+  <ul>
+    <li>the significant risks and rewards of ownership have passed to the buyer;</li>
+    <li>the entity keeps neither continuing managerial involvement nor effective control over the goods sold;</li>
+    <li>the amount of revenue can be measured reliably;</li>
+    <li>it is probable that the economic benefits will flow to the entity;</li>
+    <li>the costs incurred or to be incurred can be measured reliably.</li>
+  </ul>
+  <p><b>Expense recognition (matching):</b> identify all expenses incurred in the period, measure them and record them <b>in the same period as the revenue they helped earn</b>. Expenses are recorded when incurred, whether the cash is paid before, at the same time or later.</p>
+  <p class="muted">A nuance from the slides: under IFRS, the <b>change in assets and liabilities</b> determines profit or loss; matching is a result, not the driver. A decrease in assets or an increase in liabilities that reduces equity is an expense. An increase in assets or a decrease in liabilities that increases equity is revenue.</p>
+
+  <h2 id="ch3-33-en"><span class="sec">3.3</span>Adjusting entries: the four boxes</h2>
+  </div>
+  <div class="matrix">
+    <div class="hd"></div><div class="hd">Expense</div><div class="hd">Revenue</div>
+    <div class="hd">Cash first<br>(Prepaids)</div>
+    <div><b>Prepaid expense</b>When paid: Dr Prepaid / Cr Cash. At period end: <span class="dr">Dr Expense</span> / <span class="cr">Cr Prepaid</span><span class="ex">Rent, insurance, supplies</span></div>
+    <div><b>Unearned revenue</b>When received: Dr Cash / Cr Unearned. At period end: <span class="dr">Dr Unearned</span> / <span class="cr">Cr Revenue</span><span class="ex">Unearned revenue is a liability</span></div>
+    <div class="hd">Cash later<br>(Accruals)</div>
+    <div><b>Accrued expense</b>At period end: <span class="dr">Dr Expense</span> / <span class="cr">Cr Payable</span>. When paid: Dr Payable / Cr Cash<span class="ex">Salaries, taxes, interest</span></div>
+    <div><b>Accrued revenue</b>At period end: <span class="dr">Dr Receivable</span> / <span class="cr">Cr Revenue</span>. When collected: Dr Cash / Cr Receivable<span class="ex">Services performed, not yet billed or collected</span></div>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Adjusting entries never touch Cash</span>
+    <p>Every adjusting entry pairs <b>one income statement account</b> (a revenue or an expense) with <b>one balance sheet account</b> (an asset or a liability). If your adjusting entry has Cash in it, it is almost certainly wrong.</p>
+  </div>
+  <div class="prose">
+  <h3>RedLotus’s seven adjusting entries at June 30</h3>
+  <p>(a) Prepaid rent of 3,000 for 3 months; 1 month used. (b) Supplies bought 700; 400 on hand at the count. (c) 400 received in advance; half now earned. (d) Salary of 1,800 a month paid twice monthly; June 30 is a Sunday, so 900 will be paid on July 1. (e) 10 hotel bookings at $30 each made but not collected. (f) Equipment costing 24,000 with a 5-year life. (g) Income tax of 600.</p>
+  </div>
+  <pre class="je" data-date="Jun 30">@(a)
+Rent Expense | 1,000 |
+Prepaid Rent | | 1,000
+# 3,000 × 1/3
+@(b)
+Supplies Expense | 300 |
+Supplies | | 300
+# 700 − 400 on hand = 300 used
+@(c)
+Unearned Service Revenue | 200 |
+Service Revenue | | 200
+# 400 × 1/2 earned
+@(d)
+Salary Expense | 900 |
+Salary Payable | | 900
+# Second half of June’s salary, not yet paid
+@(e)
+Accounts Receivable | 300 |
+Service Revenue | | 300
+# $30 × 10 bookings, earned but not collected
+@(f)
+Depreciation Expense—Equipment | 400 |
+Accumulated Depreciation—Equipment | | 400
+# 24,000 ÷ 5 ÷ 12
+@(g)
+Income Tax Expense | 600 |
+Income Tax Payable | | 600
+# Accrued tax, the last adjusting entry</pre>
+  <div class="prose">
+  <h3>Depreciation and accumulated depreciation</h3>
+  <p><b>Depreciation</b> allocates the cost of a long-term asset to expense over its useful life, because the asset gradually loses usefulness. <b>Land is not depreciated.</b> Straight line: 24,000 ÷ 5 = 4,800 a year = <b>400 a month</b>.</p>
+  <p><b>Accumulated depreciation</b> is a contra-asset account with a <b>credit balance</b>. It always travels with a companion account, and its normal balance is opposite to that companion. <b>Book value = Cost − Accumulated depreciation</b>.</p>
+  </div>
+  <div class="scroll"><table class="fs">
+    <tr class="h"><td>PPE at June 30</td><td class="n"></td><td class="n"></td></tr>
+    <tr><td>Equipment</td><td class="n">24,000</td><td></td></tr>
+    <tr><td class="ind">Less: Accumulated depreciation</td><td class="n">(400)</td><td class="n">23,600</td></tr>
+    <tr><td>Land</td><td></td><td class="n">20,000</td></tr>
+    <tr class="tot"><td>Carrying amount of PPE</td><td></td><td class="n">43,600</td></tr>
+  </table></div>
+
+  <div class="prose">
+  <h2 id="ch3-34-en"><span class="sec">3.4</span>From the adjusted trial balance to the statements</h2>
+  <p>The <b>adjusted trial balance</b> lists the final balance of every account after the adjusting entries are journalized and posted (totals 91,500 = 91,500). June’s statements come straight from it:</p>
+  </div>
+  <div class="grid2">
+    <div class="scroll" style="margin:0"><table class="fs">
+      <tr class="h"><td>Income statement · June</td><td class="n"></td></tr>
+      <tr><td>Service revenue</td><td class="n">7,500</td></tr>
+      <tr><td class="ind">Salary 1,800 · Rent 1,000 · Utilities 500 · Depreciation 400 · Supplies 300</td><td class="n">(4,000)</td></tr>
+      <tr class="sub"><td>Income before tax</td><td class="n">3,500</td></tr>
+      <tr><td>Income tax expense</td><td class="n">(600)</td></tr>
+      <tr class="tot"><td>Net income</td><td class="n">2,900</td></tr>
+    </table></div>
+    <div class="scroll" style="margin:0"><table class="fs">
+      <tr class="h"><td>Changes in equity · June</td><td class="n"></td></tr>
+      <tr><td>Total equity, May 31 (50,000 + 18,800)</td><td class="n">68,800</td></tr>
+      <tr><td>Add: Net income</td><td class="n">2,900</td></tr>
+      <tr><td>Less: Dividends</td><td class="n">(3,200)</td></tr>
+      <tr class="tot"><td>Total equity, June 30</td><td class="n">68,500</td></tr>
+    </table></div>
+  </div>
+  <div class="scroll"><table class="fs" style="max-width:640px">
+    <tr class="h"><td>Balance sheet · June 30</td><td class="n"></td><td></td><td class="n"></td></tr>
+    <tr><td>Cash</td><td class="n">34,800</td><td>Accounts payable</td><td class="n">13,100</td></tr>
+    <tr><td>Accounts receivable</td><td class="n">2,500</td><td>Salary payable</td><td class="n">900</td></tr>
+    <tr><td>Supplies</td><td class="n">400</td><td>Unearned service revenue</td><td class="n">200</td></tr>
+    <tr><td>Prepaid rent</td><td class="n">2,000</td><td>Income tax payable</td><td class="n">600</td></tr>
+    <tr><td>Land</td><td class="n">20,000</td><td><b>Total liabilities</b></td><td class="n">14,800</td></tr>
+    <tr><td>Equipment, net (24,000 − 400)</td><td class="n">23,600</td><td>Share capital · Retained earnings</td><td class="n">50,000 · 18,500</td></tr>
+    <tr class="tot"><td>Total assets</td><td class="n">83,300</td><td>Total liabilities &amp; equity</td><td class="n">83,300</td></tr>
+  </table></div>
+
+  <div class="prose">
+  <h2 id="ch3-35-en"><span class="sec">3.5</span>Closing the books</h2>
+  <p>Closing prepares the accounts for the next period. Only <b>temporary accounts</b> (income, expenses, dividends) are closed: their balances go to zero and are transferred to retained earnings. <b>Permanent accounts</b> (assets, liabilities, equity) carry forward to the next period.</p>
+  </div>
+  <pre class="je" data-date="Jun 30">@①
+Service Revenue | 7,500 |
+Retained Earnings | | 7,500
+# Debit each revenue account, credit RE for total revenue
+@②
+Retained Earnings | 4,600 |
+Rent Expense | | 1,000
+Salary Expense | | 1,800
+Supplies Expense | | 300
+Depreciation Expense | | 400
+Utilities Expense | | 500
+Income Tax Expense | | 600
+# Credit each expense account, debit RE for total expenses
+@③
+Retained Earnings | 3,200 |
+Dividends | | 3,200
+# Dividends close straight to RE, never through the income statement</pre>
+  <div class="tgrid"><pre class="ta" data-title="Retained Earnings" data-hl="1">Expenses 4,600 | Beg 18,800
+Dividends 3,200 | Revenues 7,500
+= | End 18,500</pre></div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">“R-E-D” goes to RE</span>
+    <p><b>R</b>evenues, <b>E</b>xpenses and <b>D</b>ividends are the three groups that get closed, and all of them pour into <b>R</b>etained <b>E</b>arnings. Assets, liabilities and the other equity accounts survive into next year.</p>
+  </div>
+  <div class="traps"><span class="stamp">Common traps</span>
+    <ul>
+      <li><b>Unearned revenue is a liability</b>, not revenue. It becomes revenue only when the service is performed.</li>
+      <li>With 400 of supplies on hand, the expense is <b>300</b> (700 − 400), not 400.</li>
+      <li>The slide says “400 per year” for monthly depreciation. It should read <b>400 per month</b> (4,800 per year).</li>
+      <li>Accumulated depreciation has a credit balance but is <b>not a liability</b>. It is deducted from the asset on the balance sheet.</li>
+      <li>Payday falls on Sunday June 30 and moves to July 1, so <b>900 must be accrued</b> in June.</li>
+      <li>Accumulated depreciation is <b>not closed</b> (it is a permanent account). Depreciation expense is.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Quick recall</span>
+    <details><summary>Received 400 in advance for services on June 15. Entry?</summary><p>Debit Cash 400 / credit Unearned Service Revenue 400 — a liability is created.</p></details>
+    <details><summary>Adjusting entry for revenue earned but not yet collected?</summary><p>Debit Accounts Receivable / credit Service Revenue.</p></details>
+    <details><summary>The three closing entries, in order?</summary><p>① Dr Revenue / Cr RE; ② Dr RE / Cr each expense; ③ Dr RE / Cr Dividends.</p></details>
+    <details><summary>Equipment 24,000, accumulated depreciation 400. Book value?</summary><p>23,600.</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="no-co" data-ch="3">Ch3 debit/credit drill</button><button class="btn" type="button" data-go="flashcards" data-ch="3">Ch3 flashcards</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="3">Ch3 quiz</button></div>
+  <div class="pager"><a href="#ch2">← Ch2</a><a href="#ch4">Ch4 · Presentation →</a></div>
+</section>
+
+<!-- ======================= CH4 (EN) ======================= -->
+<section class="sheet" data-view="ch4" data-l="en" hidden>
+  <p class="eyebrow"><span class="tag">Ch4</span>Presentation of Financial Statements</p>
+  <h1>Presenting financial statements under IAS 1</h1>
+  <div class="core"><span class="lab">The core</span><p>Ch1–3 answer “what to record”. Ch4 answers “<b>how to present it</b>” so readers can understand and compare: what an annual report contains, the complete set of statements under IAS 1, the general features, and the structure of each statement.</p></div>
+  <ul class="lo">
+    <li><a href="#ch4-41-en"><b>4.1</b>The annual report</a></li>
+    <li><a href="#ch4-42-en"><b>4.2</b>General requirements</a></li>
+    <li><a href="#ch4-43-en"><b>4.3</b>Financial position</a></li>
+    <li><a href="#ch4-44-en"><b>4.4</b>Comprehensive income</a></li>
+    <li><a href="#ch4-45-en"><b>4.5</b>Changes in equity</a></li>
+  </ul>
+  <div class="prose">
+  <h2 id="ch4-41-en"><span class="sec">4.1</span>The annual report</h2>
+  <p>The annual report is the most important source of information for shareholders, lenders and potential investors. The slides use Vingroup’s annual report as the example. It has four parts:</p>
+  <ol>
+    <li><b>Corporate information:</b> history, organization, markets and products, operating figures, financial highlights, awards.</li>
+    <li><b>Analysis &amp; commentaries:</b> usually the Chairman’s letter on the year’s results, shareholder benefits and future goals.</li>
+    <li><b>Other statements &amp; disclosures:</b> such as corporate governance, the principles of direction, responsibility and accountability.</li>
+    <li><b>Financial statements:</b> the directors’ acknowledgement, the auditor’s report and the complete set of financial statements.</li>
+  </ol>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Principle-based (substance)</h3><ul><li>Built from experience and judgment</li><li>Flexible and adaptable</li><li>Focused on <b>economic substance</b></li><li>Standards set by private professional bodies</li></ul></div>
+    <div class="box"><h3>Rule-based (form)</h3><ul><li>Laws try to cover everything</li><li>Prescriptive and procedural</li><li>Focused on <b>legal form</b></li><li>Standards written into national law</li></ul></div>
+  </div>
+  <div class="prose">
+  <p><b>Substance over form</b>: account for the economic substance of a transaction, not only its legal form. This is the spirit of IFRS.</p>
+  <h3>Three audit opinions</h3>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Opinion</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td>Unqualified</td><td>The statements are presented fairly. The <b>highest level of assurance</b> (a “clean” opinion).</td></tr>
+      <tr><td>Qualified</td><td>Presented fairly, <b>except for</b> a disagreement over how one specific transaction was treated.</td></tr>
+      <tr><td>Adverse</td><td>The opposite of unqualified: the statements do <b>not</b> present the financial position fairly.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Traffic lights: green, amber, red</span>
+    <p>Unqualified is green (clean). Qualified is amber (“except for…”). Adverse is red. “Unqualified” sounds negative but is the <b>best</b> opinion — a favourite exam trap.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch4-42-en"><span class="sec">4.2</span>General presentation requirements</h2>
+  <h3>The complete set of financial statements (IAS 1)</h3>
+  <ol>
+    <li>Statement of financial position, <b>as at the end of the period</b></li>
+    <li>Statement of comprehensive income, <b>for the period</b></li>
+    <li>Statement of changes in equity, for the period</li>
+    <li>Statement of cash flows, for the period</li>
+    <li>Notes: a summary of significant accounting policies and other information</li>
+    <li>Comparative information for the preceding period (more if there is a retrospective restatement)</li>
+  </ol>
+  <h3>Every statement must show</h3>
+  <p>Name of the reporting entity · consolidated or individual statements · period-end date or period covered · presentation currency · level of rounding.</p>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <p>The five identification items as five questions: <b>Who?</b> (name) · <b>Group or single?</b> (consolidated/individual) · <b>When?</b> (period) · <b>Which currency?</b> · <b>Rounded to what?</b></p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Foundation</h3><ul><li><b>Fair presentation &amp; compliance:</b> wrong accounting policies cannot be fixed by disclosure; you cannot apply only the standards you like and still claim IFRS compliance.</li><li><b>Going concern:</b> the intention and ability to keep operating for the foreseeable future.</li><li><b>Accrual basis:</b> shows changes in net assets, not cash flows.</li></ul></div>
+    <div class="box"><h3>Grouping and separating</h3><ul><li><b>Materiality &amp; aggregation:</b> present each material class of items separately; immaterial items may be combined. Systems have two levels: control accounts in the general ledger and subsidiary ledgers.</li><li><b>Offsetting:</b> assets and liabilities, or income and expenses, may <b>not</b> be offset.</li></ul></div>
+    <div class="box"><h3>Time</h3><ul><li><b>Frequency:</b> a complete set at least annually (audited). Large entities usually add half-yearly or quarterly interim reports (not audited).</li><li><b>Comparative information:</b> at least two years, current and prior.</li><li><b>Consistency:</b> keep presentation and classification the same across periods; if you change them, restate the comparatives.</li></ul></div>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Offsetting two different things is banned; netting a contra account is fine</span>
+    <p><b>Netting</b> is not <b>offsetting</b>. PPE − Accumulated depreciation and AR − Allowance are netting and perfectly valid. Setting a bank deposit against a loan, or rental income against interest expense, is offsetting and not allowed.</p>
+  </div>
+  <div class="prose">
+  <h3>Example: staying consistent after a reclassification</h3>
+  <p>In both 20X5 and 20X4, sales and marketing expenses were 20,000 and other operating expenses 30,000. Before the 20X5 statements were issued, 2,000 was found to belong in sales and marketing.</p>
+  </div>
+  <div class="grid2">
+    <div class="scroll" style="margin:0"><table class="fs"><tr class="h"><td>Change 20X5 only (misleading)</td><td class="n">20X5</td><td class="n">20X4</td></tr><tr><td>Sales &amp; marketing</td><td class="n">22,000</td><td class="n">20,000</td></tr><tr><td>Other operating</td><td class="n">28,000</td><td class="n">30,000</td></tr></table></div>
+    <div class="scroll" style="margin:0"><table class="fs"><tr class="h"><td>Restate the comparatives too</td><td class="n">20X5</td><td class="n">20X4</td></tr><tr><td>Sales &amp; marketing</td><td class="n">22,000</td><td class="n">22,000</td></tr><tr><td>Other operating</td><td class="n">28,000</td><td class="n">28,000</td></tr></table></div>
+  </div>
+  <div class="prose">
+  <p>The left table makes it look as though selling costs rose, when the two years were actually the same. <b>Notes</b> are an integral part of the statements, presented systematically and cross-referenced to each line item.</p>
+
+  <h2 id="ch4-43-en"><span class="sec">4.3</span>Statement of financial position</h2>
+  <p>IAS 1 sets the minimum line items and requires additional lines, headings and subtotals when they help users understand the financial position.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Assets</h3><p>Cash &amp; cash equivalents · Trade &amp; other receivables · Inventories · Investments (equity method) · Other financial assets · Current &amp; deferred tax assets · PPE · Biological assets · Investment properties · Intangible assets · Assets held for sale</p></div>
+    <div class="box"><h3>Liabilities &amp; equity</h3><p>Trade &amp; other payables · Provisions · Other financial liabilities · Current &amp; deferred tax liabilities · Liabilities held for sale<br><b>Equity:</b> Issued capital · Reserves · Non-controlling interests</p></div>
+  </div>
+  <div class="prose">
+  <p><b>The order is not fixed.</b> In the slides’ survey of 170 companies, the most common layout (39%) was non-current assets → current assets → equity → non-current liabilities → current liabilities. About 10% used liquidity order.</p>
+
+  <h2 id="ch4-44-en"><span class="sec">4.4</span>Statement of comprehensive income</h2>
+  <p>All income and expense items of the period are presented in <b>one of two ways</b>:</p>
+  </div>
+  <div class="flow">
+    <div class="st"><b>One statement</b><small>Revenue &amp; gains − Expenses &amp; losses = Net income ± OCI = Total comprehensive income</small></div>
+    <div class="st"><b>Two statements</b><small>(1) The income statement ends at net income. (2) The statement of comprehensive income <b>starts from net income</b> ± OCI = Total comprehensive income</small></div>
+  </div>
+  <div class="prose">
+  <p>Minimum income statement lines: <b>Revenue</b> · <b>Finance costs</b> · <b>Impairment losses</b> (under IFRS 9) · <b>Share of profits of associates &amp; joint ventures</b> · <b>Tax expense</b>. The slides cite Cathay Pacific to show that a profit or loss statement may have no “cost of sales” line.</p>
+
+  <h2 id="ch4-45-en"><span class="sec">4.5</span>Statement of changes in equity</h2>
+  <p>It reconciles total equity from the beginning to the end of the period:</p>
+  </div>
+  <div class="flow">
+    <div class="st"><b>Beginning equity</b></div><span class="ar">+</span>
+    <div class="st"><b>Transactions with owners</b><small>Share issues or cancellations, less dividends</small></div><span class="ar">+</span>
+    <div class="st"><b>Total comprehensive income</b><small>Profit or loss + OCI</small></div><span class="ar">=</span>
+    <div class="st"><b>Ending equity</b></div>
+  </div>
+  <div class="prose">
+  <p><b>Accounting policies</b> are the principles, bases, conventions and practices used to prepare the statements. There are three kinds of change: new standards, <b>changes in estimates</b> and <b>changes in policies</b>.</p>
+  <p><b>Prior-period errors</b> are errors found <b>after the statements have been issued</b>, from omissions or misstatements. MWS example: last year an expense was recorded as 30,000 instead of 40,000, so last year’s profit was overstated by 10,000. Correct it in <b>opening retained earnings</b>, not in this year’s profit:</p>
+  </div>
+  <div class="scroll"><table class="fs">
+    <tr class="h"><td>MWS · Statement of changes in equity 20X6</td><td class="n"></td><td class="n"></td></tr>
+    <tr><td>Total shareholders’ equity, Dec 31, 20X5</td><td></td><td class="n">490,000</td></tr>
+    <tr><td class="ind">Share capital</td><td class="n">100,000</td><td></td></tr>
+    <tr><td class="ind">RE Dec 31, 20X5, as reported</td><td class="n">390,000</td><td></td></tr>
+    <tr><td class="ind">Prior-period adjustment (expense error)</td><td class="n cr">(10,000)</td><td></td></tr>
+    <tr><td class="ind">RE Dec 31, 20X5, as adjusted</td><td class="n">380,000</td><td></td></tr>
+    <tr><td class="ind">Net income 20X6 · Dividends 20X6</td><td class="n">110,000 · (40,000)</td><td></td></tr>
+    <tr><td class="ind">RE Dec 31, 20X6</td><td class="n">450,000</td><td></td></tr>
+    <tr class="tot"><td>Total shareholders’ equity, Dec 31, 20X6</td><td></td><td class="n">550,000</td></tr>
+  </table></div>
+  <div class="traps"><span class="stamp">Common traps</span>
+    <ul>
+      <li><b>Unqualified is the best opinion</b>; adverse is the worst. Qualified always comes with “except for”.</li>
+      <li>Disclosure <b>does not cure</b> a wrong accounting policy.</li>
+      <li>Annual reports are <b>audited</b>; interim reports are <b>not</b>.</li>
+      <li>Deducting accumulated depreciation from PPE is <b>netting</b>, not offsetting.</li>
+      <li>A prior-period error adjusts <b>opening RE</b> in the statement of changes in equity; it does not go through this year’s profit.</li>
+      <li>When you reclassify a line item, <b>restate the prior-year comparatives</b> too.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Quick recall</span>
+    <details><summary>What is in the complete set of financial statements under IAS 1?</summary><p>SFP, SCI, SCE, SCF, notes, plus comparative information for the prior period.</p></details>
+    <details><summary>Under the two-statement approach, where does the second statement start?</summary><p>At net income (profit or loss), then ± OCI.</p></details>
+    <details><summary>The auditor agrees with everything except how one transaction was treated. Which opinion?</summary><p>Qualified.</p></details>
+    <details><summary>Which three groups do the eight general features fall into?</summary><p>Foundation (fair presentation, going concern, accrual); grouping and separating (materiality &amp; aggregation, offsetting); time (frequency, comparatives, consistency).</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="flashcards" data-ch="4">Ch4 flashcards</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="4">Ch4 quiz</button></div>
+  <div class="pager"><a href="#ch3">← Ch3</a><a href="#ch5">Ch5 · Control, cash, receivables →</a></div>
+</section>
+
+<!-- ======================= CH5 (EN) ======================= -->
+<section class="sheet" data-view="ch5" data-l="en" hidden>
+  <p class="eyebrow"><span class="tag">Ch5</span>Internal Control, Cash, and Receivables</p>
+  <h1>Internal control, cash and receivables</h1>
+  <div class="core"><span class="lab">The core</span><p>Cash is the asset most easily stolen, so it needs internal control and a <b>bank reconciliation</b>. Receivables are shown at <b>the amount expected to be collected</b>: estimate what will not be collected and record the expense in the same period as the revenue (the allowance method).</p></div>
+  <ul class="lo">
+    <li><a href="#ch5-51-en"><b>5.1</b>Fraud</a></li>
+    <li><a href="#ch5-52-en"><b>5.2</b>Internal control</a></li>
+    <li><a href="#ch5-53-en"><b>5.3</b>Controls over cash</a></li>
+    <li><a href="#ch5-54-en"><b>5.4</b>Bank reconciliation</a></li>
+    <li><a href="#ch5-55-en"><b>5.5</b>Cash on the balance sheet</a></li>
+    <li><a href="#ch5-56-en"><b>5.6</b>Receivables</a></li>
+  </ul>
+  <div class="prose">
+  <h2 id="ch5-51-en"><span class="sec">5.1</span>Fraud</h2>
+  <p><b>Fraud</b> is an intentional misrepresentation of facts made to persuade another party to act in a way that causes them injury or damage. There are two main types:</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Misappropriation of assets</h3><p>Committed by <b>employees</b>: stealing cash or inventory, bribes and kickbacks, padding expense reimbursements.</p></div>
+    <div class="box"><h3>Fraudulent financial reporting</h3><p>Committed by <b>managers</b>: misleading entries meant to deceive investors and creditors. Examples: Enron (mark-to-market accounting, special purpose vehicles) and WorldCom. Both were audited by Arthur Andersen, which collapsed in 2002.</p></div>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">The fraud triangle: Pressure · Opportunity · Rationalization</span>
+    <p>A business has little control over employees’ pressures or how they justify things to themselves. Internal control attacks the <b>Opportunity</b> side.</p>
+  </div>
+  <div class="prose">
+  <h2 id="ch5-52-en"><span class="sec">5.2</span>Internal control and corporate governance</h2>
+  <p>Internal control is the main way to <b>prevent, detect and correct</b> fraud. It serves five objectives: safeguard assets · encourage employees to follow company policy · promote operational efficiency · ensure accurate, reliable records · comply with legal requirements.</p>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">COSO = “CRIME”</span>
+    <p><b>C</b>ontrol activities · <b>R</b>isk assessment · <b>I</b>nformation &amp; communication · <b>M</b>onitoring · control <b>E</b>nvironment. Five components to stop the crime.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Sarbanes-Oxley Act (SOX, 2002)</h3><ul><li>Public companies must maintain an internal control system and report on it</li><li>Auditors must evaluate and report on internal control</li><li>Created the PCAOB</li><li>Limited the non-audit services audit firms can provide</li><li>Penalties for violators</li></ul></div>
+    <div class="box"><h3>Control procedures</h3><ul><li><b>Smart hiring:</b> background checks, training, competitive pay, clear assignments</li><li><b>Separation of duties:</b> custody of assets · recordkeeping · approval</li><li><b>Comparison &amp; compliance monitoring:</b> budgets, exception reports, audits</li><li><b>Adequate records</b> (prenumbered documents), <b>limited access</b>, <b>proper approvals</b>, IT controls (encryption, firewalls)</li></ul></div>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <p><b>Split three jobs:</b> whoever holds the cash does not keep the books, and whoever keeps the books does not approve payments. The system breaks down only through <b>collusion</b>, <b>management override</b> or human limits (fatigue, carelessness). The benefit of a control must exceed its cost.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch5-53-en"><span class="sec">5.3</span>Controls over cash receipts and payments</h2>
+  <ul>
+    <li><b>Over the counter:</b> the POS terminal records the sale, cost of goods sold and the inventory reduction; the customer gets a receipt; the cash drawer is turned in at the end of the shift; accounting compares recorded sales with the cash in the drawer.</li>
+    <li><b>By mail:</b> the mailroom separates checks (sent to the treasurer and deposited) from remittance advices (sent to accounting for recording). The controller compares the bank’s deposit slip with the amount accounting recorded.</li>
+    <li><b>Payments:</b> pay by check signed by an authorized person, with supporting documents. The payment packet is <b>purchase order + invoice + receiving report</b>. Separate four jobs: purchasing, receiving, preparing the check and approving it.</li>
+    <li><b>Petty cash</b> uses an <b>imprest system</b>: cash still in the fund + vouchers paid = the fixed fund amount.</li>
+    <li><b>Cash budget:</b> beginning cash + expected receipts − expected payments = cash available before financing. Compare it with the desired ending balance to see whether you need to borrow or have extra to invest. EPIC example: 6,260 + 62,890 − 65,250 = 3,900; to keep 5,000, it needs 1,100 of new financing.</li>
+  </ul>
+
+  <h2 id="ch5-54-en"><span class="sec">5.4</span>The bank reconciliation</h2>
+  <p>The company’s book balance and the bank statement balance usually differ because of <b>timing</b> and errors. Reconciling means explaining each difference until the two balances agree.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>BANK side (the bank doesn’t know yet)</h3><ul><li><b>+</b> Deposits in transit (deposited, not yet recorded by the bank)</li><li><b>−</b> Outstanding checks (written, not yet cleared)</li><li><b>±</b> Bank errors</li></ul><p class="muted">No journal entries needed.</p></div>
+    <div class="box"><h3>BOOK side (the company doesn’t know yet)</h3><ul><li><b>+</b> Bank collections, EFT receipts, interest earned</li><li><b>−</b> Service charges, NSF checks, EFT payments, check printing costs</li><li><b>±</b> Book errors</li></ul><p class="muted"><b>Journal entry required</b> for each item.</p></div>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Fix the side that doesn’t know yet</span>
+    <p>The bank doesn’t yet know about the deposit you just made or the check you just wrote, so adjust the bank side. You didn’t know about the fees, interest or bounced checks the bank reports on its statement, so adjust the book side. <b>Only book-side items get journal entries</b>, because the books are yours.</p>
+  </div>
+  <div class="scroll"><table class="fs" style="max-width:680px">
+    <tr class="h"><td>EPIC Products · Dec 31, 20X6 · Bank</td><td class="n"></td><td>Books</td><td class="n"></td></tr>
+    <tr><td>Balance</td><td class="n">5,900</td><td>Balance</td><td class="n">3,340</td></tr>
+    <tr><td class="ind">+ Deposit in transit</td><td class="n">1,600</td><td class="ind">+ EFT dividend revenue</td><td class="n">900</td></tr>
+    <tr><td class="ind">+ Correction of bank error</td><td class="n">100</td><td class="ind">+ Bank collection of AR</td><td class="n">2,100</td></tr>
+    <tr><td class="ind">− Outstanding checks (280 + 320 + 250 + 490)</td><td class="n">(1,340)</td><td class="ind">+ Interest revenue</td><td class="n">30</td></tr>
+    <tr><td></td><td></td><td class="ind">+ Book error, check 333 (recorded 510, actually paid 150)</td><td class="n">360</td></tr>
+    <tr><td></td><td></td><td class="ind">− Service charge 20 · NSF 50 · EFT insurance 400</td><td class="n">(470)</td></tr>
+    <tr class="tot"><td>Adjusted bank balance</td><td class="n">6,260</td><td>Adjusted book balance</td><td class="n">6,260</td></tr>
+  </table></div>
+  <pre class="je" data-date="Dec 31">Cash | 900 |
+Dividend Revenue | | 900
+@
+Cash | 2,100 |
+Accounts Receivable | | 2,100
+@
+Cash | 30 |
+Interest Revenue | | 30
+@
+Cash | 360 |
+Accounts Payable | | 360
+# Correct the error on check 333
+@
+Miscellaneous Expense | 20 |
+Cash | | 20
+@
+Accounts Receivable | 50 |
+Cash | | 50
+# NSF check: the customer still owes
+@
+Insurance Expense | 400 |
+Cash | | 400</pre>
+
+  <div class="prose">
+  <h2 id="ch5-55-en"><span class="sec">5.5</span>Cash on the balance sheet</h2>
+  <p><b>Cash and cash equivalents</b> include cash and investments that are <b>highly liquid and mature within three months of the date of purchase</b>: time deposits, certificates of deposit, government securities near maturity.</p>
+
+  <h2 id="ch5-56-en"><span class="sec">5.6</span>Receivables and impairment</h2>
+  <p>Receivables are the third most liquid asset (after cash and short-term investments). They arise from <b>selling goods and services</b> (accounts receivable, also called trade receivables) or from <b>lending money</b> (notes receivable). AR in the general ledger is a control account; a subsidiary ledger tracks each customer. Controls: separate cash handling from recordkeeping, and use a bank lockbox.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Allowance method (the standard)</h3><p>At period end, estimate the uncollectible amount from experience:</p><pre class="je">Uncollectible-Account Expense | 2,000 |
+Allowance for Uncollectible Accounts | | 2,000</pre><p>When a specific customer is written off:</p><pre class="je">Allowance for Uncollectible Accounts | 12 |
+Accounts Receivable | | 12</pre></div>
+    <div class="box"><h3>Direct write-off (not recommended)</h3><p>Records the expense only when a specific customer definitely won’t pay:</p><pre class="je">Uncollectible-Account Expense | 12 |
+Accounts Receivable | | 12</pre><p>With no allowance, it <b>can overstate assets</b>, and the expense is <b>not recorded in the same period</b> as the related revenue (violates matching).</p></div>
+  </div>
+  <div class="scroll"><table class="fs">
+    <tr class="h"><td>Writing off 12 under the allowance method</td><td class="n">Before</td><td class="n">After</td></tr>
+    <tr><td>Accounts receivable</td><td class="n">100</td><td class="n">88</td></tr>
+    <tr><td>Less: Allowance</td><td class="n">(20)</td><td class="n">(8)</td></tr>
+    <tr class="tot"><td>Accounts receivable, net</td><td class="n">80</td><td class="n">80</td></tr>
+  </table></div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">A write-off is just housekeeping</span>
+    <p>Under the allowance method, the expense was recorded when the allowance was set up. At write-off, <b>net AR does not change</b> and <b>there is no new expense</b> — the amount just moves from “expected to be lost” to “lost”.</p>
+  </div>
+  <div class="prose">
+  <h3>Computing collections from customers</h3>
+  <p>A receivables T-account often has five lines: Beginning 200 + Sales on account 1,800 − Write-offs 100 − <b>Collections x</b> = Ending 400, so <b>x = 1,500</b>.</p>
+  <h3>Notes receivable</h3>
+  <p>Key terms: <b>creditor</b> (the lender), <b>debtor/maker</b> (the borrower who signs), <b>principal</b> (amount lent), <b>interest</b> (annual rate), <b>term</b>, <b>maturity date</b>, <b>maturity value</b> = principal + interest.</p>
+  <p>A bank lends L. Holland 1,000 on Aug 31 at 9% a year, due Feb 28 of the following year.</p>
+  </div>
+  <pre class="je">@Aug 31
+Note Receivable—L. Holland | 1,000 |
+Cash | | 1,000
+@Dec 31
+Interest Receivable | 30 |
+Interest Revenue | | 30
+# 1,000 × 9% × 4/12 (September to December)
+@Feb 28
+Cash | 1,045 |
+Note Receivable—L. Holland | | 1,000
+Interest Receivable | | 30
+Interest Revenue | | 15
+# 15 = 1,000 × 9% × 2/12 for January and February</pre>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <p><b>Interest = P × R × T</b> (Principal × Rate × Time). Time is always <b>months ÷ 12</b>. Interest is split by year: the old year’s share is accrued (30); the new year’s share is recorded on collection (15).</p>
+  </div>
+  <div class="traps"><span class="stamp">Common traps</span>
+    <ul>
+      <li>An <b>NSF</b> check reduces the book balance and is <b>debited to Accounts Receivable</b>, because the customer still owes.</li>
+      <li>Deposits in transit and outstanding checks adjust only the bank side and <b>need no entries</b>.</li>
+      <li>A check recorded as 510 instead of 150: add 360 to the books (Dr Cash / Cr Accounts Payable).</li>
+      <li>Allowance method: <b>no expense at write-off</b>, and net AR is unchanged.</li>
+      <li>Cash equivalents: three months <b>from the date of purchase</b>, not the time remaining.</li>
+      <li>Internal control can still fail through collusion or management override.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Quick recall</span>
+    <details><summary>The three sides of the fraud triangle?</summary><p>Pressure, Opportunity, Rationalization. Internal control reduces Opportunity.</p></details>
+    <details><summary>A 20 bank service charge: which side, and is there an entry?</summary><p>Book side, minus 20. Yes: Dr Miscellaneous Expense / Cr Cash.</p></details>
+    <details><summary>AR 10,000, allowance 900. Net AR?</summary><p>9,100.</p></details>
+    <details><summary>A 1,000 note at 9% held for 4 months. Accrued interest?</summary><p>1,000 × 0.09 × 4/12 = 30.</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="cong-cu" data-ch="5">Practice the bank reconciliation</button><button class="btn" type="button" data-go="no-co" data-ch="5">Ch5 debit/credit drill</button><button class="btn" type="button" data-go="flashcards" data-ch="5">Ch5 flashcards</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="5">Ch5 quiz</button></div>
+  <div class="pager"><a href="#ch4">← Ch4</a><a href="#ch6">Ch6 · Inventory →</a></div>
+</section>
+
+<!-- ======================= CH6 (EN) ======================= -->
+<section class="sheet" data-view="ch6" data-l="en" hidden>
+  <p class="eyebrow"><span class="tag">Ch6</span>Inventory and Merchandising Operations</p>
+  <h1>Inventory and merchandising operations</h1>
+  <div class="core"><span class="lab">The core</span><p>Inventory is an <b>asset</b> until it is delivered to the customer. At that point its cost becomes an <b>expense (COGS)</b>. FIFO, LIFO and average cost only split the total <b>goods available for sale</b> into two parts: cost of goods sold and ending inventory. Inventory is never carried above what it can be sold for (NRV).</p></div>
+  <ul class="lo">
+    <li><a href="#ch6-61-en"><b>6.1</b>What inventory is</a></li>
+    <li><a href="#ch6-62-en"><b>6.2</b>Recording transactions</a></li>
+    <li><a href="#ch6-63-en"><b>6.3</b>Costing methods</a></li>
+    <li><a href="#ch6-64-en"><b>6.4</b>Inventory errors</a></li>
+    <li><a href="#ch6-65-en"><b>6.5</b>Gross profit method</a></li>
+  </ul>
+  <div class="prose">
+  <h2 id="ch6-61-en"><span class="sec">6.1</span>What inventory is</h2>
+  <p>Merchandisers have two accounts that service companies do not need: <b>Cost of goods sold</b> on the income statement and <b>Inventory</b> on the balance sheet. Gross profit = Sales − COGS.</p>
+  </div>
+  <div class="flow">
+    <div class="st"><b>Cost of goods still on hand</b><small>= Inventory, an asset on the balance sheet</small><span class="n mono">Units on hand × unit cost</span></div><span class="ar">↔</span>
+    <div class="st"><b>Cost of goods sold</b><small>= COGS, an expense on the income statement</small><span class="n mono">Units sold × unit cost</span></div>
+  </div>
+  <div class="prose">
+  <p>Example: 3 shirts that cost $30 each; 2 are sold for $50 each. Sales 100 − COGS 60 = Gross profit 40. Inventory left: 30. <b>Revenue is at selling price; COGS is at cost.</b></p>
+  <h3>Counting units: which goods are ours?</h3>
+  <ul>
+    <li>Quantities come from the records and are confirmed by a <b>physical count</b> at year end.</li>
+    <li><b>Consigned goods:</b> include goods you have placed with others to sell; exclude goods others have placed with you.</li>
+    <li><b>Goods in transit</b> depend on the shipping terms. Whoever owns the goods while they travel pays the freight.</li>
+  </ul>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>FOB shipping point</h3><p>Ownership passes when the goods <b>leave the seller’s dock</b>. Goods in transit belong to the <b>buyer</b>, who pays the freight.</p></div>
+    <div class="box"><h3>FOB destination</h3><p>Ownership passes when the goods <b>arrive at the buyer</b>. Goods in transit still belong to the <b>seller</b>.</p></div>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <p><b>FOB + a place = where ownership changes hands.</b> “Shipping point” means at the start of the trip; “destination” means at the end. Consignment: “goods we sent out to sell are still ours.”</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch6-62-en"><span class="sec">6.2</span>Recording inventory transactions (perpetual)</h2>
+  <p><b>Periodic</b>: no running record; typically for inexpensive goods. <b>Perpetual</b>: a running record of purchases, sales and goods on hand, used for all types of goods. Both require a physical count at least once a year. Example: Natalie’s store, We Love Baby Stuff:</p>
+  </div>
+  <pre class="je">@Purchase
+Inventory | 2,050 |
+Accounts Payable | | 2,050
+# Includes 50 of freight (option 2: Dr Inventory 2,000 and Dr Freight-inwards 50)
+@Return
+Accounts Payable | 100 |
+Inventory | | 100
+# Returned the wrong goods; the payable is reduced
+@Sale
+Cash | 25 |
+Sales Revenue | | 25
+Cost of Sales | 15 |
+Inventory | | 15
+# A sale ALWAYS has TWO entries: revenue at selling price and COGS at cost
+@Buy 2/10, n/30
+Inventory | 1,000 |
+Accounts Payable | | 1,000
+# 2% off if paid within 10 days; otherwise the full amount is due in 30 days</pre>
+  <div class="prose">
+  <p class="muted">If Natalie pays within 10 days, she pays only 980. Since inventory cost is purchase price less discounts, the payment entry is Dr AP 1,000 / Cr Cash 980 / Cr Inventory 20.</p>
+
+  <h2 id="ch6-63-en"><span class="sec">6.3</span>Inventory cost and costing methods</h2>
+  <p><b>Inventory cost</b> is every cost of bringing the goods to a condition ready for sale: purchase price + freight in + insurance in transit + necessary fees and taxes − returns, allowances and discounts.</p>
+  <p>Four methods: <b>specific identification</b> (unique items such as cars, antiques, real estate) · <b>FIFO</b> · <b>LIFO</b> · <b>average cost</b> (weighted average). Exhibit 6-7 data: beginning 10 × $10, purchases of 25 × $14 and 25 × $18. Goods available: 60 units, $900. Sold 40, 20 left.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th></th><th>FIFO</th><th>LIFO</th><th>Average</th></tr></thead>
+    <tbody>
+      <tr><td>COGS (40 units)</td><td class="mono">10×10 + 25×14 + 5×18 = <b>540</b></td><td class="mono">25×18 + 15×14 = <b>660</b></td><td class="mono">40 × 15 = <b>600</b></td></tr>
+      <tr><td>Ending inventory (20)</td><td class="mono">20 × 18 = <b>360</b></td><td class="mono">10×10 + 10×14 = <b>240</b></td><td class="mono">20 × 15 = <b>300</b></td></tr>
+      <tr><td>Gross profit (sales 1,000)</td><td class="mono"><b>460</b> highest</td><td class="mono"><b>340</b> lowest</td><td class="mono"><b>400</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>Average cost per unit = cost of goods available ÷ units available = 900 ÷ 60 = <b>$15</b>. Not the simple average (10 + 14 + 18) ÷ 3 = 14.</p></div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Rising prices: FIFO gives the fattest profit and the biggest inventory. LIFO gives the biggest COGS.</span>
+    <p>FIFO sends the <b>oldest, cheapest</b> units out first, so COGS is low and gross profit high, while ending inventory carries the <b>latest prices</b>. LIFO does the opposite. When prices fall, everything flips. Whatever the method, <b>COGS + ending inventory = 900</b>: the pie stays the same, only the slicing changes.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Why IFRS bans LIFO</h3><ul><li>It puts measuring profit ahead of measuring assets and liabilities</li><li>It can produce unrealistic profits</li><li>It does not faithfully represent the flow of goods</li></ul></div>
+    <div class="box"><h3>Comparability</h3><p>Use the same method from period to period. A change is allowed when justified (losing short-term comparability is not a reason to forbid it), but the <b>effect on profit must be disclosed</b>.</p></div>
+  </div>
+  <div class="prose">
+  <h3>Lower of cost and net realizable value</h3>
+  <p><b>NRV</b> = estimated selling price − estimated costs of completion − estimated costs to sell. When NRV falls below cost (damage, obsolescence, falling prices), write inventory down to NRV. This reflects conservatism and matters especially for high-tech and seasonal goods.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>HP</th><th>Units</th><th>Cost</th><th>NRV</th><th>Carry at</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Intel chips</td><td class="mono">1,000</td><td class="mono">250</td><td class="mono">200</td><td class="mono">200</td><td class="mono">200,000 (written down)</td></tr>
+      <tr><td>Disk drives</td><td class="mono">400</td><td class="mono">100</td><td class="mono">110</td><td class="mono">100</td><td class="mono">40,000 (kept at cost)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>Exhibit 6-10: inventory costing 1,000 has an NRV of only 400, so it is written down by 600, which is added to cost of goods sold: COGS = 2,000 + 600 = <b>2,600</b>.</p></div>
+
+  <div class="prose">
+  <h2 id="ch6-64-en"><span class="sec">6.4</span>Effects of inventory errors</h2>
+  <p>An error in ending inventory affects <b>two periods</b>, because this period’s ending inventory is next period’s beginning inventory.</p>
+  </div>
+  <div class="scroll"><table class="fs" style="max-width:640px">
+    <tr class="h"><td>Period 1 ending inventory overstated by 5,000</td><td class="n">Period 1</td><td class="n">Period 2</td><td class="n">Correct</td></tr>
+    <tr><td>Sales</td><td class="n">100,000</td><td class="n">100,000</td><td class="n">100,000</td></tr>
+    <tr><td>Beginning inventory + Purchases</td><td class="n">10,000 + 50,000</td><td class="n cr">15,000 + 50,000</td><td class="n">10,000 + 50,000</td></tr>
+    <tr><td>− Ending inventory</td><td class="n cr">(15,000)</td><td class="n">(10,000)</td><td class="n">(10,000)</td></tr>
+    <tr><td>COGS</td><td class="n">45,000</td><td class="n">55,000</td><td class="n">50,000</td></tr>
+    <tr class="tot"><td>Gross profit</td><td class="n">55,000</td><td class="n">45,000</td><td class="n">50,000</td></tr>
+  </table></div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Ending inventory and profit move together. Next year reverses it. Two years cancel out.</span>
+    <p>High ending inventory in period 1 → low COGS → high profit in period 1. In period 2 the beginning inventory is too high → high COGS → low profit. The two periods total 55,000 + 45,000 = 100,000, exactly 50,000 × 2.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch6-65-en"><span class="sec">6.5</span>Estimating inventory with the gross profit method</h2>
+  <p><b>Gross profit % = Gross profit ÷ Net sales</b>. The COGS model: Beginning inventory + Purchases = Goods available; less Ending inventory = COGS. Rearrange it to estimate inventory, for example after a fire or theft, or to test reasonableness:</p>
+  </div>
+  <div class="scroll"><table class="fs">
+    <tr class="h"><td>Estimating lost inventory</td><td class="n"></td><td class="n"></td></tr>
+    <tr><td>Beginning inventory</td><td></td><td class="n">38,000</td></tr>
+    <tr><td>Purchases</td><td></td><td class="n">72,000</td></tr>
+    <tr class="sub"><td>Cost of goods available</td><td></td><td class="n">110,000</td></tr>
+    <tr><td class="ind">Net sales 100,000 − Gross profit 35% (35,000)</td><td class="n"></td><td class="n">(65,000)</td></tr>
+    <tr class="tot"><td>Estimated ending inventory</td><td></td><td class="n">45,000</td></tr>
+  </table></div>
+  <div class="traps"><span class="stamp">Common traps</span>
+    <ul>
+      <li>Average cost = total cost ÷ total units (<b>15</b>), not the simple average of unit prices (14).</li>
+      <li>This course follows IFRS: <b>LIFO is not permitted</b>. Questions may still ask for LIFO figures to compare, but if asked whether IFRS allows it, the answer is no.</li>
+      <li>A perpetual sale needs <b>two entries</b>. Forgetting the COGS entry is the most common mistake.</li>
+      <li>Freight in is <b>part of inventory cost</b>.</li>
+      <li>If NRV is above cost, <b>do not write up</b>. Inventory is only ever written down.</li>
+      <li>FOB shipping point: goods in transit at year end belong in the <b>buyer’s</b> inventory.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Quick recall</span>
+    <details><summary>Prices are rising. Which method gives the highest gross profit?</summary><p>FIFO, because COGS uses the older, cheaper costs.</p></details>
+    <details><summary>Period 1 ending inventory is understated. What happens to profit in periods 1 and 2?</summary><p>Period 1 profit is understated (COGS too high). Period 2 profit is overstated.</p></details>
+    <details><summary>Cost 250, NRV 200, 1,000 units. Carry inventory at?</summary><p>200,000.</p></details>
+    <details><summary>An item costing 15 is sold for 25 cash. The two entries?</summary><p>Dr Cash 25 / Cr Sales Revenue 25; Dr COGS 15 / Cr Inventory 15.</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="cong-cu" data-ch="6">Open the FIFO/LIFO lab</button><button class="btn" type="button" data-go="no-co" data-ch="6">Ch6 debit/credit drill</button><button class="btn" type="button" data-go="flashcards" data-ch="6">Ch6 flashcards</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="6">Ch6 quiz</button></div>
+  <div class="pager"><a href="#ch5">← Ch5</a><a href="#flashcards">Practice · Flashcards →</a></div>
+</section>
+
 <!-- ======================= FLASHCARDS ======================= -->
 <section class="sheet" data-view="flashcards" hidden>
-  <p class="eyebrow"><span class="tag">Luyện tập</span>Flashcards · lặp lại cho đến khi nhớ</p>
+  <p class="eyebrow"><span class="tag"><span data-l="vi">Luyện tập</span><span data-l="en">Practice</span></span><span data-l="vi">Flashcards · lặp lại cho đến khi nhớ</span><span data-l="en">Flashcards · repeat until it sticks</span></p>
   <h1>Flashcards</h1>
-  <p class="prose">Đọc mặt trước, <b>tự trả lời trong đầu</b>, rồi lật thẻ. Bấm “Chưa nhớ” thì thẻ quay lại sau vài lượt. Bấm “Đã nhớ” thì thẻ được cất đi. Phím tắt: <code>Space</code> lật thẻ, <code>1</code> chưa nhớ, <code>2</code> đã nhớ.</p>
+  <p class="prose" data-l="vi">Đọc mặt trước, <b>tự trả lời trong đầu</b>, rồi lật thẻ. Bấm “Chưa nhớ” thì thẻ quay lại sau vài lượt. Bấm “Đã nhớ” thì thẻ được cất đi. Phím tắt: <code>Space</code> lật thẻ, <code>1</code> chưa nhớ, <code>2</code> đã nhớ.</p>
+  <p class="prose" data-l="en">Read the front, <b>answer in your head</b>, then flip. “Not yet” brings the card back a few cards later; “Got it” puts it away. Shortcuts: <code>Space</code> flips, <code>1</code> not yet, <code>2</code> got it.</p>
   <div class="toolbar">
     <div class="chips" id="fc-chips"></div>
-    <label for="fc-only"><input type="checkbox" id="fc-only" checked> Chỉ thẻ chưa nhớ</label>
+    <label for="fc-only"><input type="checkbox" id="fc-only" checked> <span data-l="vi">Chỉ thẻ chưa nhớ</span><span data-l="en">Only cards I don’t know yet</span></label>
   </div>
-  <div class="card fc" id="fc-card" tabindex="0" role="button" aria-label="Lật thẻ">
+  <div class="card fc" id="fc-card" tabindex="0" role="button" aria-label="Flip card">
     <div class="meta"><span id="fc-ch"></span><span id="fc-pos"></span></div>
     <div class="front" id="fc-front"></div>
     <div class="back" id="fc-back" hidden></div>
-    <div class="hint" id="fc-hint">Bấm vào thẻ để lật</div>
+    <div class="hint" id="fc-hint"></div>
   </div>
   <div class="fc-actions">
-    <button class="btn" type="button" id="fc-flip">Lật thẻ</button>
-    <button class="btn" type="button" id="fc-no">Chưa nhớ</button>
-    <button class="btn pri" type="button" id="fc-yes">Đã nhớ ✓</button>
-    <button class="btn" type="button" id="fc-reset">Đặt lại tiến độ</button>
+    <button class="btn" type="button" id="fc-flip"><span data-l="vi">Lật thẻ</span><span data-l="en">Flip</span></button>
+    <button class="btn" type="button" id="fc-no"><span data-l="vi">Chưa nhớ</span><span data-l="en">Not yet</span></button>
+    <button class="btn pri" type="button" id="fc-yes"><span data-l="vi">Đã nhớ ✓</span><span data-l="en">Got it ✓</span></button>
+    <button class="btn" type="button" id="fc-reset"><span data-l="vi">Đặt lại tiến độ</span><span data-l="en">Reset progress</span></button>
   </div>
   <p class="statline" id="fc-stat"></p>
   <div class="bar" style="max-width:680px"><i id="fc-bar"></i></div>
@@ -1309,61 +2307,65 @@ Accounts Payable | | 1,000
 
 <!-- ======================= QUIZ ======================= -->
 <section class="sheet" data-view="trac-nghiem" hidden>
-  <p class="eyebrow"><span class="tag">Luyện tập</span>Trắc nghiệm có giải thích</p>
-  <h1>Trắc nghiệm</h1>
-  <p class="prose">Câu hỏi bám sát ví dụ và số liệu trong slide. Thứ tự câu và đáp án được xáo trộn mỗi lần làm. Điểm cao nhất của từng phạm vi được lưu trên trình duyệt này.</p>
-  <div class="toolbar"><div class="chips" id="qz-chips"></div><button class="btn" type="button" id="qz-restart">Làm lại từ đầu</button></div>
+  <p class="eyebrow"><span class="tag"><span data-l="vi">Luyện tập</span><span data-l="en">Practice</span></span><span data-l="vi">Trắc nghiệm có giải thích</span><span data-l="en">Multiple choice with explanations</span></p>
+  <h1><span data-l="vi">Trắc nghiệm</span><span data-l="en">Quiz</span></h1>
+  <p class="prose" data-l="vi">Câu hỏi bám sát ví dụ và số liệu trong slide. Thứ tự câu và đáp án được xáo trộn mỗi lần làm. Điểm cao nhất của từng phạm vi được lưu trên trình duyệt này.</p>
+  <p class="prose" data-l="en">Questions follow the examples and figures in the slides. Questions and answer choices are shuffled each attempt. Your best score for each scope is saved in this browser.</p>
+  <div class="toolbar"><div class="chips" id="qz-chips"></div><button class="btn" type="button" id="qz-restart"><span data-l="vi">Làm lại từ đầu</span><span data-l="en">Start over</span></button></div>
   <div class="card" id="qz-card"></div>
 </section>
 
 <!-- ======================= DRILL ======================= -->
 <section class="sheet" data-view="no-co" hidden>
-  <p class="eyebrow"><span class="tag">Luyện tập</span>Định khoản một Nợ, một Có</p>
-  <h1>Luyện Nợ/Có</h1>
-  <p class="prose">Đọc nghiệp vụ, chọn tài khoản ghi <span class="dr"><b>Nợ</b></span> và tài khoản ghi <span class="cr"><b>Có</b></span>. Nếu nghiệp vụ không phải giao dịch của công ty, chọn “Không ghi bút toán” ở cả hai ô. Mỗi đáp án kèm giải thích và ảnh hưởng lên phương trình kế toán.</p>
+  <p class="eyebrow"><span class="tag"><span data-l="vi">Luyện tập</span><span data-l="en">Practice</span></span><span data-l="vi">Định khoản một Nợ, một Có</span><span data-l="en">One debit, one credit</span></p>
+  <h1><span data-l="vi">Luyện Nợ/Có</span><span data-l="en">Debit/credit drill</span></h1>
+  <p class="prose" data-l="vi">Đọc nghiệp vụ, chọn tài khoản ghi <span class="dr"><b>Nợ</b></span> và tài khoản ghi <span class="cr"><b>Có</b></span>. Nếu nghiệp vụ không phải giao dịch của công ty, chọn “Không ghi bút toán” ở cả hai ô. Mỗi đáp án kèm giải thích và ảnh hưởng lên phương trình kế toán.</p>
+  <p class="prose" data-l="en">Read the transaction, then choose the account to <span class="dr"><b>debit</b></span> and the account to <span class="cr"><b>credit</b></span>. If it is not a transaction of the company, choose “No entry” in both boxes. Each answer comes with an explanation and its effect on the accounting equation.</p>
   <div class="toolbar"><div class="chips" id="dr-chips"></div><span class="statline" id="dr-score"></span></div>
   <div class="card" id="dr-card">
     <p class="lab" id="dr-meta"></p>
     <p class="qz-q" id="dr-text"></p>
     <div class="drill-sel">
-      <label for="dr-debit"><span class="dr">Ghi Nợ (Debit)</span><select id="dr-debit"></select></label>
-      <label for="dr-credit"><span class="cr">Ghi Có (Credit)</span><select id="dr-credit"></select></label>
+      <label for="dr-debit"><span class="dr"><span data-l="vi">Ghi Nợ (Debit)</span><span data-l="en">Debit</span></span><select id="dr-debit"></select></label>
+      <label for="dr-credit"><span class="cr"><span data-l="vi">Ghi Có (Credit)</span><span data-l="en">Credit</span></span><select id="dr-credit"></select></label>
     </div>
-    <div class="fc-actions"><button class="btn pri" type="button" id="dr-check">Kiểm tra</button><button class="btn" type="button" id="dr-next">Nghiệp vụ tiếp theo →</button></div>
+    <div class="fc-actions"><button class="btn pri" type="button" id="dr-check"><span data-l="vi">Kiểm tra</span><span data-l="en">Check</span></button><button class="btn" type="button" id="dr-next"><span data-l="vi">Nghiệp vụ tiếp theo →</span><span data-l="en">Next transaction →</span></button></div>
     <div id="dr-fb"></div>
   </div>
 </section>
 
 <!-- ======================= TOOLS ======================= -->
 <section class="sheet" data-view="cong-cu" hidden>
-  <p class="eyebrow"><span class="tag">Luyện tập</span>Hai công cụ thực hành</p>
-  <h1>Phòng thí nghiệm tồn kho và đối chiếu ngân hàng</h1>
+  <p class="eyebrow"><span class="tag"><span data-l="vi">Luyện tập</span><span data-l="en">Practice</span></span><span data-l="vi">Hai công cụ thực hành</span><span data-l="en">Two hands-on tools</span></p>
+  <h1><span data-l="vi">Phòng thí nghiệm tồn kho và đối chiếu ngân hàng</span><span data-l="en">Inventory lab and bank reconciliation</span></h1>
 
-  <h2 id="lab-inv"><span class="sec">6.3</span>FIFO, LIFO, bình quân: tự đổi số và xem kết quả</h2>
-  <p class="prose">Mặc định là dữ liệu Exhibit 6-7 (giá tăng). Đổi số lượng, đơn giá, số bán hoặc doanh thu, kết quả sẽ tính lại ngay. Thử bộ “Giá giảm” để thấy FIFO và LIFO đổi vai.</p>
-  <div class="toolbar"><button class="btn" type="button" id="inv-up">Giá tăng (Exhibit 6-7)</button><button class="btn" type="button" id="inv-down">Giá giảm</button></div>
+  <h2 id="lab-inv"><span class="sec">6.3</span><span data-l="vi">FIFO, LIFO, bình quân: tự đổi số và xem kết quả</span><span data-l="en">FIFO, LIFO, average: change the numbers, watch the results</span></h2>
+  <p class="prose" data-l="vi">Mặc định là dữ liệu Exhibit 6-7 (giá tăng). Đổi số lượng, đơn giá, số bán hoặc doanh thu, kết quả sẽ tính lại ngay. Thử bộ “Giá giảm” để thấy FIFO và LIFO đổi vai.</p>
+  <p class="prose" data-l="en">It starts with the Exhibit 6-7 data (rising prices). Change any quantity, unit cost, units sold or sales revenue and the results update instantly. Try “Falling prices” to see FIFO and LIFO swap places.</p>
+  <div class="toolbar"><button class="btn" type="button" id="inv-up"><span data-l="vi">Giá tăng (Exhibit 6-7)</span><span data-l="en">Rising prices (Exhibit 6-7)</span></button><button class="btn" type="button" id="inv-down"><span data-l="vi">Giá giảm</span><span data-l="en">Falling prices</span></button></div>
   <div class="scroll"><table class="inv">
-    <thead><tr><th>Lớp hàng</th><th>Số lượng</th><th>Đơn giá</th><th>Thành tiền</th></tr></thead>
+    <thead><tr><th><span data-l="vi">Lớp hàng</span><span data-l="en">Layer</span></th><th><span data-l="vi">Số lượng</span><span data-l="en">Units</span></th><th><span data-l="vi">Đơn giá</span><span data-l="en">Unit cost</span></th><th><span data-l="vi">Thành tiền</span><span data-l="en">Total</span></th></tr></thead>
     <tbody id="inv-rows"></tbody>
   </table></div>
   <div class="drill-sel" style="max-width:520px">
-    <label for="inv-sold">Số lượng đã bán<input type="number" id="inv-sold" min="0" step="1" value="40"></label>
-    <label for="inv-sales">Doanh thu bán hàng<input type="number" id="inv-sales" min="0" step="1" value="1000"></label>
+    <label for="inv-sold"><span><span data-l="vi">Số lượng đã bán</span><span data-l="en">Units sold</span></span><input type="number" id="inv-sold" min="0" step="1" value="40"></label>
+    <label for="inv-sales"><span><span data-l="vi">Doanh thu bán hàng</span><span data-l="en">Sales revenue</span></span><input type="number" id="inv-sales" min="0" step="1" value="1000"></label>
   </div>
   <div id="inv-msg" class="statline"></div>
   <div class="scroll"><table class="data res" id="inv-res"></table></div>
   <div class="stack" id="inv-stack"></div>
-  <div class="legend"><span><i style="background:var(--accent)"></i>COGS (đã bán)</span><span><i style="background:repeating-linear-gradient(45deg,var(--chip) 0 3px,var(--sheet) 3px 6px)"></i>Tồn kho cuối kỳ</span></div>
+  <div class="legend"><span><i style="background:var(--accent)"></i><span data-l="vi">COGS (đã bán)</span><span data-l="en">COGS (sold)</span></span><span><i style="background:repeating-linear-gradient(45deg,var(--chip) 0 3px,var(--sheet) 3px 6px)"></i><span data-l="vi">Tồn kho cuối kỳ</span><span data-l="en">Ending inventory</span></span></div>
   <p class="statline" id="inv-insight"></p>
 
-  <h2 id="lab-bank"><span class="sec">5.4</span>Đối chiếu ngân hàng: xếp từng khoản vào đúng bên</h2>
-  <p class="prose">Dữ liệu EPIC Products ngày 31/12/20X6. Với mỗi khoản, chọn nó làm tăng hay giảm số dư <b>ngân hàng</b> hay số dư <b>sổ sách</b>. Hai số dư điều chỉnh tự tính lại. Chúng chỉ khớp nhau khi bạn xếp đúng hết.</p>
+  <h2 id="lab-bank"><span class="sec">5.4</span><span data-l="vi">Đối chiếu ngân hàng: xếp từng khoản vào đúng bên</span><span data-l="en">Bank reconciliation: put each item on the right side</span></h2>
+  <p class="prose" data-l="vi">Dữ liệu EPIC Products ngày 31/12/20X6. Với mỗi khoản, chọn nó làm tăng hay giảm số dư <b>ngân hàng</b> hay số dư <b>sổ sách</b>. Hai số dư điều chỉnh tự tính lại. Chúng chỉ khớp nhau khi bạn xếp đúng hết.</p>
+  <p class="prose" data-l="en">EPIC Products, December 31, 20X6. For each item, choose whether it increases or decreases the <b>bank</b> balance or the <b>book</b> balance. Both adjusted balances recalculate as you go, and they agree only when every item is placed correctly.</p>
   <div id="rc-list"></div>
   <div class="totals">
-    <div class="box" id="rc-bank-box"><span class="lab">Số dư ngân hàng điều chỉnh</span><span class="n mono" id="rc-bank">5,900</span><span class="statline">Bắt đầu: 5,900</span></div>
-    <div class="box" id="rc-book-box"><span class="lab">Số dư sổ sách điều chỉnh</span><span class="n mono" id="rc-book">3,340</span><span class="statline">Bắt đầu: 3,340</span></div>
+    <div class="box" id="rc-bank-box"><span class="lab"><span data-l="vi">Số dư ngân hàng điều chỉnh</span><span data-l="en">Adjusted bank balance</span></span><span class="n mono" id="rc-bank">5,900</span><span class="statline"><span data-l="vi">Bắt đầu: 5,900</span><span data-l="en">Starts at 5,900</span></span></div>
+    <div class="box" id="rc-book-box"><span class="lab"><span data-l="vi">Số dư sổ sách điều chỉnh</span><span data-l="en">Adjusted book balance</span></span><span class="n mono" id="rc-book">3,340</span><span class="statline"><span data-l="vi">Bắt đầu: 3,340</span><span data-l="en">Starts at 3,340</span></span></div>
   </div>
-  <div class="fc-actions"><button class="btn pri" type="button" id="rc-check">Kiểm tra và xem bút toán</button><button class="btn" type="button" id="rc-reset">Làm lại</button></div>
+  <div class="fc-actions"><button class="btn pri" type="button" id="rc-check"><span data-l="vi">Kiểm tra và xem bút toán</span><span data-l="en">Check and show entries</span></button><button class="btn" type="button" id="rc-reset"><span data-l="vi">Làm lại</span><span data-l="en">Start over</span></button></div>
   <div id="rc-fb"></div>
 </section>
 </main>
@@ -1634,9 +2636,227 @@ const DRILL = [
  {ch:6, t:"Tồn kho giá gốc 1,000, NRV chỉ còn 400. Ghi giảm xuống NRV.", dr:"Cost of Goods Sold", cr:"Inventory", e:"Ghi giảm 600 và cộng vào giá vốn (2,000 + 600 = 2,600 như Exhibit 6-10).", q:"A −600 = L 0 + E −600"}
 ];
 
+/* ---------- English data (same order as the Vietnamese arrays) ---------- */
+const CH_NAMES_EN = {1:"Ch1 · Framework", 2:"Ch2 · Recording transactions", 3:"Ch3 · Accrual", 4:"Ch4 · Presentation", 5:"Ch5 · Cash & receivables", 6:"Ch6 · Inventory"};
+const ACC_GROUPS_EN = ["Assets", "Liabilities", "Equity", "Revenue & income", "Expenses", "Other"];
+
+const CARDS_EN = {
+1: [
+ ["What is accounting (by function)?", "An information system: it measures business activities → processes the data into reports → communicates the results to decision makers."],
+ ["Financial vs managerial accounting?", "Financial: for outside users (investors, creditors, government agencies, the public). Managerial: for managers inside the company (budgets, forecasts, projections)."],
+ ["Who issues IFRS? Who issues US GAAP?", "IFRS: the IASB. US GAAP: the FASB."],
+ ["The objective of financial reporting under the conceptual framework?", "To provide information useful to existing and potential investors, lenders and other creditors when they decide whether to provide resources to the entity."],
+ ["The three components of relevance?", "Predictive value, confirmatory value, materiality."],
+ ["The three components of faithful representation?", "Completeness, neutrality, free from error."],
+ ["The four enhancing qualitative characteristics?", "Comparability, verifiability, timeliness, understandability — “Can Viewers Trust Us?”"],
+ ["What is the going concern assumption?", "The company is assumed to operate long enough to meet its objectives and commitments."],
+ ["The five elements of financial statements?", "Assets, liabilities, equity, income, expenses."],
+ ["How is ending retained earnings calculated?", "Beginning RE + net income (or − net loss) − dividends."],
+ ["The three categories of cash flows?", "Operating (selling goods and services) · investing (buying and selling long-term assets) · financing (borrowing, repaying debt, equity transactions)."],
+ ["IESBA’s five ethical principles?", "Integrity, objectivity, professional competence & due care, confidentiality, professional behavior."],
+ ["Which statement is a “snapshot at one moment”?", "The balance sheet (statement of financial position). The other three cover a whole period."]
+],
+2: [
+ ["What is a transaction?", "An event that has a financial impact on the business and can be measured reliably."],
+ ["What is an account?", "The record of all changes in a particular asset, liability or equity item during a period."],
+ ["What do debit and credit mean?", "Debit is the left side and credit the right side of a T-account. Neither means good or bad."],
+ ["Which account types increase with a debit?", "Dividends, expenses, assets (DEA)."],
+ ["Which account types increase with a credit?", "Liabilities, equity (share capital, RE), revenue (LER)."],
+ ["Why do expenses increase with a debit?", "Because expenses reduce equity, and equity decreases on the debit side."],
+ ["Journal vs ledger?", "The journal records transactions in date order. The ledger groups them by account. Posting moves entries from the journal to the ledger."],
+ ["The three steps of journalizing?", "(1) Identify the accounts affected and classify them; (2) decide increase or decrease, i.e. debit or credit; (3) record the entry in the journal."],
+ ["What is a trial balance for?", "It lists every account and its balance, checks that total debits = total credits, and is prepared at period end as the basis for the financial statements."],
+ ["Does a balanced trial balance prove there are no errors?", "No. Posting to the wrong account or leaving out a whole transaction still balances."],
+ ["The general formula for analyzing a T-account?", "Beginning balance + increases − decreases = ending balance."],
+ ["What are accrued liabilities?", "Liabilities for expenses that have been incurred but not yet paid."]
+],
+3: [
+ ["When does accrual accounting record revenue and expenses?", "Revenue when earned, expenses when incurred, whether or not cash has been received or paid."],
+ ["What is wrong with cash-basis accounting?", "It records only cash receipts and payments, ignores economic substance and gives incomplete statements. Only used by entities that do not follow standards."],
+ ["The two questions the revenue principle answers?", "When to recognize revenue, and how much (the cash or fair value expected to be received)."],
+ ["What is matching (expense recognition)?", "Recognizing expenses in the same period as the revenue they helped generate."],
+ ["The four types of adjusting entries?", "Cash first: prepaid expenses, unearned revenues. Cash later: accrued expenses, accrued revenues. Plus depreciation."],
+ ["What kind of account is unearned revenue?", "A liability: cash received before the goods or services are provided."],
+ ["The adjusting entry for accrued revenue?", "Debit Accounts Receivable / credit Revenue."],
+ ["The golden rule of adjusting entries?", "Each one pairs an income statement account with a balance sheet account, and never involves Cash."],
+ ["What is accumulated depreciation?", "A contra-asset account with a credit balance that always travels with its asset account."],
+ ["Book value of a plant asset?", "Cost − accumulated depreciation."],
+ ["Temporary vs permanent accounts?", "Temporary (closed): income, expenses, dividends. Permanent (carried forward): assets, liabilities, equity."],
+ ["The three closing entries?", "① Dr Revenue / Cr RE; ② Dr RE / Cr each expense; ③ Dr RE / Cr Dividends."],
+ ["Which asset is never depreciated?", "Land, because it does not lose its usefulness."]
+],
+4: [
+ ["The four parts of an annual report?", "Corporate information · analysis & commentaries (Chairman’s letter) · other statements & disclosures (corporate governance) · financial statements (with the auditor’s report)."],
+ ["What is substance over form?", "Accounting for economic substance, not just legal form — the spirit of principle-based standards (IFRS)."],
+ ["The three audit opinions?", "Unqualified (clean, highest assurance) · qualified (fair except for one matter) · adverse (not presented fairly)."],
+ ["The complete set of financial statements under IAS 1?", "SFP (end of period), SCI, SCE, SCF (for the period), notes, plus comparative information for the prior period."],
+ ["The five identification items every statement must show?", "Entity name · consolidated or individual · period-end date or period covered · presentation currency · level of rounding."],
+ ["Offsetting vs netting?", "Offsetting (banned): setting assets against liabilities or income against expenses. Netting (allowed): deducting a contra account, e.g. PPE − AD, AR − allowance."],
+ ["What does materiality & aggregation require?", "Present each material class of items separately; immaterial items may be combined."],
+ ["Annual vs interim reports: which are audited?", "Annual reports are audited. Interim reports (half-yearly, quarterly) are not."],
+ ["The minimum comparative information?", "Two years: the current period and the prior period."],
+ ["You reclassify an expense this year. What about last year?", "Restate last year’s comparatives using the new classification (consistency)."],
+ ["The two ways to present the statement of comprehensive income?", "A single statement, or two statements (the income statement ends at NI; the SCI starts from NI ± OCI)."],
+ ["Minimum line items on the income statement?", "Revenue · finance costs · impairment losses (IFRS 9) · share of profits of associates & JVs · tax expense."],
+ ["The three kinds of accounting change?", "New standards · changes in accounting estimates · changes in accounting policies."],
+ ["Where is a prior-period error corrected?", "In opening retained earnings on the statement of changes in equity (a prior-period adjustment)."]
+],
+5: [
+ ["What is fraud?", "An intentional misrepresentation of facts made to persuade another party to act in a way that causes them injury."],
+ ["The two main types of fraud?", "Misappropriation of assets (employees steal assets) and fraudulent financial reporting (managers misstate the statements)."],
+ ["The fraud triangle?", "Pressure, opportunity, rationalization. Internal control mainly reduces opportunity."],
+ ["The five objectives of internal control?", "Safeguard assets · encourage compliance with policy · promote operational efficiency · ensure accurate, reliable records · comply with legal requirements."],
+ ["The five COSO components?", "Control environment, risk assessment, control activities, information & communication, monitoring (“CRIME”)."],
+ ["What does SOX 2002 require?", "Public companies must have internal control and report on it; auditors evaluate internal control; the PCAOB was created; non-audit services are limited; penalties apply."],
+ ["Which duties does separation of duties split?", "Custody of assets · recordkeeping · approval of transactions."],
+ ["How can internal control be defeated?", "Collusion, management override, human limitations (fatigue, carelessness)."],
+ ["The imprest system for petty cash?", "Cash in the fund + vouchers paid = the fixed fund amount."],
+ ["Reconciling items on the bank side?", "+ Deposits in transit; − outstanding checks; ± bank errors. No journal entries."],
+ ["Reconciling items on the book side?", "+ Bank collections, EFT receipts, interest; − service charges, NSF checks, EFT payments, check printing; ± book errors. Journal entries required."],
+ ["What are cash equivalents?", "Highly liquid investments that mature within three months of the date of purchase."],
+ ["The entry to record estimated uncollectible accounts?", "Dr Uncollectible-Account Expense / Cr Allowance for Uncollectible Accounts."],
+ ["Effect of a write-off under the allowance method?", "Dr Allowance / Cr AR. Net AR is unchanged and no new expense arises."],
+ ["Drawbacks of the direct write-off method?", "It can overstate assets, and the expense is not recorded in the same period as the related revenue (violates matching)."],
+ ["The interest formula and maturity value?", "Interest = Principal × Rate × Time (months ÷ 12). Maturity value = principal + interest."]
+],
+6: [
+ ["The two accounts specific to a merchandiser?", "Cost of goods sold (income statement) and Inventory (balance sheet)."],
+ ["When does the cost of inventory become an expense?", "When the seller delivers the goods to the buyer; Inventory then becomes COGS."],
+ ["FOB shipping point?", "Ownership passes when the goods leave the seller’s dock. Goods in transit belong to the buyer, who pays the freight."],
+ ["FOB destination?", "Ownership passes when the goods arrive at the buyer. Goods in transit still belong to the seller."],
+ ["Whose inventory includes consigned goods?", "The consignor’s (the owner’s). Exclude goods others have consigned to you."],
+ ["Periodic vs perpetual systems?", "Periodic: no running record, typically for inexpensive goods. Perpetual: a running record of purchases, sales and goods on hand. Both count inventory at least once a year."],
+ ["What goes into inventory cost?", "Purchase price + freight in + insurance in transit + necessary fees and taxes − returns, allowances, discounts."],
+ ["The four inventory costing methods?", "Specific identification, FIFO, LIFO, average cost."],
+ ["Rising prices: how do FIFO and LIFO compare?", "FIFO: lowest COGS, highest gross profit and ending inventory. LIFO: highest COGS, lowest gross profit and ending inventory."],
+ ["Why does IFRS prohibit LIFO?", "It puts profit ahead of assets and liabilities, can create unrealistic profits, and does not faithfully represent the flow of goods."],
+ ["What is NRV?", "Estimated selling price − estimated costs of completion − estimated costs to sell."],
+ ["Which principle underlies lower of cost and NRV?", "Conservatism: do not overstate assets or profit."],
+ ["Period 1 ending inventory overstated: effects?", "Period 1: COGS too low, profit too high. Period 2: COGS too high, profit too low. It self-corrects after two periods."],
+ ["What does “2/10, n/30” mean?", "2% off if paid within 10 days; otherwise the full amount is due within 30 days."],
+ ["The COGS model?", "Beginning inventory + purchases = goods available; − ending inventory = COGS."]
+]};
+
+const QUIZ_EN = [
+ ["Financial accounting mainly serves which users?", ["Investors, creditors and other outside parties","Managers inside the company","Only the tax authority","Production staff"], "Financial accounting is for outside decision makers. Managerial accounting is for managers inside the company."],
+ ["The two fundamental qualitative characteristics are:", ["Relevance and faithful representation","Comparability and timeliness","Verifiability and understandability","Materiality and neutrality"], "Materiality is part of relevance and neutrality is part of faithful representation. C-V-T-U are the enhancing ones."],
+ ["A company has assets of 1,000 and liabilities of 600. Equity is:", ["400","1,600","600","1,000"], "E = A − L = 1,000 − 600 = 400 (Exhibit 1-4)."],
+ ["Beginning RE 18,800; net income 2,900; dividends 3,200. Ending RE is:", ["18,500","24,900","21,700","15,600"], "18,800 + 2,900 − 3,200 = 18,500. Dividends reduce RE but are not an expense."],
+ ["Which statement shows the financial position at a specific point in time?", ["Balance sheet","Income statement","Statement of cash flows","Statement of changes in equity"], "The balance sheet is a snapshot at one moment. The other three cover a whole period."],
+ ["Cash paid for long-term equipment is classified as a cash flow from:", ["Investing activities","Operating activities","Financing activities","Not reported"], "Buying and selling long-term assets is an investing activity."],
+ ["An accountant reveals a client’s information to outsiders. Which IESBA principle is violated?", ["Confidentiality","Objectivity","Professional competence","Integrity"], "Keeping information private is the confidentiality principle."],
+
+ ["Which account type increases with a debit?", ["Expenses","Service revenue","Accounts payable","Share capital"], "DEA increase with debits: dividends, expenses, assets. Revenue, liabilities and share capital increase with credits."],
+ ["A RedLotus shareholder remodels their own home with personal funds. The company records:", ["No entry","Dr Repairs Expense / Cr Cash","Dr Dividends / Cr Cash","Dr Share Capital / Cr Cash"], "An owner’s personal transactions are not transactions of the company (economic entity)."],
+ ["Paid 1,900 on accounts payable. The correct entry:", ["Dr Accounts Payable / Cr Cash","Dr Cash / Cr Accounts Payable","Dr Supplies Expense / Cr Cash","Dr Accounts Payable / Cr Supplies"], "The liability decreases (debit AP) and cash decreases (credit Cash). Paying a debt is not an expense."],
+ ["Sold land that cost 20,000 for 22,000 cash. The entry:", ["Dr Cash 22,000 / Cr Land 20,000 / Cr Gain on sale of land 2,000","Dr Cash 22,000 / Cr Land 22,000","Dr Cash 22,000 / Cr Service Revenue 22,000","Dr Land 20,000 / Dr Gain 2,000 / Cr Cash 22,000"], "Remove the land at cost; the difference is a gain, credited."],
+ ["Cash at the start of the month 33,000; receipts 8,000; ending cash 35,000. Total cash paid:", ["6,000","10,000","2,000","41,000"], "33,000 + 8,000 − x = 35,000, so x = 6,000."],
+ ["Which error would a trial balance NOT detect?", ["Debiting Equipment instead of Supplies for a 500 purchase of supplies","Debiting 500 but crediting 50","Recording only the debit and forgetting the credit","Adding up the debit column wrongly"], "If the wrong account is used but debits still equal credits, the trial balance still balances. Balanced does not mean error-free."],
+ ["The normal balance of the Dividends account is:", ["Debit","Credit","Zero","It depends on the company"], "Dividends reduce equity, so they increase with debits and carry a debit balance — but they are not an expense."],
+
+ ["Joe deposits 80,000; buys a business for 60,000 (building 40,000, inventory 20,000); earns 10,000 cash for services; buys supplies for 5,000; pays a 2,000 utility bill. The question does not say the supplies were used. Net income?", ["8,000","3,000","5,000","10,000"], "Buying supplies is not an expense. If unused, NI = 10,000 − 2,000 = 8,000."],
+ ["On June 1, 3,000 of rent was prepaid for 3 months. The June 30 adjusting entry:", ["Dr Rent Expense 1,000 / Cr Prepaid Rent 1,000","Dr Prepaid Rent 1,000 / Cr Cash 1,000","Dr Rent Expense 3,000 / Cr Cash 3,000","Dr Rent Expense 1,000 / Cr Cash 1,000"], "One third has been used, so 1,000 moves from the prepaid asset to expense. Adjusting entries never involve Cash."],
+ ["Supplies bought 700; the month-end count shows 400 on hand. Supplies expense for the month:", ["300","400","700","1,100"], "Used = 700 − 400 = 300."],
+ ["Unearned service revenue is a(n):", ["Liability","Revenue","Asset","Equity account"], "Cash has been received but the service is still owed, so it is a liability."],
+ ["Equipment cost 24,000 with a 5-year life, straight line. Depreciation per month:", ["400","4,800","480","200"], "24,000 ÷ 5 = 4,800 a year; ÷ 12 = 400 a month."],
+ ["Which account is NOT closed at period end?", ["Accumulated depreciation","Service revenue","Dividends","Salary expense"], "Accumulated depreciation is a permanent (contra-asset) account. R-E-D are the ones closed to RE."],
+ ["Adjusting entries (apart from special cases) never involve:", ["Cash","Accounts receivable","Unearned revenue","Salary payable"], "An adjusting entry pairs an income statement account with a balance sheet account, and never Cash."],
+ ["Salary of 1,800 a month is paid twice monthly. June 30 is a Sunday, so 900 is paid on July 1. On June 30, record:", ["Dr Salary Expense 900 / Cr Salary Payable 900","Nothing; wait for July 1","Dr Salary Payable 900 / Cr Cash 900","Dr Salary Expense 1,800 / Cr Cash 1,800"], "The salary expense was incurred in June, so it must be accrued even though it is unpaid."],
+
+ ["The auditor concludes the statements are fair except for a disagreement over one transaction. This opinion is:", ["Qualified","Unqualified","Adverse","Disclaimer"], "Qualified always comes with “except for”."],
+ ["Which audit opinion gives the highest assurance?", ["Unqualified","Qualified","Adverse","Interim"], "Unqualified is the clean, best opinion, despite how the name sounds."],
+ ["Which presentation does IAS 1 allow?", ["Receivables shown net of the allowance for uncollectible accounts","A bank loan offset against cash deposits","Rental income offset against interest expense","Only net assets (assets − liabilities) shown"], "Deducting a contra account (AR − allowance) is netting, which is allowed. The others are offsetting, which is banned."],
+ ["How many periods of information does IAS 1 require at minimum?", ["The current period and one prior period","Only the current period","The last three periods","The last five periods"], "At least two years: current and prior."],
+ ["In 20X5, 2,000 is moved from other operating expenses to sales and marketing. To stay consistent, the company should:", ["Reclassify the 20X4 comparatives as well","Change 20X5 only","Disclose it without changing the figures","Record 2,000 in opening RE"], "Consistency: when the classification changes, the comparatives are restated (22,000 in both years)."],
+ ["Last year’s expenses were understated by 10,000 (found after the statements were issued). How is it corrected?", ["Reduce opening RE by 10,000 in the statement of changes in equity","Add 10,000 of expense to this year","Ignore it because the statements were issued","Increase opening RE by 10,000"], "Understated expenses overstated last year’s profit. The prior-period adjustment reduces opening RE (390,000 → 380,000)."],
+ ["Under the two-statement approach, the statement of comprehensive income starts with:", ["Net income (profit or loss)","Revenue","Total comprehensive income","Retained earnings"], "The income statement ends at NI. The SCI starts from NI, then ± OCI."],
+ ["Interim reports (quarterly, half-yearly) are usually:", ["Not audited","Required to be audited","A replacement for the annual report","Without comparative information"], "Per the slides: annual reports are audited; interim reports are not."],
+
+ ["The three elements of the fraud triangle:", ["Pressure, opportunity, rationalization","Pressure, collusion, override","Motive, means, money","Risk, control, monitoring"], "Pressure, opportunity, rationalization. Internal control mainly reduces opportunity."],
+ ["Which is a reconciling item on the BANK side?", ["Deposit in transit","NSF check","Bank service charge","Interest earned"], "Deposits in transit, outstanding checks and bank errors adjust the bank side. The rest adjust the book side."],
+ ["A customer’s 50 check is returned by the bank (NSF). The entry:", ["Dr Accounts Receivable / Cr Cash","Dr Cash / Cr Accounts Receivable","Dr Miscellaneous Expense / Cr Cash","No entry"], "The cash was never really collected and the customer still owes, so the receivable comes back."],
+ ["EPIC: bank balance 5,900; deposit in transit 1,600; bank error correction +100; outstanding checks 1,340. Adjusted bank balance:", ["6,260","7,600","4,560","5,900"], "5,900 + 1,600 + 100 − 1,340 = 6,260, matching the adjusted book balance."],
+ ["Under the allowance method, writing off a 12 receivable changes net accounts receivable by:", ["Nothing","−12","+12","−24"], "AR falls by 12 and the allowance falls by 12, so net AR stays at 80."],
+ ["Beginning AR 200; sales on account 1,800; write-offs 100; ending AR 400. Cash collected from customers:", ["1,500","1,600","1,700","2,000"], "200 + 1,800 − 100 − x = 400, so x = 1,500."],
+ ["A 1,000 note at 9% a year, signed on Aug 31. Accrued interest at Dec 31:", ["30","90","45","15"], "1,000 × 9% × 4/12 = 30."],
+ ["Which investment counts as a cash equivalent?", ["One maturing within three months of the date of purchase","One maturing within a year","Any listed share","Any government bond"], "Highly liquid and maturing within three months from the date of purchase."],
+
+ ["Exhibit 6-7 (beginning 10 × $10; purchases 25 × $14 and 25 × $18; 40 sold). FIFO COGS:", ["540","660","600","360"], "10×10 + 25×14 + 5×18 = 100 + 350 + 90 = 540."],
+ ["Same data: the average cost per unit is:", ["15","14","18","10"], "900 ÷ 60 = 15, not the simple average (10 + 14 + 18) ÷ 3 = 14."],
+ ["When prices are rising, which method gives the highest gross profit?", ["FIFO","LIFO","Average cost","All the same"], "FIFO puts the older, cheaper costs into COGS, so COGS is low and gross profit high."],
+ ["Which method is not permitted under IFRS?", ["LIFO","FIFO","Average cost","Specific identification"], "IFRS bans LIFO because it does not faithfully represent the flow of goods and can create unrealistic profits."],
+ ["At year end, goods are in transit, shipped FOB shipping point. They belong in the inventory of:", ["The buyer","The seller","The carrier","Both, split equally"], "Ownership passes when the goods leave the seller’s dock."],
+ ["Period 1 ending inventory is overstated by 5,000. The effect:", ["Period 1 profit overstated, period 2 profit understated","Period 1 profit understated, period 2 profit overstated","Only period 1 is affected","Profit is not affected"], "High ending inventory makes COGS low and profit high in period 1. Period 2 reverses."],
+ ["1,000 chips cost $250 each; NRV is $200. Inventory is carried at:", ["200,000","250,000","50,000","225,000"], "Lower of cost and NRV: 1,000 × 200 = 200,000."],
+ ["Beginning inventory 38,000; purchases 72,000; net sales 100,000; gross profit rate 35%. Estimated ending inventory:", ["45,000","65,000","10,000","35,000"], "Estimated COGS = 100,000 × 65% = 65,000. Ending inventory = 110,000 − 65,000 = 45,000."]
+];
+
+const DRILL_EN = [
+ ["Issued shares and received 50,000 in cash.", "Cash (an asset) increases, so debit. Share capital increases, so credit."],
+ ["Paid 40,000 cash for land.", "One asset is swapped for another; total assets do not change."],
+ ["Bought office supplies for 3,700 on account.", "Supplies are an asset, not yet an expense. The payable to the supplier increases."],
+ ["Performed services and collected 7,000 in cash right away.", "Revenue increases equity, so it is a credit."],
+ ["Performed 3,000 of services for UPS on account.", "Revenue is recorded when the service is performed, not when cash is collected."],
+ ["Paid 1,900 on a supplier balance from earlier.", "Paying a debt is not an expense. An asset and a liability both decrease."],
+ ["Collected 1,000 from a customer who owed us.", "Collecting a receivable is not revenue; the revenue was recorded when the service was performed."],
+ ["Declared and paid 2,100 of dividends in cash.", "Dividends reduce equity (debit) but are not an expense and never appear on the income statement."],
+ ["A shareholder uses personal money to remodel their own home.", "Economic entity: an owner’s personal transactions are not transactions of the company.", "No effect"],
+ ["Paid a 400 utility bill in cash.", "Expenses reduce equity, so debit. Cash decreases, so credit."],
+ ["On June 1, prepaid 3,000 of store rent for 3 months.", "A prepayment creates an asset (the right to use the space in future)."],
+ ["June 30 adjustment: one month of prepaid rent has expired (1,000).", "The used portion moves from asset to expense. No Cash."],
+ ["June 30: supplies bought 700, count shows 400 on hand. Record the amount used.", "Used = 700 − 400 = 300."],
+ ["June 15: received 400 in advance for 10 room bookings to be made over the next 30 days.", "Cash received before the work is done creates a liability, not revenue yet."],
+ ["June 30: half of the services paid in advance have been performed (200).", "The liability decreases and revenue increases."],
+ ["June 30: half a month of salary, 900, will be paid on July 1.", "The expense was incurred in June, so accrue it even though it is unpaid."],
+ ["June 30: 10 hotel bookings made at $30 each, not yet collected.", "Accrued revenue: earned but not yet collected (300)."],
+ ["June 30: depreciation on equipment for June is 400.", "Do not credit Equipment directly; use the contra account Accumulated Depreciation."],
+ ["June 30: accrue income tax of 600.", "Tax expense for the period, not yet paid, so it is a liability."],
+ ["Closing: close the 3,200 Dividends balance.", "Dividends close straight to RE, never through the income statement.", "Within equity; total E unchanged"],
+ ["Closing: close Service Revenue of 7,500.", "Bring the revenue balance to zero (debit) and transfer it to RE (credit).", "Within equity; total E unchanged"],
+ ["Bank reconciliation: a customer’s 50 check bounced (NSF).", "The cash was never really collected and the customer still owes, so the receivable comes back."],
+ ["Bank reconciliation: the bank collected a 2,100 receivable for us.", "A book-side reconciling item, so it needs a journal entry."],
+ ["Bank reconciliation: the statement shows 30 of interest earned.", "The company didn’t know about this interest, so adjust the book side and record interest revenue."],
+ ["At year end, estimate uncollectible accounts expense of 2,000 (allowance method).", "Record the expense in the same period as the revenue. The allowance is a contra account to AR."],
+ ["Write off a 12 receivable from a customer who cannot pay (allowance method).", "No expense at write-off. Net AR is unchanged."],
+ ["A bank lends a customer 1,000 and receives a promissory note.", "Cash is exchanged for an interest-bearing claim."],
+ ["Dec 31: accrue 4 months’ interest on a 1,000 note at 9% a year (30).", "1,000 × 9% × 4/12 = 30. Interest revenue has been earned but not collected."],
+ ["Bought 1,000 of merchandise on account, terms 2/10, n/30 (perpetual).", "Under a perpetual system, purchases go straight to Inventory."],
+ ["Returned 100 of defective goods to the supplier, reducing the amount owed.", "Returns reduce inventory and the payable to the supplier."],
+ ["Sold an outfit that cost 15. Record the cost side.", "This is the second entry of a sale. The first is Dr Cash 25 / Cr Sales Revenue 25."],
+ ["Sold that outfit for 25 cash. Record the revenue side.", "Revenue is recorded at selling price; COGS is recorded at cost."],
+ ["Inventory costing 1,000 has an NRV of only 400. Write it down to NRV.", "Write down 600 and add it to cost of goods sold (2,000 + 600 = 2,600, as in Exhibit 6-10)."]
+];
+
+const RC_EN = [
+ ["Deposited on Dec 31 but not yet on the bank statement (deposit in transit)", ""],
+ ["The bank deducted another company’s check from our account by mistake", ""],
+ ["Checks written but not yet cleared (Nos. 337–340)", ""],
+ ["Dividend received by electronic funds transfer (EFT)", "Dr Cash 900 / Cr Dividend Revenue 900"],
+ ["The bank collected a receivable for us", "Dr Cash 2,100 / Cr Accounts Receivable 2,100"],
+ ["Interest earned on the bank balance", "Dr Cash 30 / Cr Interest Revenue 30"],
+ ["Check No. 333 was recorded as 510 but was actually for 150", "Dr Cash 360 / Cr Accounts Payable 360"],
+ ["Bank service charge", "Dr Miscellaneous Expense 20 / Cr Cash 20"],
+ ["A customer’s check bounced for insufficient funds (NSF)", "Dr Accounts Receivable 50 / Cr Cash 50"],
+ ["The bank paid an insurance premium automatically (EFT)", "Dr Insurance Expense 400 / Cr Cash 400"]
+];
+
+/* ---------- i18n wiring ---------- */
+let LANG = store.get("stk-lang", "vi") === "en" ? "en" : "vi";
+const T = (vi, en) => LANG === "en" ? en : vi;
+const chName = ch => (LANG === "en" ? CH_NAMES_EN : CH_NAMES)[ch];
+(function attachEnglish(){
+  CARDS.forEach(c => { const p = c.id.split("-"); const e = (CARDS_EN[p[0]] || [])[+p[1]]; c.fe = e ? e[0] : c.f; c.be = e ? e[1] : c.b; });
+  QUIZ.forEach((q, i) => { const e = QUIZ_EN[i]; q.en = e ? {q: e[0], o: e[1], e: e[2]} : {q: q.q, o: q.o, e: q.e}; });
+  DRILL.forEach((d, i) => { const e = DRILL_EN[i]; d.en = e ? {t: e[0], e: e[1], q: e[2] || d.q} : {t: d.t, e: d.e, q: d.q}; });
+  const ok = Object.keys(CARDS_RAW).every(k => (CARDS_EN[k] || []).length === CARDS_RAW[k].length) && QUIZ_EN.length === QUIZ.length && DRILL_EN.length === DRILL.length;
+  if (!ok) console.warn("English data does not line up with the Vietnamese data");
+})();
+const qT = q => LANG === "en" ? q.en : q;
+
 /* ---------- chips ---------- */
+function chipLabel(v){ return v === "all" ? T("Tất cả", "All") : "Ch" + v; }
 function makeChips(el, values, current, onPick){
-  el.innerHTML = values.map(v => '<button type="button" class="chip' + (v === current ? " on" : "") + '" data-v="' + v + '">' + (v === "all" ? "Tất cả" : "Ch" + v) + "</button>").join("");
+  el.innerHTML = values.map(v => '<button type="button" class="chip' + (v === current ? " on" : "") + '" data-v="' + v + '">' + chipLabel(v) + "</button>").join("");
   el.onclick = e => {
     const b = e.target.closest(".chip"); if (!b) return;
     $$(".chip", el).forEach(c => c.classList.toggle("on", c === b));
@@ -1644,10 +2864,11 @@ function makeChips(el, values, current, onPick){
   };
 }
 function setChip(el, v){ $$(".chip", el).forEach(c => c.classList.toggle("on", c.dataset.v === v)); }
+function relabelChips(){ $$(".chip").forEach(c => { c.textContent = chipLabel(c.dataset.v); }); }
 
 /* ---------- flashcards ---------- */
 const FC = {
-  ch: "all", onlyNew: true, queue: [], cur: null, flipped: false, ready: false,
+  ch: "all", onlyNew: true, queue: [], cur: null, flipped: false,
   known: new Set(store.get("stk-known", [])),
   init(){
     makeChips($("#fc-chips"), ["all","1","2","3","4","5","6"], this.ch, v => { this.ch = v; this.build(); });
@@ -1658,11 +2879,10 @@ const FC = {
     $("#fc-no").addEventListener("click", () => this.mark(false));
     $("#fc-yes").addEventListener("click", () => this.mark(true));
     $("#fc-reset").addEventListener("click", () => {
-      const ids = this.pool(false).map(c => c.id);
-      ids.forEach(id => this.known.delete(id));
+      this.pool(false).forEach(c => this.known.delete(c.id));
       store.set("stk-known", Array.from(this.known)); this.build(); updatePill();
     });
-    this.ready = true; this.build();
+    this.build();
   },
   pool(onlyNew){ return CARDS.filter(c => (this.ch === "all" || String(c.ch) === this.ch) && (!onlyNew || !this.known.has(c.id))); },
   build(){ this.queue = shuffle(this.pool(this.onlyNew)); this.next(); },
@@ -1672,19 +2892,20 @@ const FC = {
     const c = this.cur;
     $("#fc-back").hidden = !this.flipped || !c;
     if (!c) {
-      $("#fc-front").textContent = this.pool(false).length ? "Bạn đã nhớ hết các thẻ trong phạm vi này." : "Chưa có thẻ.";
+      $("#fc-front").textContent = this.pool(false).length ? T("Bạn đã nhớ hết các thẻ trong phạm vi này.", "You know every card in this scope.") : T("Chưa có thẻ.", "No cards yet.");
       $("#fc-ch").textContent = ""; $("#fc-pos").textContent = "";
-      $("#fc-hint").textContent = "Bỏ chọn “Chỉ thẻ chưa nhớ” để ôn lại toàn bộ, hoặc chọn chương khác.";
+      $("#fc-hint").textContent = T("Bỏ chọn “Chỉ thẻ chưa nhớ” để ôn lại toàn bộ, hoặc chọn chương khác.", "Untick “Only cards I don’t know yet” to review them all, or pick another chapter.");
     } else {
-      $("#fc-front").textContent = c.f;
-      $("#fc-back").textContent = c.b;
-      $("#fc-ch").textContent = CH_NAMES[c.ch];
-      $("#fc-pos").textContent = "còn " + (this.queue.length + 1) + " thẻ trong lượt";
-      $("#fc-hint").textContent = this.flipped ? "Bạn nhớ đúng chứ? Chọn một nút bên dưới." : "Tự trả lời trước, rồi bấm để lật";
+      const n = this.queue.length + 1;
+      $("#fc-front").textContent = LANG === "en" ? c.fe : c.f;
+      $("#fc-back").textContent = LANG === "en" ? c.be : c.b;
+      $("#fc-ch").textContent = chName(c.ch);
+      $("#fc-pos").textContent = T("còn " + n + " thẻ trong lượt", n + " left in this round");
+      $("#fc-hint").textContent = this.flipped ? T("Bạn nhớ đúng chứ? Chọn một nút bên dưới.", "Did you get it right? Choose a button below.") : T("Tự trả lời trước, rồi bấm để lật", "Answer first, then tap to flip");
     }
     $("#fc-no").disabled = $("#fc-yes").disabled = $("#fc-flip").disabled = !c;
     const all = this.pool(false), k = all.filter(x => this.known.has(x.id)).length;
-    $("#fc-stat").textContent = "Đã nhớ " + k + "/" + all.length + " thẻ trong phạm vi này";
+    $("#fc-stat").textContent = T("Đã nhớ " + k + "/" + all.length + " thẻ trong phạm vi này", k + "/" + all.length + " cards known in this scope");
     $("#fc-bar").style.width = (all.length ? (k / all.length * 100) : 0) + "%";
   },
   mark(knew){
@@ -1698,96 +2919,121 @@ const FC = {
 
 /* ---------- quiz ---------- */
 const QZ = {
-  ch: "all", list: [], i: 0, score: 0, wrong: [], answered: false, ready: false,
+  ch: "all", list: [], i: 0, score: 0, wrong: [], picked: null,
   best: store.get("stk-quiz", {}),
   init(){
     makeChips($("#qz-chips"), ["all","1","2","3","4","5","6"], this.ch, v => { this.ch = v; this.start(); });
     $("#qz-restart").addEventListener("click", () => this.start());
-    this.ready = true; this.start();
+    this.start();
   },
   start(){
     const pool = QUIZ.filter(q => this.ch === "all" || String(q.ch) === this.ch);
     this.list = shuffle(pool).map(q => Object.assign({}, q, {order: shuffle(q.o.map((_, k) => k))}));
-    this.i = 0; this.score = 0; this.wrong = []; this.answered = false; this.paint();
+    this.i = 0; this.score = 0; this.wrong = []; this.picked = null; this.paint();
   },
   paint(){
-    const card = $("#qz-card");
-    if (this.i >= this.list.length) {
-      const pct = Math.round(this.score / this.list.length * 100);
-      const key = this.ch; const prev = this.best[key] || 0;
-      if (pct > prev) { this.best[key] = pct; store.set("stk-quiz", this.best); }
-      card.innerHTML = '<p class="lab">Kết quả · ' + (this.ch === "all" ? "Tất cả chương" : CH_NAMES[this.ch]) + '</p>' +
-        '<p class="hero-eq" style="font-size:3rem;border-bottom-width:4px">' + this.score + "/" + this.list.length + "</p>" +
-        "<p>" + (pct >= 85 ? "Rất chắc. Chuyển sang luyện Nợ/Có hoặc làm chương khác." : pct >= 60 ? "Khá. Đọc lại các câu sai bên dưới rồi làm lại." : "Nên đọc lại phần cốt lõi và neo nhớ của chương, rồi làm lại.") +
-        " Điểm cao nhất: " + Math.max(pct, prev) + "%.</p>" +
-        (this.wrong.length ? '<h3>Câu cần xem lại</h3><ul>' + this.wrong.map(q => "<li><b>" + esc(q.q) + "</b><br><span class=\"muted\">" + esc(q.o[q.a]) + ". " + esc(q.e) + "</span></li>").join("") + "</ul>" : "") +
-        '<div class="fc-actions" style="margin-top:1rem"><button class="btn pri" type="button" id="qz-again">Làm lại</button></div>';
-      $("#qz-again").addEventListener("click", () => this.start());
-      renderProgress();
-      return;
-    }
-    const q = this.list[this.i];
-    card.innerHTML = '<p class="lab">Câu ' + (this.i + 1) + "/" + this.list.length + " · " + CH_NAMES[q.ch] + " · Đúng " + this.score + '</p><p class="qz-q">' + esc(q.q) + '</p><div class="opts">' +
-      q.order.map((k, n) => '<button type="button" class="opt" data-k="' + k + '"><span class="L">' + "ABCD"[n] + "</span><span>" + esc(q.o[k]) + "</span></button>").join("") + '</div><div id="qz-fb"></div>';
+    if (this.i >= this.list.length) { this.result(); return; }
+    const card = $("#qz-card"), q = this.list[this.i], L = qT(q);
+    card.innerHTML = '<p class="lab">' + T("Câu ", "Question ") + (this.i + 1) + "/" + this.list.length + " · " + chName(q.ch) + " · " + T("Đúng ", "Correct ") + this.score + '</p><p class="qz-q">' + esc(L.q) + '</p><div class="opts">' +
+      q.order.map((k, n) => '<button type="button" class="opt" data-k="' + k + '"><span class="L">' + "ABCD"[n] + "</span><span>" + esc(L.o[k]) + "</span></button>").join("") + '</div><div id="qz-fb"></div>';
     $$(".opt", card).forEach(b => b.addEventListener("click", () => this.answer(+b.dataset.k)));
+    if (this.picked !== null) this.showAnswer();
   },
   answer(k){
-    if (this.answered) return;
-    this.answered = true;
-    const q = this.list[this.i], ok = k === q.a;
-    if (ok) this.score++; else this.wrong.push(q);
+    if (this.picked !== null) return;
+    this.picked = k;
+    const q = this.list[this.i];
+    if (k === q.a) this.score++; else this.wrong.push(q);
+    this.paint();
+    const nx = $("#qz-next"); if (nx) nx.focus();
+  },
+  showAnswer(){
+    const q = this.list[this.i], L = qT(q), k = this.picked, ok = k === q.a;
     $$("#qz-card .opt").forEach(b => { const kk = +b.dataset.k; b.disabled = true; if (kk === q.a) b.classList.add("right"); else if (kk === k) b.classList.add("wrong"); });
-    $("#qz-fb").innerHTML = '<div class="fb ' + (ok ? "ok" : "no") + '"><b class="v">' + (ok ? "Đúng." : "Chưa đúng. Đáp án: " + esc(q.o[q.a])) + "</b>" + esc(q.e) + '</div><div class="fc-actions" style="margin-top:.8rem"><button class="btn pri" type="button" id="qz-next">' + (this.i + 1 < this.list.length ? "Câu tiếp theo →" : "Xem kết quả") + "</button></div>";
-    const nx = $("#qz-next"); nx.addEventListener("click", () => { this.i++; this.answered = false; this.paint(); }); nx.focus();
+    $("#qz-fb").innerHTML = '<div class="fb ' + (ok ? "ok" : "no") + '"><b class="v">' + (ok ? T("Đúng.", "Correct.") : T("Chưa đúng. Đáp án: ", "Not quite. Answer: ") + esc(L.o[q.a])) + "</b>" + esc(L.e) +
+      '</div><div class="fc-actions" style="margin-top:.8rem"><button class="btn pri" type="button" id="qz-next">' + (this.i + 1 < this.list.length ? T("Câu tiếp theo →", "Next question →") : T("Xem kết quả", "See results")) + "</button></div>";
+    $("#qz-next").addEventListener("click", () => { this.i++; this.picked = null; this.paint(); });
+  },
+  result(){
+    const card = $("#qz-card");
+    const pct = Math.round(this.score / this.list.length * 100);
+    const prev = this.best[this.ch] || 0;
+    if (pct > prev) { this.best[this.ch] = pct; store.set("stk-quiz", this.best); }
+    const msg = pct >= 85 ? T("Rất chắc. Chuyển sang luyện Nợ/Có hoặc làm chương khác.", "Solid. Move on to the debit/credit drill or another chapter.")
+      : pct >= 60 ? T("Khá. Đọc lại các câu sai bên dưới rồi làm lại.", "Good. Review the questions you missed below, then try again.")
+      : T("Nên đọc lại phần cốt lõi và neo nhớ của chương, rồi làm lại.", "Reread the chapter’s core and memory hooks, then try again.");
+    card.innerHTML = '<p class="lab">' + T("Kết quả · ", "Results · ") + (this.ch === "all" ? T("Tất cả chương", "All chapters") : chName(this.ch)) + '</p>' +
+      '<p class="hero-eq" style="font-size:3rem;border-bottom-width:4px">' + this.score + "/" + this.list.length + "</p>" +
+      "<p>" + msg + T(" Điểm cao nhất: ", " Best score: ") + Math.max(pct, prev) + "%.</p>" +
+      (this.wrong.length ? "<h3>" + T("Câu cần xem lại", "Questions to review") + "</h3><ul>" + this.wrong.map(q => { const L = qT(q); return "<li><b>" + esc(L.q) + "</b><br><span class=\"muted\">" + esc(L.o[q.a]) + ". " + esc(L.e) + "</span></li>"; }).join("") + "</ul>" : "") +
+      '<div class="fc-actions" style="margin-top:1rem"><button class="btn pri" type="button" id="qz-again">' + T("Làm lại", "Try again") + "</button></div>";
+    $("#qz-again").addEventListener("click", () => this.start());
+    renderProgress();
   }
 };
 
 /* ---------- drill ---------- */
 const DR = {
-  ch: "all", list: [], i: 0, right: 0, done: 0, checked: false, ready: false,
+  ch: "all", list: [], i: 0, right: 0, done: 0, checked: false, last: null,
   init(){
-    const opts = '<option value="">Chọn tài khoản…</option>' + ACCOUNTS.map(g => '<optgroup label="' + g[0] + '">' + g[1].map(a => "<option>" + a + "</option>").join("") + "</optgroup>").join("");
-    $("#dr-debit").innerHTML = opts; $("#dr-credit").innerHTML = opts;
+    this.fillSelects();
     makeChips($("#dr-chips"), ["all","2","3","5","6"], this.ch, v => { this.ch = v; this.start(); });
     $("#dr-check").addEventListener("click", () => this.check());
     $("#dr-next").addEventListener("click", () => this.next());
-    this.ready = true; this.start();
+    this.start();
   },
+  options(){
+    const groups = LANG === "en" ? ACC_GROUPS_EN : ACCOUNTS.map(g => g[0]);
+    return '<option value="">' + T("Chọn tài khoản…", "Choose an account…") + "</option>" +
+      ACCOUNTS.map((g, gi) => '<optgroup label="' + esc(groups[gi]) + '">' + g[1].map(a => '<option value="' + esc(a) + '">' + esc(a === NONE ? T(NONE, "No entry") : a) + "</option>").join("") + "</optgroup>").join("");
+  },
+  fillSelects(){ ["#dr-debit", "#dr-credit"].forEach(s => { const el = $(s), v = el.value; el.innerHTML = this.options(); el.value = v; }); },
+  cur(){ return this.list[this.i % this.list.length]; },
   start(){ this.list = shuffle(DRILL.filter(d => this.ch === "all" || String(d.ch) === this.ch)); this.i = 0; this.right = 0; this.done = 0; this.paint(); },
   paint(){
-    const d = this.list[this.i % this.list.length];
-    this.checked = false;
-    $("#dr-meta").textContent = CH_NAMES[d.ch] + " · nghiệp vụ " + (this.i % this.list.length + 1) + "/" + this.list.length;
-    $("#dr-text").textContent = d.t;
+    this.checked = false; this.last = null;
     $("#dr-debit").value = ""; $("#dr-credit").value = "";
     $("#dr-fb").innerHTML = "";
     $("#dr-check").disabled = false;
-    $("#dr-score").textContent = this.done ? "Đúng " + this.right + "/" + this.done : "";
+    this.text(); this.scoreLine();
   },
+  text(){
+    const d = this.cur();
+    $("#dr-meta").textContent = chName(d.ch) + " · " + T("nghiệp vụ ", "transaction ") + (this.i % this.list.length + 1) + "/" + this.list.length;
+    $("#dr-text").textContent = qT(d).t;
+  },
+  scoreLine(){ $("#dr-score").textContent = this.done ? T("Đúng ", "Correct ") + this.right + "/" + this.done : ""; },
   check(){
     if (this.checked) return;
-    const d = this.list[this.i % this.list.length];
     const a = $("#dr-debit").value, b = $("#dr-credit").value;
-    if (!a || !b) { $("#dr-fb").innerHTML = '<div class="fb no">Chọn cả tài khoản Nợ và tài khoản Có trước khi kiểm tra.</div>'; return; }
-    this.checked = true; this.done++;
-    const ok = a === d.dr && b === d.cr;
-    if (ok) this.right++;
-    const swapped = !ok && a === d.cr && b === d.dr;
-    const ans = d.dr === NONE ? "Không ghi bút toán" : '<span class="dr">Nợ ' + esc(d.dr) + '</span> / <span class="cr">Có ' + esc(d.cr) + "</span>";
-    $("#dr-fb").innerHTML = '<div class="fb ' + (ok ? "ok" : "no") + '"><b class="v">' + (ok ? "Đúng: " : (swapped ? "Bạn đảo ngược Nợ và Có. Đáp án: " : "Chưa đúng. Đáp án: ")) + ans + "</b>" + esc(d.e) + '<br><span class="mono" style="font-size:.85rem">' + esc(d.q) + "</span></div>";
+    if (!a || !b) { $("#dr-fb").innerHTML = '<div class="fb no">' + T("Chọn cả tài khoản Nợ và tài khoản Có trước khi kiểm tra.", "Choose both a debit and a credit account before checking.") + "</div>"; return; }
+    const d = this.cur();
+    this.checked = true; this.done++; this.last = {a: a, b: b};
+    if (a === d.dr && b === d.cr) this.right++;
+    this.feedback();
     $("#dr-check").disabled = true;
-    $("#dr-score").textContent = "Đúng " + this.right + "/" + this.done;
+    this.scoreLine();
     $("#dr-next").focus();
+  },
+  feedback(){
+    if (!this.last) return;
+    const d = this.cur(), L = qT(d), a = this.last.a, b = this.last.b;
+    const ok = a === d.dr && b === d.cr, swapped = !ok && a === d.cr && b === d.dr;
+    const ans = d.dr === NONE ? T("Không ghi bút toán", "No entry") : '<span class="dr">' + T("Nợ ", "Dr ") + esc(d.dr) + '</span> / <span class="cr">' + T("Có ", "Cr ") + esc(d.cr) + "</span>";
+    const head = ok ? T("Đúng: ", "Correct: ") : swapped ? T("Bạn đảo ngược Nợ và Có. Đáp án: ", "You swapped the debit and credit. Answer: ") : T("Chưa đúng. Đáp án: ", "Not quite. Answer: ");
+    $("#dr-fb").innerHTML = '<div class="fb ' + (ok ? "ok" : "no") + '"><b class="v">' + head + ans + "</b>" + esc(L.e) + '<br><span class="mono" style="font-size:.85rem">' + esc(L.q) + "</span></div>";
+  },
+  relang(){
+    this.fillSelects(); this.text(); this.scoreLine();
+    if (this.checked) this.feedback(); else $("#dr-fb").innerHTML = "";
   },
   next(){ this.i++; if (this.i % this.list.length === 0) this.list = shuffle(this.list); this.paint(); }
 };
 
 /* ---------- inventory lab ---------- */
 const INV = {
-  presets: {
-    up: [["Tồn đầu kỳ",10,10],["Mua lần 1",25,14],["Mua lần 2",25,18],["Mua lần 3",0,0]],
-    down: [["Tồn đầu kỳ",10,18],["Mua lần 1",25,14],["Mua lần 2",25,10],["Mua lần 3",0,0]]
-  },
+  labels: {vi: ["Tồn đầu kỳ", "Mua lần 1", "Mua lần 2", "Mua lần 3"], en: ["Beginning inventory", "Purchase 1", "Purchase 2", "Purchase 3"]},
+  presets: {up: [[10,10],[25,14],[25,18],[0,0]], down: [[10,18],[25,14],[25,10],[0,0]]},
   init(){
     this.load("up");
     $("#inv-up").addEventListener("click", () => this.load("up"));
@@ -1797,35 +3043,45 @@ const INV = {
   },
   load(p){
     const rows = this.presets[p];
-    $("#inv-rows").innerHTML = rows.map((r, i) => '<tr><td>' + r[0] + '</td><td><input type="number" id="inv-u' + i + '" min="0" step="1" value="' + r[1] + '" aria-label="Số lượng ' + r[0] + '"></td><td><input type="number" id="inv-c' + i + '" min="0" step="0.01" value="' + r[2] + '" aria-label="Đơn giá ' + r[0] + '"></td><td class="n mono" id="inv-t' + i + '"></td></tr>').join("");
+    $("#inv-rows").innerHTML = rows.map((r, i) => '<tr><td id="inv-l' + i + '"></td><td><input type="number" id="inv-u' + i + '" min="0" step="1" value="' + r[0] + '"></td><td><input type="number" id="inv-c' + i + '" min="0" step="0.01" value="' + r[1] + '"></td><td class="n mono" id="inv-t' + i + '"></td></tr>').join("");
     $$("#inv-rows input").forEach(el => el.addEventListener("input", () => this.calc()));
     $("#inv-sold").value = 40; $("#inv-sales").value = 1000;
+    this.relang();
+  },
+  relang(){
+    [0,1,2,3].forEach(i => {
+      const name = this.labels[LANG][i];
+      $("#inv-l" + i).textContent = name;
+      $("#inv-u" + i).setAttribute("aria-label", T("Số lượng ", "Units, ") + name);
+      $("#inv-c" + i).setAttribute("aria-label", T("Đơn giá ", "Unit cost, ") + name);
+    });
     this.calc();
   },
   calc(){
-    const L = [0,1,2,3].map(i => ({u: Math.max(0, +$("#inv-u" + i).value || 0), c: Math.max(0, +$("#inv-c" + i).value || 0)}));
-    L.forEach((l, i) => $("#inv-t" + i).textContent = fmt(l.u * l.c));
-    const units = L.reduce((s, l) => s + l.u, 0), cost = L.reduce((s, l) => s + l.u * l.c, 0);
+    const Ls = [0,1,2,3].map(i => ({u: Math.max(0, +$("#inv-u" + i).value || 0), c: Math.max(0, +$("#inv-c" + i).value || 0)}));
+    Ls.forEach((l, i) => { $("#inv-t" + i).textContent = fmt(l.u * l.c); });
+    const units = Ls.reduce((s, l) => s + l.u, 0), cost = Ls.reduce((s, l) => s + l.u * l.c, 0);
     const sold = Math.max(0, +$("#inv-sold").value || 0), sales = Math.max(0, +$("#inv-sales").value || 0);
     const msg = $("#inv-msg");
-    if (!units) { msg.textContent = "Nhập ít nhất một lớp hàng có số lượng."; $("#inv-res").innerHTML = ""; $("#inv-stack").innerHTML = ""; $("#inv-insight").textContent = ""; return; }
-    if (sold > units) { msg.textContent = "Số lượng bán (" + sold + ") vượt quá hàng có để bán (" + units + "). Hãy giảm số bán."; $("#inv-res").innerHTML = ""; $("#inv-stack").innerHTML = ""; $("#inv-insight").textContent = ""; return; }
-    msg.textContent = "Hàng có để bán: " + units + " đơn vị, giá trị " + fmt(cost) + ". Bán " + sold + ", còn " + (units - sold) + ".";
+    const clear = () => { $("#inv-res").innerHTML = ""; $("#inv-stack").innerHTML = ""; $("#inv-insight").textContent = ""; };
+    if (!units) { msg.textContent = T("Nhập ít nhất một lớp hàng có số lượng.", "Enter at least one layer with units."); clear(); return; }
+    if (sold > units) { msg.textContent = T("Số lượng bán (" + sold + ") vượt quá hàng có để bán (" + units + "). Hãy giảm số bán.", "Units sold (" + sold + ") exceed units available (" + units + "). Lower the units sold."); clear(); return; }
+    msg.textContent = T("Hàng có để bán: " + units + " đơn vị, giá trị " + fmt(cost) + ". Bán " + sold + ", còn " + (units - sold) + ".", "Goods available: " + units + " units costing " + fmt(cost) + ". Sold " + sold + ", " + (units - sold) + " left.");
     const take = order => { let left = sold, c = 0; order.forEach(l => { const q = Math.min(left, l.u); c += q * l.c; left -= q; }); return c; };
-    const fifo = take(L), lifo = take(L.slice().reverse()), avgU = cost / units, avg = sold * avgU;
-    const M = [["FIFO", fifo], ["LIFO", lifo], ["Bình quân", avg]];
+    const avgU = cost / units;
+    const M = [["FIFO", take(Ls)], ["LIFO", take(Ls.slice().reverse())], [T("Bình quân", "Average"), sold * avgU]];
     const gps = M.map(m => sales - m[1]);
     const hi = Math.max.apply(null, gps), lo = Math.min.apply(null, gps);
     const cls = g => (hi !== lo && g === hi) ? "best" : (hi !== lo && g === lo) ? "worst" : "";
-    $("#inv-res").innerHTML = '<thead><tr><th></th><th class="n">COGS</th><th class="n">Tồn kho cuối</th><th class="n">Lãi gộp</th></tr></thead><tbody>' +
-      M.map((m, i) => '<tr><td>' + m[0] + (m[0] === "Bình quân" ? ' <span class="muted mono" style="font-size:.78rem">(' + fmt(avgU) + "/đv)</span>" : "") + (m[0] === "LIFO" ? ' <span class="muted" style="font-size:.78rem">· IFRS không cho phép</span>' : "") + '</td><td class="n mono">' + fmt(m[1]) + '</td><td class="n mono">' + fmt(cost - m[1]) + '</td><td class="n mono ' + cls(gps[i]) + '">' + fmt(gps[i]) + "</td></tr>").join("") + "</tbody>";
+    const note = i => i === 2 ? ' <span class="muted mono" style="font-size:.78rem">(' + fmt(avgU) + T("/đv", "/unit") + ")</span>" : i === 1 ? ' <span class="muted" style="font-size:.78rem">' + T("· IFRS không cho phép", "· not allowed under IFRS") + "</span>" : "";
+    $("#inv-res").innerHTML = '<thead><tr><th></th><th class="n">COGS</th><th class="n">' + T("Tồn kho cuối", "Ending inventory") + '</th><th class="n">' + T("Lãi gộp", "Gross profit") + "</th></tr></thead><tbody>" +
+      M.map((m, i) => "<tr><td>" + m[0] + note(i) + '</td><td class="n mono">' + fmt(m[1]) + '</td><td class="n mono">' + fmt(cost - m[1]) + '</td><td class="n mono ' + cls(gps[i]) + '">' + fmt(gps[i]) + "</td></tr>").join("") + "</tbody>";
     $("#inv-stack").innerHTML = M.map(m => { const p = cost ? m[1] / cost * 100 : 0; return '<div class="row"><span>' + m[0] + '</span><div class="track"><span class="cogs" style="width:' + p + '%">' + (p > 14 ? fmt(m[1]) : "") + '</span><span class="ei" style="width:' + (100 - p) + '%">' + (100 - p > 14 ? fmt(cost - m[1]) : "") + "</span></div></div>"; }).join("");
-    const nz = L.filter(l => l.u > 0);
-    const first = nz[0].c, last = nz[nz.length - 1].c;
-    let ins = "Tổng COGS + tồn kho cuối luôn bằng " + fmt(cost) + " ở cả ba phương pháp. ";
-    if (last > first) ins += "Giá đang tăng: FIFO cho COGS thấp nhất, lãi gộp và tồn kho cao nhất.";
-    else if (last < first) ins += "Giá đang giảm: kết quả đảo chiều, LIFO cho lãi gộp cao nhất, FIFO thấp nhất.";
-    else ins += "Giá không đổi: ba phương pháp cho cùng kết quả.";
+    const nz = Ls.filter(l => l.u > 0), first = nz[0].c, last = nz[nz.length - 1].c;
+    let ins = T("Tổng COGS + tồn kho cuối luôn bằng " + fmt(cost) + " ở cả ba phương pháp. ", "COGS + ending inventory always equals " + fmt(cost) + " under all three methods. ");
+    if (last > first) ins += T("Giá đang tăng: FIFO cho COGS thấp nhất, lãi gộp và tồn kho cao nhất.", "Prices are rising: FIFO gives the lowest COGS and the highest gross profit and ending inventory.");
+    else if (last < first) ins += T("Giá đang giảm: kết quả đảo chiều, LIFO cho lãi gộp cao nhất, FIFO thấp nhất.", "Prices are falling: the results flip — LIFO gives the highest gross profit, FIFO the lowest.");
+    else ins += T("Giá không đổi: ba phương pháp cho cùng kết quả.", "Prices are flat: all three methods give the same result.");
     $("#inv-insight").textContent = ins;
   }
 };
@@ -1844,16 +3100,18 @@ const RC = {
     {t:"Séc của khách bị trả lại vì không đủ số dư (NSF)", n:50, k:"book-", je:"Nợ Accounts Receivable 50 / Có Cash 50"},
     {t:"Ngân hàng tự động chi trả phí bảo hiểm (EFT)", n:400, k:"book-", je:"Nợ Insurance Expense 400 / Có Cash 400"}
   ],
-  pick: {}, order: [],
+  pick: {}, order: [], didCheck: false,
   init(){
     $("#rc-check").addEventListener("click", () => this.check());
     $("#rc-reset").addEventListener("click", () => this.reset());
     this.reset();
   },
-  reset(){ this.pick = {}; this.order = shuffle(this.items.map((_, i) => i)); this.paint(); $("#rc-fb").innerHTML = ""; },
+  txt(i){ return LANG === "en" ? RC_EN[i][0] : this.items[i].t; },
+  je(i){ return LANG === "en" ? RC_EN[i][1] : (this.items[i].je || ""); },
+  reset(){ this.pick = {}; this.didCheck = false; this.order = shuffle(this.items.map((_, i) => i)); this.paint(); $("#rc-fb").innerHTML = ""; },
   paint(){
-    const L = [["bank+","Bank +"],["bank-","Bank −"],["book+","Sổ +"],["book-","Sổ −"]];
-    $("#rc-list").innerHTML = this.order.map(i => { const it = this.items[i]; return '<div class="recon-item" data-i="' + i + '"><div class="t">' + esc(it.t) + '<span class="n mono">' + fmt(it.n) + '</span></div><div class="seg" role="group" aria-label="Chọn bên">' + L.map(l => '<button type="button" data-k="' + l[0] + '"' + (this.pick[i] === l[0] ? ' class="on"' : "") + ">" + l[1] + "</button>").join("") + "</div></div>"; }).join("");
+    const L = [["bank+", "Bank +"], ["bank-", "Bank −"], ["book+", T("Sổ +", "Book +")], ["book-", T("Sổ −", "Book −")]];
+    $("#rc-list").innerHTML = this.order.map(i => '<div class="recon-item" data-i="' + i + '"><div class="t">' + esc(this.txt(i)) + '<span class="n mono">' + fmt(this.items[i].n) + '</span></div><div class="seg" role="group" aria-label="' + T("Chọn bên", "Choose a side") + '">' + L.map(l => '<button type="button" data-k="' + l[0] + '"' + (this.pick[i] === l[0] ? ' class="on"' : "") + ">" + l[1] + "</button>").join("") + "</div></div>").join("");
     $$("#rc-list .recon-item").forEach(row => row.addEventListener("click", e => {
       const b = e.target.closest("button"); if (!b) return;
       const i = +row.dataset.i; this.pick[i] = b.dataset.k;
@@ -1871,35 +3129,58 @@ const RC = {
     $("#rc-bank-box").classList.toggle("match", match); $("#rc-book-box").classList.toggle("match", match);
   },
   check(){
+    this.didCheck = true;
     let ok = 0, missing = 0;
     $$("#rc-list .recon-item").forEach(row => {
       const i = +row.dataset.i, it = this.items[i], p = this.pick[i];
       row.classList.remove("okay", "miss");
       const old = $(".je-note", row); if (old) old.remove();
       if (!p) { missing++; return; }
-      if (p === it.k) { ok++; row.classList.add("okay"); }
-      else row.classList.add("miss");
+      if (p === it.k) { ok++; row.classList.add("okay"); } else row.classList.add("miss");
+      const side = it.k.indexOf("bank") === 0 ? T("bên ngân hàng ", "bank side ") : T("bên sổ sách ", "book side ");
       const note = document.createElement("div"); note.className = "je-note";
-      note.textContent = (p === it.k ? "" : "Đúng ra: " + (it.k.indexOf("bank") === 0 ? "bên ngân hàng " : "bên sổ sách ") + (it.k.slice(-1) === "+" ? "(+)" : "(−)") + ". ") + (it.je ? "Bút toán: " + it.je : "Không cần bút toán (bên ngân hàng).");
+      note.textContent = (p === it.k ? "" : T("Đúng ra: ", "Should be: ") + side + (it.k.slice(-1) === "+" ? "(+)" : "(−)") + ". ") +
+        (this.je(i) ? T("Bút toán: ", "Entry: ") + this.je(i) : T("Không cần bút toán (bên ngân hàng).", "No entry needed (bank side)."));
       row.appendChild(note);
     });
-    const all = ok === this.items.length;
-    $("#rc-fb").innerHTML = '<div class="fb ' + (all ? "ok" : "no") + '"><b class="v">' + (all ? "Chính xác. Hai số dư điều chỉnh đều bằng 6,260." : "Đúng " + ok + "/" + this.items.length + (missing ? ", còn " + missing + " khoản chưa xếp" : "") + ".") + "</b>Ghi nhớ: chỉ các khoản bên <b>sổ sách</b> mới cần ghi bút toán, vì sổ sách là của công ty.</div>";
-  }
+    const n = this.items.length, all = ok === n;
+    $("#rc-fb").innerHTML = '<div class="fb ' + (all ? "ok" : "no") + '"><b class="v">' +
+      (all ? T("Chính xác. Hai số dư điều chỉnh đều bằng 6,260.", "Correct. Both adjusted balances equal 6,260.") : T("Đúng ", "Correct: ") + ok + "/" + n + (missing ? T(", còn " + missing + " khoản chưa xếp", ", " + missing + " still unplaced") : "") + ".") +
+      "</b>" + T("Ghi nhớ: chỉ các khoản bên <b>sổ sách</b> mới cần ghi bút toán, vì sổ sách là của công ty.", "Remember: only <b>book-side</b> items need journal entries, because the books belong to the company.") + "</div>";
+  },
+  relang(){ this.paint(); if (this.didCheck) this.check(); }
 };
 
-/* ---------- progress & routing ---------- */
-function updatePill(){ const n = FC.known.size; $("#pill-known").textContent = n + "/" + CARDS.length + " thẻ đã nhớ"; }
+/* ---------- progress, language & routing ---------- */
+function updatePill(){ $("#pill-known").textContent = FC.known.size + "/" + CARDS.length + T(" thẻ đã nhớ", " cards known"); }
 function renderProgress(){
   const best = store.get("stk-quiz", {});
   $$("[data-prog]").forEach(el => {
     const ch = el.dataset.prog;
     const cards = CARDS.filter(c => String(c.ch) === ch), k = cards.filter(c => FC.known.has(c.id)).length;
     const b = best[ch];
-    el.innerHTML = "<span>Flashcards " + k + "/" + cards.length + "</span><span class=\"bar\"><i style=\"width:" + (k / cards.length * 100) + "%\"></i></span><span>" + (b != null ? "Trắc nghiệm tốt nhất " + b + "%" : "Chưa làm trắc nghiệm") + "</span>";
+    el.innerHTML = "<span>Flashcards " + k + "/" + cards.length + '</span><span class="bar"><i style="width:' + (k / cards.length * 100) + '%"></i></span><span>' +
+      (b != null ? T("Trắc nghiệm tốt nhất ", "Best quiz score ") + b + "%" : T("Chưa làm trắc nghiệm", "No quiz yet")) + "</span>";
   });
 }
-const VIEWS = $$("[data-view]").map(v => v.dataset.view);
+function setLang(l){
+  LANG = l === "en" ? "en" : "vi";
+  const root = document.documentElement;
+  root.setAttribute("data-lang", LANG);
+  root.setAttribute("lang", LANG);
+  store.set("stk-lang", LANG);
+  document.title = T("Sổ Tay Kế Toán Tài Chính", "Financial Accounting Handbook");
+  $$("[data-setlang]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.setlang === LANG)));
+  $(".nav").setAttribute("aria-label", T("Mục lục", "Contents"));
+  $("#fc-card").setAttribute("aria-label", T("Lật thẻ", "Flip card"));
+  relabelChips();
+}
+function applyLang(l){
+  setLang(l);
+  FC.paint(); QZ.paint(); DR.relang(); INV.relang(); RC.relang();
+  updatePill(); renderProgress();
+}
+const VIEWS = Array.from(new Set($$("[data-view]").map(v => v.dataset.view)));
 function route(){
   let h = decodeURIComponent(location.hash.replace("#", ""));
   let anchor = null;
@@ -1908,14 +3189,16 @@ function route(){
     const host = el && el.closest("[data-view]");
     if (host) { anchor = el; h = host.dataset.view; } else h = "ban-do";
   }
-  $$("[data-view]").forEach(v => v.hidden = v.dataset.view !== h);
+  $$("[data-view]").forEach(v => { v.hidden = v.dataset.view !== h; });
   $$(".nav a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + h));
   if (h === "ban-do") renderProgress();
-  if (anchor) anchor.scrollIntoView({block: "start"}); else window.scrollTo(0, 0);
+  if (anchor && anchor.offsetParent !== null) anchor.scrollIntoView({block: "start"}); else window.scrollTo(0, 0);
   const on = $(".nav a.on");
   if (on && window.innerWidth < 980) { const nav = $(".nav"); nav.scrollLeft = on.offsetLeft - nav.clientWidth / 2 + on.clientWidth / 2; }
 }
 document.addEventListener("click", e => {
+  const lb = e.target.closest("[data-setlang]");
+  if (lb) { if (lb.dataset.setlang !== LANG) applyLang(lb.dataset.setlang); return; }
   const b = e.target.closest("[data-go]"); if (!b) return;
   const go = b.dataset.go, ch = b.dataset.ch;
   if (go === "flashcards") { FC.ch = ch; setChip($("#fc-chips"), ch); FC.build(); }
@@ -1936,6 +3219,7 @@ document.addEventListener("keydown", e => {
   else if (e.key === "2") FC.mark(true);
 });
 
+setLang(LANG);
 renderJE(); renderTA();
 FC.init(); QZ.init(); DR.init(); INV.init(); RC.init();
 updatePill(); renderProgress();
