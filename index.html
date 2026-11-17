@@ -1,0 +1,1947 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Tóm tắt và luyện tập Ch1–6 môn Introduction to Financial Accounting (IFRS): cốt lõi, neo nhớ, bút toán mẫu, flashcards, trắc nghiệm, luyện Nợ/Có.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Sổ Tay Kế Toán Tài Chính</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: a ledger book — an index-tab rail on the left, one ruled sheet of notes on the right.
+   Totals get the accountant's double underline; debit ink is blue, credit ink is red-brown. */
+:root{
+  --paper:#ECF2EE; --sheet:#FBFDFB; --ink:#15212A; --muted:#55645E; --rule:#D2E1D7; --rule-2:#9DC0AD;
+  --accent:#0D6849; --accent-ink:#FFFFFF; --dr:#2747A6; --cr:#B03A1E; --hl:rgba(246,221,112,.5);
+  --chip:#E1EBE5; --ok:#1E7748; --bad:#B3261E; --okbg:#E2F2E8; --badbg:#FBE6E3;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:6px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0D1411; --sheet:#131D19; --ink:#E2EBE6; --muted:#9AAFA5; --rule:#22332C; --rule-2:#36584B;
+  --accent:#5BC59A; --accent-ink:#06130D; --dr:#93AAFF; --cr:#FF9B7B; --hl:rgba(233,201,74,.2);
+  --chip:#1B2924; --ok:#5DC78C; --bad:#FF7F75; --okbg:#15301F; --badbg:#3A1C19; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0D1411; --sheet:#131D19; --ink:#E2EBE6; --muted:#9AAFA5; --rule:#22332C; --rule-2:#36584B;
+  --accent:#5BC59A; --accent-ink:#06130D; --dr:#93AAFF; --cr:#FF9B7B; --hl:rgba(233,201,74,.2);
+  --chip:#1B2924; --ok:#5DC78C; --bad:#FF7F75; --okbg:#15301F; --badbg:#3A1C19; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.65 var(--f-body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:var(--accent)}
+b,strong{font-weight:600}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.18;margin:0}
+h1{font-size:clamp(1.85rem,4.2vw,2.6rem);font-weight:780;font-stretch:84%;letter-spacing:-.01em}
+h2{font-size:1.42rem;font-weight:720;font-stretch:88%;display:flex;gap:.6rem;align-items:baseline;margin-top:2.6rem;scroll-margin-top:72px}
+h3{font-size:1.08rem;font-weight:700;font-stretch:92%;margin-top:1.4rem}
+p{margin:.7rem 0}
+ul,ol{margin:.6rem 0;padding-left:1.25rem}
+li{margin:.25rem 0}
+.mono,.n,code{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+code{font-size:.9em;background:var(--chip);padding:.05em .35em;border-radius:3px}
+.muted{color:var(--muted)}
+.dr{color:var(--dr)} .cr{color:var(--cr)}
+
+/* ---------- shell ---------- */
+.top{padding-block:18px 10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1240px;margin:0 auto}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;text-decoration:none;color:var(--ink)}
+.brand b{font-family:var(--f-display);font-weight:800;font-stretch:78%;font-size:1.3rem;letter-spacing:.01em;text-transform:uppercase}
+.brand span{font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+.pill{font-family:var(--f-mono);font-size:.78rem;border:1px solid var(--rule-2);border-radius:999px;padding:.2rem .7rem;color:var(--muted);white-space:nowrap}
+.shell{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px;display:grid;grid-template-columns:232px minmax(0,1fr);gap:28px;align-items:start}
+.nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 14px);display:flex;flex-direction:column;gap:2px}
+.nav .grp{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px 10px}
+.nav a{display:flex;gap:.65rem;align-items:center;text-decoration:none;color:var(--ink);padding:.48rem .7rem;border-radius:var(--r);font-size:.93rem;line-height:1.3}
+.nav a .k{font-family:var(--f-mono);font-size:.72rem;min-width:2.6rem;text-align:center;border:1px solid var(--rule-2);border-radius:3px;padding:.05rem .2rem;color:var(--muted)}
+.nav a:hover{background:var(--chip)}
+.nav a.on{background:var(--ink);color:var(--paper)}
+.nav a.on .k{border-color:currentColor;color:inherit}
+main{min-width:0}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:var(--r);padding-block:34px 44px;padding-inline:clamp(18px,4.5vw,56px);position:relative}
+.sheet::before{content:"";position:absolute;top:0;bottom:0;left:clamp(8px,2vw,26px);width:3px;border-left:1px solid var(--rule-2);border-right:1px solid var(--rule-2);opacity:.55}
+.prose{max-width:68ch}
+@media (max-width:979px){
+  .shell{grid-template-columns:minmax(0,1fr);gap:14px}
+  .nav{flex-direction:row;overflow-x:auto;gap:6px;padding:8px 0;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--paper);z-index:5;top:env(safe-area-inset-top,0px);scrollbar-width:none;border-bottom:1px solid var(--rule)}
+  .nav::-webkit-scrollbar{display:none}
+  .nav .grp{display:none}
+  .nav a{flex:none;padding:.4rem .7rem;border:1px solid var(--rule);background:var(--sheet)}
+  .nav a .lbl{display:none}
+  .nav a .k{border:0;min-width:0;padding:0;color:inherit;font-size:.8rem}
+  .sheet::before{display:none}
+}
+
+/* ---------- chapter furniture ---------- */
+.eyebrow{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.06em;color:var(--muted);margin:0 0 .6rem;text-transform:uppercase}
+.eyebrow .tag{color:var(--accent);font-weight:600;margin-right:.5rem}
+.core{margin:1.4rem 0 1rem;padding:.9rem 0 1rem;border-top:1px solid var(--ink);border-bottom:4px double var(--ink);max-width:68ch}
+.core .lab,.anchor .lab,.lab{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block}
+.core p{font-size:1.16rem;line-height:1.55;margin:.35rem 0 0;font-weight:500}
+.lo{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px;margin:1rem 0 0}
+.lo li{margin:0}
+.lo a{display:inline-block;font-size:.83rem;text-decoration:none;color:var(--ink);background:var(--chip);border-radius:999px;padding:.2rem .7rem}
+.lo a b{font-family:var(--f-mono);font-weight:600;margin-right:.3rem}
+.sec{font-family:var(--f-mono);font-size:.78rem;font-weight:600;font-stretch:100%;border:1px solid var(--ink);border-radius:3px;padding:.05rem .4rem;letter-spacing:.02em;flex:none}
+.anchor{background:var(--hl);border:1px dashed var(--rule-2);border-radius:var(--r);padding:.85rem 1rem;margin:1.1rem 0;max-width:68ch}
+.anchor p{margin:.35rem 0}
+.anchor .big{font-family:var(--f-display);font-weight:780;font-stretch:90%;font-size:1.3rem;line-height:1.25;display:block;margin:.25rem 0}
+.traps{margin-top:2.6rem;max-width:68ch}
+.stamp{display:inline-block;font-family:var(--f-mono);font-weight:600;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cr);border:2px solid var(--cr);border-radius:4px;padding:.15rem .6rem;transform:rotate(-2deg)}
+.traps ul{list-style:none;padding:0;margin-top:.8rem}
+.traps li{position:relative;padding-left:1.7rem;margin:.6rem 0}
+.traps li::before{content:"!";position:absolute;left:0;top:.18rem;width:1.15rem;height:1.15rem;border-radius:50%;border:1.5px solid var(--cr);color:var(--cr);font:600 .72rem/1.05rem var(--f-mono);text-align:center}
+.recall{margin-top:2.2rem;max-width:68ch}
+details{border-bottom:1px solid var(--rule);padding:.55rem 0}
+summary{cursor:pointer;font-weight:500;list-style:none;display:flex;gap:.6rem}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"?";font-family:var(--f-mono);color:var(--accent);font-weight:600}
+details[open] summary::before{content:"→"}
+details p{margin:.4rem 0 .2rem 1.3rem;color:var(--ink)}
+.practice{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.2rem}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:2.6rem;border-top:1px solid var(--rule);padding-top:1rem;flex-wrap:wrap}
+.pager a{text-decoration:none;font-size:.92rem}
+
+/* buttons, chips */
+.btn{font:500 .9rem/1.2 var(--f-body);border:1px solid var(--ink);background:var(--sheet);color:var(--ink);border-radius:var(--r);padding:.55rem .95rem;cursor:pointer}
+.btn:hover{background:var(--chip)}
+.btn.pri{background:var(--ink);color:var(--paper)}
+.btn.pri:hover{opacity:.9}
+.btn:disabled{opacity:.45;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 .82rem/1 var(--f-mono);border:1px solid var(--rule-2);background:transparent;color:var(--ink);border-radius:999px;padding:.42rem .75rem;cursor:pointer}
+.chip.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* tables */
+.scroll{overflow-x:auto;margin:1rem 0;max-width:100%}
+table{border-collapse:collapse;font-size:.92rem}
+.data{width:100%;min-width:480px}
+.data th{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:500;padding:.45rem .6rem;border-bottom:1.5px solid var(--ink)}
+.data td{padding:.5rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+.data td:first-child{font-weight:500}
+.fs{min-width:340px;width:100%;max-width:560px}
+.fs td{padding:.28rem .5rem;border-bottom:1px solid var(--rule)}
+.fs td.n{text-align:right;white-space:nowrap}
+.fs tr.h td{font-family:var(--f-display);font-weight:700;font-stretch:90%;border-bottom:1.5px solid var(--ink)}
+.fs tr.sub td{font-weight:600}
+.fs tr.tot td{font-weight:600}
+.fs tr.tot td.n{border-bottom:4px double var(--ink)}
+.fs td.ind{padding-left:1.6rem}
+.jr{width:100%;min-width:420px;max-width:640px}
+.jr th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;text-align:left;padding:.35rem .5rem;border-bottom:1.5px solid var(--ink);background:var(--chip)}
+.jr th.dr,.jr th.cr{text-align:right;width:6.5rem}
+.jr td{padding:0 .5rem;height:2.05rem;white-space:nowrap;border-bottom:1px solid var(--rule)}
+.jr td.d{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);width:4.6rem}
+.jr td.n{text-align:right}
+.jr td.ind{padding-left:2.1rem}
+.jr tr.memo td{font-style:italic;color:var(--muted);font-size:.85rem;white-space:normal}
+.jr tr.gap td{height:.6rem;border-bottom:1.5px solid var(--rule-2)}
+.tgrid{display:flex;flex-wrap:wrap;gap:16px 26px;margin:1rem 0}
+.taccount{min-width:200px;flex:1 1 200px;max-width:280px;font-family:var(--f-mono);font-size:.84rem;font-variant-numeric:tabular-nums}
+.taccount.hl .th{color:var(--accent)}
+.taccount .th{text-align:center;font-family:var(--f-body);font-weight:600;font-size:.9rem;padding-bottom:.2rem;border-bottom:2px solid var(--ink)}
+.taccount .tr{display:grid;grid-template-columns:1fr 1fr}
+.taccount .tr span{display:flex;justify-content:space-between;gap:.4rem;padding:.12rem .45rem;min-height:1.5rem}
+.taccount .tr span:first-child{border-right:2px solid var(--ink)}
+.taccount i{font-style:normal;color:var(--muted)}
+.taccount .tf{border-top:1px solid var(--ink)}
+.taccount .tf b{font-weight:600}
+
+/* diagrams */
+.ladder{display:grid;gap:6px;margin:1rem 0}
+.ladder>div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center;padding:.55rem .8rem;border:1px solid var(--rule);border-radius:var(--r);background:var(--paper)}
+.ladder .lv{font-family:var(--f-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.ladder .boxes{display:flex;flex-wrap:wrap;gap:6px}
+.ladder .boxes span{background:var(--sheet);border:1px solid var(--rule-2);border-radius:4px;padding:.12rem .5rem;font-size:.86rem}
+@media (max-width:560px){.ladder>div{grid-template-columns:1fr;gap:4px}}
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:1rem 0}
+.flow .st{flex:1 1 150px;border:1px solid var(--ink);border-radius:var(--r);padding:.6rem .75rem;background:var(--sheet)}
+.flow .st b{display:block;font-family:var(--f-display);font-stretch:90%;font-weight:720}
+.flow .st small{display:block;color:var(--muted);font-size:.8rem;line-height:1.4}
+.flow .st .n{display:block;margin-top:.3rem;font-size:.9rem}
+.flow .ar{align-self:center;font-family:var(--f-mono);color:var(--accent);font-weight:600}
+@media (max-width:620px){.flow{flex-direction:column}.flow .ar{transform:rotate(90deg);align-self:center}}
+.eq{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px;margin:1rem 0;font-family:var(--f-mono)}
+.eq .blk{border:1px solid var(--ink);border-radius:4px;padding:.4rem .7rem;text-align:center;min-width:5.5rem}
+.eq .blk small{display:block;font-family:var(--f-body);font-size:.75rem;color:var(--muted)}
+.eq .op{font-size:1.3rem;padding-bottom:.45rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:1rem 0}
+.box{border:1px solid var(--rule);border-radius:var(--r);padding:.8rem .95rem;background:var(--sheet)}
+.box h3{margin-top:0;font-size:1rem}
+.box p,.box ul{margin:.4rem 0;font-size:.93rem}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:1rem 0}
+.rule{border:1px solid var(--rule-2);border-radius:var(--r);overflow:hidden;background:var(--sheet)}
+.rule .nm{text-align:center;font-weight:600;font-size:.88rem;padding:.35rem;border-bottom:2px solid var(--ink)}
+.rule .sides{display:grid;grid-template-columns:1fr 1fr;text-align:center;font-family:var(--f-mono);font-size:.82rem}
+.rule .sides div{padding:.4rem .2rem}
+.rule .sides div:first-child{border-right:2px solid var(--ink)}
+.rule .up{font-weight:600}
+.rule .sides small{display:block;font-size:.68rem;color:var(--muted)}
+.matrix{display:grid;grid-template-columns:auto 1fr 1fr;gap:1px;background:var(--rule-2);border:1px solid var(--rule-2);border-radius:var(--r);overflow:hidden;margin:1rem 0;font-size:.9rem}
+.matrix>div{background:var(--sheet);padding:.6rem .7rem}
+.matrix .hd{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--chip)}
+.matrix b{display:block}
+.matrix .ex{font-family:var(--f-mono);font-size:.8rem;margin-top:.3rem}
+
+/* overview */
+.hero-eq{font-family:var(--f-display);font-weight:800;font-stretch:120%;font-size:clamp(2.4rem,9vw,4.6rem);line-height:1;letter-spacing:-.01em;padding-bottom:.35rem;border-bottom:5px double var(--ink);display:inline-block;margin:.4rem 0 1rem}
+.hero-eq .op{color:var(--accent)}
+.steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:1rem 0}
+.steps li{margin:0;border-top:2px solid var(--ink);padding-top:.5rem}
+.steps li .k{font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
+.steps li b{display:block;font-family:var(--f-display);font-stretch:90%;font-weight:720;font-size:1.05rem}
+.steps li span.t{font-size:.9rem;color:var(--muted)}
+.cycle{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:1rem 0;counter-reset:c}
+.cycle li{margin:0;counter-increment:c;border:1px solid var(--rule-2);border-radius:var(--r);padding:.55rem .65rem;background:var(--paper);position:relative}
+.cycle li::before{content:counter(c);font-family:var(--f-mono);font-size:.72rem;color:var(--muted);display:block}
+.cycle li b{display:block;font-size:.9rem;line-height:1.3}
+.cycle li a{font-family:var(--f-mono);font-size:.74rem;text-decoration:none}
+.chgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:1rem 0}
+.chcard{display:flex;flex-direction:column;gap:.35rem;text-decoration:none;color:var(--ink);border:1px solid var(--rule-2);border-radius:var(--r);padding:.9rem 1rem;background:var(--sheet)}
+.chcard:hover{border-color:var(--ink)}
+.chcard .k{font-family:var(--f-mono);font-size:.74rem;color:var(--accent);font-weight:600}
+.chcard b{font-family:var(--f-display);font-stretch:88%;font-weight:720;font-size:1.08rem;line-height:1.25}
+.chcard p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.5}
+.chcard .prog{margin-top:auto;padding-top:.5rem;font-family:var(--f-mono);font-size:.75rem;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.bar{height:5px;border-radius:3px;background:var(--chip);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);width:0}
+.formulas td:first-child{font-family:var(--f-mono);font-weight:500;font-size:.86rem;white-space:nowrap}
+
+/* practice */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:1.2rem 0}
+.toolbar label{font-size:.88rem;display:flex;gap:.4rem;align-items:center}
+.card{border:1.5px solid var(--ink);border-radius:var(--r);background:var(--sheet);padding:1.3rem 1.4rem;margin:1rem 0;max-width:680px}
+.fc{min-height:220px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;position:relative;background:var(--sheet) repeating-linear-gradient(to bottom,transparent 0,transparent 1.95rem,var(--rule) 1.95rem,var(--rule) 2rem)}
+.fc .meta{position:absolute;top:.7rem;left:1rem;right:1rem;display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+.fc .front{font-family:var(--f-display);font-weight:720;font-stretch:90%;font-size:clamp(1.25rem,3.2vw,1.6rem);line-height:1.3;margin:1.2rem 0 .4rem}
+.fc .back{font-size:1rem;line-height:1.6;border-top:1px dashed var(--rule-2);padding-top:.7rem;margin-top:.6rem}
+.fc .hint{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
+.fc-actions{display:flex;flex-wrap:wrap;gap:8px}
+.statline{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.qz-q{font-weight:600;font-size:1.06rem;line-height:1.5;margin:.3rem 0 1rem}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;font:400 .96rem/1.45 var(--f-body);border:1px solid var(--rule-2);background:var(--sheet);color:var(--ink);border-radius:var(--r);padding:.65rem .8rem;cursor:pointer;display:flex;gap:.6rem}
+.opt .L{font-family:var(--f-mono);color:var(--muted)}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:var(--okbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.opt:disabled{cursor:default}
+.fb{margin-top:1rem;padding:.75rem .9rem;border-radius:var(--r);font-size:.94rem}
+.fb.ok{background:var(--okbg);border:1px solid var(--ok)}
+.fb.no{background:var(--badbg);border:1px solid var(--bad)}
+.fb b.v{display:block;margin-bottom:.2rem}
+.drill-sel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:1rem 0}
+.drill-sel label{display:flex;flex-direction:column;gap:.3rem;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase}
+select,input[type=number]{font:400 .95rem var(--f-body);color:var(--ink);background:var(--sheet);border:1px solid var(--rule-2);border-radius:var(--r);padding:.5rem .55rem;width:100%;max-width:100%}
+input[type=number]{font-family:var(--f-mono);text-align:right}
+.inv td{padding:.3rem .4rem;border-bottom:1px solid var(--rule)}
+.inv input{width:5.4rem}
+.inv td:first-child{white-space:nowrap}
+.inv th{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;padding:.3rem .4rem;font-weight:500}
+.res td.n,.res th.n{text-align:right}
+.res .best{color:var(--ok);font-weight:600}
+.res .worst{color:var(--cr);font-weight:600}
+.stack{margin:.8rem 0;display:grid;gap:8px}
+.stack .row{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:8px;align-items:center;font-family:var(--f-mono);font-size:.8rem}
+.stack .track{display:flex;height:26px;border:1px solid var(--ink);border-radius:4px;overflow:hidden}
+.stack .cogs{background:var(--accent);color:var(--accent-ink);display:flex;align-items:center;padding:0 .4rem;white-space:nowrap;overflow:hidden}
+.stack .ei{background:repeating-linear-gradient(45deg,var(--chip) 0 6px,var(--sheet) 6px 12px);display:flex;align-items:center;justify-content:flex-end;padding:0 .4rem;white-space:nowrap;overflow:hidden}
+.legend{display:flex;gap:14px;font-family:var(--f-mono);font-size:.75rem;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:12px;height:12px;border:1px solid var(--ink);vertical-align:-2px;margin-right:4px}
+.recon-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 14px;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--rule)}
+.recon-item .t{font-size:.92rem}
+.recon-item .t .n{font-weight:600;margin-left:.3rem}
+.recon-item .seg{display:flex;flex-wrap:wrap;gap:4px}
+.recon-item .seg button{font:500 .74rem/1 var(--f-mono);border:1px solid var(--rule-2);background:transparent;color:var(--ink);border-radius:4px;padding:.4rem .5rem;cursor:pointer}
+.recon-item .seg button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.recon-item.okay .t::after{content:" ✓";color:var(--ok);font-weight:600}
+.recon-item.miss .t::after{content:" ✕";color:var(--bad);font-weight:600}
+.recon-item .je-note{grid-column:1/-1;font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+@media (max-width:620px){.recon-item{grid-template-columns:1fr}}
+.totals{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:1rem 0}
+.totals .box .n{font-size:1.4rem;font-weight:600;display:block}
+.totals .box.match{border-color:var(--ok)}
+@media (prefers-reduced-motion:no-preference){.fc .back{animation:rise .22s ease-out}@keyframes rise{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#ban-do"><b>Sổ Tay Kế Toán Tài Chính</b><span>Introduction to Financial Accounting · IFRS · Ch1–6</span></a>
+  <span class="pill" id="pill-known">0 thẻ đã nhớ</span>
+</header>
+
+<div class="shell">
+<nav class="nav" aria-label="Mục lục">
+  <a href="#ban-do"><span class="k">MAP</span><span class="lbl">Bản đồ &amp; công thức</span></a>
+  <span class="grp">Chương</span>
+  <a href="#ch1"><span class="k">CH1</span><span class="lbl">Khung khái niệm &amp; BCTC</span></a>
+  <a href="#ch2"><span class="k">CH2</span><span class="lbl">Ghi nhận giao dịch</span></a>
+  <a href="#ch3"><span class="k">CH3</span><span class="lbl">Kế toán dồn tích</span></a>
+  <a href="#ch4"><span class="k">CH4</span><span class="lbl">Trình bày BCTC (IAS 1)</span></a>
+  <a href="#ch5"><span class="k">CH5</span><span class="lbl">Kiểm soát nội bộ, tiền, phải thu</span></a>
+  <a href="#ch6"><span class="k">CH6</span><span class="lbl">Hàng tồn kho</span></a>
+  <span class="grp">Luyện tập</span>
+  <a href="#flashcards"><span class="k">THẺ</span><span class="lbl">Flashcards</span></a>
+  <a href="#trac-nghiem"><span class="k">QUIZ</span><span class="lbl">Trắc nghiệm</span></a>
+  <a href="#no-co"><span class="k">NỢ/CÓ</span><span class="lbl">Luyện định khoản</span></a>
+  <a href="#cong-cu"><span class="k">LAB</span><span class="lbl">Tồn kho &amp; đối chiếu NH</span></a>
+</nav>
+
+<main>
+<!-- ======================= OVERVIEW ======================= -->
+<section class="sheet" data-view="ban-do">
+  <p class="eyebrow"><span class="tag">Bản đồ</span>Tóm tắt slide Chương 1–6</p>
+  <h1>Sáu chương, một phương trình</h1>
+  <div class="hero-eq" aria-label="Assets bằng Liabilities cộng Equity">A <span class="op">=</span> L <span class="op">+</span> E</div>
+  <p class="prose">Mọi thứ trong 6 chương đều quay về một câu: <b>tài sản của doanh nghiệp đến từ nợ phải trả hoặc vốn chủ sở hữu</b>. Ghi sổ kép (Ch2) giữ cho phương trình luôn cân. Kế toán dồn tích (Ch3) quyết định <i>khi nào</i> ghi. IAS 1 (Ch4) quyết định <i>trình bày</i> ra sao. Ch5 và Ch6 áp dụng tất cả vào ba tài khoản quan trọng: tiền, phải thu và hàng tồn kho.</p>
+
+  <h2>Cách dùng trang này</h2>
+  <ol class="steps">
+    <li><span class="k">01</span><b>Đọc phần cốt lõi</b><span class="t">Mỗi chương mở đầu bằng 1–2 câu tóm ý chính. Hiểu câu đó trước khi đọc chi tiết.</span></li>
+    <li><span class="k">02</span><b>Gắn neo nhớ</b><span class="t">Các ô vàng là quy tắc, hình ảnh hoặc câu dễ nhớ để giữ lại điểm mấu chốt.</span></li>
+    <li><span class="k">03</span><b>Tự kiểm tra</b><span class="t">Flashcards, trắc nghiệm và luyện Nợ/Có. Thẻ “chưa nhớ” sẽ quay lại cho đến khi bạn nhớ.</span></li>
+  </ol>
+
+  <h2>Chu trình kế toán: chương nào nằm ở đâu</h2>
+  <ol class="cycle">
+    <li><b>Giao dịch xảy ra</b><a href="#ch2">Ch2 · 2.1</a></li>
+    <li><b>Phân tích, ghi Nhật ký (Journal)</b><a href="#ch2">Ch2 · 2.3–2.4</a></li>
+    <li><b>Chuyển vào Sổ cái (Ledger)</b><a href="#ch2">Ch2 · 2.4</a></li>
+    <li><b>Bảng cân đối thử (Trial balance)</b><a href="#ch2">Ch2 · 2.5</a></li>
+    <li><b>Bút toán điều chỉnh</b><a href="#ch3">Ch3 · 3.3</a></li>
+    <li><b>Bảng cân đối thử sau điều chỉnh</b><a href="#ch3">Ch3 · 3.3</a></li>
+    <li><b>Lập và trình bày BCTC</b><a href="#ch1">Ch1</a> · <a href="#ch3">Ch3</a> · <a href="#ch4">Ch4</a></li>
+    <li><b>Khóa sổ (Closing)</b><a href="#ch3">Ch3 · 3.5</a></li>
+  </ol>
+
+  <h2>Từng chương</h2>
+  <div class="chgrid" id="chgrid">
+    <a class="chcard" href="#ch1"><span class="k">CH1</span><b>Khung khái niệm &amp; BCTC</b><p>Thông tin hữu ích phải phù hợp (relevant) và trình bày trung thực (faithful). Bốn báo cáo nối với nhau qua lợi nhuận và vốn chủ.</p><span class="prog" data-prog="1"></span></a>
+    <a class="chcard" href="#ch2"><span class="k">CH2</span><b>Ghi nhận giao dịch</b><p>Mỗi giao dịch có hai mặt. Tổng Nợ luôn bằng tổng Có, nên phương trình kế toán luôn cân.</p><span class="prog" data-prog="2"></span></a>
+    <a class="chcard" href="#ch3"><span class="k">CH3</span><b>Kế toán dồn tích</b><p>Ghi khi doanh thu đã thực hiện và chi phí đã phát sinh, không chờ tiền. Bút toán điều chỉnh làm việc đó cuối kỳ.</p><span class="prog" data-prog="3"></span></a>
+    <a class="chcard" href="#ch4"><span class="k">CH4</span><b>Trình bày BCTC (IAS 1)</b><p>Bộ BCTC đầy đủ và các nguyên tắc chung: trọng yếu, không bù trừ, thông tin so sánh, nhất quán.</p><span class="prog" data-prog="4"></span></a>
+    <a class="chcard" href="#ch5"><span class="k">CH5</span><b>Kiểm soát nội bộ, tiền, phải thu</b><p>Kiểm soát nội bộ chặn cơ hội gian lận. Đối chiếu ngân hàng làm hai số dư khớp nhau. Phải thu trình bày theo số dự kiến thu được.</p><span class="prog" data-prog="5"></span></a>
+    <a class="chcard" href="#ch6"><span class="k">CH6</span><b>Hàng tồn kho</b><p>FIFO, LIFO và bình quân chỉ chia “hàng có để bán” thành giá vốn và tồn kho cuối kỳ. Tồn kho ghi theo giá thấp hơn giữa giá gốc và NRV.</p><span class="prog" data-prog="6"></span></a>
+  </div>
+
+  <h2>Công thức phải thuộc</h2>
+  <div class="scroll"><table class="data formulas">
+    <thead><tr><th>Công thức</th><th>Dùng để</th><th>Ch</th></tr></thead>
+    <tbody>
+      <tr><td>A = L + E</td><td>Nền của mọi báo cáo; E = A − L là phần còn lại của chủ sở hữu</td><td>1, 2</td></tr>
+      <tr><td>NI = Revenues &amp; gains − Expenses &amp; losses</td><td>Lợi nhuận thuần trên báo cáo kết quả kinh doanh</td><td>1</td></tr>
+      <tr><td>RE cuối = RE đầu + NI − Dividends</td><td>Lợi nhuận giữ lại; cổ tức không phải chi phí</td><td>1, 3</td></tr>
+      <tr><td>Đầu kỳ + Tăng − Giảm = Cuối kỳ</td><td>Tìm số còn thiếu trong một T-account (tiền chi, tiền thu từ khách, tiền trả người bán)</td><td>2, 5</td></tr>
+      <tr><td>Khấu hao đường thẳng = Cost ÷ Useful life</td><td>24,000 ÷ 5 = 4,800/năm = 400/tháng</td><td>3</td></tr>
+      <tr><td>Book value = Cost − Accumulated depreciation</td><td>Giá trị còn lại của TSCĐ trên bảng cân đối</td><td>3</td></tr>
+      <tr><td>Net AR = AR − Allowance</td><td>Phải thu trình bày theo số dự kiến thu được</td><td>5</td></tr>
+      <tr><td>Interest = Principal × Rate × Time</td><td>Lãi của giấy nhận nợ; Time tính theo tháng/12</td><td>5</td></tr>
+      <tr><td>BI + Purchases − EI = COGS</td><td>Mô hình giá vốn; đảo vế để ước tính tồn kho cuối kỳ</td><td>6</td></tr>
+      <tr><td>Gross profit % = Gross profit ÷ Net sales</td><td>Phương pháp lãi gộp ước tính tồn kho</td><td>6</td></tr>
+      <tr><td>NRV = Giá bán ước tính − Chi phí hoàn thiện &amp; bán</td><td>Tồn kho ghi theo giá thấp hơn giữa Cost và NRV</td><td>6</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:.88rem">Lịch kiểm tra theo đề cương: Quiz 1 (tuần 4) gồm Ch1–3; Quiz 2 (tuần 9) gồm Ch4–6; giữa kỳ (tuần 11) gồm Ch1–7. Trang này chưa có Ch7.</p>
+</section>
+
+<!-- ======================= CH1 ======================= -->
+<section class="sheet" data-view="ch1" hidden>
+  <p class="eyebrow"><span class="tag">Ch1</span>Conceptual Framework &amp; Financial Statements</p>
+  <h1>Khung khái niệm và bốn báo cáo tài chính</h1>
+  <div class="core"><span class="lab">Cốt lõi</span><p>Kế toán đo lường hoạt động kinh doanh, xử lý thành báo cáo và truyền đạt cho người ra quyết định. Thông tin chỉ hữu ích khi <b>phù hợp</b> và <b>trình bày trung thực</b>. Bốn báo cáo đều đứng trên phương trình <b>A = L + E</b>.</p></div>
+  <ul class="lo">
+    <li><a href="#ch1-11"><b>1.1</b>Vai trò của kế toán</a></li>
+    <li><a href="#ch1-12"><b>1.2</b>Khung khái niệm IFRS</a></li>
+    <li><a href="#ch1-13"><b>1.3</b>Bốn báo cáo</a></li>
+    <li><a href="#ch1-14"><b>1.4</b>Mối liên hệ</a></li>
+    <li><a href="#ch1-15"><b>1.5</b>Đạo đức</a></li>
+  </ul>
+
+  <div class="prose">
+  <h2 id="ch1-11"><span class="sec">1.1</span>Kế toán là ngôn ngữ kinh doanh</h2>
+  <p>Kế toán là một <b>hệ thống thông tin</b> làm ba việc: <b>đo lường</b> hoạt động kinh doanh, <b>xử lý</b> dữ liệu thành báo cáo, rồi <b>truyền đạt</b> kết quả cho người ra quyết định. Đây là một vòng lặp: hoạt động kinh doanh được ghi vào hệ thống, hệ thống tạo ra BCTC, và BCTC lại ảnh hưởng đến các quyết định kinh doanh tiếp theo.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th></th><th>Financial accounting</th><th>Managerial accounting</th></tr></thead>
+    <tbody>
+      <tr><td>Phục vụ ai</td><td>Người <b>bên ngoài</b>: nhà đầu tư, chủ nợ, cơ quan nhà nước, công chúng</td><td>Nhà quản lý <b>bên trong</b> doanh nghiệp</td></tr>
+      <tr><td>Sản phẩm</td><td>Báo cáo tài chính theo chuẩn mực</td><td>Ngân sách (budgets), dự báo (forecasts), dự phóng (projections)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <p><b>Chuẩn mực:</b> IFRS do <b>IASB</b> ban hành; GAAP (Mỹ) do <b>FASB</b> ban hành. Môn này học theo IFRS.</p>
+
+  <h2 id="ch1-12"><span class="sec">1.2</span>Khung khái niệm (Conceptual Framework)</h2>
+  <p>Khung khái niệm trả lời các câu hỏi “Why, Who, What, How” của báo cáo tài chính. Đây là nền móng để IASB và FASB xây dựng và rà soát chuẩn mực. Nó gồm năm tầng, đọc từ trên xuống:</p>
+  </div>
+  <div class="ladder">
+    <div><span class="lv">Mục tiêu</span><div>Cung cấp thông tin hữu ích cho nhà đầu tư, người cho vay và chủ nợ hiện tại lẫn tiềm năng khi họ quyết định có cấp nguồn lực cho doanh nghiệp hay không.</div></div>
+    <div><span class="lv">Thông tin</span><div>Báo cáo tài chính cho mục đích chung: nguồn lực kinh tế, các quyền đòi (claims) và sự thay đổi của chúng.</div></div>
+    <div><span class="lv">Đặc tính chất lượng</span><div class="boxes"><span><b>Cơ bản:</b> Relevance</span><span>Faithful representation</span><span><b>Nâng cao:</b> Comparability</span><span>Verifiability</span><span>Timeliness</span><span>Understandability</span></div></div>
+    <div><span class="lv">Ràng buộc &amp; giả định</span><div class="boxes"><span>Cost constraint</span><span>Accrual accounting</span><span>Going concern</span></div></div>
+    <div><span class="lv">Yếu tố</span><div class="boxes"><span>Assets</span><span>Liabilities</span><span>Equity</span><span>Income</span><span>Expenses</span></div></div>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Relevance: thông tin phù hợp</h3><p>Thông tin có khả năng <b>làm thay đổi một quyết định</b>.</p><ul><li>Predictive value: giá trị dự đoán</li><li>Confirmatory value: giá trị xác nhận</li><li>Materiality: tính trọng yếu</li></ul></div>
+    <div class="box"><h3>Faithful representation: trình bày trung thực</h3><p>Con số và mô tả <b>khớp với điều thực sự đã xảy ra</b>.</p><ul><li>Completeness: đầy đủ</li><li>Neutrality: trung lập</li><li>Free from error: không sai sót</li></ul></div>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Hai câu hỏi gác cổng: “Có giúp quyết định không?” và “Có đúng sự thật không?”</span>
+    <p>Câu thứ nhất là <b>Relevance</b>, câu thứ hai là <b>Faithful representation</b>. Bốn đặc tính nâng cao nhớ theo chữ cái đầu <b>C-V-T-U</b>: “<b>C</b>on <b>V</b>oi <b>T</b>hích <b>U</b>ống”, tức Comparability, Verifiability, Timeliness, Understandability.</p>
+  </div>
+  <div class="prose">
+  <h3>Ràng buộc và giả định</h3>
+  <ul>
+    <li><b>Cost constraint:</b> lợi ích của thông tin phải lớn hơn chi phí tạo ra nó.</li>
+    <li><b>Economic entity:</b> hoạt động của công ty tách biệt khỏi chủ sở hữu và các đơn vị khác.</li>
+    <li><b>Periodicity (time period):</b> chia hoạt động thành các kỳ báo cáo.</li>
+    <li><b>Monetary unit:</b> dùng tiền làm thước đo chung.</li>
+    <li><b>Accrual accounting:</b> ghi nhận giao dịch vào kỳ sự kiện xảy ra (chi tiết ở Ch3).</li>
+    <li><b>Going concern:</b> giả định công ty tồn tại đủ lâu để hoàn thành mục tiêu và cam kết.</li>
+  </ul>
+
+  <h3>Phương trình kế toán</h3>
+  <p><b>Assets</b> là nguồn lực dự kiến mang lại lợi ích trong tương lai. <b>Liabilities</b> là quyền đòi của người ngoài (nợ phải trả). <b>Equity</b> là quyền của chủ sở hữu, tức phần còn lại: E = A − L. Ví dụ ở Exhibit 1-4:</p>
+  </div>
+  <div class="eq"><div class="blk">1,000<small>Assets</small></div><span class="op">=</span><div class="blk">600<small>Liabilities</small></div><span class="op">+</span><div class="blk">400<small>Equity</small></div></div>
+  <div class="prose">
+  <p>Vốn chủ của công ty cổ phần (shareholders’ equity) có hai phần: <b>Paid-in capital</b> (cổ đông góp vào) và <b>Retained earnings</b> (lợi nhuận kiếm được và giữ lại). Retained earnings thay đổi theo ba thứ:</p>
+  </div>
+  <div class="flow">
+    <div class="st"><b>RE đầu kỳ</b><small>Opening balance</small></div><span class="ar">±</span>
+    <div class="st"><b>Net income</b><small>Revenues − Expenses (hoặc net loss)</small></div><span class="ar">−</span>
+    <div class="st"><b>Dividends</b><small>Phân phối tài sản cho cổ đông</small></div><span class="ar">=</span>
+    <div class="st"><b>RE cuối kỳ</b><small>Closing balance</small></div>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch1-13"><span class="sec">1.3</span>Bốn báo cáo trả lời bốn câu hỏi</h2>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Câu hỏi của người đọc</th><th>Báo cáo</th><th>Trả lời bằng</th></tr></thead>
+    <tbody>
+      <tr><td>Năm qua công ty làm ăn tốt đến đâu?</td><td>Statement of comprehensive income (income statement)</td><td>Revenues − Expenses = Net income; ± OCI = Total comprehensive income</td></tr>
+      <tr><td>Vì sao vốn chủ thay đổi?</td><td>Statement of changes in equity</td><td>Vốn đầu kỳ + Total comprehensive income − Dividends ± giao dịch với chủ sở hữu = Vốn cuối kỳ</td></tr>
+      <tr><td>Cuối năm công ty có gì, nợ gì?</td><td>Statement of financial position (balance sheet)</td><td>Assets = Liabilities + Equity</td></tr>
+      <tr><td>Công ty tạo ra và tiêu bao nhiêu tiền?</td><td>Statement of cash flows</td><td>Operating ± Investing ± Financing = Net cash flows</td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid2">
+    <div class="box"><h3>Balance sheet</h3><ul><li><b>Current assets:</b> dùng hoặc chuyển thành tiền trong một chu kỳ kinh doanh (cash, short-term investments, AR, prepaid expenses)</li><li><b>Long-term assets:</b> PPE, long-term investments, intangibles</li><li><b>Current liabilities:</b> đến hạn trong 1 năm (AP, salaries payable, short-term notes, accrued liabilities)</li><li><b>Long-term liabilities:</b> long-term notes, bonds payable</li></ul></div>
+    <div class="box"><h3>Statement of cash flows</h3><ul><li><b>Operating:</b> tiền từ bán hàng, cung cấp dịch vụ cho khách</li><li><b>Investing:</b> mua, bán tài sản dài hạn</li><li><b>Financing:</b> vay, trả nợ, giao dịch vốn (phát hành cổ phiếu, trả cổ tức)</li></ul><p class="muted">Equity còn có treasury stock (cổ phiếu quỹ, không biểu quyết, không nhận cổ tức) và accumulated OCI.</p></div>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Một bức ảnh, ba thước phim</span>
+    <p>Balance sheet là <b>ảnh chụp tại một thời điểm</b> (“as at 31 Dec”). Income statement, statement of changes in equity và statement of cash flows là <b>phim của cả kỳ</b> (“for the year ended”). Đề hỏi “at a specific moment” thì đáp án là balance sheet.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch1-14"><span class="sec">1.4</span>Các báo cáo nối với nhau như thế nào</h2>
+  <p>Lập theo thứ tự này, vì con số cuối của báo cáo trước là đầu vào của báo cáo sau. Số liệu lấy từ ví dụ RedLotus Security tháng 6 ở Ch3:</p>
+  </div>
+  <div class="flow">
+    <div class="st"><b>Income statement</b><small>Revenue 7,500 − Expenses 4,600</small><span class="n mono">NI = 2,900</span></div><span class="ar">→</span>
+    <div class="st"><b>Changes in equity</b><small>68,800 + 2,900 − 3,200</small><span class="n mono">Equity = 68,500</span></div><span class="ar">→</span>
+    <div class="st"><b>Balance sheet</b><small>Total equity 68,500 + Liabilities 14,800</small><span class="n mono">Assets = 83,300</span></div>
+  </div>
+  <div class="prose"><p>Statement of cash flows nối vào balance sheet qua <b>số dư tiền cuối kỳ</b>: tiền cuối kỳ trên báo cáo lưu chuyển tiền tệ bằng dòng Cash trên balance sheet.</p></div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Lợi nhuận chảy xuống như nước</span>
+    <p>Income statement → Changes in equity → Balance sheet. Net income “chảy” vào vốn chủ, vốn chủ “chảy” vào bảng cân đối. Nếu bảng cân đối không cân, hãy kiểm tra lại net income và dividends trước.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch1-15"><span class="sec">1.5</span>Đạo đức trong kế toán</h2>
+  <p>Ba yếu tố chi phối một quyết định: <b>kinh tế</b> (tối đa lợi ích), <b>pháp lý</b> (tuân thủ luật) và <b>đạo đức</b> (có những việc có lãi và hợp pháp nhưng vẫn không đúng). IESBA đưa ra 5 nguyên tắc cho kế toán viên chuyên nghiệp:</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Thái độ</h3><ul><li><b>Integrity</b>: chính trực</li><li><b>Objectivity</b>: khách quan</li></ul></div>
+    <div class="box"><h3>Năng lực</h3><ul><li><b>Professional competence &amp; due care</b>: đủ năng lực và thận trọng</li></ul></div>
+    <div class="box"><h3>Hành xử</h3><ul><li><b>Confidentiality</b>: bảo mật</li><li><b>Professional behavior</b>: tư cách nghề nghiệp</li></ul></div>
+  </div>
+
+  <div class="traps"><span class="stamp">Bẫy hay gặp</span>
+    <ul>
+      <li><b>Dividends không phải expense.</b> Cổ tức làm giảm retained earnings nhưng không xuất hiện trên income statement.</li>
+      <li><b>Retained earnings không phải tiền.</b> Đó là phần lợi nhuận tích lũy được giữ lại, đã nằm trong nhiều loại tài sản khác nhau.</li>
+      <li>Chủ sở hữu dùng tiền riêng cho việc cá nhân thì công ty <b>không ghi gì</b> (economic entity).</li>
+      <li>“Relevance” bao gồm <b>materiality</b>; “Faithful representation” bao gồm <b>neutrality</b>. Đề hay đảo hai nhóm này.</li>
+      <li>Mua tài sản dài hạn bằng tiền là dòng tiền <b>investing</b>, không phải operating.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Hỏi nhanh, tự trả lời trước khi mở</span>
+    <details><summary>Assets 1,000, Liabilities 600. Equity bằng bao nhiêu?</summary><p>400, vì E = A − L.</p></details>
+    <details><summary>RE đầu kỳ 18,800, NI 2,900, cổ tức 3,200. RE cuối kỳ?</summary><p>18,800 + 2,900 − 3,200 = 18,500.</p></details>
+    <details><summary>Báo cáo nào được lập sau cùng trong ba báo cáo IS, SCE, BS? Vì sao?</summary><p>Balance sheet, vì nó cần tổng vốn chủ cuối kỳ từ statement of changes in equity, mà báo cáo này lại cần net income từ income statement.</p></details>
+    <details><summary>Đặc tính nào thuộc nhóm cơ bản: Timeliness hay Faithful representation?</summary><p>Faithful representation. Timeliness thuộc nhóm nâng cao (C-V-T-U).</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="flashcards" data-ch="1">Flashcards Ch1</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="1">Trắc nghiệm Ch1</button></div>
+  <div class="pager"><a href="#ban-do">← Bản đồ</a><a href="#ch2">Ch2 · Ghi nhận giao dịch →</a></div>
+</section>
+
+<!-- ======================= CH2 ======================= -->
+<section class="sheet" data-view="ch2" hidden>
+  <p class="eyebrow"><span class="tag">Ch2</span>Recording Business Transactions</p>
+  <h1>Ghi nhận giao dịch: Nợ, Có và bảng cân đối thử</h1>
+  <div class="core"><span class="lab">Cốt lõi</span><p>Mỗi giao dịch có hai mặt: nhận một thứ và đưa ra một thứ. <b>Ghi sổ kép</b> ghi cả hai mặt sao cho <b>tổng Nợ = tổng Có</b>, nhờ vậy phương trình A = L + E luôn cân.</p></div>
+  <ul class="lo">
+    <li><a href="#ch2-21"><b>2.1</b>Giao dịch là gì</a></li>
+    <li><a href="#ch2-22"><b>2.2</b>Các loại tài khoản</a></li>
+    <li><a href="#ch2-23"><b>2.3</b>Quy tắc Nợ/Có</a></li>
+    <li><a href="#ch2-24"><b>2.4</b>Ghi nhật ký &amp; sổ cái</a></li>
+    <li><a href="#ch2-25"><b>2.5</b>Bảng cân đối thử</a></li>
+  </ul>
+  <div class="prose">
+  <h2 id="ch2-21"><span class="sec">2.1</span>Giao dịch là gì</h2>
+  <p><b>Transaction</b> là bất kỳ sự kiện nào <b>có ảnh hưởng tài chính</b> đến doanh nghiệp <b>và đo lường được một cách đáng tin cậy</b>. Trong mỗi trao đổi, doanh nghiệp đưa ra một thứ và nhận về một thứ. Kế toán ghi cả hai mặt.</p>
+  <p>Ví dụ trong slide: cổ đông của RedLotus dùng tiền riêng sửa nhà của mình. Công ty <b>không ghi bút toán</b>, vì đây không phải giao dịch của công ty.</p>
+
+  <h2 id="ch2-22"><span class="sec">2.2</span>Tài khoản và các loại tài khoản</h2>
+  <p><b>Account</b> là bản ghi mọi thay đổi của một tài sản, nợ phải trả hoặc vốn chủ cụ thể trong kỳ. Đây là công cụ tổng hợp cơ bản của kế toán.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Assets</h3><ul><li><b>Cash</b>: tiền mặt, tiền gửi ngân hàng, chứng chỉ tiền gửi, séc</li><li><b>Accounts receivable</b>: lời hứa trả tiền sau cho hàng hóa, dịch vụ</li><li><b>Notes receivable</b>: giấy nhận nợ có lãi suất và ngày đến hạn</li><li><b>Inventory</b>: hàng để bán</li><li><b>Prepaid expenses</b>: chi phí trả trước (bảo hiểm, tiền thuê)</li><li><b>PPE</b>: đất, nhà xưởng, thiết bị</li></ul></div>
+    <div class="box"><h3>Liabilities</h3><ul><li><b>Accounts payable</b>: lời hứa trả nợ</li><li><b>Notes payable</b>: giấy hứa trả một khoản trong tương lai</li><li><b>Accrued liabilities</b>: chi phí đã phát sinh nhưng chưa trả</li></ul></div>
+    <div class="box"><h3>Equity</h3><ul><li><b>Share capital</b>: vốn cổ đông góp qua cổ phiếu</li><li><b>Retained earnings</b>: lũy kế lợi nhuận trừ lỗ và cổ tức</li><li><b>Dividends</b>: phân phối lợi nhuận cho cổ đông</li><li><b>Income (revenue)</b>: làm tăng vốn chủ</li><li><b>Expenses</b>: làm giảm vốn chủ</li></ul></div>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch2-23"><span class="sec">2.3</span>T-account và quy tắc Nợ/Có</h2>
+  <p>T-account có <b>bên trái là Debit (Nợ)</b> và <b>bên phải là Credit (Có)</b>. Debit và credit chỉ là “trái” và “phải”, không mang nghĩa tốt hay xấu. <b>Loại tài khoản quyết định bên nào là bên tăng.</b> Bên tăng cũng là bên có số dư bình thường (normal balance).</p>
+  </div>
+  <div class="rules">
+    <div class="rule"><div class="nm">Assets</div><div class="sides"><div class="up dr">+ tăng<small>Debit</small></div><div>− giảm<small>Credit</small></div></div></div>
+    <div class="rule"><div class="nm">Dividends</div><div class="sides"><div class="up dr">+ tăng<small>Debit</small></div><div>− giảm<small>Credit</small></div></div></div>
+    <div class="rule"><div class="nm">Expenses</div><div class="sides"><div class="up dr">+ tăng<small>Debit</small></div><div>− giảm<small>Credit</small></div></div></div>
+    <div class="rule"><div class="nm">Liabilities</div><div class="sides"><div>− giảm<small>Debit</small></div><div class="up cr">+ tăng<small>Credit</small></div></div></div>
+    <div class="rule"><div class="nm">Share capital · RE</div><div class="sides"><div>− giảm<small>Debit</small></div><div class="up cr">+ tăng<small>Credit</small></div></div></div>
+    <div class="rule"><div class="nm">Income / Revenue</div><div class="sides"><div>− giảm<small>Debit</small></div><div class="up cr">+ tăng<small>Credit</small></div></div></div>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big"><span class="dr">DEA</span> tăng bên Nợ · <span class="cr">LER</span> tăng bên Có</span>
+    <p><b class="dr">D</b>ividends, <b class="dr">E</b>xpenses, <b class="dr">A</b>ssets tăng bên Debit. <b class="cr">L</b>iabilities, <b class="cr">E</b>quity, <b class="cr">R</b>evenue tăng bên Credit. Ghép lại thành “DEALER”.</p>
+    <p><b>Lý do để khỏi phải học thuộc:</b> Assets nằm bên trái phương trình nên tăng bên trái (Debit). L và E nằm bên phải nên tăng bên phải (Credit). Revenue làm vốn chủ tăng nên ghi Có. Expenses và Dividends làm vốn chủ giảm nên ghi Nợ.</p>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ cho người học tiếng Việt</span>
+    <p><b>“Nợ” (debit) không phải “nợ phải trả” (liabilities).</b> Ghi Nợ tiền mặt nghĩa là tiền <b>tăng</b>. Ghi Nợ Accounts Payable nghĩa là khoản nợ phải trả <b>giảm</b>. Khi làm bài, hãy nghĩ debit là “bên trái”.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch2-24"><span class="sec">2.4</span>Ghi nhật ký và chuyển sổ cái</h2>
+  <p>Luồng dữ liệu: giao dịch xảy ra → phân tích → ghi vào <b>Journal</b> (nhật ký, theo thứ tự thời gian) → chuyển (post) sang <b>Ledger</b> (sổ cái, theo từng tài khoản).</p>
+  <ol>
+    <li>Xác định các tài khoản bị ảnh hưởng và phân loại (A, L hay E).</li>
+    <li>Xác định tăng hay giảm, từ đó suy ra Debit hay Credit.</li>
+    <li>Ghi vào nhật ký theo mẫu chuẩn: tài khoản Nợ trước, tài khoản Có lùi vào trong, kèm diễn giải.</li>
+    <li>Chuyển sang T-account nếu đề yêu cầu, rồi kiểm tra A = L + E vẫn cân.</li>
+  </ol>
+  <h3>Ví dụ đầy đủ: 11 giao dịch của RedLotus Security</h3>
+  </div>
+  <pre class="je">@(1)
+Cash | 50,000 |
+Share Capital | | 50,000
+# Phát hành cổ phiếu, nhận tiền. A +50,000 = E +50,000
+@(2)
+Land | 40,000 |
+Cash | | 40,000
+# Trả tiền mua đất. Tài sản đổi dạng, tổng A không đổi
+@(3)
+Supplies | 3,700 |
+Accounts Payable | | 3,700
+# Mua vật tư chưa trả tiền. A +3,700 = L +3,700
+@(4)
+Cash | 7,000 |
+Service Revenue | | 7,000
+# Cung cấp dịch vụ thu tiền ngay
+@(5)
+Accounts Receivable | 3,000 |
+Service Revenue | | 3,000
+# Cung cấp dịch vụ cho UPS, chưa thu tiền
+@(6)
+Rent Expense | 1,100 |
+Salary Expense | 1,200 |
+Utilities Expense | 400 |
+Cash | | 2,700
+# Trả chi phí bằng tiền (bút toán phức hợp: 3 Nợ, 1 Có)
+@(7)
+Accounts Payable | 1,900 |
+Cash | | 1,900
+# Trả một phần nợ của giao dịch (3)
+@(8)
+Không ghi bút toán | |
+# Cổ đông sửa nhà riêng bằng tiền riêng
+@(9)
+Cash | 1,000 |
+Accounts Receivable | | 1,000
+# Thu nợ khách hàng
+@(10)
+Cash | 22,000 |
+Land | | 20,000
+Gain on Sale of Land | | 2,000
+# Bán đất giá gốc 20,000 được 22,000
+@(11)
+Dividends | 2,100 |
+Cash | | 2,100
+# Công bố và trả cổ tức</pre>
+
+  <div class="prose">
+  <h2 id="ch2-25"><span class="sec">2.5</span>Bảng cân đối thử (Trial balance)</h2>
+  <p>Trial balance liệt kê <b>mọi tài khoản và số dư</b> (tài sản trước, rồi nợ phải trả và vốn chủ), cho thấy <b>tổng Nợ = tổng Có</b>, thường lập cuối kỳ và là đầu vào để lập BCTC.</p>
+  </div>
+  <div class="tgrid">
+    <pre class="ta" data-title="Cash" data-hl="1">(1) 50,000 | (2) 40,000
+(4) 7,000 | (6) 2,700
+(9) 1,000 | (7) 1,900
+(10) 22,000 | (11) 2,100
+= Bal 33,300 |</pre>
+    <pre class="ta" data-title="Accounts Payable">(7) 1,900 | (3) 3,700
+= | Bal 1,800</pre>
+    <pre class="ta" data-title="Land">(2) 40,000 | (10) 20,000
+= Bal 20,000 |</pre>
+  </div>
+  <div class="scroll"><table class="fs">
+    <tr class="h"><td>RedLotus · Trial balance</td><td class="n dr">Debit</td><td class="n cr">Credit</td></tr>
+    <tr><td>Cash</td><td class="n">33,300</td><td></td></tr>
+    <tr><td>Accounts receivable</td><td class="n">2,000</td><td></td></tr>
+    <tr><td>Supplies</td><td class="n">3,700</td><td></td></tr>
+    <tr><td>Land</td><td class="n">20,000</td><td></td></tr>
+    <tr><td>Accounts payable</td><td></td><td class="n">1,800</td></tr>
+    <tr><td>Share capital</td><td></td><td class="n">50,000</td></tr>
+    <tr><td>Dividends</td><td class="n">2,100</td><td></td></tr>
+    <tr><td>Service revenue</td><td></td><td class="n">10,000</td></tr>
+    <tr><td>Gain on sale of land</td><td></td><td class="n">2,000</td></tr>
+    <tr><td>Rent expense</td><td class="n">1,100</td><td></td></tr>
+    <tr><td>Salary expense</td><td class="n">1,200</td><td></td></tr>
+    <tr><td>Utilities expense</td><td class="n">400</td><td></td></tr>
+    <tr class="tot"><td>Total</td><td class="n">63,800</td><td class="n">63,800</td></tr>
+  </table></div>
+  <div class="prose">
+  <h3>Phân tích tài khoản: tìm số còn thiếu</h3>
+  <p>Mọi T-account tuân theo: <b>Số dư đầu + Phát sinh tăng − Phát sinh giảm = Số dư cuối</b>. Biết ba số thì tìm được số thứ tư.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Tài khoản</th><th>Dữ kiện</th><th>Tìm x</th></tr></thead>
+    <tbody>
+      <tr><td>Cash</td><td>Đầu 33,000; thu 8,000; cuối 35,000</td><td class="mono">33,000 + 8,000 − x = 35,000 → tiền chi x = 6,000</td></tr>
+      <tr><td>Accounts receivable</td><td>Đầu 6,000; bán chịu 10,000; cuối 5,000</td><td class="mono">6,000 + 10,000 − x = 5,000 → thu nợ x = 11,000</td></tr>
+      <tr><td>Accounts payable</td><td>Đầu 9,000; mua chịu 6,000; cuối 11,000</td><td class="mono">9,000 + 6,000 − x = 11,000 → trả nợ x = 4,000</td></tr>
+    </tbody>
+  </table></div>
+  <div class="traps"><span class="stamp">Bẫy hay gặp</span>
+    <ul>
+      <li><b>Thu nợ khách hàng không phải doanh thu</b>, vì doanh thu đã ghi lúc cung cấp dịch vụ. <b>Trả nợ người bán không phải chi phí.</b></li>
+      <li><b>Mua vật tư (supplies) là tài sản</b>, chưa phải chi phí (chi phí chỉ phát sinh khi dùng, xem Ch3).</li>
+      <li>Bán đất có lãi: phần chênh lệch ghi vào <b>Gain on sale of land</b> (Có), không ghi vào Service revenue.</li>
+      <li>Trial balance cân <b>không chứng minh không có sai sót</b>. Ghi nhầm tài khoản (ví dụ Nợ Equipment thay vì Supplies) hoặc bỏ sót cả một giao dịch thì bảng vẫn cân.</li>
+      <li>Dividends có số dư Nợ giống expense, nhưng <b>không phải expense</b>.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Hỏi nhanh</span>
+    <details><summary>Trả 1,900 cho người bán. Ghi Nợ gì, Có gì?</summary><p>Nợ Accounts Payable 1,900 / Có Cash 1,900. Cả tài sản và nợ phải trả cùng giảm.</p></details>
+    <details><summary>Vì sao expense tăng bên Nợ?</summary><p>Vì expense làm vốn chủ giảm, mà vốn chủ giảm thì ghi bên Nợ.</p></details>
+    <details><summary>Đầu kỳ AR 6,000, bán chịu 10,000, cuối kỳ 5,000. Đã thu bao nhiêu?</summary><p>11,000.</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="no-co" data-ch="2">Luyện Nợ/Có Ch2</button><button class="btn" type="button" data-go="flashcards" data-ch="2">Flashcards Ch2</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="2">Trắc nghiệm Ch2</button></div>
+  <div class="pager"><a href="#ch1">← Ch1</a><a href="#ch3">Ch3 · Kế toán dồn tích →</a></div>
+</section>
+
+<!-- ======================= CH3 ======================= -->
+<section class="sheet" data-view="ch3" hidden>
+  <p class="eyebrow"><span class="tag">Ch3</span>Accrual Accounting</p>
+  <h1>Kế toán dồn tích, bút toán điều chỉnh và khóa sổ</h1>
+  <div class="core"><span class="lab">Cốt lõi</span><p>Ghi doanh thu khi <b>đã thực hiện (earned)</b> và chi phí khi <b>đã phát sinh (incurred)</b>, dù đã thu chi tiền hay chưa. Cuối kỳ, <b>bút toán điều chỉnh</b> đưa từng tài khoản về đúng kỳ của nó. Sau đó doanh thu, chi phí và cổ tức được <b>khóa sổ</b> vào retained earnings.</p></div>
+  <ul class="lo">
+    <li><a href="#ch3-31"><b>3.1</b>Dồn tích và tiền mặt</a></li>
+    <li><a href="#ch3-32"><b>3.2</b>Ghi nhận doanh thu, chi phí</a></li>
+    <li><a href="#ch3-33"><b>3.3</b>Bút toán điều chỉnh</a></li>
+    <li><a href="#ch3-34"><b>3.4</b>Lập BCTC</a></li>
+    <li><a href="#ch3-35"><b>3.5</b>Khóa sổ</a></li>
+  </ul>
+  <div class="prose">
+  <h2 id="ch3-31"><span class="sec">3.1</span>Dồn tích và cơ sở tiền mặt</h2>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Accrual accounting</h3><p>Ghi nhận ảnh hưởng của giao dịch <b>khi chúng xảy ra</b>. Ghi cả giao dịch tiền (thu tiền khách, trả lương, vay, phát hành cổ phiếu) lẫn giao dịch không dùng tiền (bán chịu, mua chịu, chi phí dồn tích, khấu hao, sử dụng vật tư và chi phí trả trước, thực hiện doanh thu đã nhận trước).</p></div>
+    <div class="box"><h3>Cash-basis accounting</h3><p>Chỉ ghi khi thu tiền hoặc chi tiền. Không phản ánh bản chất kinh tế, cho ra BCTC không đầy đủ, chỉ dùng ở doanh nghiệp không theo chuẩn mực.</p></div>
+  </div>
+  <div class="prose">
+  <p><b>Time-period concept:</b> thông tin được báo cáo theo các kỳ đều đặn. Kỳ cơ bản là một năm, ngoài ra có báo cáo giữa niên độ (interim). Khoảng 60% công ty lớn (Amazon, eBay, YUM! Brands) dùng năm dương lịch.</p>
+  </div>
+  <div class="anchor"><span class="lab">Câu đầu bài trong slide</span>
+    <p>Gửi 80,000 vào ngân hàng; mua công ty 60,000 (nhà 40,000, hàng 20,000); dịch vụ thu tiền 10,000; <b>mua vật tư 5,000</b>; trả tiền điện 2,000. Net income?</p>
+    <span class="big">8,000, vì mua vật tư ≠ chi phí</span>
+    <p>Chi phí phát sinh khi vật tư <b>được dùng</b>, không phải khi mua. Đề không nói đã dùng thì giả định chưa dùng: 10,000 − 2,000 = 8,000. Nếu đề nói đã dùng hết thì là 3,000.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch3-32"><span class="sec">3.2</span>Nguyên tắc ghi nhận doanh thu và chi phí</h2>
+  <p><b>Revenue principle</b> trả lời hai câu hỏi: <b>khi nào</b> ghi nhận và <b>ghi bao nhiêu</b> (số tiền hoặc giá trị hợp lý dự kiến nhận được). Theo slide, doanh thu được ghi nhận khi:</p>
+  <ul>
+    <li>rủi ro và lợi ích của quyền sở hữu hàng hóa đã chuyển sang người mua;</li>
+    <li>doanh nghiệp không còn quyền quản lý hay kiểm soát hiệu quả hàng đã bán;</li>
+    <li>doanh thu đo lường được một cách đáng tin cậy;</li>
+    <li>có khả năng chắc chắn thu được lợi ích kinh tế;</li>
+    <li>chi phí liên quan đo lường được một cách đáng tin cậy.</li>
+  </ul>
+  <p><b>Expense recognition (matching):</b> xác định mọi chi phí phát sinh trong kỳ, đo lường và ghi nhận <b>cùng kỳ với doanh thu liên quan</b>. Chi phí ghi khi chi phí phát sinh, dù tiền có thể được trả trước, trả cùng lúc hay trả sau.</p>
+  <p class="muted">Lưu ý trong slide: theo IFRS, chính <b>sự thay đổi của tài sản và nợ phải trả</b> quyết định lãi hay lỗ. Matching là hệ quả, không phải nguyên nhân. Tài sản giảm hoặc nợ phải trả tăng làm vốn chủ giảm thì đó là chi phí. Tài sản tăng hoặc nợ phải trả giảm làm vốn chủ tăng thì đó là doanh thu.</p>
+
+  <h2 id="ch3-33"><span class="sec">3.3</span>Bút toán điều chỉnh: bốn ô cần nhớ</h2>
+  </div>
+  <div class="matrix">
+    <div class="hd"></div><div class="hd">Chi phí</div><div class="hd">Doanh thu</div>
+    <div class="hd">Tiền trước<br>(Prepaids)</div>
+    <div><b>Prepaid expense</b>Lúc trả: Nợ Prepaid / Có Cash. Cuối kỳ: <span class="dr">Nợ Expense</span> / <span class="cr">Có Prepaid</span><span class="ex">Tiền thuê, bảo hiểm, vật tư</span></div>
+    <div><b>Unearned revenue</b>Lúc nhận: Nợ Cash / Có Unearned. Cuối kỳ: <span class="dr">Nợ Unearned</span> / <span class="cr">Có Revenue</span><span class="ex">Unearned là nợ phải trả</span></div>
+    <div class="hd">Tiền sau<br>(Accruals)</div>
+    <div><b>Accrued expense</b>Cuối kỳ: <span class="dr">Nợ Expense</span> / <span class="cr">Có Payable</span>. Lúc trả: Nợ Payable / Có Cash<span class="ex">Lương, thuế, lãi vay</span></div>
+    <div><b>Accrued revenue</b>Cuối kỳ: <span class="dr">Nợ Receivable</span> / <span class="cr">Có Revenue</span>. Lúc thu: Nợ Cash / Có Receivable<span class="ex">Phí dịch vụ đã làm chưa thu</span></div>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Điều chỉnh không bao giờ đụng tới Cash</span>
+    <p>Mỗi bút toán điều chỉnh luôn gồm <b>một tài khoản trên income statement</b> (doanh thu hoặc chi phí) và <b>một tài khoản trên balance sheet</b> (tài sản hoặc nợ phải trả). Nếu bút toán điều chỉnh của bạn có Cash thì gần như chắc chắn đã sai.</p>
+  </div>
+  <div class="prose">
+  <h3>Bảy bút toán điều chỉnh của RedLotus ngày 30/6</h3>
+  <p>(a) Tiền thuê trả trước 3,000 cho 3 tháng, đã dùng 1 tháng. (b) Vật tư mua 700, kiểm kê còn 400. (c) Nhận trước 400, đã thực hiện một nửa. (d) Lương 1,800/tháng trả hai lần; ngày 30/6 là Chủ nhật nên 900 sẽ trả ngày 1/7. (e) Đặt được 10 lượt × $30 cho khách sạn, chưa thu. (f) Thiết bị 24,000, dùng 5 năm. (g) Thuế thu nhập 600.</p>
+  </div>
+  <pre class="je" data-date="Jun 30">@(a)
+Rent Expense | 1,000 |
+Prepaid Rent | | 1,000
+# 3,000 × 1/3
+@(b)
+Supplies Expense | 300 |
+Supplies | | 300
+# 700 − 400 còn lại = 300 đã dùng
+@(c)
+Unearned Service Revenue | 200 |
+Service Revenue | | 200
+# 400 × 1/2 đã thực hiện
+@(d)
+Salary Expense | 900 |
+Salary Payable | | 900
+# Lương nửa cuối tháng chưa trả
+@(e)
+Accounts Receivable | 300 |
+Service Revenue | | 300
+# $30 × 10 lượt, đã làm, chưa thu
+@(f)
+Depreciation Expense—Equipment | 400 |
+Accumulated Depreciation—Equipment | | 400
+# 24,000 ÷ 5 ÷ 12
+@(g)
+Income Tax Expense | 600 |
+Income Tax Payable | | 600
+# Thuế dồn tích, bút toán điều chỉnh cuối cùng</pre>
+  <div class="prose">
+  <h3>Khấu hao và khấu hao lũy kế</h3>
+  <p><b>Depreciation</b> phân bổ nguyên giá của tài sản dài hạn thành chi phí trong thời gian sử dụng, vì tài sản giảm dần tính hữu dụng. <b>Đất không khấu hao.</b> Đường thẳng: 24,000 ÷ 5 = 4,800/năm = <b>400/tháng</b>.</p>
+  <p><b>Accumulated depreciation</b> là tài khoản điều chỉnh giảm tài sản (contra asset), có <b>số dư Có</b>. Nó luôn đi kèm một tài khoản gốc và số dư bình thường ngược với tài khoản gốc. <b>Book value = Cost − Accumulated depreciation</b>.</p>
+  </div>
+  <div class="scroll"><table class="fs">
+    <tr class="h"><td>PPE tại 30/6</td><td class="n"></td><td class="n"></td></tr>
+    <tr><td>Equipment</td><td class="n">24,000</td><td></td></tr>
+    <tr><td class="ind">Less: Accumulated depreciation</td><td class="n">(400)</td><td class="n">23,600</td></tr>
+    <tr><td>Land</td><td></td><td class="n">20,000</td></tr>
+    <tr class="tot"><td>Carrying amount of PPE</td><td></td><td class="n">43,600</td></tr>
+  </table></div>
+
+  <div class="prose">
+  <h2 id="ch3-34"><span class="sec">3.4</span>Từ bảng cân đối thử sau điều chỉnh đến BCTC</h2>
+  <p><b>Adjusted trial balance</b> liệt kê số dư cuối cùng của mọi tài khoản sau khi đã ghi và chuyển sổ các bút toán điều chỉnh (tổng 91,500 = 91,500). BCTC tháng 6 được lập trực tiếp từ bảng này:</p>
+  </div>
+  <div class="grid2">
+    <div class="scroll" style="margin:0"><table class="fs">
+      <tr class="h"><td>Income statement · tháng 6</td><td class="n"></td></tr>
+      <tr><td>Service revenue</td><td class="n">7,500</td></tr>
+      <tr><td class="ind">Salary 1,800 · Rent 1,000 · Utilities 500 · Depreciation 400 · Supplies 300</td><td class="n">(4,000)</td></tr>
+      <tr class="sub"><td>Income before tax</td><td class="n">3,500</td></tr>
+      <tr><td>Income tax expense</td><td class="n">(600)</td></tr>
+      <tr class="tot"><td>Net income</td><td class="n">2,900</td></tr>
+    </table></div>
+    <div class="scroll" style="margin:0"><table class="fs">
+      <tr class="h"><td>Changes in equity · tháng 6</td><td class="n"></td></tr>
+      <tr><td>Total equity, 31/5 (50,000 + 18,800)</td><td class="n">68,800</td></tr>
+      <tr><td>Add: Net income</td><td class="n">2,900</td></tr>
+      <tr><td>Less: Dividends</td><td class="n">(3,200)</td></tr>
+      <tr class="tot"><td>Total equity, 30/6</td><td class="n">68,500</td></tr>
+    </table></div>
+  </div>
+  <div class="scroll"><table class="fs" style="max-width:640px">
+    <tr class="h"><td>Balance sheet · 30/6</td><td class="n"></td><td></td><td class="n"></td></tr>
+    <tr><td>Cash</td><td class="n">34,800</td><td>Accounts payable</td><td class="n">13,100</td></tr>
+    <tr><td>Accounts receivable</td><td class="n">2,500</td><td>Salary payable</td><td class="n">900</td></tr>
+    <tr><td>Supplies</td><td class="n">400</td><td>Unearned service revenue</td><td class="n">200</td></tr>
+    <tr><td>Prepaid rent</td><td class="n">2,000</td><td>Income tax payable</td><td class="n">600</td></tr>
+    <tr><td>Land</td><td class="n">20,000</td><td><b>Total liabilities</b></td><td class="n">14,800</td></tr>
+    <tr><td>Equipment, net (24,000 − 400)</td><td class="n">23,600</td><td>Share capital · Retained earnings</td><td class="n">50,000 · 18,500</td></tr>
+    <tr class="tot"><td>Total assets</td><td class="n">83,300</td><td>Total liabilities &amp; equity</td><td class="n">83,300</td></tr>
+  </table></div>
+
+  <div class="prose">
+  <h2 id="ch3-35"><span class="sec">3.5</span>Khóa sổ (Close the books)</h2>
+  <p>Khóa sổ chuẩn bị tài khoản cho kỳ sau. Chỉ khóa các <b>tài khoản tạm thời</b> (income, expenses, dividends), đưa số dư của chúng về 0 và kết chuyển vào Retained earnings. <b>Tài khoản thường xuyên</b> (assets, liabilities, equity) được mang sang kỳ sau.</p>
+  </div>
+  <pre class="je" data-date="Jun 30">@①
+Service Revenue | 7,500 |
+Retained Earnings | | 7,500
+# Nợ từng tài khoản doanh thu, Có RE tổng doanh thu
+@②
+Retained Earnings | 4,600 |
+Rent Expense | | 1,000
+Salary Expense | | 1,800
+Supplies Expense | | 300
+Depreciation Expense | | 400
+Utilities Expense | | 500
+Income Tax Expense | | 600
+# Có từng tài khoản chi phí, Nợ RE tổng chi phí
+@③
+Retained Earnings | 3,200 |
+Dividends | | 3,200
+# Cổ tức khóa thẳng vào RE, không qua income statement</pre>
+  <div class="tgrid"><pre class="ta" data-title="Retained Earnings" data-hl="1">Expenses 4,600 | Beg 18,800
+Dividends 3,200 | Revenues 7,500
+= | End 18,500</pre></div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">“R-E-D” về RE</span>
+    <p><b>R</b>evenue, <b>E</b>xpenses, <b>D</b>ividends là ba nhóm bị khóa sổ, tất cả đổ về <b>R</b>etained <b>E</b>arnings. A, L và các tài khoản vốn còn lại “sống sót” sang năm sau.</p>
+  </div>
+  <div class="traps"><span class="stamp">Bẫy hay gặp</span>
+    <ul>
+      <li><b>Unearned revenue là nợ phải trả</b>, không phải doanh thu. Nó chỉ thành doanh thu khi dịch vụ được thực hiện.</li>
+      <li>Vật tư còn lại 400 thì chi phí là <b>300</b> (700 − 400), không phải 400.</li>
+      <li>Slide ghi “400 per year” cho khấu hao tháng. Đúng phải là <b>400 mỗi tháng</b> (4,800 mỗi năm).</li>
+      <li>Accumulated depreciation có số dư Có nhưng <b>không phải nợ phải trả</b>. Nó được trừ vào tài sản trên balance sheet.</li>
+      <li>Ngày trả lương rơi vào Chủ nhật 30/6 và được dời sang 1/7, nên phải <b>dồn tích 900</b> vào tháng 6.</li>
+      <li>Accumulated depreciation <b>không bị khóa sổ</b> (nó là tài khoản thường xuyên). Depreciation expense thì bị khóa.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Hỏi nhanh</span>
+    <details><summary>Nhận trước 400 tiền dịch vụ ngày 15/6. Ghi gì?</summary><p>Nợ Cash 400 / Có Unearned Service Revenue 400, tức tạo ra một khoản nợ phải trả.</p></details>
+    <details><summary>Bút toán điều chỉnh cho doanh thu đã làm nhưng chưa thu tiền?</summary><p>Nợ Accounts Receivable / Có Service Revenue.</p></details>
+    <details><summary>Ba bước khóa sổ theo thứ tự?</summary><p>① Nợ doanh thu / Có RE; ② Nợ RE / Có từng chi phí; ③ Nợ RE / Có Dividends.</p></details>
+    <details><summary>Equipment 24,000, khấu hao 400. Book value?</summary><p>23,600.</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="no-co" data-ch="3">Luyện Nợ/Có Ch3</button><button class="btn" type="button" data-go="flashcards" data-ch="3">Flashcards Ch3</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="3">Trắc nghiệm Ch3</button></div>
+  <div class="pager"><a href="#ch2">← Ch2</a><a href="#ch4">Ch4 · Trình bày BCTC →</a></div>
+</section>
+
+<!-- ======================= CH4 ======================= -->
+<section class="sheet" data-view="ch4" hidden>
+  <p class="eyebrow"><span class="tag">Ch4</span>Presentation of Financial Statements</p>
+  <h1>Trình bày báo cáo tài chính theo IAS 1</h1>
+  <div class="core"><span class="lab">Cốt lõi</span><p>Ch1–3 trả lời “ghi cái gì”. Ch4 trả lời “<b>trình bày thế nào</b>” để người đọc hiểu và so sánh được: báo cáo thường niên gồm những gì, bộ BCTC đầy đủ theo IAS 1, các nguyên tắc chung, và cấu trúc của từng báo cáo.</p></div>
+  <ul class="lo">
+    <li><a href="#ch4-41"><b>4.1</b>Báo cáo thường niên</a></li>
+    <li><a href="#ch4-42"><b>4.2</b>Yêu cầu chung</a></li>
+    <li><a href="#ch4-43"><b>4.3</b>Financial position</a></li>
+    <li><a href="#ch4-44"><b>4.4</b>Comprehensive income</a></li>
+    <li><a href="#ch4-45"><b>4.5</b>Changes in equity</a></li>
+  </ul>
+  <div class="prose">
+  <h2 id="ch4-41"><span class="sec">4.1</span>Báo cáo thường niên (Annual report)</h2>
+  <p>Báo cáo thường niên là nguồn thông tin quan trọng nhất cho cổ đông, người cho vay và nhà đầu tư tiềm năng. Slide dùng báo cáo thường niên của Vingroup làm ví dụ. Cấu trúc gồm bốn phần:</p>
+  <ol>
+    <li><b>Corporate information:</b> lịch sử, cơ cấu tổ chức, thị trường và sản phẩm, số liệu hoạt động, điểm nhấn tài chính, giải thưởng.</li>
+    <li><b>Analysis &amp; commentaries:</b> thường là thư của Chủ tịch HĐQT về thành tích năm, lợi ích cho cổ đông và mục tiêu tương lai.</li>
+    <li><b>Other statements &amp; disclosures:</b> như quản trị công ty (corporate governance), tức nguyên tắc về định hướng, trách nhiệm và giải trình.</li>
+    <li><b>Financial statements:</b> xác nhận của ban giám đốc, báo cáo kiểm toán, và bộ BCTC đầy đủ.</li>
+  </ol>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Principle-based (substance)</h3><ul><li>Hình thành từ kinh nghiệm và xét đoán</li><li>Linh hoạt, thích ứng</li><li>Chú trọng <b>bản chất kinh tế</b></li><li>Chuẩn mực do tổ chức nghề nghiệp tư nhân ban hành</li></ul></div>
+    <div class="box"><h3>Rule-based (form)</h3><ul><li>Luật bao quát mọi thứ</li><li>Mang tính quy định, thủ tục</li><li>Chú trọng <b>hình thức pháp lý</b></li><li>Chuẩn mực được đưa vào luật quốc gia</li></ul></div>
+  </div>
+  <div class="prose">
+  <p><b>Substance over form</b>: ghi nhận theo bản chất kinh tế thay vì chỉ theo hình thức pháp lý. Đây là tinh thần của IFRS.</p>
+  <h3>Ba loại ý kiến kiểm toán</h3>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Ý kiến</th><th>Nghĩa là</th></tr></thead>
+    <tbody>
+      <tr><td>Unqualified</td><td>BCTC trình bày trung thực, hợp lý. <b>Mức đảm bảo cao nhất</b> (“chấp nhận toàn phần”).</td></tr>
+      <tr><td>Qualified</td><td>Trình bày hợp lý, <b>ngoại trừ</b> bất đồng về cách xử lý một giao dịch cụ thể.</td></tr>
+      <tr><td>Adverse</td><td>Ngược với unqualified: BCTC <b>không</b> trình bày trung thực tình hình tài chính.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Đèn giao thông: xanh, vàng, đỏ</span>
+    <p>Unqualified là đèn xanh (sạch). Qualified là đèn vàng (“except for…”). Adverse là đèn đỏ. Chữ “unqualified” nghe như tiêu cực nhưng lại là ý kiến <b>tốt nhất</b>. Đề rất hay bẫy chỗ này.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch4-42"><span class="sec">4.2</span>Yêu cầu trình bày chung</h2>
+  <h3>Bộ BCTC đầy đủ (IAS 1)</h3>
+  <ol>
+    <li>Statement of financial position, tại <b>cuối kỳ</b></li>
+    <li>Statement of comprehensive income, cho <b>cả kỳ</b></li>
+    <li>Statement of changes in equity, cho cả kỳ</li>
+    <li>Statement of cash flows, cho cả kỳ</li>
+    <li>Notes: tóm tắt chính sách kế toán quan trọng và thông tin khác</li>
+    <li>Thông tin so sánh của kỳ trước (thêm thông tin nếu có điều chỉnh hồi tố)</li>
+  </ol>
+  <h3>Mỗi báo cáo phải ghi rõ</h3>
+  <p>Tên đơn vị báo cáo · báo cáo hợp nhất hay riêng · ngày kết thúc kỳ hoặc kỳ báo cáo · đơn vị tiền tệ trình bày · mức làm tròn số.</p>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <p>Năm thông tin nhận diện như năm câu hỏi: <b>Ai?</b> (tên) · <b>Gộp hay riêng?</b> (consolidated/individual) · <b>Khi nào?</b> (kỳ) · <b>Tiền gì?</b> (currency) · <b>Tròn đến đâu?</b> (rounding).</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Nền tảng</h3><ul><li><b>Fair presentation &amp; compliance:</b> không thể sửa chính sách kế toán sai bằng cách thuyết minh; không được chỉ áp dụng các chuẩn mực mình thích rồi tuyên bố tuân thủ IFRS.</li><li><b>Going concern:</b> ý định và khả năng hoạt động trong tương lai gần.</li><li><b>Accrual basis:</b> phản ánh thay đổi của tài sản thuần, không phải dòng tiền vào ra.</li></ul></div>
+    <div class="box"><h3>Gộp và tách</h3><ul><li><b>Materiality &amp; aggregation:</b> trình bày riêng từng nhóm khoản mục trọng yếu. Khoản không trọng yếu có thể gộp. Hệ thống có hai cấp: tài khoản tổng hợp (control account) ở sổ cái và sổ chi tiết (subsidiary ledger).</li><li><b>Offsetting:</b> <b>không</b> được bù trừ tài sản với nợ phải trả, hay thu nhập với chi phí.</li></ul></div>
+    <div class="box"><h3>Thời gian</h3><ul><li><b>Frequency:</b> ít nhất mỗi năm một bộ đầy đủ (có kiểm toán). Đơn vị lớn thường lập báo cáo giữa niên độ theo nửa năm hoặc quý (không kiểm toán).</li><li><b>Comparative information:</b> tối thiểu 2 năm, gồm kỳ này và kỳ trước.</li><li><b>Consistency:</b> giữ nguyên cách trình bày và phân loại qua các kỳ. Nếu đổi thì phải điều chỉnh lại số so sánh.</li></ul></div>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Bù trừ hai thứ khác nhau là cấm, trừ bằng tài khoản contra là được</span>
+    <p><b>Netting</b> khác <b>offsetting</b>. PPE − Accumulated depreciation hay AR − Allowance là netting, hoàn toàn hợp lệ. Lấy tiền gửi bù vào khoản vay, hay doanh thu cho thuê bù vào chi phí lãi vay, là offsetting, không được phép.</p>
+  </div>
+  <div class="prose">
+  <h3>Ví dụ: nhất quán khi phân loại lại</h3>
+  <p>Năm 20X5 và 20X4 đều có chi phí bán hàng 20,000 và chi phí hoạt động khác 30,000. Trước khi phát hành BCTC 20X5, phát hiện 2,000 nên được xếp vào chi phí bán hàng.</p>
+  </div>
+  <div class="grid2">
+    <div class="scroll" style="margin:0"><table class="fs"><tr class="h"><td>Chỉ đổi 20X5 (gây hiểu lầm)</td><td class="n">20X5</td><td class="n">20X4</td></tr><tr><td>Sales &amp; marketing</td><td class="n">22,000</td><td class="n">20,000</td></tr><tr><td>Other operating</td><td class="n">28,000</td><td class="n">30,000</td></tr></table></div>
+    <div class="scroll" style="margin:0"><table class="fs"><tr class="h"><td>Điều chỉnh cả số so sánh</td><td class="n">20X5</td><td class="n">20X4</td></tr><tr><td>Sales &amp; marketing</td><td class="n">22,000</td><td class="n">22,000</td></tr><tr><td>Other operating</td><td class="n">28,000</td><td class="n">28,000</td></tr></table></div>
+  </div>
+  <div class="prose">
+  <p>Bảng bên trái làm người đọc tưởng chi phí bán hàng tăng, trong khi thực tế hai năm như nhau. <b>Notes</b> là phần không tách rời của BCTC, được trình bày có hệ thống và tham chiếu chéo với từng khoản mục.</p>
+
+  <h2 id="ch4-43"><span class="sec">4.3</span>Statement of financial position</h2>
+  <p>IAS 1 quy định các dòng tối thiểu phải có, và yêu cầu thêm dòng, tiêu đề, tổng phụ khi cần để hiểu tình hình tài chính.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Assets</h3><p>Cash &amp; cash equivalents · Trade &amp; other receivables · Inventories · Investments (equity method) · Other financial assets · Current &amp; deferred tax assets · PPE · Biological assets · Investment properties · Intangible assets · Assets held for sale</p></div>
+    <div class="box"><h3>Liabilities &amp; Equity</h3><p>Trade &amp; other payables · Provisions · Other financial liabilities · Current &amp; deferred tax liabilities · Liabilities held for sale<br><b>Equity:</b> Issued capital · Reserves · Non-controlling interests</p></div>
+  </div>
+  <div class="prose">
+  <p><b>Thứ tự trình bày không cố định.</b> Trong khảo sát 170 công ty ở slide, cách phổ biến nhất (39%) là tài sản dài hạn → tài sản ngắn hạn → vốn chủ → nợ dài hạn → nợ ngắn hạn. Khoảng 10% sắp xếp theo tính thanh khoản.</p>
+
+  <h2 id="ch4-44"><span class="sec">4.4</span>Statement of comprehensive income</h2>
+  <p>Mọi khoản thu nhập và chi phí của kỳ được trình bày theo <b>một trong hai cách</b>:</p>
+  </div>
+  <div class="flow">
+    <div class="st"><b>Một báo cáo</b><small>Revenue &amp; gains − Expenses &amp; losses = Net income ± OCI = Total comprehensive income</small></div>
+    <div class="st"><b>Hai báo cáo</b><small>(1) Income statement kết thúc ở Net income. (2) Statement of comprehensive income <b>bắt đầu từ Net income</b> ± OCI = Total comprehensive income</small></div>
+  </div>
+  <div class="prose">
+  <p>Income statement tối thiểu phải có: <b>Revenue</b> · <b>Finance costs</b> · <b>Impairment losses</b> (theo IFRS 9) · <b>Share of profits of associates &amp; joint ventures</b> · <b>Tax expense</b>. Slide dẫn Cathay Pacific để cho thấy báo cáo lãi lỗ có thể không có dòng “cost of sales”.</p>
+
+  <h2 id="ch4-45"><span class="sec">4.5</span>Statement of changes in equity</h2>
+  <p>Đối chiếu biến động của tổng vốn chủ từ đầu kỳ đến cuối kỳ:</p>
+  </div>
+  <div class="flow">
+    <div class="st"><b>Beginning equity</b></div><span class="ar">+</span>
+    <div class="st"><b>Giao dịch với chủ sở hữu</b><small>Phát hành hoặc hủy cổ phiếu, trừ cổ tức</small></div><span class="ar">+</span>
+    <div class="st"><b>Total comprehensive income</b><small>Profit or loss + OCI</small></div><span class="ar">=</span>
+    <div class="st"><b>Ending equity</b></div>
+  </div>
+  <div class="prose">
+  <p><b>Accounting policies</b> là các nguyên tắc, cơ sở, quy ước và thực hành dùng để lập BCTC. Có ba loại thay đổi: do chuẩn mực mới, <b>thay đổi ước tính</b>, và <b>thay đổi chính sách</b>.</p>
+  <p><b>Prior-period errors</b> là sai sót phát hiện <b>sau khi BCTC đã phát hành</b>, do bỏ sót hoặc trình bày sai. Ví dụ MWS: năm trước ghi chi phí 30,000 thay vì 40,000, nên lợi nhuận năm trước bị thổi phồng 10,000. Sửa vào <b>RE đầu kỳ</b>, không sửa vào lợi nhuận năm nay:</p>
+  </div>
+  <div class="scroll"><table class="fs">
+    <tr class="h"><td>MWS · Statement of changes in equity 20X6</td><td class="n"></td><td class="n"></td></tr>
+    <tr><td>Total shareholders’ equity, 31/12/20X5</td><td></td><td class="n">490,000</td></tr>
+    <tr><td class="ind">Share capital</td><td class="n">100,000</td><td></td></tr>
+    <tr><td class="ind">RE 31/12/20X5, as reported</td><td class="n">390,000</td><td></td></tr>
+    <tr><td class="ind">Prior-period adjustment (sửa sai sót chi phí)</td><td class="n cr">(10,000)</td><td></td></tr>
+    <tr><td class="ind">RE 31/12/20X5, as adjusted</td><td class="n">380,000</td><td></td></tr>
+    <tr><td class="ind">Net income 20X6 · Dividends 20X6</td><td class="n">110,000 · (40,000)</td><td></td></tr>
+    <tr><td class="ind">RE 31/12/20X6</td><td class="n">450,000</td><td></td></tr>
+    <tr class="tot"><td>Total shareholders’ equity, 31/12/20X6</td><td></td><td class="n">550,000</td></tr>
+  </table></div>
+  <div class="traps"><span class="stamp">Bẫy hay gặp</span>
+    <ul>
+      <li><b>Unqualified là ý kiến tốt nhất</b>, Adverse là tệ nhất. Qualified luôn đi với cụm “except for”.</li>
+      <li>Thuyết minh (disclosure) <b>không sửa được</b> một chính sách kế toán sai.</li>
+      <li>Báo cáo năm <b>có kiểm toán</b>; báo cáo giữa niên độ <b>không kiểm toán</b>.</li>
+      <li>Trừ khấu hao lũy kế khỏi PPE là <b>netting</b>, không phải offsetting.</li>
+      <li>Sai sót kỳ trước điều chỉnh vào <b>RE đầu kỳ</b> trên statement of changes in equity, không đưa vào lợi nhuận năm nay.</li>
+      <li>Phân loại lại khoản mục thì phải <b>điều chỉnh cả số so sánh</b> của năm trước.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Hỏi nhanh</span>
+    <details><summary>Bộ BCTC đầy đủ theo IAS 1 gồm những gì?</summary><p>SFP, SCI, SCE, SCF, Notes, cộng thông tin so sánh của kỳ trước.</p></details>
+    <details><summary>Theo cách trình bày hai báo cáo, báo cáo thứ hai bắt đầu từ dòng nào?</summary><p>Net income (profit or loss), rồi cộng trừ OCI.</p></details>
+    <details><summary>Kiểm toán viên đồng ý mọi thứ trừ cách xử lý một giao dịch. Ý kiến gì?</summary><p>Qualified.</p></details>
+    <details><summary>Tám nguyên tắc chung chia thành ba nhóm nào?</summary><p>Nền tảng (fair presentation, going concern, accrual); gộp và tách (materiality &amp; aggregation, offsetting); thời gian (frequency, comparative, consistency).</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="flashcards" data-ch="4">Flashcards Ch4</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="4">Trắc nghiệm Ch4</button></div>
+  <div class="pager"><a href="#ch3">← Ch3</a><a href="#ch5">Ch5 · Kiểm soát, tiền, phải thu →</a></div>
+</section>
+
+<!-- ======================= CH5 ======================= -->
+<section class="sheet" data-view="ch5" hidden>
+  <p class="eyebrow"><span class="tag">Ch5</span>Internal Control, Cash, and Receivables</p>
+  <h1>Kiểm soát nội bộ, tiền và các khoản phải thu</h1>
+  <div class="core"><span class="lab">Cốt lõi</span><p>Tiền là tài sản dễ bị lấy cắp nhất, nên cần kiểm soát nội bộ và <b>đối chiếu ngân hàng</b>. Phải thu phải trình bày theo <b>số dự kiến thu được</b>: ước tính phần không thu được và ghi chi phí ngay trong kỳ tạo ra doanh thu (allowance method).</p></div>
+  <ul class="lo">
+    <li><a href="#ch5-51"><b>5.1</b>Gian lận</a></li>
+    <li><a href="#ch5-52"><b>5.2</b>Kiểm soát nội bộ</a></li>
+    <li><a href="#ch5-53"><b>5.3</b>Kiểm soát tiền</a></li>
+    <li><a href="#ch5-54"><b>5.4</b>Đối chiếu ngân hàng</a></li>
+    <li><a href="#ch5-55"><b>5.5</b>Tiền trên BCĐKT</a></li>
+    <li><a href="#ch5-56"><b>5.6</b>Phải thu</a></li>
+  </ul>
+  <div class="prose">
+  <h2 id="ch5-51"><span class="sec">5.1</span>Gian lận (Fraud)</h2>
+  <p><b>Fraud</b> là cố ý trình bày sai sự thật nhằm khiến người khác hành động theo một cách nhất định, gây thiệt hại cho họ. Có hai loại chính:</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Misappropriation of assets</h3><p>Do <b>nhân viên</b> thực hiện: trộm tiền hoặc hàng, hối lộ và lại quả, khai khống chi phí được hoàn.</p></div>
+    <div class="box"><h3>Fraudulent financial reporting</h3><p>Do <b>nhà quản lý</b> thực hiện: bút toán sai lệch nhằm lừa nhà đầu tư và chủ nợ. Ví dụ: Enron (mark-to-market, special purpose vehicle), WorldCom. Cả hai đều do Arthur Andersen kiểm toán, và hãng này phải đóng cửa năm 2002.</p></div>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Tam giác gian lận: Áp lực · Cơ hội · Hợp lý hóa</span>
+    <p><b>Pressure</b>, <b>Opportunity</b>, <b>Rationalization</b>. Doanh nghiệp khó kiểm soát áp lực hay suy nghĩ của nhân viên. Kiểm soát nội bộ tấn công cạnh <b>Cơ hội</b>.</p>
+  </div>
+  <div class="prose">
+  <h2 id="ch5-52"><span class="sec">5.2</span>Kiểm soát nội bộ và quản trị công ty</h2>
+  <p>Internal control là cách chính để <b>ngăn chặn, phát hiện và sửa chữa</b> gian lận. Nó phục vụ 5 mục tiêu: bảo vệ tài sản · khuyến khích tuân thủ chính sách · nâng cao hiệu quả hoạt động · bảo đảm sổ sách chính xác, đáng tin cậy · tuân thủ pháp luật.</p>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">COSO = “CRIME”</span>
+    <p><b>C</b>ontrol activities · <b>R</b>isk assessment · <b>I</b>nformation &amp; communication · <b>M</b>onitoring · control <b>E</b>nvironment. Năm thành phần để chống “tội phạm”.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Sarbanes-Oxley Act (SOX, 2002)</h3><ul><li>Công ty niêm yết phải duy trì hệ thống kiểm soát nội bộ và ra báo cáo về nó</li><li>Kiểm toán viên đánh giá và báo cáo về kiểm soát nội bộ</li><li>Thành lập PCAOB</li><li>Hạn chế dịch vụ phi kiểm toán của hãng kiểm toán</li><li>Chế tài cho người vi phạm</li></ul></div>
+    <div class="box"><h3>Thủ tục kiểm soát</h3><ul><li><b>Smart hiring:</b> kiểm tra lý lịch, đào tạo, lương cạnh tranh, phân công rõ ràng</li><li><b>Separation of duties:</b> giữ tài sản · ghi sổ · phê duyệt</li><li><b>Comparison &amp; compliance monitoring:</b> ngân sách, báo cáo ngoại lệ, kiểm toán</li><li><b>Adequate records</b> (chứng từ đánh số trước), <b>limited access</b>, <b>proper approvals</b>, IT (mã hóa, tường lửa)</li></ul></div>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <p><b>Tách ba việc:</b> người giữ tiền không ghi sổ, người ghi sổ không duyệt chi. Hệ thống chỉ bị vượt qua khi có <b>thông đồng</b> (collusion), <b>quản lý lạm quyền</b> (management override) hoặc giới hạn của con người (mệt mỏi, cẩu thả). Lợi ích của kiểm soát phải lớn hơn chi phí của nó.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch5-53"><span class="sec">5.3</span>Kiểm soát thu và chi tiền</h2>
+  <ul>
+    <li><b>Thu tại quầy:</b> máy POS ghi nhận doanh thu, giá vốn và giảm tồn kho; khách nhận hóa đơn; cuối ca nộp két tiền; kế toán đối chiếu doanh thu theo máy với tiền trong két.</li>
+    <li><b>Thu qua thư:</b> bộ phận nhận thư tách séc (chuyển thủ quỹ, nộp ngân hàng) và giấy báo (chuyển kế toán ghi sổ). Kiểm soát viên so sánh giấy nộp tiền của ngân hàng với số kế toán đã ghi.</li>
+    <li><b>Chi tiền:</b> trả bằng séc có chữ ký người được ủy quyền và chứng từ kèm theo. Bộ hồ sơ thanh toán (payment packet) gồm <b>Purchase order + Invoice + Receiving report</b>. Tách bốn việc: mua hàng, nhận hàng, lập séc, duyệt chi.</li>
+    <li><b>Petty cash</b> (quỹ tạm ứng nhỏ) theo <b>imprest system</b>: tiền còn trong quỹ + chứng từ đã chi = số quỹ cố định.</li>
+    <li><b>Cash budget:</b> tiền đầu kỳ + thu dự kiến − chi dự kiến = tiền có trước khi tài trợ. So với mức tiền cuối kỳ mong muốn để biết cần vay thêm hay dư để đầu tư. Ví dụ EPIC: 6,260 + 62,890 − 65,250 = 3,900; muốn giữ 5,000 nên cần vay thêm 1,100.</li>
+  </ul>
+
+  <h2 id="ch5-54"><span class="sec">5.4</span>Đối chiếu ngân hàng (Bank reconciliation)</h2>
+  <p>Số dư theo sổ của công ty và số dư theo sao kê ngân hàng thường khác nhau do <b>độ trễ ghi nhận</b> và sai sót. Đối chiếu là giải thích từng khoản chênh lệch cho đến khi hai số khớp.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Bên NGÂN HÀNG (ngân hàng chưa biết)</h3><ul><li><b>+</b> Deposits in transit (tiền đã nộp, ngân hàng chưa ghi)</li><li><b>−</b> Outstanding checks (séc đã phát, chưa được thanh toán)</li><li><b>±</b> Sai sót của ngân hàng</li></ul><p class="muted">Không cần ghi bút toán.</p></div>
+    <div class="box"><h3>Bên SỔ SÁCH (công ty chưa biết)</h3><ul><li><b>+</b> Ngân hàng thu hộ, EFT nhận được, lãi tiền gửi</li><li><b>−</b> Phí ngân hàng, séc NSF, EFT chi ra, phí in séc</li><li><b>±</b> Sai sót của công ty</li></ul><p class="muted"><b>Phải ghi bút toán</b> cho từng khoản.</p></div>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Ai chưa biết thì sửa bên người đó</span>
+    <p>Ngân hàng chưa biết khoản tiền mình mới nộp hay séc mình mới phát, nên sửa bên Bank. Mình chưa biết phí, lãi, séc bị trả lại mà ngân hàng báo trên sao kê, nên sửa bên Sổ. <b>Chỉ bên Sổ mới ghi bút toán</b>, vì sổ sách là của mình.</p>
+  </div>
+  <div class="scroll"><table class="fs" style="max-width:680px">
+    <tr class="h"><td>EPIC Products · 31/12/20X6 · Bank</td><td class="n"></td><td>Books</td><td class="n"></td></tr>
+    <tr><td>Balance</td><td class="n">5,900</td><td>Balance</td><td class="n">3,340</td></tr>
+    <tr><td class="ind">+ Deposit in transit</td><td class="n">1,600</td><td class="ind">+ EFT dividend revenue</td><td class="n">900</td></tr>
+    <tr><td class="ind">+ Correction of bank error</td><td class="n">100</td><td class="ind">+ Bank collection of AR</td><td class="n">2,100</td></tr>
+    <tr><td class="ind">− Outstanding checks (280 + 320 + 250 + 490)</td><td class="n">(1,340)</td><td class="ind">+ Interest revenue</td><td class="n">30</td></tr>
+    <tr><td></td><td></td><td class="ind">+ Book error, check 333 (510 ghi nhầm, thực trả 150)</td><td class="n">360</td></tr>
+    <tr><td></td><td></td><td class="ind">− Service charge 20 · NSF 50 · EFT insurance 400</td><td class="n">(470)</td></tr>
+    <tr class="tot"><td>Adjusted bank balance</td><td class="n">6,260</td><td>Adjusted book balance</td><td class="n">6,260</td></tr>
+  </table></div>
+  <pre class="je" data-date="Dec 31">Cash | 900 |
+Dividend Revenue | | 900
+@
+Cash | 2,100 |
+Accounts Receivable | | 2,100
+@
+Cash | 30 |
+Interest Revenue | | 30
+@
+Cash | 360 |
+Accounts Payable | | 360
+# Sửa séc 333 ghi nhầm
+@
+Miscellaneous Expense | 20 |
+Cash | | 20
+@
+Accounts Receivable | 50 |
+Cash | | 50
+# Séc NSF: khách vẫn còn nợ
+@
+Insurance Expense | 400 |
+Cash | | 400</pre>
+
+  <div class="prose">
+  <h2 id="ch5-55"><span class="sec">5.5</span>Tiền trên bảng cân đối</h2>
+  <p><b>Cash and cash equivalents</b> gồm tiền và các khoản đầu tư <b>thanh khoản cao, đáo hạn từ 3 tháng trở xuống kể từ ngày mua</b>: tiền gửi có kỳ hạn, chứng chỉ tiền gửi, trái phiếu chính phủ sắp đáo hạn.</p>
+
+  <h2 id="ch5-56"><span class="sec">5.6</span>Phải thu và khoản suy giảm</h2>
+  <p>Phải thu là tài sản thanh khoản đứng thứ ba (sau tiền và đầu tư ngắn hạn). Hình thành khi <b>bán hàng, cung cấp dịch vụ</b> (accounts receivable, còn gọi là trade receivables) hoặc khi <b>cho vay</b> (notes receivable). AR trên sổ cái là tài khoản tổng hợp; sổ chi tiết theo dõi từng khách hàng. Kiểm soát: tách người xử lý tiền khỏi người ghi sổ, dùng bank lockbox.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Allowance method (chuẩn)</h3><p>Cuối kỳ ước tính phần không thu được dựa trên kinh nghiệm:</p><pre class="je">Uncollectible-Account Expense | 2,000 |
+Allowance for Uncollectible Accounts | | 2,000</pre><p>Khi xóa sổ một khách hàng cụ thể:</p><pre class="je">Allowance for Uncollectible Accounts | 12 |
+Accounts Receivable | | 12</pre></div>
+    <div class="box"><h3>Direct write-off (không khuyến khích)</h3><p>Chỉ ghi chi phí khi một khách hàng chắc chắn không trả:</p><pre class="je">Uncollectible-Account Expense | 12 |
+Accounts Receivable | | 12</pre><p>Không có dự phòng nên <b>có thể thổi phồng tài sản</b>, và chi phí <b>không ghi cùng kỳ</b> với doanh thu liên quan (vi phạm matching).</p></div>
+  </div>
+  <div class="scroll"><table class="fs">
+    <tr class="h"><td>Xóa sổ 12 theo allowance method</td><td class="n">Trước</td><td class="n">Sau</td></tr>
+    <tr><td>Accounts receivable</td><td class="n">100</td><td class="n">88</td></tr>
+    <tr><td>Less: Allowance</td><td class="n">(20)</td><td class="n">(8)</td></tr>
+    <tr class="tot"><td>Accounts receivable, net</td><td class="n">80</td><td class="n">80</td></tr>
+  </table></div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Xóa sổ chỉ là dọn dẹp</span>
+    <p>Theo allowance method, chi phí đã được ghi từ lúc lập dự phòng. Khi xóa sổ, <b>net AR không đổi</b> và <b>không có chi phí mới</b>, chỉ là chuyển từ “dự kiến mất” sang “đã mất”.</p>
+  </div>
+  <div class="prose">
+  <h3>Tính tiền thu từ khách hàng</h3>
+  <p>T-account phải thu thường có năm dòng: Đầu kỳ 200 + Bán chịu 1,800 − Xóa sổ 100 − <b>Thu tiền x</b> = Cuối kỳ 400, suy ra <b>x = 1,500</b>.</p>
+  <h3>Notes receivable</h3>
+  <p>Các thuật ngữ: <b>creditor</b> (bên cho vay), <b>debtor/maker</b> (bên vay, người ký), <b>principal</b> (tiền gốc), <b>interest</b> (lãi suất năm), <b>term</b> (thời hạn), <b>maturity date</b> (ngày đáo hạn), <b>maturity value</b> = gốc + lãi.</p>
+  <p>Ngân hàng cho L. Holland vay 1,000 ngày 31/8, lãi 9%/năm, đáo hạn 28/2 năm sau.</p>
+  </div>
+  <pre class="je">@Aug 31
+Note Receivable—L. Holland | 1,000 |
+Cash | | 1,000
+@Dec 31
+Interest Receivable | 30 |
+Interest Revenue | | 30
+# 1,000 × 9% × 4/12 (tháng 9 đến tháng 12)
+@Feb 28
+Cash | 1,045 |
+Note Receivable—L. Holland | | 1,000
+Interest Receivable | | 30
+Interest Revenue | | 15
+# 15 = 1,000 × 9% × 2/12 cho tháng 1 và tháng 2</pre>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <p><b>Lãi = P × R × T</b> (Principal × Rate × Time). Time luôn là <b>số tháng/12</b>. Lãi được chia theo năm: phần của năm cũ đã dồn tích (30), phần của năm mới ghi lúc thu (15).</p>
+  </div>
+  <div class="traps"><span class="stamp">Bẫy hay gặp</span>
+    <ul>
+      <li>Séc <b>NSF</b> làm giảm số dư sổ sách và <b>ghi Nợ Accounts Receivable</b>, vì khách vẫn còn nợ.</li>
+      <li>Deposits in transit và outstanding checks chỉ điều chỉnh bên ngân hàng và <b>không cần bút toán</b>.</li>
+      <li>Lỗi ghi séc 510 thay vì 150: cộng 360 vào sổ (Nợ Cash / Có Accounts Payable).</li>
+      <li>Allowance method: lúc xóa sổ <b>không ghi chi phí</b>, net AR không đổi.</li>
+      <li>Cash equivalents tính 3 tháng <b>kể từ ngày mua</b>, không phải thời gian còn lại.</li>
+      <li>Kiểm soát nội bộ vẫn có thể thất bại nếu có thông đồng hoặc quản lý lạm quyền.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Hỏi nhanh</span>
+    <details><summary>Ba cạnh của tam giác gian lận?</summary><p>Pressure, Opportunity, Rationalization. Kiểm soát nội bộ giảm Opportunity.</p></details>
+    <details><summary>Phí ngân hàng 20: điều chỉnh bên nào, có ghi bút toán không?</summary><p>Bên Sổ, trừ 20. Có ghi: Nợ Miscellaneous Expense / Có Cash.</p></details>
+    <details><summary>AR 10,000, allowance 900. Net AR?</summary><p>9,100.</p></details>
+    <details><summary>Note 1,000, lãi 9%, giữ 4 tháng. Lãi dồn tích?</summary><p>1,000 × 0.09 × 4/12 = 30.</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="cong-cu" data-ch="5">Luyện đối chiếu ngân hàng</button><button class="btn" type="button" data-go="no-co" data-ch="5">Luyện Nợ/Có Ch5</button><button class="btn" type="button" data-go="flashcards" data-ch="5">Flashcards Ch5</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="5">Trắc nghiệm Ch5</button></div>
+  <div class="pager"><a href="#ch4">← Ch4</a><a href="#ch6">Ch6 · Hàng tồn kho →</a></div>
+</section>
+
+<!-- ======================= CH6 ======================= -->
+<section class="sheet" data-view="ch6" hidden>
+  <p class="eyebrow"><span class="tag">Ch6</span>Inventory and Merchandising Operations</p>
+  <h1>Hàng tồn kho và hoạt động thương mại</h1>
+  <div class="core"><span class="lab">Cốt lõi</span><p>Hàng tồn kho là <b>tài sản</b> cho đến khi giao cho khách. Lúc đó giá gốc của nó chuyển thành <b>chi phí (COGS)</b>. FIFO, LIFO và bình quân chỉ chia tổng <b>hàng có để bán</b> thành hai phần: giá vốn và tồn kho cuối kỳ. Tồn kho không bao giờ được ghi cao hơn số có thể bán được (NRV).</p></div>
+  <ul class="lo">
+    <li><a href="#ch6-61"><b>6.1</b>Bản chất tồn kho</a></li>
+    <li><a href="#ch6-62"><b>6.2</b>Ghi nhận nghiệp vụ</a></li>
+    <li><a href="#ch6-63"><b>6.3</b>Phương pháp tính giá</a></li>
+    <li><a href="#ch6-64"><b>6.4</b>Sai sót tồn kho</a></li>
+    <li><a href="#ch6-65"><b>6.5</b>Phương pháp lãi gộp</a></li>
+  </ul>
+  <div class="prose">
+  <h2 id="ch6-61"><span class="sec">6.1</span>Bản chất của hàng tồn kho</h2>
+  <p>Doanh nghiệp thương mại có hai tài khoản mà doanh nghiệp dịch vụ không cần: <b>Cost of goods sold</b> trên income statement và <b>Inventory</b> trên balance sheet. Gross profit = Sales − COGS.</p>
+  </div>
+  <div class="flow">
+    <div class="st"><b>Giá gốc hàng còn trong kho</b><small>= Inventory, tài sản trên balance sheet</small><span class="n mono">Số lượng còn × giá gốc/đơn vị</span></div><span class="ar">↔</span>
+    <div class="st"><b>Giá gốc hàng đã bán</b><small>= COGS, chi phí trên income statement</small><span class="n mono">Số lượng bán × giá gốc/đơn vị</span></div>
+  </div>
+  <div class="prose">
+  <p>Ví dụ: có 3 áo, giá gốc $30/chiếc, bán 2 chiếc giá $50. Sales 100 − COGS 60 = Gross profit 40. Inventory còn 30. <b>Doanh thu tính theo giá bán, giá vốn tính theo giá gốc.</b></p>
+  <h3>Đếm số lượng: hàng nào là của mình?</h3>
+  <ul>
+    <li>Số lượng lấy từ sổ sách và được xác nhận bằng <b>kiểm kê</b> cuối năm.</li>
+    <li><b>Hàng ký gửi (consignment):</b> tính hàng mình gửi người khác bán; không tính hàng người khác gửi mình bán.</li>
+    <li><b>Hàng đang đi đường</b> tùy điều khoản giao hàng. Bên giữ quyền sở hữu khi hàng trên đường là bên trả cước.</li>
+  </ul>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>FOB Shipping point</h3><p>Quyền sở hữu chuyển khi hàng <b>rời kho người bán</b>. Hàng đang đi đường thuộc về <b>người mua</b>, và người mua trả cước.</p></div>
+    <div class="box"><h3>FOB Destination</h3><p>Quyền sở hữu chuyển khi hàng <b>giao tới người mua</b>. Hàng đang đi đường vẫn thuộc về <b>người bán</b>.</p></div>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <p><b>FOB + địa điểm = nơi quyền sở hữu đổi chủ.</b> “Shipping point” là đổi chủ ở điểm gửi, “Destination” là đổi chủ ở điểm đến. Hàng ký gửi: “hàng của mình gửi bán vẫn là của mình”.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch6-62"><span class="sec">6.2</span>Ghi nhận nghiệp vụ tồn kho (perpetual)</h2>
+  <p><b>Periodic</b>: không theo dõi liên tục, thường cho hàng giá trị thấp. <b>Perpetual</b>: theo dõi liên tục hàng mua, bán và tồn, dùng cho mọi loại hàng. Cả hai đều kiểm kê ít nhất mỗi năm một lần. Ví dụ cửa hàng We Love Baby Stuff của Natalie:</p>
+  </div>
+  <pre class="je">@Mua hàng
+Inventory | 2,050 |
+Accounts Payable | | 2,050
+# Gồm 50 cước vận chuyển (cách 2: Nợ Inventory 2,000 và Nợ Freight-inwards 50)
+@Trả hàng
+Accounts Payable | 100 |
+Inventory | | 100
+# Trả lại hàng sai mẫu, được trừ vào nợ
+@Bán hàng
+Cash | 25 |
+Sales Revenue | | 25
+Cost of Sales | 15 |
+Inventory | | 15
+# Bán hàng luôn có HAI bút toán: doanh thu theo giá bán và giá vốn theo giá gốc
+@Mua 2/10, n/30
+Inventory | 1,000 |
+Accounts Payable | | 1,000
+# Giảm 2% nếu trả trong 10 ngày, nếu không thì trả đủ trong 30 ngày</pre>
+  <div class="prose">
+  <p class="muted">Nếu Natalie trả trong 10 ngày, cô chỉ trả 980. Vì giá gốc tồn kho là giá mua trừ chiết khấu, bút toán thanh toán sẽ là Nợ AP 1,000 / Có Cash 980 / Có Inventory 20.</p>
+
+  <h2 id="ch6-63"><span class="sec">6.3</span>Giá gốc và các phương pháp tính giá</h2>
+  <p><b>Giá gốc tồn kho</b> là mọi chi phí để đưa hàng đến trạng thái sẵn sàng bán: giá mua + cước vận chuyển mua (freight in) + bảo hiểm khi vận chuyển + phí, thuế cần thiết − hàng trả lại, giảm giá và chiết khấu.</p>
+  <p>Bốn phương pháp: <b>Specific identification</b> (hàng độc nhất như ô tô, đồ cổ, bất động sản) · <b>FIFO</b> · <b>LIFO</b> · <b>Average cost</b> (bình quân gia quyền). Dữ liệu ở Exhibit 6-7: tồn đầu 10 × $10, mua 25 × $14 và 25 × $18. Hàng có để bán là 60 đơn vị, $900. Bán 40 đơn vị, còn 20.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th></th><th>FIFO</th><th>LIFO</th><th>Average</th></tr></thead>
+    <tbody>
+      <tr><td>COGS (40 đơn vị)</td><td class="mono">10×10 + 25×14 + 5×18 = <b>540</b></td><td class="mono">25×18 + 15×14 = <b>660</b></td><td class="mono">40 × 15 = <b>600</b></td></tr>
+      <tr><td>Ending inventory (20)</td><td class="mono">20 × 18 = <b>360</b></td><td class="mono">10×10 + 10×14 = <b>240</b></td><td class="mono">20 × 15 = <b>300</b></td></tr>
+      <tr><td>Gross profit (sales 1,000)</td><td class="mono"><b>460</b> cao nhất</td><td class="mono"><b>340</b> thấp nhất</td><td class="mono"><b>400</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>Giá bình quân mỗi đơn vị = giá trị hàng có để bán ÷ số lượng có để bán = 900 ÷ 60 = <b>$15</b>. Không phải trung bình cộng (10 + 14 + 18) ÷ 3 = 14.</p></div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Giá tăng: FIFO lãi to, tồn kho to. LIFO giá vốn to.</span>
+    <p>FIFO đẩy <b>hàng cũ, giá rẻ</b> ra trước, nên COGS thấp và lãi gộp cao, còn tồn kho cuối mang <b>giá mới nhất</b>. LIFO ngược lại. Khi giá giảm, mọi thứ đảo chiều. Dù dùng phương pháp nào thì <b>COGS + Tồn kho cuối = 900</b>: chiếc bánh không đổi, chỉ cách cắt thay đổi.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Vì sao IFRS cấm LIFO</h3><ul><li>Ưu tiên đo lường lợi nhuận hơn tài sản và nợ phải trả</li><li>Có thể tạo ra lợi nhuận không thực tế</li><li>Không phản ánh trung thực dòng luân chuyển hàng</li></ul></div>
+    <div class="box"><h3>Comparability</h3><p>Dùng cùng một phương pháp qua các kỳ. Vẫn được đổi phương pháp nếu hợp lý (mất tính so sánh ngắn hạn không phải lý do để cấm), nhưng phải <b>thuyết minh ảnh hưởng</b> lên lợi nhuận.</p></div>
+  </div>
+  <div class="prose">
+  <h3>Lower of cost and net realizable value</h3>
+  <p><b>NRV</b> = giá bán ước tính − chi phí hoàn thiện ước tính − chi phí bán ước tính. Khi NRV thấp hơn giá gốc (hàng hỏng, lỗi thời, giá bán giảm) thì ghi giảm tồn kho xuống NRV. Đây là nguyên tắc thận trọng (conservatism), đặc biệt quan trọng với công ty công nghệ cao và hàng theo mùa.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>HP</th><th>SL</th><th>Cost</th><th>NRV</th><th>Ghi theo</th><th>Giá trị</th></tr></thead>
+    <tbody>
+      <tr><td>Intel chips</td><td class="mono">1,000</td><td class="mono">250</td><td class="mono">200</td><td class="mono">200</td><td class="mono">200,000 (ghi giảm)</td></tr>
+      <tr><td>Disk drives</td><td class="mono">400</td><td class="mono">100</td><td class="mono">110</td><td class="mono">100</td><td class="mono">40,000 (giữ giá gốc)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose"><p>Exhibit 6-10: tồn kho giá gốc 1,000 nhưng NRV chỉ 400, ghi giảm 600 và cộng vào giá vốn: COGS = 2,000 + 600 = <b>2,600</b>.</p></div>
+
+  <div class="prose">
+  <h2 id="ch6-64"><span class="sec">6.4</span>Ảnh hưởng của sai sót tồn kho</h2>
+  <p>Sai tồn kho cuối kỳ ảnh hưởng <b>hai kỳ</b>, vì tồn kho cuối kỳ này là tồn kho đầu kỳ sau.</p>
+  </div>
+  <div class="scroll"><table class="fs" style="max-width:640px">
+    <tr class="h"><td>Tồn cuối kỳ 1 bị thổi phồng 5,000</td><td class="n">Kỳ 1</td><td class="n">Kỳ 2</td><td class="n">Đúng</td></tr>
+    <tr><td>Sales</td><td class="n">100,000</td><td class="n">100,000</td><td class="n">100,000</td></tr>
+    <tr><td>Beginning inventory + Purchases</td><td class="n">10,000 + 50,000</td><td class="n cr">15,000 + 50,000</td><td class="n">10,000 + 50,000</td></tr>
+    <tr><td>− Ending inventory</td><td class="n cr">(15,000)</td><td class="n">(10,000)</td><td class="n">(10,000)</td></tr>
+    <tr><td>COGS</td><td class="n">45,000</td><td class="n">55,000</td><td class="n">50,000</td></tr>
+    <tr class="tot"><td>Gross profit</td><td class="n">55,000</td><td class="n">45,000</td><td class="n">50,000</td></tr>
+  </table></div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Tồn kho cuối và lãi đi cùng chiều. Năm sau đảo ngược. Hai năm tự triệt tiêu.</span>
+    <p>Tồn cuối kỳ 1 cao → COGS kỳ 1 thấp → lãi kỳ 1 cao. Kỳ 2 tồn đầu cao → COGS cao → lãi thấp. Tổng hai kỳ 55,000 + 45,000 = 100,000, đúng bằng 50,000 × 2.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch6-65"><span class="sec">6.5</span>Ước tính tồn kho bằng phương pháp lãi gộp</h2>
+  <p><b>Gross profit % = Gross profit ÷ Net sales</b>. Mô hình giá vốn: Tồn đầu + Mua vào = Hàng có để bán; trừ Tồn cuối = COGS. Đảo vế để ước tính tồn kho, ví dụ khi hàng bị cháy, mất hoặc để kiểm tra tính hợp lý:</p>
+  </div>
+  <div class="scroll"><table class="fs">
+    <tr class="h"><td>Ước tính tồn kho bị mất</td><td class="n"></td><td class="n"></td></tr>
+    <tr><td>Beginning inventory</td><td></td><td class="n">38,000</td></tr>
+    <tr><td>Purchases</td><td></td><td class="n">72,000</td></tr>
+    <tr class="sub"><td>Cost of goods available</td><td></td><td class="n">110,000</td></tr>
+    <tr><td class="ind">Net sales 100,000 − Gross profit 35% (35,000)</td><td class="n"></td><td class="n">(65,000)</td></tr>
+    <tr class="tot"><td>Estimated ending inventory</td><td></td><td class="n">45,000</td></tr>
+  </table></div>
+  <div class="traps"><span class="stamp">Bẫy hay gặp</span>
+    <ul>
+      <li>Giá bình quân = tổng giá trị ÷ tổng số lượng (<b>15</b>), không phải trung bình cộng các đơn giá (14).</li>
+      <li>Môn học theo IFRS: <b>LIFO không được phép</b>. Đề có thể hỏi LIFO để so sánh, nhưng hỏi “IFRS cho phép không” thì đáp án là không.</li>
+      <li>Bán hàng theo perpetual cần <b>hai bút toán</b>. Quên bút toán giá vốn là lỗi phổ biến nhất.</li>
+      <li>Cước vận chuyển mua hàng (freight in) <b>tính vào giá gốc tồn kho</b>.</li>
+      <li>NRV cao hơn giá gốc thì <b>không ghi tăng</b>. Tồn kho chỉ ghi giảm.</li>
+      <li>FOB shipping point: hàng đang đi đường cuối năm thuộc tồn kho của <b>người mua</b>.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Hỏi nhanh</span>
+    <details><summary>Giá đang tăng. Phương pháp nào cho lãi gộp cao nhất?</summary><p>FIFO, vì giá vốn dùng giá cũ, rẻ hơn.</p></details>
+    <details><summary>Tồn cuối kỳ 1 bị khai thiếu. Lãi kỳ 1 và kỳ 2 thế nào?</summary><p>Kỳ 1 lãi bị khai thiếu (COGS cao). Kỳ 2 lãi bị khai thừa.</p></details>
+    <details><summary>Giá gốc 250, NRV 200, 1,000 đơn vị. Ghi tồn kho bao nhiêu?</summary><p>200,000.</p></details>
+    <details><summary>Bán món hàng giá gốc 15 với giá 25 tiền mặt. Hai bút toán?</summary><p>Nợ Cash 25 / Có Sales Revenue 25; Nợ COGS 15 / Có Inventory 15.</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="cong-cu" data-ch="6">Mở phòng thí nghiệm FIFO/LIFO</button><button class="btn" type="button" data-go="no-co" data-ch="6">Luyện Nợ/Có Ch6</button><button class="btn" type="button" data-go="flashcards" data-ch="6">Flashcards Ch6</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="6">Trắc nghiệm Ch6</button></div>
+  <div class="pager"><a href="#ch5">← Ch5</a><a href="#flashcards">Luyện tập · Flashcards →</a></div>
+</section>
+
+<!-- ======================= FLASHCARDS ======================= -->
+<section class="sheet" data-view="flashcards" hidden>
+  <p class="eyebrow"><span class="tag">Luyện tập</span>Flashcards · lặp lại cho đến khi nhớ</p>
+  <h1>Flashcards</h1>
+  <p class="prose">Đọc mặt trước, <b>tự trả lời trong đầu</b>, rồi lật thẻ. Bấm “Chưa nhớ” thì thẻ quay lại sau vài lượt. Bấm “Đã nhớ” thì thẻ được cất đi. Phím tắt: <code>Space</code> lật thẻ, <code>1</code> chưa nhớ, <code>2</code> đã nhớ.</p>
+  <div class="toolbar">
+    <div class="chips" id="fc-chips"></div>
+    <label for="fc-only"><input type="checkbox" id="fc-only" checked> Chỉ thẻ chưa nhớ</label>
+  </div>
+  <div class="card fc" id="fc-card" tabindex="0" role="button" aria-label="Lật thẻ">
+    <div class="meta"><span id="fc-ch"></span><span id="fc-pos"></span></div>
+    <div class="front" id="fc-front"></div>
+    <div class="back" id="fc-back" hidden></div>
+    <div class="hint" id="fc-hint">Bấm vào thẻ để lật</div>
+  </div>
+  <div class="fc-actions">
+    <button class="btn" type="button" id="fc-flip">Lật thẻ</button>
+    <button class="btn" type="button" id="fc-no">Chưa nhớ</button>
+    <button class="btn pri" type="button" id="fc-yes">Đã nhớ ✓</button>
+    <button class="btn" type="button" id="fc-reset">Đặt lại tiến độ</button>
+  </div>
+  <p class="statline" id="fc-stat"></p>
+  <div class="bar" style="max-width:680px"><i id="fc-bar"></i></div>
+</section>
+
+<!-- ======================= QUIZ ======================= -->
+<section class="sheet" data-view="trac-nghiem" hidden>
+  <p class="eyebrow"><span class="tag">Luyện tập</span>Trắc nghiệm có giải thích</p>
+  <h1>Trắc nghiệm</h1>
+  <p class="prose">Câu hỏi bám sát ví dụ và số liệu trong slide. Thứ tự câu và đáp án được xáo trộn mỗi lần làm. Điểm cao nhất của từng phạm vi được lưu trên trình duyệt này.</p>
+  <div class="toolbar"><div class="chips" id="qz-chips"></div><button class="btn" type="button" id="qz-restart">Làm lại từ đầu</button></div>
+  <div class="card" id="qz-card"></div>
+</section>
+
+<!-- ======================= DRILL ======================= -->
+<section class="sheet" data-view="no-co" hidden>
+  <p class="eyebrow"><span class="tag">Luyện tập</span>Định khoản một Nợ, một Có</p>
+  <h1>Luyện Nợ/Có</h1>
+  <p class="prose">Đọc nghiệp vụ, chọn tài khoản ghi <span class="dr"><b>Nợ</b></span> và tài khoản ghi <span class="cr"><b>Có</b></span>. Nếu nghiệp vụ không phải giao dịch của công ty, chọn “Không ghi bút toán” ở cả hai ô. Mỗi đáp án kèm giải thích và ảnh hưởng lên phương trình kế toán.</p>
+  <div class="toolbar"><div class="chips" id="dr-chips"></div><span class="statline" id="dr-score"></span></div>
+  <div class="card" id="dr-card">
+    <p class="lab" id="dr-meta"></p>
+    <p class="qz-q" id="dr-text"></p>
+    <div class="drill-sel">
+      <label for="dr-debit"><span class="dr">Ghi Nợ (Debit)</span><select id="dr-debit"></select></label>
+      <label for="dr-credit"><span class="cr">Ghi Có (Credit)</span><select id="dr-credit"></select></label>
+    </div>
+    <div class="fc-actions"><button class="btn pri" type="button" id="dr-check">Kiểm tra</button><button class="btn" type="button" id="dr-next">Nghiệp vụ tiếp theo →</button></div>
+    <div id="dr-fb"></div>
+  </div>
+</section>
+
+<!-- ======================= TOOLS ======================= -->
+<section class="sheet" data-view="cong-cu" hidden>
+  <p class="eyebrow"><span class="tag">Luyện tập</span>Hai công cụ thực hành</p>
+  <h1>Phòng thí nghiệm tồn kho và đối chiếu ngân hàng</h1>
+
+  <h2 id="lab-inv"><span class="sec">6.3</span>FIFO, LIFO, bình quân: tự đổi số và xem kết quả</h2>
+  <p class="prose">Mặc định là dữ liệu Exhibit 6-7 (giá tăng). Đổi số lượng, đơn giá, số bán hoặc doanh thu, kết quả sẽ tính lại ngay. Thử bộ “Giá giảm” để thấy FIFO và LIFO đổi vai.</p>
+  <div class="toolbar"><button class="btn" type="button" id="inv-up">Giá tăng (Exhibit 6-7)</button><button class="btn" type="button" id="inv-down">Giá giảm</button></div>
+  <div class="scroll"><table class="inv">
+    <thead><tr><th>Lớp hàng</th><th>Số lượng</th><th>Đơn giá</th><th>Thành tiền</th></tr></thead>
+    <tbody id="inv-rows"></tbody>
+  </table></div>
+  <div class="drill-sel" style="max-width:520px">
+    <label for="inv-sold">Số lượng đã bán<input type="number" id="inv-sold" min="0" step="1" value="40"></label>
+    <label for="inv-sales">Doanh thu bán hàng<input type="number" id="inv-sales" min="0" step="1" value="1000"></label>
+  </div>
+  <div id="inv-msg" class="statline"></div>
+  <div class="scroll"><table class="data res" id="inv-res"></table></div>
+  <div class="stack" id="inv-stack"></div>
+  <div class="legend"><span><i style="background:var(--accent)"></i>COGS (đã bán)</span><span><i style="background:repeating-linear-gradient(45deg,var(--chip) 0 3px,var(--sheet) 3px 6px)"></i>Tồn kho cuối kỳ</span></div>
+  <p class="statline" id="inv-insight"></p>
+
+  <h2 id="lab-bank"><span class="sec">5.4</span>Đối chiếu ngân hàng: xếp từng khoản vào đúng bên</h2>
+  <p class="prose">Dữ liệu EPIC Products ngày 31/12/20X6. Với mỗi khoản, chọn nó làm tăng hay giảm số dư <b>ngân hàng</b> hay số dư <b>sổ sách</b>. Hai số dư điều chỉnh tự tính lại. Chúng chỉ khớp nhau khi bạn xếp đúng hết.</p>
+  <div id="rc-list"></div>
+  <div class="totals">
+    <div class="box" id="rc-bank-box"><span class="lab">Số dư ngân hàng điều chỉnh</span><span class="n mono" id="rc-bank">5,900</span><span class="statline">Bắt đầu: 5,900</span></div>
+    <div class="box" id="rc-book-box"><span class="lab">Số dư sổ sách điều chỉnh</span><span class="n mono" id="rc-book">3,340</span><span class="statline">Bắt đầu: 3,340</span></div>
+  </div>
+  <div class="fc-actions"><button class="btn pri" type="button" id="rc-check">Kiểm tra và xem bút toán</button><button class="btn" type="button" id="rc-reset">Làm lại</button></div>
+  <div id="rc-fb"></div>
+</section>
+</main>
+</div>
+
+<script>
+(function(){
+"use strict";
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+const store = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+const fmt = n => { const r = Math.round(n * 100) / 100; return r.toLocaleString("en-US", {maximumFractionDigits: 2}); };
+function shuffle(a){ a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+/* ---------- journal & T-account renderers ---------- */
+function renderJE(){
+  $$("pre.je").forEach(pre => {
+    const lines = pre.textContent.replace(/\r/g, "").split("\n").filter(l => l.trim().length);
+    let date = pre.dataset.date || "";
+    const hasDate = !!date || lines.some(l => /^@\S/.test(l.trim()));
+    let rows = "", first = true;
+    lines.forEach(raw => {
+      const l = raw.trim();
+      if (l.startsWith("@")) {
+        const d = l.slice(1).trim();
+        if (d) date = d;
+        if (rows) rows += '<tr class="gap"><td colspan="4"></td></tr>';
+        first = true; return;
+      }
+      if (l.startsWith("#")) { rows += '<tr class="memo">' + (hasDate ? "<td></td>" : "") + '<td colspan="3">' + esc(l.slice(1).trim()) + "</td></tr>"; return; }
+      const parts = l.split("|").map(s => s.trim());
+      const name = parts[0], dr = parts[1] || "", cr = parts[2] || "";
+      const ind = !dr && cr;
+      rows += "<tr>" + (hasDate ? '<td class="d">' + (first ? esc(date) : "") + "</td>" : "") +
+        '<td class="' + (ind ? "ind" : "") + '">' + esc(name) + '</td><td class="n">' + esc(dr) + '</td><td class="n">' + esc(cr) + "</td></tr>";
+      first = false;
+    });
+    const wrap = document.createElement("div");
+    wrap.className = "scroll";
+    wrap.innerHTML = '<table class="jr"><thead><tr>' + (hasDate ? "<th>Ngày</th>" : "") + '<th>Tài khoản · diễn giải</th><th class="dr">Nợ (Dr)</th><th class="cr">Có (Cr)</th></tr></thead><tbody>' + rows + "</tbody></table>";
+    pre.replaceWith(wrap);
+  });
+}
+function renderTA(){
+  $$("pre.ta").forEach(pre => {
+    const lines = pre.textContent.split("\n").filter(l => l.trim());
+    let body = "", foot = "";
+    const cell = s => {
+      if (!s) return "<span></span>";
+      const m = s.match(/^(.*?)\s*([\d,().]+)$/);
+      return m ? "<span><i>" + esc(m[1]) + "</i><b>" + esc(m[2]) + "</b></span>" : "<span><i>" + esc(s) + "</i></span>";
+    };
+    lines.forEach(l => {
+      const isBal = l.trim().startsWith("=");
+      const parts = l.trim().replace(/^=/, "").split("|").map(s => s.trim());
+      const row = '<div class="tr">' + cell(parts[0] || "") + cell(parts[1] || "") + "</div>";
+      if (isBal) foot += row; else body += row;
+    });
+    const div = document.createElement("div");
+    div.className = "taccount" + (pre.dataset.hl ? " hl" : "");
+    div.innerHTML = '<div class="th">' + esc(pre.dataset.title || "") + '</div><div class="tb">' + body + "</div>" + (foot ? '<div class="tf">' + foot + "</div>" : "");
+    pre.replaceWith(div);
+  });
+}
+
+/* ---------- data ---------- */
+const CH_NAMES = {1:"Ch1 · Khung khái niệm", 2:"Ch2 · Ghi nhận giao dịch", 3:"Ch3 · Dồn tích", 4:"Ch4 · Trình bày BCTC", 5:"Ch5 · Tiền & phải thu", 6:"Ch6 · Tồn kho"};
+
+const CARDS_RAW = {
+1: [
+ ["Kế toán là gì (theo chức năng)?", "Một hệ thống thông tin: đo lường hoạt động kinh doanh → xử lý thành báo cáo → truyền đạt kết quả cho người ra quyết định."],
+ ["Financial accounting khác managerial accounting thế nào?", "Financial: cho người bên ngoài (nhà đầu tư, chủ nợ, cơ quan nhà nước, công chúng). Managerial: cho nhà quản lý bên trong (ngân sách, dự báo, dự phóng)."],
+ ["IFRS do ai ban hành? GAAP Mỹ do ai?", "IFRS: IASB. GAAP: FASB."],
+ ["Mục tiêu của BCTC theo Conceptual Framework?", "Cung cấp thông tin hữu ích cho nhà đầu tư, người cho vay và chủ nợ hiện tại lẫn tiềm năng khi họ quyết định cấp nguồn lực cho doanh nghiệp."],
+ ["Relevance gồm ba thành phần nào?", "Predictive value, Confirmatory value, Materiality."],
+ ["Faithful representation gồm ba thành phần nào?", "Completeness, Neutrality, Free from error."],
+ ["Bốn đặc tính chất lượng nâng cao?", "Comparability, Verifiability, Timeliness, Understandability. Nhớ “Con Voi Thích Uống”."],
+ ["Going concern là gì?", "Giả định công ty tồn tại đủ lâu để hoàn thành mục tiêu và cam kết của mình."],
+ ["Năm yếu tố của BCTC?", "Assets, Liabilities, Equity, Income, Expenses."],
+ ["Retained earnings cuối kỳ tính thế nào?", "RE đầu kỳ + Net income (hoặc − Net loss) − Dividends."],
+ ["Ba nhóm dòng tiền?", "Operating (bán hàng, dịch vụ) · Investing (mua bán tài sản dài hạn) · Financing (vay, trả nợ, giao dịch vốn)."],
+ ["Năm nguyên tắc đạo đức của IESBA?", "Integrity, Objectivity, Professional competence & due care, Confidentiality, Professional behavior."],
+ ["Báo cáo nào là “ảnh chụp tại một thời điểm”?", "Balance sheet (statement of financial position). Ba báo cáo còn lại tính cho cả kỳ."]
+],
+2: [
+ ["Transaction là gì?", "Sự kiện có ảnh hưởng tài chính đến doanh nghiệp và đo lường được một cách đáng tin cậy."],
+ ["Account là gì?", "Bản ghi mọi thay đổi của một tài sản, nợ phải trả hoặc vốn chủ cụ thể trong kỳ."],
+ ["Debit và credit nghĩa là gì?", "Debit là bên trái, credit là bên phải của T-account. Không mang nghĩa tốt hay xấu."],
+ ["Những loại tài khoản nào tăng bên Nợ?", "Dividends, Expenses, Assets (DEA)."],
+ ["Những loại tài khoản nào tăng bên Có?", "Liabilities, Equity (share capital, RE), Revenue (LER)."],
+ ["Vì sao expense tăng bên Nợ?", "Vì expense làm giảm vốn chủ, mà vốn chủ giảm bên Nợ."],
+ ["Journal khác Ledger thế nào?", "Journal ghi giao dịch theo thời gian. Ledger tập hợp theo từng tài khoản. Posting là chuyển từ journal sang ledger."],
+ ["Ba bước ghi nhật ký?", "(1) Xác định tài khoản bị ảnh hưởng và phân loại; (2) tăng hay giảm, tức Nợ hay Có; (3) ghi vào nhật ký."],
+ ["Trial balance dùng để làm gì?", "Liệt kê mọi tài khoản và số dư, kiểm tra tổng Nợ = tổng Có, lập cuối kỳ để làm cơ sở lập BCTC."],
+ ["Trial balance cân có chứng minh không có sai sót không?", "Không. Ghi nhầm tài khoản hoặc bỏ sót cả giao dịch thì bảng vẫn cân."],
+ ["Công thức chung để phân tích một T-account?", "Số dư đầu + Phát sinh tăng − Phát sinh giảm = Số dư cuối."],
+ ["Accrued liabilities là gì?", "Khoản nợ cho chi phí đã phát sinh nhưng chưa trả."]
+],
+3: [
+ ["Accrual accounting ghi nhận khi nào?", "Doanh thu khi đã thực hiện (earned), chi phí khi đã phát sinh (incurred), dù đã thu chi tiền hay chưa."],
+ ["Cash-basis accounting có nhược điểm gì?", "Chỉ ghi thu chi tiền, không phản ánh bản chất kinh tế, BCTC không đầy đủ. Chỉ dùng ở đơn vị không theo chuẩn mực."],
+ ["Revenue principle trả lời hai câu hỏi nào?", "Khi nào ghi nhận doanh thu và ghi bao nhiêu (số tiền hoặc giá trị hợp lý dự kiến nhận)."],
+ ["Matching (expense recognition) là gì?", "Ghi nhận chi phí cùng kỳ với doanh thu mà chi phí đó tạo ra."],
+ ["Bốn loại bút toán điều chỉnh?", "Tiền trước: Prepaid expenses, Unearned revenues. Tiền sau: Accrued expenses, Accrued revenues. Ngoài ra có khấu hao."],
+ ["Unearned revenue thuộc loại tài khoản nào?", "Nợ phải trả: đã nhận tiền nhưng chưa cung cấp hàng hóa, dịch vụ."],
+ ["Bút toán điều chỉnh cho doanh thu dồn tích?", "Nợ Accounts Receivable / Có Revenue."],
+ ["Quy tắc vàng của bút toán điều chỉnh?", "Luôn gồm một tài khoản trên income statement và một tài khoản trên balance sheet. Không bao giờ có Cash."],
+ ["Accumulated depreciation là gì?", "Tài khoản điều chỉnh giảm tài sản (contra asset), số dư Có, luôn đi kèm tài khoản tài sản gốc."],
+ ["Book value của tài sản cố định?", "Cost − Accumulated depreciation."],
+ ["Tài khoản tạm thời và thường xuyên?", "Tạm thời (bị khóa sổ): income, expenses, dividends. Thường xuyên (mang sang kỳ sau): assets, liabilities, equity."],
+ ["Ba bút toán khóa sổ?", "① Nợ Revenue / Có RE; ② Nợ RE / Có từng Expense; ③ Nợ RE / Có Dividends."],
+ ["Có loại tài sản nào không khấu hao?", "Đất (land), vì không giảm tính hữu dụng."]
+],
+4: [
+ ["Bốn phần của báo cáo thường niên?", "Corporate information · Analysis & commentaries (thư Chủ tịch) · Other statements & disclosures (corporate governance) · Financial statements (kèm báo cáo kiểm toán)."],
+ ["Substance over form là gì?", "Ghi nhận theo bản chất kinh tế, không chỉ theo hình thức pháp lý. Đây là tinh thần của kế toán dựa trên nguyên tắc (IFRS)."],
+ ["Ba loại ý kiến kiểm toán?", "Unqualified (sạch, đảm bảo cao nhất) · Qualified (hợp lý, ngoại trừ một vấn đề) · Adverse (không trình bày trung thực)."],
+ ["Bộ BCTC đầy đủ theo IAS 1?", "SFP (cuối kỳ), SCI, SCE, SCF (cho kỳ), Notes, cộng thông tin so sánh kỳ trước."],
+ ["Năm thông tin nhận diện bắt buộc trên BCTC?", "Tên đơn vị · hợp nhất hay riêng · ngày kết thúc kỳ hoặc kỳ báo cáo · đơn vị tiền tệ · mức làm tròn."],
+ ["Offsetting khác netting thế nào?", "Offsetting (cấm): bù trừ tài sản với nợ phải trả, hoặc thu nhập với chi phí. Netting (được phép): trừ tài khoản contra, ví dụ PPE − AD, AR − Allowance."],
+ ["Materiality & aggregation yêu cầu gì?", "Trình bày riêng từng nhóm khoản mục trọng yếu. Khoản không trọng yếu có thể gộp lại."],
+ ["Báo cáo năm và báo cáo giữa niên độ: cái nào được kiểm toán?", "Báo cáo năm có kiểm toán. Báo cáo giữa niên độ (nửa năm, quý) không kiểm toán."],
+ ["Yêu cầu tối thiểu về thông tin so sánh?", "Hai năm: kỳ hiện tại và kỳ trước."],
+ ["Đổi cách phân loại một khoản chi phí thì làm gì với năm trước?", "Điều chỉnh lại số so sánh của năm trước theo cách phân loại mới (consistency)."],
+ ["Hai cách trình bày statement of comprehensive income?", "Một báo cáo duy nhất, hoặc hai báo cáo (income statement kết thúc ở NI; SCI bắt đầu từ NI ± OCI)."],
+ ["Các dòng tối thiểu trên income statement?", "Revenue · Finance costs · Impairment losses (IFRS 9) · Share of profits of associates & JVs · Tax expense."],
+ ["Ba loại thay đổi kế toán?", "Do chuẩn mực mới · thay đổi ước tính kế toán · thay đổi chính sách kế toán."],
+ ["Sai sót kỳ trước được sửa ở đâu?", "Điều chỉnh vào số dư RE đầu kỳ trên statement of changes in equity (prior-period adjustment)."]
+],
+5: [
+ ["Fraud là gì?", "Cố ý trình bày sai sự thật để khiến người khác hành động theo một cách nhất định, gây thiệt hại cho họ."],
+ ["Hai loại gian lận chính?", "Misappropriation of assets (nhân viên lấy cắp tài sản) và fraudulent financial reporting (nhà quản lý làm sai BCTC)."],
+ ["Tam giác gian lận?", "Pressure, Opportunity, Rationalization. Kiểm soát nội bộ chủ yếu giảm Opportunity."],
+ ["Năm mục tiêu của kiểm soát nội bộ?", "Bảo vệ tài sản · tuân thủ chính sách · hiệu quả hoạt động · sổ sách chính xác, đáng tin cậy · tuân thủ pháp luật."],
+ ["Năm thành phần COSO?", "Control environment, Risk assessment, Control activities, Information & communication, Monitoring (“CRIME”)."],
+ ["SOX 2002 quy định gì?", "Công ty niêm yết phải có kiểm soát nội bộ và báo cáo về nó; kiểm toán viên đánh giá kiểm soát nội bộ; lập PCAOB; hạn chế dịch vụ phi kiểm toán; chế tài."],
+ ["Separation of duties tách những việc nào?", "Giữ tài sản · ghi sổ · phê duyệt giao dịch."],
+ ["Kiểm soát nội bộ bị vượt qua bằng cách nào?", "Thông đồng (collusion), quản lý lạm quyền (management override), giới hạn của con người (mệt mỏi, cẩu thả)."],
+ ["Imprest system của petty cash?", "Tiền còn trong quỹ + chứng từ đã chi = số quỹ cố định."],
+ ["Các khoản điều chỉnh bên ngân hàng?", "+ Deposits in transit; − Outstanding checks; ± Sai sót của ngân hàng. Không cần bút toán."],
+ ["Các khoản điều chỉnh bên sổ sách?", "+ Ngân hàng thu hộ, EFT nhận, lãi; − Phí, séc NSF, EFT chi, phí in séc; ± Sai sót của công ty. Phải ghi bút toán."],
+ ["Cash equivalents là gì?", "Đầu tư thanh khoản cao, đáo hạn từ 3 tháng trở xuống kể từ ngày mua."],
+ ["Bút toán lập dự phòng phải thu khó đòi?", "Nợ Uncollectible-Account Expense / Có Allowance for Uncollectible Accounts."],
+ ["Xóa sổ theo allowance method ảnh hưởng gì?", "Nợ Allowance / Có AR. Net AR không đổi, không phát sinh chi phí mới."],
+ ["Nhược điểm của direct write-off?", "Có thể thổi phồng tài sản; chi phí không ghi cùng kỳ với doanh thu liên quan (vi phạm matching)."],
+ ["Công thức lãi và maturity value?", "Interest = Principal × Rate × Time (tháng/12). Maturity value = Principal + Interest."]
+],
+6: [
+ ["Hai tài khoản riêng của doanh nghiệp thương mại?", "Cost of goods sold (income statement) và Inventory (balance sheet)."],
+ ["Khi nào giá gốc hàng tồn kho chuyển thành chi phí?", "Khi người bán giao hàng cho người mua. Lúc đó Inventory chuyển thành COGS."],
+ ["FOB shipping point?", "Quyền sở hữu chuyển khi hàng rời kho người bán. Hàng đang đi đường là của người mua, người mua trả cước."],
+ ["FOB destination?", "Quyền sở hữu chuyển khi hàng giao tới người mua. Hàng đang đi đường vẫn là của người bán."],
+ ["Hàng ký gửi tính vào tồn kho của ai?", "Của bên gửi (chủ hàng). Không tính hàng người khác gửi mình bán."],
+ ["Periodic và perpetual khác nhau thế nào?", "Periodic: không theo dõi liên tục, thường cho hàng rẻ. Perpetual: theo dõi liên tục hàng mua, bán, tồn. Cả hai đều kiểm kê ít nhất mỗi năm một lần."],
+ ["Giá gốc tồn kho gồm những gì?", "Giá mua + freight in + bảo hiểm khi vận chuyển + phí, thuế cần thiết − trả lại, giảm giá, chiết khấu."],
+ ["Bốn phương pháp tính giá tồn kho?", "Specific identification, FIFO, LIFO, Average cost."],
+ ["Giá tăng: FIFO và LIFO cho kết quả thế nào?", "FIFO: COGS thấp nhất, lãi gộp và tồn kho cao nhất. LIFO: COGS cao nhất, lãi gộp và tồn kho thấp nhất."],
+ ["Vì sao IFRS cấm LIFO?", "Ưu tiên lợi nhuận hơn tài sản và nợ phải trả; có thể tạo lợi nhuận không thực tế; không phản ánh trung thực dòng hàng."],
+ ["NRV là gì?", "Giá bán ước tính − chi phí hoàn thiện ước tính − chi phí bán ước tính."],
+ ["Lower of cost and NRV dựa trên nguyên tắc nào?", "Thận trọng (conservatism): không ghi tài sản và lợi nhuận cao hơn thực tế."],
+ ["Tồn cuối kỳ 1 bị thổi phồng thì sao?", "Kỳ 1: COGS thấp, lãi cao. Kỳ 2: COGS cao, lãi thấp. Sau hai kỳ thì tự triệt tiêu."],
+ ["Điều khoản “2/10, n/30” nghĩa là gì?", "Giảm 2% nếu trả trong 10 ngày, nếu không thì trả đủ trong 30 ngày."],
+ ["Mô hình giá vốn (COGS model)?", "Tồn đầu + Mua vào = Hàng có để bán; − Tồn cuối = COGS."]
+]};
+const CARDS = [];
+Object.keys(CARDS_RAW).forEach(ch => CARDS_RAW[ch].forEach((c, i) => CARDS.push({id: ch + "-" + i, ch: +ch, f: c[0], b: c[1]})));
+
+const QUIZ = [
+ {ch:1, q:"Financial accounting chủ yếu phục vụ nhóm người dùng nào?", o:["Nhà đầu tư, chủ nợ và các bên bên ngoài doanh nghiệp","Nhà quản lý bên trong doanh nghiệp","Chỉ cơ quan thuế","Nhân viên sản xuất"], a:0, e:"Financial accounting dành cho người ra quyết định bên ngoài. Managerial accounting mới dành cho nhà quản lý bên trong."},
+ {ch:1, q:"Hai đặc tính chất lượng cơ bản (fundamental) của thông tin tài chính là:", o:["Relevance và Faithful representation","Comparability và Timeliness","Verifiability và Understandability","Materiality và Neutrality"], a:0, e:"Materiality là một phần của Relevance, Neutrality là một phần của Faithful representation. C-V-T-U là nhóm nâng cao."},
+ {ch:1, q:"Một công ty có Assets 1,000 và Liabilities 600. Equity bằng:", o:["400","1,600","600","1,000"], a:0, e:"E = A − L = 1,000 − 600 = 400 (Exhibit 1-4)."},
+ {ch:1, q:"RE đầu kỳ 18,800; net income 2,900; dividends 3,200. RE cuối kỳ là:", o:["18,500","24,900","21,700","15,600"], a:0, e:"18,800 + 2,900 − 3,200 = 18,500. Cổ tức làm giảm RE nhưng không phải chi phí."},
+ {ch:1, q:"Báo cáo nào phản ánh tình hình tài chính tại một thời điểm cụ thể?", o:["Balance sheet","Income statement","Statement of cash flows","Statement of changes in equity"], a:0, e:"Balance sheet là ảnh chụp tại một thời điểm. Ba báo cáo còn lại tính cho cả kỳ."},
+ {ch:1, q:"Tiền chi mua thiết bị dài hạn được phân loại vào dòng tiền:", o:["Investing","Operating","Financing","Không trình bày"], a:0, e:"Mua bán tài sản dài hạn thuộc hoạt động đầu tư (investing)."},
+ {ch:1, q:"Kế toán viên tiết lộ thông tin của khách hàng cho người ngoài là vi phạm nguyên tắc IESBA nào?", o:["Confidentiality","Objectivity","Professional competence","Integrity"], a:0, e:"Bảo mật thông tin là nguyên tắc Confidentiality."},
+
+ {ch:2, q:"Loại tài khoản nào tăng khi ghi Nợ (debit)?", o:["Expenses","Service revenue","Accounts payable","Share capital"], a:0, e:"DEA tăng bên Nợ: Dividends, Expenses, Assets. Revenue, liabilities và share capital tăng bên Có."},
+ {ch:2, q:"Cổ đông của RedLotus dùng tiền riêng sửa nhà của mình. Công ty ghi:", o:["Không ghi bút toán","Nợ Repairs Expense / Có Cash","Nợ Dividends / Có Cash","Nợ Share Capital / Có Cash"], a:0, e:"Giao dịch cá nhân của chủ sở hữu không phải giao dịch của công ty (economic entity)."},
+ {ch:2, q:"Trả 1,900 cho khoản phải trả người bán. Bút toán đúng:", o:["Nợ Accounts Payable / Có Cash","Nợ Cash / Có Accounts Payable","Nợ Supplies Expense / Có Cash","Nợ Accounts Payable / Có Supplies"], a:0, e:"Nợ phải trả giảm (Nợ AP), tiền giảm (Có Cash). Trả nợ không phải chi phí."},
+ {ch:2, q:"Bán đất có giá gốc 20,000, thu 22,000 tiền mặt. Bút toán:", o:["Nợ Cash 22,000 / Có Land 20,000 / Có Gain on sale of land 2,000","Nợ Cash 22,000 / Có Land 22,000","Nợ Cash 22,000 / Có Service Revenue 22,000","Nợ Land 20,000 / Nợ Gain 2,000 / Có Cash 22,000"], a:0, e:"Xóa đất theo giá gốc; phần chênh lệch là khoản lãi (gain), ghi Có."},
+ {ch:2, q:"Cash đầu tháng 33,000; thu trong tháng 8,000; cuối tháng 35,000. Tổng tiền chi là:", o:["6,000","10,000","2,000","41,000"], a:0, e:"33,000 + 8,000 − x = 35,000, suy ra x = 6,000."},
+ {ch:2, q:"Sai sót nào trial balance KHÔNG phát hiện được?", o:["Ghi mua vật tư 500 vào Nợ Equipment thay vì Nợ Supplies","Ghi Nợ 500 nhưng Có 50","Chỉ ghi bên Nợ, quên bên Có","Cộng sai tổng cột Nợ"], a:0, e:"Ghi nhầm tài khoản nhưng Nợ vẫn bằng Có thì bảng vẫn cân. Trial balance cân không có nghĩa là không có sai sót."},
+ {ch:2, q:"Số dư bình thường của tài khoản Dividends là:", o:["Debit","Credit","Bằng 0","Tùy công ty"], a:0, e:"Dividends làm giảm vốn chủ nên tăng bên Nợ và có số dư Nợ, nhưng không phải chi phí."},
+
+ {ch:3, q:"Joe gửi 80,000; mua công ty 60,000 (nhà 40,000, hàng 20,000); dịch vụ thu tiền 10,000; mua vật tư 5,000; trả tiền điện 2,000. Đề không nói vật tư đã dùng. Net income?", o:["8,000","3,000","5,000","10,000"], a:0, e:"Mua vật tư không phải chi phí. Nếu chưa dùng thì NI = 10,000 − 2,000 = 8,000."},
+ {ch:3, q:"Ngày 1/6 trả trước 3,000 tiền thuê 3 tháng. Bút toán điều chỉnh ngày 30/6:", o:["Nợ Rent Expense 1,000 / Có Prepaid Rent 1,000","Nợ Prepaid Rent 1,000 / Có Cash 1,000","Nợ Rent Expense 3,000 / Có Cash 3,000","Nợ Rent Expense 1,000 / Có Cash 1,000"], a:0, e:"Đã dùng 1/3 nên chuyển 1,000 từ tài sản trả trước sang chi phí. Bút toán điều chỉnh không có Cash."},
+ {ch:3, q:"Mua vật tư 700; cuối tháng kiểm kê còn 400. Supplies expense của tháng:", o:["300","400","700","1,100"], a:0, e:"Đã dùng = 700 − 400 = 300."},
+ {ch:3, q:"Unearned service revenue thuộc loại:", o:["Nợ phải trả","Doanh thu","Tài sản","Vốn chủ sở hữu"], a:0, e:"Đã nhận tiền nhưng còn nghĩa vụ cung cấp dịch vụ, nên là nợ phải trả."},
+ {ch:3, q:"Thiết bị 24,000, thời gian sử dụng 5 năm, khấu hao đường thẳng. Khấu hao mỗi tháng:", o:["400","4,800","480","200"], a:0, e:"24,000 ÷ 5 = 4,800/năm; ÷ 12 = 400/tháng."},
+ {ch:3, q:"Tài khoản nào KHÔNG bị khóa sổ cuối kỳ?", o:["Accumulated depreciation","Service revenue","Dividends","Salary expense"], a:0, e:"Accumulated depreciation là tài khoản thường xuyên (contra asset). R-E-D mới bị khóa vào RE."},
+ {ch:3, q:"Bút toán điều chỉnh (trừ trường hợp đặc biệt) không bao giờ có tài khoản:", o:["Cash","Accounts receivable","Unearned revenue","Salary payable"], a:0, e:"Bút toán điều chỉnh luôn ghép một tài khoản income statement với một tài khoản balance sheet, và không có Cash."},
+ {ch:3, q:"Lương 1,800/tháng, trả nửa tháng một lần. Ngày 30/6 là Chủ nhật nên 900 được trả ngày 1/7. Ngày 30/6 ghi:", o:["Nợ Salary Expense 900 / Có Salary Payable 900","Không ghi gì, chờ ngày 1/7","Nợ Salary Payable 900 / Có Cash 900","Nợ Salary Expense 1,800 / Có Cash 1,800"], a:0, e:"Chi phí lương đã phát sinh trong tháng 6, nên phải dồn tích dù chưa trả."},
+
+ {ch:4, q:"Kiểm toán viên kết luận BCTC trình bày hợp lý, ngoại trừ bất đồng về cách xử lý một giao dịch. Đó là ý kiến:", o:["Qualified","Unqualified","Adverse","Disclaimer"], a:0, e:"Qualified luôn đi với cụm “except for”."},
+ {ch:4, q:"Ý kiến kiểm toán nào có mức đảm bảo cao nhất?", o:["Unqualified","Qualified","Adverse","Interim"], a:0, e:"Unqualified là ý kiến sạch, tốt nhất, dù tên nghe có vẻ tiêu cực."},
+ {ch:4, q:"Cách trình bày nào được IAS 1 cho phép?", o:["Trình bày phải thu sau khi trừ dự phòng phải thu khó đòi","Bù trừ khoản vay ngân hàng với tiền gửi","Bù trừ doanh thu cho thuê với chi phí lãi vay","Chỉ trình bày tài sản thuần (tài sản − nợ)"], a:0, e:"Trừ tài khoản contra (AR − Allowance) là netting, được phép. Các phương án còn lại là offsetting, bị cấm."},
+ {ch:4, q:"IAS 1 yêu cầu tối thiểu bao nhiêu kỳ thông tin?", o:["Kỳ hiện tại và một kỳ trước","Chỉ kỳ hiện tại","Ba kỳ gần nhất","Năm kỳ gần nhất"], a:0, e:"Tối thiểu hai năm: kỳ hiện tại và kỳ trước."},
+ {ch:4, q:"Năm 20X5 chuyển 2,000 từ chi phí hoạt động khác sang chi phí bán hàng. Để nhất quán, công ty cần:", o:["Phân loại lại cả số so sánh năm 20X4","Chỉ đổi năm 20X5","Thuyết minh, không đổi số","Ghi 2,000 vào RE đầu kỳ"], a:0, e:"Consistency: khi đổi cách phân loại, số so sánh phải được điều chỉnh theo (22,000 cho cả hai năm)."},
+ {ch:4, q:"Năm trước ghi thiếu chi phí 10,000 (phát hiện sau khi đã phát hành BCTC). Sửa thế nào?", o:["Giảm RE đầu kỳ 10,000 trên statement of changes in equity","Ghi thêm chi phí 10,000 vào năm nay","Bỏ qua vì đã phát hành","Tăng RE đầu kỳ 10,000"], a:0, e:"Ghi thiếu chi phí làm lợi nhuận năm trước bị thổi phồng. Prior-period adjustment làm giảm RE đầu kỳ (390,000 → 380,000)."},
+ {ch:4, q:"Theo cách trình bày hai báo cáo, statement of comprehensive income bắt đầu từ:", o:["Net income (profit or loss)","Revenue","Total comprehensive income","Retained earnings"], a:0, e:"Income statement kết thúc ở NI. SCI bắt đầu từ NI rồi cộng trừ OCI."},
+ {ch:4, q:"Báo cáo giữa niên độ (theo quý, nửa năm) thường:", o:["Không được kiểm toán","Bắt buộc kiểm toán","Thay thế báo cáo năm","Không có thông tin so sánh"], a:0, e:"Theo slide: báo cáo năm có kiểm toán; interim reports thì không."},
+
+ {ch:5, q:"Ba yếu tố của tam giác gian lận:", o:["Pressure, Opportunity, Rationalization","Pressure, Collusion, Override","Motive, Means, Money","Risk, Control, Monitoring"], a:0, e:"Áp lực, cơ hội, hợp lý hóa. Kiểm soát nội bộ chủ yếu giảm cơ hội."},
+ {ch:5, q:"Khoản nào là khoản điều chỉnh bên NGÂN HÀNG?", o:["Deposit in transit","Séc NSF","Phí dịch vụ ngân hàng","Lãi tiền gửi"], a:0, e:"Deposits in transit, outstanding checks và sai sót của ngân hàng điều chỉnh bên ngân hàng. Các khoản còn lại điều chỉnh bên sổ."},
+ {ch:5, q:"Séc 50 của khách hàng bị ngân hàng trả lại (NSF). Bút toán:", o:["Nợ Accounts Receivable / Có Cash","Nợ Cash / Có Accounts Receivable","Nợ Miscellaneous Expense / Có Cash","Không ghi"], a:0, e:"Tiền chưa thực sự thu được và khách vẫn còn nợ, nên phải thu tăng lại."},
+ {ch:5, q:"EPIC: số dư ngân hàng 5,900; deposit in transit 1,600; sửa lỗi ngân hàng +100; séc chưa thanh toán 1,340. Số dư ngân hàng điều chỉnh:", o:["6,260","7,600","4,560","5,900"], a:0, e:"5,900 + 1,600 + 100 − 1,340 = 6,260, khớp với số dư sổ sách điều chỉnh."},
+ {ch:5, q:"Theo allowance method, xóa sổ khoản phải thu 12 sẽ làm net accounts receivable:", o:["Không đổi","Giảm 12","Tăng 12","Giảm 24"], a:0, e:"AR giảm 12 và Allowance giảm 12, nên net AR vẫn 80."},
+ {ch:5, q:"AR đầu kỳ 200; bán chịu 1,800; xóa sổ 100; AR cuối kỳ 400. Tiền thu từ khách hàng:", o:["1,500","1,600","1,700","2,000"], a:0, e:"200 + 1,800 − 100 − x = 400, suy ra x = 1,500."},
+ {ch:5, q:"Note 1,000, lãi 9%/năm, ký ngày 31/8. Lãi dồn tích ngày 31/12:", o:["30","90","45","15"], a:0, e:"1,000 × 9% × 4/12 = 30."},
+ {ch:5, q:"Khoản đầu tư nào được xem là cash equivalent?", o:["Đáo hạn từ 3 tháng trở xuống kể từ ngày mua","Đáo hạn trong vòng 1 năm","Mọi cổ phiếu niêm yết","Mọi trái phiếu chính phủ"], a:0, e:"Thanh khoản cao và đáo hạn từ 3 tháng trở xuống tính từ ngày mua."},
+
+ {ch:6, q:"Exhibit 6-7 (tồn đầu 10×$10, mua 25×$14, 25×$18; bán 40). COGS theo FIFO:", o:["540","660","600","360"], a:0, e:"10×10 + 25×14 + 5×18 = 100 + 350 + 90 = 540."},
+ {ch:6, q:"Cùng dữ liệu đó, giá bình quân mỗi đơn vị là:", o:["15","14","18","10"], a:0, e:"900 ÷ 60 = 15. Không phải trung bình cộng (10 + 14 + 18) ÷ 3 = 14."},
+ {ch:6, q:"Khi giá đang tăng, phương pháp nào cho lãi gộp cao nhất?", o:["FIFO","LIFO","Average cost","Như nhau"], a:0, e:"FIFO đưa giá cũ, rẻ hơn vào COGS, nên COGS thấp và lãi gộp cao."},
+ {ch:6, q:"Phương pháp nào không được phép theo IFRS?", o:["LIFO","FIFO","Average cost","Specific identification"], a:0, e:"IFRS cấm LIFO vì nó không phản ánh trung thực dòng hàng và có thể tạo lợi nhuận không thực tế."},
+ {ch:6, q:"Cuối năm có hàng đang đi đường, mua theo FOB shipping point. Hàng thuộc tồn kho của:", o:["Người mua","Người bán","Hãng vận chuyển","Chia đôi"], a:0, e:"Quyền sở hữu chuyển khi hàng rời kho người bán."},
+ {ch:6, q:"Tồn kho cuối kỳ 1 bị thổi phồng 5,000. Ảnh hưởng:", o:["Lãi kỳ 1 bị thổi phồng, lãi kỳ 2 bị khai thiếu","Lãi kỳ 1 bị khai thiếu, lãi kỳ 2 bị thổi phồng","Chỉ ảnh hưởng kỳ 1","Không ảnh hưởng lãi"], a:0, e:"Tồn cuối cao làm COGS thấp, lãi cao ở kỳ 1. Kỳ 2 thì ngược lại."},
+ {ch:6, q:"1,000 chip giá gốc $250, NRV $200. Tồn kho ghi:", o:["200,000","250,000","50,000","225,000"], a:0, e:"Lower of cost and NRV: 1,000 × 200 = 200,000."},
+ {ch:6, q:"Tồn đầu 38,000; mua 72,000; doanh thu thuần 100,000; tỷ lệ lãi gộp 35%. Tồn kho cuối ước tính:", o:["45,000","65,000","10,000","35,000"], a:0, e:"COGS ước tính = 100,000 × 65% = 65,000. Tồn cuối = 110,000 − 65,000 = 45,000."}
+];
+
+const ACCOUNTS = [
+ ["Tài sản", ["Cash","Accounts Receivable","Notes Receivable","Interest Receivable","Supplies","Prepaid Rent","Inventory","Land","Equipment","Accumulated Depreciation","Allowance for Uncollectible Accounts"]],
+ ["Nợ phải trả", ["Accounts Payable","Salary Payable","Unearned Service Revenue","Income Tax Payable","Notes Payable"]],
+ ["Vốn chủ sở hữu", ["Share Capital","Retained Earnings","Dividends"]],
+ ["Doanh thu, thu nhập", ["Service Revenue","Sales Revenue","Interest Revenue","Dividend Revenue","Gain on Sale of Land"]],
+ ["Chi phí", ["Cost of Goods Sold","Rent Expense","Salary Expense","Supplies Expense","Utilities Expense","Insurance Expense","Depreciation Expense","Uncollectible-Account Expense","Income Tax Expense","Miscellaneous Expense"]],
+ ["Khác", ["Không ghi bút toán"]]
+];
+const NONE = "Không ghi bút toán";
+const DRILL = [
+ {ch:2, t:"Phát hành cổ phiếu, nhận 50,000 tiền mặt.", dr:"Cash", cr:"Share Capital", e:"Tiền (tài sản) tăng nên ghi Nợ. Vốn cổ phần tăng nên ghi Có.", q:"A +50,000 = L 0 + E +50,000"},
+ {ch:2, t:"Trả 40,000 tiền mặt để mua đất.", dr:"Land", cr:"Cash", e:"Đổi tài sản này lấy tài sản khác, tổng tài sản không đổi.", q:"A +40,000 − 40,000 = L 0 + E 0"},
+ {ch:2, t:"Mua vật tư văn phòng 3,700, chưa trả tiền.", dr:"Supplies", cr:"Accounts Payable", e:"Vật tư là tài sản, chưa phải chi phí. Nợ người bán tăng.", q:"A +3,700 = L +3,700 + E 0"},
+ {ch:2, t:"Cung cấp dịch vụ và thu ngay 7,000 tiền mặt.", dr:"Cash", cr:"Service Revenue", e:"Doanh thu làm vốn chủ tăng nên ghi Có.", q:"A +7,000 = L 0 + E +7,000"},
+ {ch:2, t:"Cung cấp dịch vụ cho UPS 3,000, chưa thu tiền.", dr:"Accounts Receivable", cr:"Service Revenue", e:"Doanh thu ghi khi thực hiện dịch vụ, không chờ thu tiền.", q:"A +3,000 = L 0 + E +3,000"},
+ {ch:2, t:"Trả 1,900 cho khoản nợ người bán phát sinh trước đó.", dr:"Accounts Payable", cr:"Cash", e:"Trả nợ không phải chi phí. Cả tài sản và nợ phải trả cùng giảm.", q:"A −1,900 = L −1,900 + E 0"},
+ {ch:2, t:"Thu 1,000 từ khách hàng còn nợ.", dr:"Cash", cr:"Accounts Receivable", e:"Thu nợ không phải doanh thu, vì doanh thu đã ghi lúc cung cấp dịch vụ.", q:"A +1,000 − 1,000 = L 0 + E 0"},
+ {ch:2, t:"Công bố và trả cổ tức 2,100 bằng tiền mặt.", dr:"Dividends", cr:"Cash", e:"Cổ tức làm giảm vốn chủ (ghi Nợ) nhưng không phải chi phí, không lên income statement.", q:"A −2,100 = L 0 + E −2,100"},
+ {ch:2, t:"Cổ đông dùng tiền riêng để sửa nhà của mình.", dr:NONE, cr:NONE, e:"Economic entity: giao dịch cá nhân của chủ sở hữu không phải giao dịch của công ty.", q:"Không ảnh hưởng"},
+ {ch:2, t:"Trả 400 tiền điện nước (utilities) bằng tiền mặt.", dr:"Utilities Expense", cr:"Cash", e:"Chi phí làm vốn chủ giảm nên ghi Nợ. Tiền giảm nên ghi Có.", q:"A −400 = L 0 + E −400"},
+ {ch:3, t:"Ngày 1/6 trả trước 3,000 tiền thuê cửa hàng cho 3 tháng.", dr:"Prepaid Rent", cr:"Cash", e:"Trả trước tạo ra tài sản (quyền sử dụng mặt bằng trong tương lai).", q:"A +3,000 − 3,000 = L 0 + E 0"},
+ {ch:3, t:"Ngày 30/6 điều chỉnh: một tháng tiền thuê trả trước đã hết hạn (1,000).", dr:"Rent Expense", cr:"Prepaid Rent", e:"Phần đã dùng chuyển từ tài sản sang chi phí. Không có Cash.", q:"A −1,000 = L 0 + E −1,000"},
+ {ch:3, t:"Ngày 30/6: vật tư mua 700, kiểm kê còn 400. Ghi phần đã dùng.", dr:"Supplies Expense", cr:"Supplies", e:"Đã dùng 700 − 400 = 300.", q:"A −300 = L 0 + E −300"},
+ {ch:3, t:"Ngày 15/6 nhận trước 400 cho 10 lượt đặt phòng sẽ thực hiện trong 30 ngày.", dr:"Cash", cr:"Unearned Service Revenue", e:"Nhận tiền trước khi làm thì tạo ra nợ phải trả, chưa phải doanh thu.", q:"A +400 = L +400 + E 0"},
+ {ch:3, t:"Ngày 30/6: đã thực hiện một nửa dịch vụ nhận trước (200).", dr:"Unearned Service Revenue", cr:"Service Revenue", e:"Nợ phải trả giảm, doanh thu tăng.", q:"A 0 = L −200 + E +200"},
+ {ch:3, t:"Ngày 30/6: nửa tháng lương 900 sẽ trả vào ngày 1/7.", dr:"Salary Expense", cr:"Salary Payable", e:"Chi phí đã phát sinh trong tháng 6, nên dồn tích dù chưa trả.", q:"A 0 = L +900 + E −900"},
+ {ch:3, t:"Ngày 30/6: đã đặt 10 lượt cho khách sạn, $30/lượt, chưa thu tiền.", dr:"Accounts Receivable", cr:"Service Revenue", e:"Doanh thu dồn tích: đã làm nhưng chưa thu (300).", q:"A +300 = L 0 + E +300"},
+ {ch:3, t:"Ngày 30/6: khấu hao thiết bị tháng 6 là 400.", dr:"Depreciation Expense", cr:"Accumulated Depreciation", e:"Không ghi giảm trực tiếp Equipment mà dùng tài khoản contra Accumulated Depreciation.", q:"A −400 = L 0 + E −400"},
+ {ch:3, t:"Ngày 30/6: dồn tích thuế thu nhập 600.", dr:"Income Tax Expense", cr:"Income Tax Payable", e:"Chi phí thuế của kỳ, chưa nộp nên là nợ phải trả.", q:"A 0 = L +600 + E −600"},
+ {ch:3, t:"Khóa sổ: kết chuyển số dư Dividends 3,200.", dr:"Retained Earnings", cr:"Dividends", e:"Dividends khóa thẳng vào RE, không đi qua income statement.", q:"Trong nội bộ vốn chủ, tổng E không đổi"},
+ {ch:3, t:"Khóa sổ: kết chuyển Service Revenue 7,500.", dr:"Service Revenue", cr:"Retained Earnings", e:"Đưa số dư doanh thu về 0 (ghi Nợ) và chuyển sang RE (ghi Có).", q:"Trong nội bộ vốn chủ, tổng E không đổi"},
+ {ch:5, t:"Đối chiếu ngân hàng: séc 50 của khách bị trả lại vì không đủ số dư (NSF).", dr:"Accounts Receivable", cr:"Cash", e:"Tiền chưa thực sự thu được, khách vẫn còn nợ, nên phải thu tăng lại.", q:"A +50 − 50 = L 0 + E 0"},
+ {ch:5, t:"Đối chiếu ngân hàng: ngân hàng đã thu hộ khoản phải thu 2,100.", dr:"Cash", cr:"Accounts Receivable", e:"Khoản điều chỉnh bên sổ sách, phải ghi bút toán.", q:"A +2,100 − 2,100 = L 0 + E 0"},
+ {ch:5, t:"Đối chiếu ngân hàng: sao kê ghi lãi tiền gửi 30.", dr:"Cash", cr:"Interest Revenue", e:"Công ty chưa biết khoản lãi này nên điều chỉnh bên sổ, ghi doanh thu lãi.", q:"A +30 = L 0 + E +30"},
+ {ch:5, t:"Cuối năm ước tính chi phí nợ khó đòi 2,000 (allowance method).", dr:"Uncollectible-Account Expense", cr:"Allowance for Uncollectible Accounts", e:"Ghi chi phí ngay trong kỳ tạo ra doanh thu. Allowance là tài khoản contra của AR.", q:"A −2,000 = L 0 + E −2,000"},
+ {ch:5, t:"Xóa sổ khoản phải thu 12 của khách hàng không trả được (allowance method).", dr:"Allowance for Uncollectible Accounts", cr:"Accounts Receivable", e:"Không ghi chi phí lúc xóa sổ. Net AR không đổi.", q:"A +12 − 12 = L 0 + E 0"},
+ {ch:5, t:"Ngân hàng cho khách vay 1,000 và nhận giấy nhận nợ (promissory note).", dr:"Notes Receivable", cr:"Cash", e:"Đổi tiền lấy quyền đòi nợ có lãi suất.", q:"A +1,000 − 1,000 = L 0 + E 0"},
+ {ch:5, t:"Ngày 31/12 dồn tích lãi 4 tháng trên note 1,000, lãi suất 9%/năm (30).", dr:"Interest Receivable", cr:"Interest Revenue", e:"1,000 × 9% × 4/12 = 30. Doanh thu lãi đã phát sinh nhưng chưa thu.", q:"A +30 = L 0 + E +30"},
+ {ch:6, t:"Mua hàng 1,000 chưa trả tiền, điều khoản 2/10, n/30 (perpetual).", dr:"Inventory", cr:"Accounts Payable", e:"Theo perpetual, hàng mua ghi thẳng vào Inventory.", q:"A +1,000 = L +1,000 + E 0"},
+ {ch:6, t:"Trả lại người bán lô hàng lỗi trị giá 100, được trừ vào số nợ.", dr:"Accounts Payable", cr:"Inventory", e:"Hàng trả lại làm giảm tồn kho và giảm nợ người bán.", q:"A −100 = L −100 + E 0"},
+ {ch:6, t:"Bán bộ đồ có giá gốc 15. Ghi phần giá vốn.", dr:"Cost of Goods Sold", cr:"Inventory", e:"Đây là bút toán thứ hai của nghiệp vụ bán. Bút toán thứ nhất là Nợ Cash 25 / Có Sales Revenue 25.", q:"A −15 = L 0 + E −15"},
+ {ch:6, t:"Bán bộ đồ đó với giá 25, thu tiền mặt. Ghi phần doanh thu.", dr:"Cash", cr:"Sales Revenue", e:"Doanh thu ghi theo giá bán, còn giá vốn ghi theo giá gốc.", q:"A +25 = L 0 + E +25"},
+ {ch:6, t:"Tồn kho giá gốc 1,000, NRV chỉ còn 400. Ghi giảm xuống NRV.", dr:"Cost of Goods Sold", cr:"Inventory", e:"Ghi giảm 600 và cộng vào giá vốn (2,000 + 600 = 2,600 như Exhibit 6-10).", q:"A −600 = L 0 + E −600"}
+];
+
+/* ---------- chips ---------- */
+function makeChips(el, values, current, onPick){
+  el.innerHTML = values.map(v => '<button type="button" class="chip' + (v === current ? " on" : "") + '" data-v="' + v + '">' + (v === "all" ? "Tất cả" : "Ch" + v) + "</button>").join("");
+  el.onclick = e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    $$(".chip", el).forEach(c => c.classList.toggle("on", c === b));
+    onPick(b.dataset.v);
+  };
+}
+function setChip(el, v){ $$(".chip", el).forEach(c => c.classList.toggle("on", c.dataset.v === v)); }
+
+/* ---------- flashcards ---------- */
+const FC = {
+  ch: "all", onlyNew: true, queue: [], cur: null, flipped: false, ready: false,
+  known: new Set(store.get("stk-known", [])),
+  init(){
+    makeChips($("#fc-chips"), ["all","1","2","3","4","5","6"], this.ch, v => { this.ch = v; this.build(); });
+    $("#fc-only").addEventListener("change", e => { this.onlyNew = e.target.checked; this.build(); });
+    $("#fc-card").addEventListener("click", () => this.flip());
+    $("#fc-card").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); this.flip(); } });
+    $("#fc-flip").addEventListener("click", () => this.flip());
+    $("#fc-no").addEventListener("click", () => this.mark(false));
+    $("#fc-yes").addEventListener("click", () => this.mark(true));
+    $("#fc-reset").addEventListener("click", () => {
+      const ids = this.pool(false).map(c => c.id);
+      ids.forEach(id => this.known.delete(id));
+      store.set("stk-known", Array.from(this.known)); this.build(); updatePill();
+    });
+    this.ready = true; this.build();
+  },
+  pool(onlyNew){ return CARDS.filter(c => (this.ch === "all" || String(c.ch) === this.ch) && (!onlyNew || !this.known.has(c.id))); },
+  build(){ this.queue = shuffle(this.pool(this.onlyNew)); this.next(); },
+  next(){ this.cur = this.queue.shift() || null; this.flipped = false; this.paint(); },
+  flip(){ if (!this.cur) return; this.flipped = !this.flipped; this.paint(); },
+  paint(){
+    const c = this.cur;
+    $("#fc-back").hidden = !this.flipped || !c;
+    if (!c) {
+      $("#fc-front").textContent = this.pool(false).length ? "Bạn đã nhớ hết các thẻ trong phạm vi này." : "Chưa có thẻ.";
+      $("#fc-ch").textContent = ""; $("#fc-pos").textContent = "";
+      $("#fc-hint").textContent = "Bỏ chọn “Chỉ thẻ chưa nhớ” để ôn lại toàn bộ, hoặc chọn chương khác.";
+    } else {
+      $("#fc-front").textContent = c.f;
+      $("#fc-back").textContent = c.b;
+      $("#fc-ch").textContent = CH_NAMES[c.ch];
+      $("#fc-pos").textContent = "còn " + (this.queue.length + 1) + " thẻ trong lượt";
+      $("#fc-hint").textContent = this.flipped ? "Bạn nhớ đúng chứ? Chọn một nút bên dưới." : "Tự trả lời trước, rồi bấm để lật";
+    }
+    $("#fc-no").disabled = $("#fc-yes").disabled = $("#fc-flip").disabled = !c;
+    const all = this.pool(false), k = all.filter(x => this.known.has(x.id)).length;
+    $("#fc-stat").textContent = "Đã nhớ " + k + "/" + all.length + " thẻ trong phạm vi này";
+    $("#fc-bar").style.width = (all.length ? (k / all.length * 100) : 0) + "%";
+  },
+  mark(knew){
+    if (!this.cur) return;
+    if (knew) this.known.add(this.cur.id);
+    else { this.known.delete(this.cur.id); this.queue.splice(Math.min(3, this.queue.length), 0, this.cur); }
+    store.set("stk-known", Array.from(this.known));
+    updatePill(); this.next();
+  }
+};
+
+/* ---------- quiz ---------- */
+const QZ = {
+  ch: "all", list: [], i: 0, score: 0, wrong: [], answered: false, ready: false,
+  best: store.get("stk-quiz", {}),
+  init(){
+    makeChips($("#qz-chips"), ["all","1","2","3","4","5","6"], this.ch, v => { this.ch = v; this.start(); });
+    $("#qz-restart").addEventListener("click", () => this.start());
+    this.ready = true; this.start();
+  },
+  start(){
+    const pool = QUIZ.filter(q => this.ch === "all" || String(q.ch) === this.ch);
+    this.list = shuffle(pool).map(q => Object.assign({}, q, {order: shuffle(q.o.map((_, k) => k))}));
+    this.i = 0; this.score = 0; this.wrong = []; this.answered = false; this.paint();
+  },
+  paint(){
+    const card = $("#qz-card");
+    if (this.i >= this.list.length) {
+      const pct = Math.round(this.score / this.list.length * 100);
+      const key = this.ch; const prev = this.best[key] || 0;
+      if (pct > prev) { this.best[key] = pct; store.set("stk-quiz", this.best); }
+      card.innerHTML = '<p class="lab">Kết quả · ' + (this.ch === "all" ? "Tất cả chương" : CH_NAMES[this.ch]) + '</p>' +
+        '<p class="hero-eq" style="font-size:3rem;border-bottom-width:4px">' + this.score + "/" + this.list.length + "</p>" +
+        "<p>" + (pct >= 85 ? "Rất chắc. Chuyển sang luyện Nợ/Có hoặc làm chương khác." : pct >= 60 ? "Khá. Đọc lại các câu sai bên dưới rồi làm lại." : "Nên đọc lại phần cốt lõi và neo nhớ của chương, rồi làm lại.") +
+        " Điểm cao nhất: " + Math.max(pct, prev) + "%.</p>" +
+        (this.wrong.length ? '<h3>Câu cần xem lại</h3><ul>' + this.wrong.map(q => "<li><b>" + esc(q.q) + "</b><br><span class=\"muted\">" + esc(q.o[q.a]) + ". " + esc(q.e) + "</span></li>").join("") + "</ul>" : "") +
+        '<div class="fc-actions" style="margin-top:1rem"><button class="btn pri" type="button" id="qz-again">Làm lại</button></div>';
+      $("#qz-again").addEventListener("click", () => this.start());
+      renderProgress();
+      return;
+    }
+    const q = this.list[this.i];
+    card.innerHTML = '<p class="lab">Câu ' + (this.i + 1) + "/" + this.list.length + " · " + CH_NAMES[q.ch] + " · Đúng " + this.score + '</p><p class="qz-q">' + esc(q.q) + '</p><div class="opts">' +
+      q.order.map((k, n) => '<button type="button" class="opt" data-k="' + k + '"><span class="L">' + "ABCD"[n] + "</span><span>" + esc(q.o[k]) + "</span></button>").join("") + '</div><div id="qz-fb"></div>';
+    $$(".opt", card).forEach(b => b.addEventListener("click", () => this.answer(+b.dataset.k)));
+  },
+  answer(k){
+    if (this.answered) return;
+    this.answered = true;
+    const q = this.list[this.i], ok = k === q.a;
+    if (ok) this.score++; else this.wrong.push(q);
+    $$("#qz-card .opt").forEach(b => { const kk = +b.dataset.k; b.disabled = true; if (kk === q.a) b.classList.add("right"); else if (kk === k) b.classList.add("wrong"); });
+    $("#qz-fb").innerHTML = '<div class="fb ' + (ok ? "ok" : "no") + '"><b class="v">' + (ok ? "Đúng." : "Chưa đúng. Đáp án: " + esc(q.o[q.a])) + "</b>" + esc(q.e) + '</div><div class="fc-actions" style="margin-top:.8rem"><button class="btn pri" type="button" id="qz-next">' + (this.i + 1 < this.list.length ? "Câu tiếp theo →" : "Xem kết quả") + "</button></div>";
+    const nx = $("#qz-next"); nx.addEventListener("click", () => { this.i++; this.answered = false; this.paint(); }); nx.focus();
+  }
+};
+
+/* ---------- drill ---------- */
+const DR = {
+  ch: "all", list: [], i: 0, right: 0, done: 0, checked: false, ready: false,
+  init(){
+    const opts = '<option value="">Chọn tài khoản…</option>' + ACCOUNTS.map(g => '<optgroup label="' + g[0] + '">' + g[1].map(a => "<option>" + a + "</option>").join("") + "</optgroup>").join("");
+    $("#dr-debit").innerHTML = opts; $("#dr-credit").innerHTML = opts;
+    makeChips($("#dr-chips"), ["all","2","3","5","6"], this.ch, v => { this.ch = v; this.start(); });
+    $("#dr-check").addEventListener("click", () => this.check());
+    $("#dr-next").addEventListener("click", () => this.next());
+    this.ready = true; this.start();
+  },
+  start(){ this.list = shuffle(DRILL.filter(d => this.ch === "all" || String(d.ch) === this.ch)); this.i = 0; this.right = 0; this.done = 0; this.paint(); },
+  paint(){
+    const d = this.list[this.i % this.list.length];
+    this.checked = false;
+    $("#dr-meta").textContent = CH_NAMES[d.ch] + " · nghiệp vụ " + (this.i % this.list.length + 1) + "/" + this.list.length;
+    $("#dr-text").textContent = d.t;
+    $("#dr-debit").value = ""; $("#dr-credit").value = "";
+    $("#dr-fb").innerHTML = "";
+    $("#dr-check").disabled = false;
+    $("#dr-score").textContent = this.done ? "Đúng " + this.right + "/" + this.done : "";
+  },
+  check(){
+    if (this.checked) return;
+    const d = this.list[this.i % this.list.length];
+    const a = $("#dr-debit").value, b = $("#dr-credit").value;
+    if (!a || !b) { $("#dr-fb").innerHTML = '<div class="fb no">Chọn cả tài khoản Nợ và tài khoản Có trước khi kiểm tra.</div>'; return; }
+    this.checked = true; this.done++;
+    const ok = a === d.dr && b === d.cr;
+    if (ok) this.right++;
+    const swapped = !ok && a === d.cr && b === d.dr;
+    const ans = d.dr === NONE ? "Không ghi bút toán" : '<span class="dr">Nợ ' + esc(d.dr) + '</span> / <span class="cr">Có ' + esc(d.cr) + "</span>";
+    $("#dr-fb").innerHTML = '<div class="fb ' + (ok ? "ok" : "no") + '"><b class="v">' + (ok ? "Đúng: " : (swapped ? "Bạn đảo ngược Nợ và Có. Đáp án: " : "Chưa đúng. Đáp án: ")) + ans + "</b>" + esc(d.e) + '<br><span class="mono" style="font-size:.85rem">' + esc(d.q) + "</span></div>";
+    $("#dr-check").disabled = true;
+    $("#dr-score").textContent = "Đúng " + this.right + "/" + this.done;
+    $("#dr-next").focus();
+  },
+  next(){ this.i++; if (this.i % this.list.length === 0) this.list = shuffle(this.list); this.paint(); }
+};
+
+/* ---------- inventory lab ---------- */
+const INV = {
+  presets: {
+    up: [["Tồn đầu kỳ",10,10],["Mua lần 1",25,14],["Mua lần 2",25,18],["Mua lần 3",0,0]],
+    down: [["Tồn đầu kỳ",10,18],["Mua lần 1",25,14],["Mua lần 2",25,10],["Mua lần 3",0,0]]
+  },
+  init(){
+    this.load("up");
+    $("#inv-up").addEventListener("click", () => this.load("up"));
+    $("#inv-down").addEventListener("click", () => this.load("down"));
+    $("#inv-sold").addEventListener("input", () => this.calc());
+    $("#inv-sales").addEventListener("input", () => this.calc());
+  },
+  load(p){
+    const rows = this.presets[p];
+    $("#inv-rows").innerHTML = rows.map((r, i) => '<tr><td>' + r[0] + '</td><td><input type="number" id="inv-u' + i + '" min="0" step="1" value="' + r[1] + '" aria-label="Số lượng ' + r[0] + '"></td><td><input type="number" id="inv-c' + i + '" min="0" step="0.01" value="' + r[2] + '" aria-label="Đơn giá ' + r[0] + '"></td><td class="n mono" id="inv-t' + i + '"></td></tr>').join("");
+    $$("#inv-rows input").forEach(el => el.addEventListener("input", () => this.calc()));
+    $("#inv-sold").value = 40; $("#inv-sales").value = 1000;
+    this.calc();
+  },
+  calc(){
+    const L = [0,1,2,3].map(i => ({u: Math.max(0, +$("#inv-u" + i).value || 0), c: Math.max(0, +$("#inv-c" + i).value || 0)}));
+    L.forEach((l, i) => $("#inv-t" + i).textContent = fmt(l.u * l.c));
+    const units = L.reduce((s, l) => s + l.u, 0), cost = L.reduce((s, l) => s + l.u * l.c, 0);
+    const sold = Math.max(0, +$("#inv-sold").value || 0), sales = Math.max(0, +$("#inv-sales").value || 0);
+    const msg = $("#inv-msg");
+    if (!units) { msg.textContent = "Nhập ít nhất một lớp hàng có số lượng."; $("#inv-res").innerHTML = ""; $("#inv-stack").innerHTML = ""; $("#inv-insight").textContent = ""; return; }
+    if (sold > units) { msg.textContent = "Số lượng bán (" + sold + ") vượt quá hàng có để bán (" + units + "). Hãy giảm số bán."; $("#inv-res").innerHTML = ""; $("#inv-stack").innerHTML = ""; $("#inv-insight").textContent = ""; return; }
+    msg.textContent = "Hàng có để bán: " + units + " đơn vị, giá trị " + fmt(cost) + ". Bán " + sold + ", còn " + (units - sold) + ".";
+    const take = order => { let left = sold, c = 0; order.forEach(l => { const q = Math.min(left, l.u); c += q * l.c; left -= q; }); return c; };
+    const fifo = take(L), lifo = take(L.slice().reverse()), avgU = cost / units, avg = sold * avgU;
+    const M = [["FIFO", fifo], ["LIFO", lifo], ["Bình quân", avg]];
+    const gps = M.map(m => sales - m[1]);
+    const hi = Math.max.apply(null, gps), lo = Math.min.apply(null, gps);
+    const cls = g => (hi !== lo && g === hi) ? "best" : (hi !== lo && g === lo) ? "worst" : "";
+    $("#inv-res").innerHTML = '<thead><tr><th></th><th class="n">COGS</th><th class="n">Tồn kho cuối</th><th class="n">Lãi gộp</th></tr></thead><tbody>' +
+      M.map((m, i) => '<tr><td>' + m[0] + (m[0] === "Bình quân" ? ' <span class="muted mono" style="font-size:.78rem">(' + fmt(avgU) + "/đv)</span>" : "") + (m[0] === "LIFO" ? ' <span class="muted" style="font-size:.78rem">· IFRS không cho phép</span>' : "") + '</td><td class="n mono">' + fmt(m[1]) + '</td><td class="n mono">' + fmt(cost - m[1]) + '</td><td class="n mono ' + cls(gps[i]) + '">' + fmt(gps[i]) + "</td></tr>").join("") + "</tbody>";
+    $("#inv-stack").innerHTML = M.map(m => { const p = cost ? m[1] / cost * 100 : 0; return '<div class="row"><span>' + m[0] + '</span><div class="track"><span class="cogs" style="width:' + p + '%">' + (p > 14 ? fmt(m[1]) : "") + '</span><span class="ei" style="width:' + (100 - p) + '%">' + (100 - p > 14 ? fmt(cost - m[1]) : "") + "</span></div></div>"; }).join("");
+    const nz = L.filter(l => l.u > 0);
+    const first = nz[0].c, last = nz[nz.length - 1].c;
+    let ins = "Tổng COGS + tồn kho cuối luôn bằng " + fmt(cost) + " ở cả ba phương pháp. ";
+    if (last > first) ins += "Giá đang tăng: FIFO cho COGS thấp nhất, lãi gộp và tồn kho cao nhất.";
+    else if (last < first) ins += "Giá đang giảm: kết quả đảo chiều, LIFO cho lãi gộp cao nhất, FIFO thấp nhất.";
+    else ins += "Giá không đổi: ba phương pháp cho cùng kết quả.";
+    $("#inv-insight").textContent = ins;
+  }
+};
+
+/* ---------- bank reconciliation sorter ---------- */
+const RC = {
+  items: [
+    {t:"Tiền đã nộp vào ngân hàng ngày 31/12 nhưng chưa có trên sao kê (deposit in transit)", n:1600, k:"bank+"},
+    {t:"Ngân hàng trừ nhầm một séc của công ty khác", n:100, k:"bank+"},
+    {t:"Séc đã phát nhưng chưa được thanh toán (No. 337–340)", n:1340, k:"bank-"},
+    {t:"Nhận cổ tức qua chuyển khoản (EFT) từ khoản đầu tư", n:900, k:"book+", je:"Nợ Cash 900 / Có Dividend Revenue 900"},
+    {t:"Ngân hàng thu hộ một khoản phải thu", n:2100, k:"book+", je:"Nợ Cash 2,100 / Có Accounts Receivable 2,100"},
+    {t:"Lãi tiền gửi ngân hàng", n:30, k:"book+", je:"Nợ Cash 30 / Có Interest Revenue 30"},
+    {t:"Séc số 333 công ty ghi 510, thực tế chỉ trả 150", n:360, k:"book+", je:"Nợ Cash 360 / Có Accounts Payable 360"},
+    {t:"Phí dịch vụ ngân hàng", n:20, k:"book-", je:"Nợ Miscellaneous Expense 20 / Có Cash 20"},
+    {t:"Séc của khách bị trả lại vì không đủ số dư (NSF)", n:50, k:"book-", je:"Nợ Accounts Receivable 50 / Có Cash 50"},
+    {t:"Ngân hàng tự động chi trả phí bảo hiểm (EFT)", n:400, k:"book-", je:"Nợ Insurance Expense 400 / Có Cash 400"}
+  ],
+  pick: {}, order: [],
+  init(){
+    $("#rc-check").addEventListener("click", () => this.check());
+    $("#rc-reset").addEventListener("click", () => this.reset());
+    this.reset();
+  },
+  reset(){ this.pick = {}; this.order = shuffle(this.items.map((_, i) => i)); this.paint(); $("#rc-fb").innerHTML = ""; },
+  paint(){
+    const L = [["bank+","Bank +"],["bank-","Bank −"],["book+","Sổ +"],["book-","Sổ −"]];
+    $("#rc-list").innerHTML = this.order.map(i => { const it = this.items[i]; return '<div class="recon-item" data-i="' + i + '"><div class="t">' + esc(it.t) + '<span class="n mono">' + fmt(it.n) + '</span></div><div class="seg" role="group" aria-label="Chọn bên">' + L.map(l => '<button type="button" data-k="' + l[0] + '"' + (this.pick[i] === l[0] ? ' class="on"' : "") + ">" + l[1] + "</button>").join("") + "</div></div>"; }).join("");
+    $$("#rc-list .recon-item").forEach(row => row.addEventListener("click", e => {
+      const b = e.target.closest("button"); if (!b) return;
+      const i = +row.dataset.i; this.pick[i] = b.dataset.k;
+      $$("button", row).forEach(x => x.classList.toggle("on", x === b));
+      row.classList.remove("okay", "miss"); const note = $(".je-note", row); if (note) note.remove();
+      this.totals();
+    }));
+    this.totals();
+  },
+  totals(){
+    let bank = 5900, book = 3340;
+    Object.keys(this.pick).forEach(i => { const n = this.items[i].n, k = this.pick[i]; if (k === "bank+") bank += n; if (k === "bank-") bank -= n; if (k === "book+") book += n; if (k === "book-") book -= n; });
+    $("#rc-bank").textContent = fmt(bank); $("#rc-book").textContent = fmt(book);
+    const match = bank === book && Object.keys(this.pick).length === this.items.length;
+    $("#rc-bank-box").classList.toggle("match", match); $("#rc-book-box").classList.toggle("match", match);
+  },
+  check(){
+    let ok = 0, missing = 0;
+    $$("#rc-list .recon-item").forEach(row => {
+      const i = +row.dataset.i, it = this.items[i], p = this.pick[i];
+      row.classList.remove("okay", "miss");
+      const old = $(".je-note", row); if (old) old.remove();
+      if (!p) { missing++; return; }
+      if (p === it.k) { ok++; row.classList.add("okay"); }
+      else row.classList.add("miss");
+      const note = document.createElement("div"); note.className = "je-note";
+      note.textContent = (p === it.k ? "" : "Đúng ra: " + (it.k.indexOf("bank") === 0 ? "bên ngân hàng " : "bên sổ sách ") + (it.k.slice(-1) === "+" ? "(+)" : "(−)") + ". ") + (it.je ? "Bút toán: " + it.je : "Không cần bút toán (bên ngân hàng).");
+      row.appendChild(note);
+    });
+    const all = ok === this.items.length;
+    $("#rc-fb").innerHTML = '<div class="fb ' + (all ? "ok" : "no") + '"><b class="v">' + (all ? "Chính xác. Hai số dư điều chỉnh đều bằng 6,260." : "Đúng " + ok + "/" + this.items.length + (missing ? ", còn " + missing + " khoản chưa xếp" : "") + ".") + "</b>Ghi nhớ: chỉ các khoản bên <b>sổ sách</b> mới cần ghi bút toán, vì sổ sách là của công ty.</div>";
+  }
+};
+
+/* ---------- progress & routing ---------- */
+function updatePill(){ const n = FC.known.size; $("#pill-known").textContent = n + "/" + CARDS.length + " thẻ đã nhớ"; }
+function renderProgress(){
+  const best = store.get("stk-quiz", {});
+  $$("[data-prog]").forEach(el => {
+    const ch = el.dataset.prog;
+    const cards = CARDS.filter(c => String(c.ch) === ch), k = cards.filter(c => FC.known.has(c.id)).length;
+    const b = best[ch];
+    el.innerHTML = "<span>Flashcards " + k + "/" + cards.length + "</span><span class=\"bar\"><i style=\"width:" + (k / cards.length * 100) + "%\"></i></span><span>" + (b != null ? "Trắc nghiệm tốt nhất " + b + "%" : "Chưa làm trắc nghiệm") + "</span>";
+  });
+}
+const VIEWS = $$("[data-view]").map(v => v.dataset.view);
+function route(){
+  let h = decodeURIComponent(location.hash.replace("#", ""));
+  let anchor = null;
+  if (!VIEWS.includes(h)) {
+    const el = h && document.getElementById(h);
+    const host = el && el.closest("[data-view]");
+    if (host) { anchor = el; h = host.dataset.view; } else h = "ban-do";
+  }
+  $$("[data-view]").forEach(v => v.hidden = v.dataset.view !== h);
+  $$(".nav a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + h));
+  if (h === "ban-do") renderProgress();
+  if (anchor) anchor.scrollIntoView({block: "start"}); else window.scrollTo(0, 0);
+  const on = $(".nav a.on");
+  if (on && window.innerWidth < 980) { const nav = $(".nav"); nav.scrollLeft = on.offsetLeft - nav.clientWidth / 2 + on.clientWidth / 2; }
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-go]"); if (!b) return;
+  const go = b.dataset.go, ch = b.dataset.ch;
+  if (go === "flashcards") { FC.ch = ch; setChip($("#fc-chips"), ch); FC.build(); }
+  if (go === "trac-nghiem") { QZ.ch = ch; setChip($("#qz-chips"), ch); QZ.start(); }
+  if (go === "no-co") { DR.ch = ch; setChip($("#dr-chips"), ch); DR.start(); }
+  if (go === "cong-cu") { location.hash = ch === "5" ? "lab-bank" : "lab-inv"; return; }
+  location.hash = go;
+});
+document.addEventListener("keydown", e => {
+  if ($("[data-view=flashcards]").hidden) return;
+  const tag = (e.target.tagName || "").toLowerCase();
+  if (tag === "input" || tag === "select" || tag === "textarea") return;
+  if (e.key === " ") {
+    if (tag === "button" && !e.target.closest(".fc-actions")) return;
+    e.preventDefault(); FC.flip();
+  }
+  else if (e.key === "1") FC.mark(false);
+  else if (e.key === "2") FC.mark(true);
+});
+
+renderJE(); renderTA();
+FC.init(); QZ.init(); DR.init(); INV.init(); RC.init();
+updatePill(); renderProgress();
+window.addEventListener("hashchange", route);
+route();
+})();
+</script>
+</body>
+</html>
