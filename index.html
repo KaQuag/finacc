@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Tóm tắt và luyện tập song ngữ Việt–Anh Ch1–6 môn Introduction to Financial Accounting (IFRS). Bilingual Vietnamese–English study guide for Chapters 1–6.">
+<meta name="description" content="Tóm tắt, luyện tập và đề thi thử giữa kỳ ngẫu nhiên song ngữ Việt–Anh môn Introduction to Financial Accounting (IFRS). Bilingual Vietnamese–English study guide with a randomized mock midterm.">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Sổ Tay Kế Toán Tài Chính</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -268,6 +268,73 @@ input[type=number]{font-family:var(--f-mono);text-align:right}
 .totals .box.match{border-color:var(--ok)}
 @media (prefers-reduced-motion:no-preference){.fc .back{animation:rise .22s ease-out}@keyframes rise{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}}
 
+
+/* midterm & mock exam */
+:root{--dockwarn:#F2C14E}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--dockwarn:#9A3B0B}}
+:root[data-theme="dark"]{--dockwarn:#9A3B0B}
+.mid-cta{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;border:1.5px solid var(--ink);border-radius:var(--r);padding:1rem 1.1rem;background:var(--paper);margin:1.2rem 0;max-width:820px}
+.mid-cta .opt-grp{display:flex;flex-direction:column;gap:.3rem;font-size:.9rem}
+.mid-cta .opt-grp label,.mid-cta label.opt-grp span{display:flex;gap:.4rem;align-items:center}
+.btn.big{font-size:1rem;padding:.7rem 1.2rem}
+a.btn{text-decoration:none;display:inline-block}
+.linkbtn{background:none;border:0;padding:0;color:var(--accent);font:inherit;cursor:pointer;text-decoration:underline}
+.ex-head{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;justify-content:space-between;border-bottom:4px double var(--ink);padding-bottom:.7rem;margin-bottom:1rem}
+.ex-code{font-family:var(--f-mono);font-weight:600;letter-spacing:.06em;font-stretch:100%}
+.ex-q{border-top:1px solid var(--rule);padding:1rem 0;max-width:760px}
+.ex-q .meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:.72rem;color:var(--muted)}
+.tagc{display:inline-block;font-family:var(--f-mono);font-size:.72rem;border:1px solid var(--rule-2);border-radius:999px;padding:.05rem .5rem;color:var(--muted);font-weight:500;font-stretch:100%;letter-spacing:0;vertical-align:middle}
+.tagc.hot{border-color:var(--cr);color:var(--cr)}
+.ex-opts{display:grid;gap:6px}
+.ex-opt{display:flex;gap:.6rem;align-items:flex-start;border:1px solid var(--rule-2);border-radius:var(--r);padding:.55rem .7rem;cursor:pointer;background:var(--sheet);font-size:.95rem;line-height:1.45}
+.ex-opt input{margin:.2rem 0 0;accent-color:var(--accent);flex:none}
+.ex-opt .L{color:var(--muted)}
+.ex-opt:has(input:checked){border-color:var(--ink)}
+.ex-opt.right{border-color:var(--ok);background:var(--okbg)}
+.ex-opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.ex-req{margin-top:1.4rem;border:1px solid var(--rule);border-radius:var(--r);padding:1rem;background:var(--sheet)}
+.ex-req h3{margin:0 0 .6rem}
+.ex-tbl{border-collapse:collapse;font-size:.9rem}
+.ex-tbl td,.ex-tbl th{padding:.22rem .4rem;border-bottom:1px solid var(--rule);text-align:left}
+.ex-tbl th{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500}
+.ex-tbl input,.ex-tbl select{font:400 .9rem var(--f-mono);padding:.3rem .4rem;border:1px solid var(--rule-2);border-radius:4px;background:var(--sheet);color:var(--ink);width:7.5rem;text-align:right}
+.ex-tbl select{width:15rem;text-align:left;font-family:var(--f-body)}
+.ex-tbl tr.tot td{font-weight:600}
+.ex-tbl tr.dbl td input{border-bottom:3px double var(--ink)}
+.ex-tbl tr.sec{border:0;padding:0;font-size:inherit;letter-spacing:normal}
+.ex-tbl tr.sec td{font-family:var(--f-display);font-weight:700;font-stretch:90%;padding-top:.7rem;border-bottom:1.5px solid var(--ink)}
+.ex-tbl td.ind{padding-left:1.4rem}
+.ex-tbl input.ok{border-color:var(--ok);background:var(--okbg)}
+.ex-tbl input.bad{border-color:var(--bad);background:var(--badbg)}
+.ex-tbl .exp{font-family:var(--f-mono);font-size:.78rem;color:var(--ok);white-space:nowrap}
+.ex-tbl .n{text-align:right}
+.ex-tbl.tx td:first-child{white-space:nowrap;color:var(--muted)}
+.bal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0 28px;max-width:720px;margin:.6rem 0 1rem}
+.bal-grid .ex-tbl{width:100%}
+.je-block{margin:.9rem 0 1.3rem}
+.je-title{margin:.2rem 0 .4rem;font-weight:500}
+.sol{margin-top:.5rem;padding:.6rem .8rem;border:1px solid var(--ok);background:var(--okbg);border-radius:var(--r);max-width:600px}
+.jr.mini{min-width:300px;max-width:560px}
+.hint-sol{font-size:.9rem;color:var(--muted);margin:.5rem 0 0}
+.ex-score{display:grid;grid-template-columns:minmax(150px,auto) minmax(0,1fr);gap:14px 24px;align-items:start;border:1.5px solid var(--ink);border-radius:var(--r);padding:1rem;margin:1rem 0 1.5rem;background:var(--paper);max-width:760px}
+.ex-score .big{display:block;font-size:2.6rem;font-weight:600;line-height:1.1}
+.ex-score .big small{font-size:1rem;color:var(--muted)}
+.ex-score .data{min-width:0}
+.ex-score .chres{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px}
+@media (max-width:620px){.ex-score{grid-template-columns:1fr}}
+.ex-dock{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);color:var(--paper);padding-block:10px calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap}
+.ex-dock .t{font-family:var(--f-mono);font-size:1.05rem;font-weight:600}
+.ex-dock .t.warn{color:var(--dockwarn)}
+.ex-dock .d{font-family:var(--f-mono);font-size:.82rem;opacity:.8}
+.ex-dock .btn{border-color:var(--paper);background:var(--paper);color:var(--ink)}
+.sheet.has-dock{padding-bottom:120px}
+.weak{display:grid;gap:6px;max-width:560px;margin:.6rem 0 1rem}
+.weak .row{display:grid;grid-template-columns:9.5rem minmax(0,1fr) 3.2rem;gap:10px;align-items:center;font-size:.86rem}
+.weak .bar{height:8px}
+.weak .bar i.low{background:var(--cr)}
+.sol-d{border:1px solid var(--rule);border-radius:var(--r);padding:.6rem .9rem;margin:.6rem 0;max-width:760px;background:var(--sheet)}
+.sol-d summary{font-weight:600}
+.sol-d > p{margin-left:0}
 /* language switch */
 :root:not([data-lang="en"]) [data-l="en"], :root[data-lang="en"] [data-l="vi"]{display:none!important}
 .top-r{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
@@ -286,6 +353,9 @@ input[type=number]{font-family:var(--f-mono);text-align:right}
 <div class="shell">
 <nav class="nav" aria-label="Mục lục">
   <a href="#ban-do"><span class="k">MAP</span><span class="lbl"><span data-l="vi">Bản đồ &amp; công thức</span><span data-l="en">Map &amp; formulas</span></span></a>
+  <span class="grp"><span data-l="vi">Thi</span><span data-l="en">Exam</span></span>
+  <a href="#giua-ky"><span class="k">MID</span><span class="lbl"><span data-l="vi">Thi giữa kỳ</span><span data-l="en">Midterm exam</span></span></a>
+  <a href="#thi-thu"><span class="k"><span data-l="vi">ĐỀ</span><span data-l="en">MOCK</span></span><span class="lbl"><span data-l="vi">Đề thi thử ngẫu nhiên</span><span data-l="en">Random mock exam</span></span></a>
   <span class="grp"><span data-l="vi">Chương</span><span data-l="en">Chapters</span></span>
   <a href="#ch1"><span class="k">CH1</span><span class="lbl"><span data-l="vi">Khung khái niệm &amp; BCTC</span><span data-l="en">Framework &amp; statements</span></span></a>
   <a href="#ch2"><span class="k">CH2</span><span class="lbl"><span data-l="vi">Ghi nhận giao dịch</span><span data-l="en">Recording transactions</span></span></a>
@@ -307,6 +377,8 @@ input[type=number]{font-family:var(--f-mono);text-align:right}
   <h1>Sáu chương, một phương trình</h1>
   <div class="hero-eq" aria-label="Assets bằng Liabilities cộng Equity">A <span class="op">=</span> L <span class="op">+</span> E</div>
   <p class="prose">Mọi thứ trong 6 chương đều quay về một câu: <b>tài sản của doanh nghiệp đến từ nợ phải trả hoặc vốn chủ sở hữu</b>. Ghi sổ kép (Ch2) giữ cho phương trình luôn cân. Kế toán dồn tích (Ch3) quyết định <i>khi nào</i> ghi. IAS 1 (Ch4) quyết định <i>trình bày</i> ra sao. Ch5 và Ch6 áp dụng tất cả vào ba tài khoản quan trọng: tiền, phải thu và hàng tồn kho.</p>
+
+  <div class="mid-cta"><div style="flex:1 1 260px"><b style="font-family:var(--f-display);font-size:1.15rem">Thi giữa kỳ · tuần 11</b><p style="margin:.3rem 0 0;font-size:.93rem">15 câu trắc nghiệm và 1 bài lập báo cáo tài chính trong 90 phút. Xem cấu trúc đề, lời giải đề thi thử Mely và tạo đề thi thử ngẫu nhiên.</p></div><div class="fc-actions"><a class="btn pri" href="#giua-ky">Mở mục Giữa kỳ</a><button type="button" class="btn" data-mid="start-default">Tạo đề ngay</button></div></div>
 
   <h2>Cách dùng trang này</h2>
   <ol class="steps">
@@ -1296,6 +1368,8 @@ Accounts Payable | | 1,000
   <h1>Six chapters, one equation</h1>
   <div class="hero-eq" aria-label="Assets equal Liabilities plus Equity">A <span class="op">=</span> L <span class="op">+</span> E</div>
   <p class="prose">Everything in these six chapters comes back to one sentence: <b>a business’s assets are financed either by liabilities or by equity</b>. Double-entry bookkeeping (Ch2) keeps the equation in balance. Accrual accounting (Ch3) decides <i>when</i> to record. IAS 1 (Ch4) decides how to <i>present</i>. Ch5 and Ch6 apply all of it to three key accounts: cash, receivables and inventory.</p>
+
+  <div class="mid-cta"><div style="flex:1 1 260px"><b style="font-family:var(--f-display);font-size:1.15rem">Midterm · week 11</b><p style="margin:.3rem 0 0;font-size:.93rem">15 multiple-choice questions and one financial statements question in 90 minutes. See the structure, the Mely mock solution, and generate random mock exams.</p></div><div class="fc-actions"><a class="btn pri" href="#giua-ky">Open the Midterm section</a><button type="button" class="btn" data-mid="start-default">Start a mock exam</button></div></div>
 
   <h2>How to use this page</h2>
   <ol class="steps">
@@ -2368,6 +2442,389 @@ Accounts Payable | | 1,000
   <div class="fc-actions"><button class="btn pri" type="button" id="rc-check"><span data-l="vi">Kiểm tra và xem bút toán</span><span data-l="en">Check and show entries</span></button><button class="btn" type="button" id="rc-reset"><span data-l="vi">Làm lại</span><span data-l="en">Start over</span></button></div>
   <div id="rc-fb"></div>
 </section>
+<!-- ======================= MIDTERM (VI) ======================= -->
+<section class="sheet" data-view="giua-ky" data-l="vi" hidden>
+  <p class="eyebrow"><span class="tag">Giữa kỳ</span>Tuần 11 · 10:30–12:00 · 90 phút · 100 điểm</p>
+  <h1>Thi giữa kỳ ACCT2010</h1>
+  <div class="core"><span class="lab">Cốt lõi</span><p>Đề gồm <b>15 câu trắc nghiệm</b> (45 điểm, 30 phút) và <b>một bài lập báo cáo tài chính</b> (55 điểm, 60 phút). Bài tự luận đi đúng chu trình kế toán: số dư đầu kỳ → bảng cân đối → bút toán tháng 1 → bảng cân đối thử → báo cáo kết quả và bảng cân đối cuối tháng.</p></div>
+  <ul class="lo">
+    <li><a href="#mid-cau-truc"><b>1</b>Cấu trúc đề</a></li>
+    <li><a href="#mid-chien-luoc"><b>2</b>Chiến lược thời gian</a></li>
+    <li><a href="#mid-quy-trinh"><b>3</b>Quy trình bài tự luận</a></li>
+    <li><a href="#mid-mely"><b>4</b>Lời giải đề thi thử Mely</a></li>
+    <li><a href="#mid-3buoc"><b>5</b>3 bước bút toán điều chỉnh</a></li>
+    <li><a href="#mid-ch7"><b>6</b>Ôn nhanh Ch7</a></li>
+  </ul>
+
+  <div class="mid-cta">
+    <div style="flex:1 1 260px"><b style="font-family:var(--f-display);font-size:1.15rem">Đề thi thử ngẫu nhiên</b><p style="margin:.3rem 0 0;font-size:.93rem">Mỗi lần bấm là một đề mới đúng cấu trúc: 15 câu trắc nghiệm theo đúng số câu từng chương và một bài lập BCTC với số liệu, nghiệp vụ khác nhau. Có bấm giờ 90 phút, tự chấm điểm, lời giải từng câu và theo dõi chương yếu.</p></div>
+    <div class="fc-actions"><button type="button" class="btn pri big" data-mid="start-default">Tạo đề ngay (90 phút)</button><a class="btn" href="#thi-thu">Tùy chọn đề, lịch sử điểm</a></div>
+  </div>
+
+  <div class="prose">
+  <h2 id="mid-cau-truc"><span class="sec">1</span>Cấu trúc đề</h2>
+  <p>Thi trên máy tính, không mở tài liệu. Theo bảng cấu trúc của môn: có mặt ở lớp lúc 9:00 để nghe lưu ý và ôn tập; phòng thi Superlab (chờ xác nhận).</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Phần</th><th>Nội dung</th><th>Chương</th><th>Thời gian</th><th>Điểm</th><th>Luyện bằng</th></tr></thead>
+    <tbody>
+      <tr><td>I</td><td>15 câu trắc nghiệm, mỗi câu 3 điểm</td><td>Ch1–6: 2 câu/chương<br>Ch7: 3 câu</td><td class="mono">30′</td><td class="mono">45</td><td>Quiz 1, Quiz 2, quiz ôn tập</td></tr>
+      <tr><td>II</td><td>1 bài tự luận, 4 yêu cầu:<br>(1) SFP số dư đầu kỳ · 10đ<br>(2) Bút toán các nghiệp vụ · 10đ<br>(3) Trial balance · 10đ<br>(4) Income statement + SFP · 25đ</td><td>Ch1–7</td><td class="mono">60′</td><td class="mono">55</td><td>Đề thi thử (Mely Industries)</td></tr>
+      <tr class="tot"><td></td><td><b>Tổng</b></td><td></td><td class="mono">90′</td><td class="mono">100</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:.88rem">Điểm từng yêu cầu lấy theo đề thi thử. Bảng cấu trúc ghi “05 journal entries”, còn đề thi thử có 8 nghiệp vụ; trình tạo đề cho bạn chọn 5 hoặc 8.</p>
+
+  <div class="prose">
+  <h2 id="mid-chien-luoc"><span class="sec">2</span>Chiến lược thời gian</h2>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Part I · 30 phút</h3><ul><li>Khoảng <b>2 phút/câu</b>. Câu lý thuyết làm trong 1 phút để dành thời gian cho câu tính toán.</li><li>Câu số: viết công thức trước khi bấm máy (ví dụ Đầu + Tăng − Giảm = Cuối).</li><li>Đánh dấu câu khó, quay lại sau khi xong lượt đầu.</li></ul></div>
+    <div class="box"><h3>Part II · 60 phút</h3><ul><li>(1) SFP đầu kỳ: <b>~11 phút</b></li><li>(2) Bút toán: <b>~11 phút</b></li><li>(3) Trial balance: <b>~11 phút</b></li><li>(4) IS + SFP: <b>~27 phút</b> (45% số điểm)</li></ul><p class="muted">Chia theo tỷ lệ điểm 10 : 10 : 10 : 25.</p></div>
+  </div>
+
+  <div class="prose">
+  <h2 id="mid-quy-trinh"><span class="sec">3</span>Quy trình làm bài tự luận</h2>
+  <ol>
+    <li><b>Phân loại số dư đầu kỳ</b>: A, L, E, doanh thu, chi phí, cổ tức. Cộng thử tổng Nợ và tổng Có phải bằng nhau.</li>
+    <li><b>Tính RE cuối năm</b>: RE (beginning) + (Doanh thu − Chi phí) − Cổ tức. Doanh thu và chi phí <b>không</b> lên bảng cân đối; chúng đi vào RE.</li>
+    <li><b>Lập SFP đầu kỳ</b>: tách ngắn hạn và dài hạn; trừ khấu hao lũy kế khỏi Equipment; Notes payable 3 năm là nợ dài hạn.</li>
+    <li><b>Ghi bút toán</b>: bán hàng theo perpetual có 2 bút toán; chỉ được chiết khấu khi thu tiền trong hạn; mua trả góp thì phần còn nợ trong 12 tháng là nợ ngắn hạn; thanh lý tài sản thì xóa cả nguyên giá lẫn khấu hao lũy kế, chênh lệch là lãi hoặc lỗ.</li>
+    <li><b>Trial balance 31/1</b>: doanh thu, chi phí và cổ tức năm trước đã khóa sổ, nên RE = RE cuối năm; các tài khoản tạm thời chỉ còn số phát sinh tháng 1.</li>
+    <li><b>Income statement tháng 1</b>: Net sales = Sales − Sales discounts; trừ COGS ra Gross profit; trừ chi phí hoạt động; cộng trừ lãi/lỗ thanh lý và chi phí lãi vay ra Net income (có thể là lỗ).</li>
+    <li><b>SFP 31/1</b>: RE = RE đầu tháng + Net income − Cổ tức tháng 1. Kiểm tra A = L + E trước khi chuyển câu.</li>
+  </ol>
+  </div>
+  <div class="traps"><span class="stamp">Bẫy hay gặp ở Part II</span>
+    <ul>
+      <li>Đưa Sales revenue, chi phí hoặc Dividends lên bảng cân đối thay vì tính vào RE.</li>
+      <li>Dùng RE (beginning) của đề làm RE trên SFP đầu kỳ: phải cộng lãi và trừ cổ tức trước.</li>
+      <li>Quên bút toán giá vốn khi bán hàng (perpetual).</li>
+      <li>Cho chiết khấu khi khách trả sau hạn. Với 3/10 từ ngày 10, hạn cuối là ngày 20.</li>
+      <li>Thanh lý tài sản chỉ ghi Có Equipment bằng tiền thu được, quên xóa khấu hao lũy kế và ghi lãi hoặc lỗ.</li>
+      <li>Ghi Unearned revenue thành doanh thu ngay khi nhận tiền.</li>
+    </ul>
+  </div>
+
+  <div class="prose">
+  <h2 id="mid-mely"><span class="sec">4</span>Lời giải đề thi thử: Mely Industries</h2>
+  <p>Đề: số dư cuối tháng 12/2024 và 8 nghiệp vụ tháng 1/2025 (xem đề thi thử). Hãy tự làm trước, rồi mở từng phần để so đáp án.</p>
+  </div>
+  <details class="sol-d"><summary>(1) SFP ngày 31/12/2024</summary>
+    <p>Lợi nhuận 2024 = 25,700 − (1,200 + 3,400 + 10,000) = <b>11,100</b>. RE cuối năm = 25,900 + 11,100 − 3,000 = <b>34,000</b>.</p>
+    <div class="scroll"><table class="fs"><tr class="h"><td>Mely Industries · SFP · Dec 31, 2024</td><td class="n"></td></tr>
+      <tr><td>Cash</td><td class="n">20,600</td></tr><tr><td>Accounts receivable</td><td class="n">5,400</td></tr><tr><td>Inventory</td><td class="n">1,400</td></tr>
+      <tr class="sub"><td>Total current assets</td><td class="n">27,400</td></tr>
+      <tr><td>Equipment 88,000 − Accumulated depreciation 25,000</td><td class="n">63,000</td></tr>
+      <tr class="tot"><td>Total assets</td><td class="n">90,400</td></tr>
+      <tr><td>Accounts payable (current)</td><td class="n">1,100</td></tr><tr><td>Notes payable, 3 years (non-current)</td><td class="n">3,300</td></tr>
+      <tr class="sub"><td>Total liabilities</td><td class="n">4,400</td></tr>
+      <tr><td>Share capital</td><td class="n">52,000</td></tr><tr><td>Retained earnings</td><td class="n">34,000</td></tr>
+      <tr class="sub"><td>Total equity</td><td class="n">86,000</td></tr>
+      <tr class="tot"><td>Total liabilities and equity</td><td class="n">90,400</td></tr></table></div>
+  </details>
+  <details class="sol-d"><summary>(2) Bút toán tháng 1/2025</summary>
+    <pre class="je">@Jan 1
+Cash | 2,000 |
+Unearned revenue | | 2,000
+# Khách trả trước: nợ phải trả, chưa phải doanh thu
+@Jan 2
+Prepaid insurance | 960 |
+Cash | | 960
+@Jan 5
+Equipment | 8,400 |
+Cash | | 1,200
+Notes payable (short-term) | | 7,200
+# 12 × 600 trả trong 1 năm → nợ ngắn hạn (có thể đặt tên Accounts payable – Latte)
+@Jan 10
+Accounts receivable | 4,000 |
+Sales revenue | | 4,000
+Cost of goods sold | 1,400 |
+Inventory | | 1,400
+# Bán toàn bộ tồn kho (1,400 theo giá gốc)
+@Jan 19
+Cash | 3,880 |
+Sales discounts | 120 |
+Accounts receivable | | 4,000
+# Hạn 3/10 là ngày 20 → được giảm 3% × 4,000 = 120
+@Jan 31
+Depreciation expense | 600 |
+Accumulated depreciation | | 600
+@Jan 31
+Interest expense | 400 |
+Interest payable | | 400
+@Jan 31
+Cash | 6,000 |
+Accumulated depreciation | 13,500 |
+Loss on sale of equipment | 2,000 |
+Equipment | | 21,500
+# Giá trị còn lại 21,500 − 13,500 = 8,000; bán 6,000 → lỗ 2,000</pre>
+  </details>
+  <details class="sol-d"><summary>(3) Trial balance ngày 31/1/2025</summary>
+    <p class="muted">Giả định số dư tháng 12 là trước khóa sổ: doanh thu, chi phí, cổ tức 2024 đã kết chuyển vào RE (34,000).</p>
+    <div class="scroll"><table class="fs"><tr class="h"><td>Account</td><td class="n dr">Debit</td><td class="n cr">Credit</td></tr>
+      <tr><td>Cash (20,600 + 2,000 − 960 − 1,200 + 3,880 + 6,000)</td><td class="n">30,320</td><td></td></tr>
+      <tr><td>Accounts receivable</td><td class="n">5,400</td><td></td></tr><tr><td>Prepaid insurance</td><td class="n">960</td><td></td></tr>
+      <tr><td>Equipment (88,000 + 8,400 − 21,500)</td><td class="n">74,900</td><td></td></tr>
+      <tr><td>Accumulated depreciation (25,000 + 600 − 13,500)</td><td></td><td class="n">12,100</td></tr>
+      <tr><td>Accounts payable</td><td></td><td class="n">1,100</td></tr><tr><td>Unearned revenue</td><td></td><td class="n">2,000</td></tr>
+      <tr><td>Notes payable (short-term)</td><td></td><td class="n">7,200</td></tr><tr><td>Interest payable</td><td></td><td class="n">400</td></tr>
+      <tr><td>Notes payable (long-term)</td><td></td><td class="n">3,300</td></tr><tr><td>Share capital</td><td></td><td class="n">52,000</td></tr>
+      <tr><td>Retained earnings</td><td></td><td class="n">34,000</td></tr><tr><td>Sales revenue</td><td></td><td class="n">4,000</td></tr>
+      <tr><td>Sales discounts</td><td class="n">120</td><td></td></tr><tr><td>Cost of goods sold</td><td class="n">1,400</td><td></td></tr>
+      <tr><td>Depreciation expense</td><td class="n">600</td><td></td></tr><tr><td>Interest expense</td><td class="n">400</td><td></td></tr>
+      <tr><td>Loss on sale of equipment</td><td class="n">2,000</td><td></td></tr>
+      <tr class="tot"><td>Total</td><td class="n">116,100</td><td class="n">116,100</td></tr></table></div>
+  </details>
+  <details class="sol-d"><summary>(4) Income statement tháng 1 và SFP ngày 31/1/2025</summary>
+    <div class="grid2">
+      <div class="scroll" style="margin:0"><table class="fs"><tr class="h"><td>Income statement · Jan 2025</td><td class="n"></td></tr>
+        <tr><td>Sales revenue</td><td class="n">4,000</td></tr><tr><td class="ind">Less: Sales discounts</td><td class="n">(120)</td></tr>
+        <tr class="sub"><td>Net sales</td><td class="n">3,880</td></tr><tr><td class="ind">Less: Cost of goods sold</td><td class="n">(1,400)</td></tr>
+        <tr class="sub"><td>Gross profit</td><td class="n">2,480</td></tr><tr><td class="ind">Depreciation expense</td><td class="n">(600)</td></tr>
+        <tr class="sub"><td>Operating income</td><td class="n">1,880</td></tr><tr><td class="ind">Interest expense</td><td class="n">(400)</td></tr>
+        <tr><td class="ind">Loss on sale of equipment</td><td class="n">(2,000)</td></tr>
+        <tr class="tot"><td>Net loss</td><td class="n">(520)</td></tr></table></div>
+      <div class="scroll" style="margin:0"><table class="fs"><tr class="h"><td>SFP · Jan 31, 2025</td><td class="n"></td></tr>
+        <tr><td>Cash 30,320 · AR 5,400 · Prepaid insurance 960</td><td class="n">36,680</td></tr>
+        <tr><td>Equipment 74,900 − AD 12,100</td><td class="n">62,800</td></tr>
+        <tr class="tot"><td>Total assets</td><td class="n">99,480</td></tr>
+        <tr><td>AP 1,100 · Unearned 2,000 · ST notes 7,200 · Interest payable 400</td><td class="n">10,700</td></tr>
+        <tr><td>Notes payable (long-term)</td><td class="n">3,300</td></tr>
+        <tr class="sub"><td>Total liabilities</td><td class="n">14,000</td></tr>
+        <tr><td>Share capital</td><td class="n">52,000</td></tr><tr><td>Retained earnings (34,000 − 520)</td><td class="n">33,480</td></tr>
+        <tr class="tot"><td>Total liabilities and equity</td><td class="n">99,480</td></tr></table></div>
+    </div>
+  </details>
+
+  <div class="prose">
+  <h2 id="mid-3buoc"><span class="sec">5</span>3 bước lập bút toán điều chỉnh</h2>
+  <p>Theo tài liệu ôn ghi sổ kép (ví dụ Chipotle). Áp dụng cho mọi bút toán cuối kỳ:</p>
+  </div>
+  <ol class="steps">
+    <li><span class="k">BƯỚC 1</span><b>Có doanh thu/chi phí đã phát sinh mà chưa ghi không?</b><span class="t">Nếu có, tài khoản doanh thu hoặc chi phí đang bị ghi thiếu.</span></li>
+    <li><span class="k">BƯỚC 2</span><b>Tiền đã thu/chi trong quá khứ hay sẽ thu/chi trong tương lai?</b><span class="t">Quá khứ → giảm tài sản trả trước hoặc giảm Unearned. Tương lai → tăng Receivable hoặc Payable.</span></li>
+    <li><span class="k">BƯỚC 3</span><b>Tính số tiền</b><span class="t">Theo tháng, theo tỷ lệ đã dùng hoặc theo công thức lãi P × R × T.</span></li>
+  </ol>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Điều chỉnh (Chipotle, quý 1)</th><th>Tính</th><th>Bút toán</th></tr></thead>
+    <tbody>
+      <tr><td>Vật tư: đầu kỳ 20, mua 370, còn 24</td><td class="mono">20 + 370 − 24 = 366</td><td>Nợ Supplies expense / Có Supplies</td></tr>
+      <tr><td>Trả trước 131: thuê 18/tháng, bảo hiểm 48 cho 6 tháng, quảng cáo 4</td><td class="mono">54 + 24 + 4 = 82</td><td>Nợ Rent, Insurance, Advertising expense / Có Prepaid expenses</td></tr>
+      <tr><td>Khấu hao năm 124</td><td class="mono">124 ÷ 4 = 31</td><td>Nợ Depreciation expense / Có Accumulated depreciation</td></tr>
+      <tr><td>Nợ vay 80, lãi 5%/năm</td><td class="mono">80 × 5% × 3/12 = 1</td><td>Nợ Interest expense / Có Interest payable</td></tr>
+      <tr><td>Lương 67, tiền điện 15, thuế 101 chưa trả</td><td class="mono">theo đề</td><td>Nợ chi phí / Có Payable</td></tr>
+      <tr><td>Lãi đầu tư 1 chưa thu</td><td class="mono">theo đề</td><td>Nợ Interest receivable / Có Interest revenue</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="prose">
+  <h2 id="mid-ch7"><span class="sec">6</span>Ôn nhanh Ch7: tài sản cố định (PPE)</h2>
+  <p class="muted">Trang chưa có slide Ch7. Phần này và các câu Ch7 trong đề thi thử dựa trên kiến thức chuẩn về TSCĐ theo IFRS (IAS 16, 36, 38), vì đề thi thử Mely có mua, khấu hao và thanh lý thiết bị. Gửi slide Ch7 để mình chỉnh cho khớp.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Nguyên giá</h3><ul><li>Gồm mọi chi phí để tài sản sẵn sàng sử dụng: giá mua, vận chuyển, lắp đặt, chạy thử, thuế không hoàn lại.</li><li>Không gồm: sửa chữa sau khi đưa vào dùng, bảo hiểm khi vận hành, đào tạo.</li><li>Mua gộp đất và nhà: phân bổ theo tỷ lệ giá trị hợp lý.</li><li>Kéo dài tuổi thọ hoặc tăng năng lực → vốn hóa; bảo trì thường xuyên → chi phí.</li></ul></div>
+    <div class="box"><h3>Khấu hao</h3><ul><li>Đường thẳng: (Cost − Residual) ÷ Life</li><li>Theo sản lượng: (Cost − Residual) ÷ Tổng sản lượng × Sản lượng kỳ này</li><li>Số dư giảm dần kép: 2/Life × giá trị còn lại đầu năm (chưa trừ giá trị thu hồi)</li><li>Mua giữa năm: × số tháng/12. Đất không khấu hao.</li></ul></div>
+    <div class="box"><h3>Thanh lý, vô hình, suy giảm</h3><ul><li>Thanh lý: Nợ Cash + Nợ Accumulated depreciation; Có Equipment (nguyên giá); chênh lệch so với giá trị còn lại là lãi hoặc lỗ.</li><li>Tài sản vô hình có thời hạn: khấu trừ (amortize). Goodwill: không khấu trừ, kiểm tra suy giảm hằng năm.</li><li>Suy giảm khi giá trị ghi sổ &gt; giá trị có thể thu hồi.</li><li>Tài nguyên thiên nhiên: depletion.</li></ul></div>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-mid="start-default">Tạo đề thi thử</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="all">Trắc nghiệm toàn bộ</button><button class="btn" type="button" data-go="no-co" data-ch="all">Luyện Nợ/Có</button></div>
+  <div class="pager"><a href="#ban-do">← Bản đồ</a><a href="#thi-thu">Đề thi thử →</a></div>
+</section>
+
+<!-- ======================= MIDTERM (EN) ======================= -->
+<section class="sheet" data-view="giua-ky" data-l="en" hidden>
+  <p class="eyebrow"><span class="tag">Midterm</span>Week 11 · 10:30–12:00 · 90 minutes · 100 marks</p>
+  <h1>ACCT2010 midterm exam</h1>
+  <div class="core"><span class="lab">The core</span><p>The exam has <b>15 multiple-choice questions</b> (45 marks, 30 minutes) and <b>one financial statements question</b> (55 marks, 60 minutes). The long question follows the accounting cycle: opening balances → statement of financial position → January entries → trial balance → income statement and month-end statement of financial position.</p></div>
+  <ul class="lo">
+    <li><a href="#mid-cau-truc-en"><b>1</b>Exam structure</a></li>
+    <li><a href="#mid-chien-luoc-en"><b>2</b>Time plan</a></li>
+    <li><a href="#mid-quy-trinh-en"><b>3</b>Long-question workflow</a></li>
+    <li><a href="#mid-mely-en"><b>4</b>Mely mock exam solution</a></li>
+    <li><a href="#mid-3buoc-en"><b>5</b>3-step adjusting entries</a></li>
+    <li><a href="#mid-ch7-en"><b>6</b>Ch7 quick review</a></li>
+  </ul>
+
+  <div class="mid-cta">
+    <div style="flex:1 1 260px"><b style="font-family:var(--f-display);font-size:1.15rem">Randomized mock exam</b><p style="margin:.3rem 0 0;font-size:.93rem">Every click builds a new exam with the real structure: 15 multiple-choice questions with the right number per chapter, and a financial statements question with different numbers and transactions. It has a 90-minute timer, automatic grading, a worked answer for every item and a weak-chapter tracker.</p></div>
+    <div class="fc-actions"><button type="button" class="btn pri big" data-mid="start-default">Start now (90 minutes)</button><a class="btn" href="#thi-thu">Exam options and score history</a></div>
+  </div>
+
+  <div class="prose">
+  <h2 id="mid-cau-truc-en"><span class="sec">1</span>Exam structure</h2>
+  <p>Computer-based and closed book. Per the course’s structure sheet: be in the usual classroom at 9:00 for key exam notes and revision; the exam room is the Superlab (to be confirmed).</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Part</th><th>Content</th><th>Chapters</th><th>Time</th><th>Marks</th><th>Practice with</th></tr></thead>
+    <tbody>
+      <tr><td>I</td><td>15 multiple-choice questions, 3 marks each</td><td>Ch1–6: 2 per chapter<br>Ch7: 3</td><td class="mono">30′</td><td class="mono">45</td><td>Quiz 1, Quiz 2, revision quizzes</td></tr>
+      <tr><td>II</td><td>One long question, 4 requirements:<br>(1) Opening SFP · 10<br>(2) Journal entries · 10<br>(3) Trial balance · 10<br>(4) Income statement + SFP · 25</td><td>Ch1–7</td><td class="mono">60′</td><td class="mono">55</td><td>Mock exam (Mely Industries)</td></tr>
+      <tr class="tot"><td></td><td><b>Total</b></td><td></td><td class="mono">90′</td><td class="mono">100</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted" style="font-size:.88rem">Marks per requirement come from the mock exam. The structure sheet says “05 journal entries” while the mock exam has 8 transactions; the generator lets you choose 5 or 8.</p>
+
+  <div class="prose">
+  <h2 id="mid-chien-luoc-en"><span class="sec">2</span>Time plan</h2>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Part I · 30 minutes</h3><ul><li>About <b>2 minutes per question</b>. Answer theory questions in a minute to bank time for the numeric ones.</li><li>For numeric questions, write the formula before using the calculator (e.g. Beginning + Increases − Decreases = Ending).</li><li>Flag hard questions and return after the first pass.</li></ul></div>
+    <div class="box"><h3>Part II · 60 minutes</h3><ul><li>(1) Opening SFP: <b>~11 minutes</b></li><li>(2) Journal entries: <b>~11 minutes</b></li><li>(3) Trial balance: <b>~11 minutes</b></li><li>(4) IS + SFP: <b>~27 minutes</b> (45% of the marks)</li></ul><p class="muted">Split in proportion to the marks, 10 : 10 : 10 : 25.</p></div>
+  </div>
+
+  <div class="prose">
+  <h2 id="mid-quy-trinh-en"><span class="sec">3</span>Workflow for the long question</h2>
+  <ol>
+    <li><b>Classify the opening balances</b>: A, L, E, revenue, expenses, dividends. Check that total debits equal total credits.</li>
+    <li><b>Work out year-end RE</b>: RE (beginning) + (revenue − expenses) − dividends. Revenue and expenses do <b>not</b> go on the balance sheet; they flow into RE.</li>
+    <li><b>Prepare the opening SFP</b>: separate current and non-current; deduct accumulated depreciation from equipment; a 3-year note payable is non-current.</li>
+    <li><b>Journalize</b>: a perpetual sale needs 2 entries; a discount applies only if the customer pays within the period; for an instalment purchase, the amount owed within 12 months is a current liability; on disposal, remove both cost and accumulated depreciation and book the difference as a gain or loss.</li>
+    <li><b>Trial balance at Jan 31</b>: last year’s revenues, expenses and dividends have been closed, so RE equals year-end RE and the temporary accounts hold only January activity.</li>
+    <li><b>January income statement</b>: net sales = sales − sales discounts; less COGS for gross profit; less operating expenses; add or deduct the disposal gain/loss and interest expense to reach net income (possibly a loss).</li>
+    <li><b>SFP at Jan 31</b>: RE = opening RE + net income − January dividends. Check A = L + E before moving on.</li>
+  </ol>
+  </div>
+  <div class="traps"><span class="stamp">Part II traps</span>
+    <ul>
+      <li>Putting sales revenue, expenses or dividends on the balance sheet instead of rolling them into RE.</li>
+      <li>Using the given RE (beginning) on the opening SFP without adding profit and deducting dividends first.</li>
+      <li>Forgetting the COGS entry on a perpetual sale.</li>
+      <li>Giving a discount when the customer pays late. With 3/10 from the 10th, the last day is the 20th.</li>
+      <li>On disposal, crediting Equipment for the cash received instead of removing cost and accumulated depreciation and recording the gain or loss.</li>
+      <li>Recording an advance from customers as revenue on receipt.</li>
+    </ul>
+  </div>
+
+  <div class="prose">
+  <h2 id="mid-mely-en"><span class="sec">4</span>Mock exam solution: Mely Industries</h2>
+  <p>The mock gives December 2024 balances and 8 January 2025 transactions. Try it yourself first, then open each part to compare.</p>
+  </div>
+  <details class="sol-d"><summary>(1) SFP at Dec 31, 2024</summary>
+    <p>2024 profit = 25,700 − (1,200 + 3,400 + 10,000) = <b>11,100</b>. Year-end RE = 25,900 + 11,100 − 3,000 = <b>34,000</b>.</p>
+    <div class="scroll"><table class="fs"><tr class="h"><td>Mely Industries · SFP · Dec 31, 2024</td><td class="n"></td></tr>
+      <tr><td>Cash</td><td class="n">20,600</td></tr><tr><td>Accounts receivable</td><td class="n">5,400</td></tr><tr><td>Inventory</td><td class="n">1,400</td></tr>
+      <tr class="sub"><td>Total current assets</td><td class="n">27,400</td></tr>
+      <tr><td>Equipment 88,000 − Accumulated depreciation 25,000</td><td class="n">63,000</td></tr>
+      <tr class="tot"><td>Total assets</td><td class="n">90,400</td></tr>
+      <tr><td>Accounts payable (current)</td><td class="n">1,100</td></tr><tr><td>Notes payable, 3 years (non-current)</td><td class="n">3,300</td></tr>
+      <tr class="sub"><td>Total liabilities</td><td class="n">4,400</td></tr>
+      <tr><td>Share capital</td><td class="n">52,000</td></tr><tr><td>Retained earnings</td><td class="n">34,000</td></tr>
+      <tr class="sub"><td>Total equity</td><td class="n">86,000</td></tr>
+      <tr class="tot"><td>Total liabilities and equity</td><td class="n">90,400</td></tr></table></div>
+  </details>
+  <details class="sol-d"><summary>(2) January 2025 journal entries</summary>
+    <pre class="je">@Jan 1
+Cash | 2,000 |
+Unearned revenue | | 2,000
+# Customer advance: a liability, not revenue yet
+@Jan 2
+Prepaid insurance | 960 |
+Cash | | 960
+@Jan 5
+Equipment | 8,400 |
+Cash | | 1,200
+Notes payable (short-term) | | 7,200
+# 12 × 600 due within a year → current liability (Accounts payable – Latte is also acceptable)
+@Jan 10
+Accounts receivable | 4,000 |
+Sales revenue | | 4,000
+Cost of goods sold | 1,400 |
+Inventory | | 1,400
+# All inventory sold (1,400 at cost)
+@Jan 19
+Cash | 3,880 |
+Sales discounts | 120 |
+Accounts receivable | | 4,000
+# The 3/10 deadline is Jan 20 → 3% × 4,000 = 120 discount
+@Jan 31
+Depreciation expense | 600 |
+Accumulated depreciation | | 600
+@Jan 31
+Interest expense | 400 |
+Interest payable | | 400
+@Jan 31
+Cash | 6,000 |
+Accumulated depreciation | 13,500 |
+Loss on sale of equipment | 2,000 |
+Equipment | | 21,500
+# Book value 21,500 − 13,500 = 8,000; sold for 6,000 → loss of 2,000</pre>
+  </details>
+  <details class="sol-d"><summary>(3) Trial balance at Jan 31, 2025</summary>
+    <p class="muted">Assumes the December balances are pre-closing: 2024 revenues, expenses and dividends have been closed into RE (34,000).</p>
+    <div class="scroll"><table class="fs"><tr class="h"><td>Account</td><td class="n dr">Debit</td><td class="n cr">Credit</td></tr>
+      <tr><td>Cash (20,600 + 2,000 − 960 − 1,200 + 3,880 + 6,000)</td><td class="n">30,320</td><td></td></tr>
+      <tr><td>Accounts receivable</td><td class="n">5,400</td><td></td></tr><tr><td>Prepaid insurance</td><td class="n">960</td><td></td></tr>
+      <tr><td>Equipment (88,000 + 8,400 − 21,500)</td><td class="n">74,900</td><td></td></tr>
+      <tr><td>Accumulated depreciation (25,000 + 600 − 13,500)</td><td></td><td class="n">12,100</td></tr>
+      <tr><td>Accounts payable</td><td></td><td class="n">1,100</td></tr><tr><td>Unearned revenue</td><td></td><td class="n">2,000</td></tr>
+      <tr><td>Notes payable (short-term)</td><td></td><td class="n">7,200</td></tr><tr><td>Interest payable</td><td></td><td class="n">400</td></tr>
+      <tr><td>Notes payable (long-term)</td><td></td><td class="n">3,300</td></tr><tr><td>Share capital</td><td></td><td class="n">52,000</td></tr>
+      <tr><td>Retained earnings</td><td></td><td class="n">34,000</td></tr><tr><td>Sales revenue</td><td></td><td class="n">4,000</td></tr>
+      <tr><td>Sales discounts</td><td class="n">120</td><td></td></tr><tr><td>Cost of goods sold</td><td class="n">1,400</td><td></td></tr>
+      <tr><td>Depreciation expense</td><td class="n">600</td><td></td></tr><tr><td>Interest expense</td><td class="n">400</td><td></td></tr>
+      <tr><td>Loss on sale of equipment</td><td class="n">2,000</td><td></td></tr>
+      <tr class="tot"><td>Total</td><td class="n">116,100</td><td class="n">116,100</td></tr></table></div>
+  </details>
+  <details class="sol-d"><summary>(4) January income statement and SFP at Jan 31, 2025</summary>
+    <div class="grid2">
+      <div class="scroll" style="margin:0"><table class="fs"><tr class="h"><td>Income statement · Jan 2025</td><td class="n"></td></tr>
+        <tr><td>Sales revenue</td><td class="n">4,000</td></tr><tr><td class="ind">Less: Sales discounts</td><td class="n">(120)</td></tr>
+        <tr class="sub"><td>Net sales</td><td class="n">3,880</td></tr><tr><td class="ind">Less: Cost of goods sold</td><td class="n">(1,400)</td></tr>
+        <tr class="sub"><td>Gross profit</td><td class="n">2,480</td></tr><tr><td class="ind">Depreciation expense</td><td class="n">(600)</td></tr>
+        <tr class="sub"><td>Operating income</td><td class="n">1,880</td></tr><tr><td class="ind">Interest expense</td><td class="n">(400)</td></tr>
+        <tr><td class="ind">Loss on sale of equipment</td><td class="n">(2,000)</td></tr>
+        <tr class="tot"><td>Net loss</td><td class="n">(520)</td></tr></table></div>
+      <div class="scroll" style="margin:0"><table class="fs"><tr class="h"><td>SFP · Jan 31, 2025</td><td class="n"></td></tr>
+        <tr><td>Cash 30,320 · AR 5,400 · Prepaid insurance 960</td><td class="n">36,680</td></tr>
+        <tr><td>Equipment 74,900 − AD 12,100</td><td class="n">62,800</td></tr>
+        <tr class="tot"><td>Total assets</td><td class="n">99,480</td></tr>
+        <tr><td>AP 1,100 · Unearned 2,000 · ST notes 7,200 · Interest payable 400</td><td class="n">10,700</td></tr>
+        <tr><td>Notes payable (long-term)</td><td class="n">3,300</td></tr>
+        <tr class="sub"><td>Total liabilities</td><td class="n">14,000</td></tr>
+        <tr><td>Share capital</td><td class="n">52,000</td></tr><tr><td>Retained earnings (34,000 − 520)</td><td class="n">33,480</td></tr>
+        <tr class="tot"><td>Total liabilities and equity</td><td class="n">99,480</td></tr></table></div>
+    </div>
+  </details>
+
+  <div class="prose">
+  <h2 id="mid-3buoc-en"><span class="sec">5</span>Three steps for any adjusting entry</h2>
+  <p>From the double-entry revision pack (Chipotle example). Use them for every period-end entry:</p>
+  </div>
+  <ol class="steps">
+    <li><span class="k">STEP 1</span><b>Was revenue earned or an expense incurred that is not yet recorded?</b><span class="t">If yes, the revenue or expense account is understated.</span></li>
+    <li><span class="k">STEP 2</span><b>Was the cash received/paid in the past, or will it be in the future?</b><span class="t">Past → reduce a prepaid asset or unearned revenue. Future → increase a receivable or a payable.</span></li>
+    <li><span class="k">STEP 3</span><b>Compute the amount</b><span class="t">By months, by the share used, or with the interest formula P × R × T.</span></li>
+  </ol>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Adjustment (Chipotle, Q1)</th><th>Computation</th><th>Entry</th></tr></thead>
+    <tbody>
+      <tr><td>Supplies: beginning 20, purchased 370, 24 on hand</td><td class="mono">20 + 370 − 24 = 366</td><td>Dr Supplies expense / Cr Supplies</td></tr>
+      <tr><td>Prepaid 131: rent 18/month, insurance 48 for 6 months, advertising 4</td><td class="mono">54 + 24 + 4 = 82</td><td>Dr Rent, Insurance, Advertising expense / Cr Prepaid expenses</td></tr>
+      <tr><td>Annual depreciation 124</td><td class="mono">124 ÷ 4 = 31</td><td>Dr Depreciation expense / Cr Accumulated depreciation</td></tr>
+      <tr><td>Debt 80 at 5% a year</td><td class="mono">80 × 5% × 3/12 = 1</td><td>Dr Interest expense / Cr Interest payable</td></tr>
+      <tr><td>Unpaid wages 67, utilities 15, income tax 101</td><td class="mono">given</td><td>Dr expense / Cr payable</td></tr>
+      <tr><td>Investment interest of 1 not yet received</td><td class="mono">given</td><td>Dr Interest receivable / Cr Interest revenue</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="prose">
+  <h2 id="mid-ch7-en"><span class="sec">6</span>Ch7 quick review: property, plant and equipment</h2>
+  <p class="muted">This site does not have the Ch7 slides yet. This section and the Ch7 questions in the mock exams use standard IFRS PPE material (IAS 16, 36, 38), since the Mely mock includes buying, depreciating and selling equipment. Send the Ch7 slides to align it exactly.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Cost</h3><ul><li>Everything needed to get the asset ready for use: price, freight, installation, testing, non-refundable taxes.</li><li>Not included: repairs after it is in service, operating insurance, staff training.</li><li>Land and building bought together: allocate by relative fair values.</li><li>Extends life or capacity → capitalize; routine maintenance → expense.</li></ul></div>
+    <div class="box"><h3>Depreciation</h3><ul><li>Straight-line: (Cost − Residual) ÷ Life</li><li>Units-of-production: (Cost − Residual) ÷ Total units × Units this period</li><li>Double-declining-balance: 2/Life × opening book value (ignore residual until the end)</li><li>Mid-year purchase: × months/12. Land is not depreciated.</li></ul></div>
+    <div class="box"><h3>Disposal, intangibles, impairment</h3><ul><li>Disposal: Dr Cash + Dr Accumulated depreciation; Cr Equipment (cost); the difference from book value is a gain or loss.</li><li>Finite-life intangibles are amortized. Goodwill is not amortized; test it for impairment annually.</li><li>Impairment when carrying amount &gt; recoverable amount.</li><li>Natural resources: depletion.</li></ul></div>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-mid="start-default">Start a mock exam</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="all">Full quiz</button><button class="btn" type="button" data-go="no-co" data-ch="all">Debit/credit drill</button></div>
+  <div class="pager"><a href="#ban-do">← Map</a><a href="#thi-thu">Mock exam →</a></div>
+</section>
+
+<!-- ======================= MOCK EXAM ======================= -->
+<section class="sheet" data-view="thi-thu" hidden>
+  <div id="ex-root"></div>
+</section>
+
 </main>
 </div>
 
@@ -3151,6 +3608,766 @@ const RC = {
   relang(){ this.paint(); if (this.didCheck) this.check(); }
 };
 
+/* ---------- midterm: mock exam generator ---------- */
+const MID = (function(){
+const KEY = "stk-exam", HKEY = "stk-exam-hist";
+const MCQ_MARK = 3, REQ_MARKS = [10, 10, 10, 25], EXAM_MIN = 90;
+
+/* seeded random numbers: the same code always rebuilds the same exam */
+function rngFrom(seed){ let a = seed >>> 0; return function(){ a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+const ri = (r, a, b, s) => { s = s || 1; return a + Math.floor(r() * (Math.floor((b - a) / s) + 1)) * s; };
+const pk = (r, a) => a[Math.floor(r() * a.length)];
+const rsh = (r, a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; } return a; };
+const r2 = n => Math.round(n * 100) / 100;
+const D = n => "$" + r2(Math.abs(n)).toLocaleString("en-US", {maximumFractionDigits: 2});
+const NUM = n => r2(n).toLocaleString("en-US", {maximumFractionDigits: 2});
+const P = n => r2(n) + "%";
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const CO = ["Lam Co.","Minh Long Co.","Hoa Sen Ltd","BlueSea Logistics","Clear Limited","Willow Tutors","Summit Studio","Maple Events","Nova Consulting","Greenway Co.","Bright Co.","Delta Print","Coral Studio","Mekong Foods","Ruby Furniture","Sao Mai Ltd","Trang An Co.","Phuong Nam Co.","Kim Long Trading","Bach Dang Co."];
+const codeOf = s => (s >>> 0).toString(36).toUpperCase().padStart(7, "0");
+const seedOf = c => { const s = String(c || "").trim().toUpperCase(); if (!/^[0-9A-Z]{1,7}$/.test(s)) return null; const v = parseInt(s, 36); return v <= 4294967295 ? v : null; };
+
+function opts(c, cands){ const o = [c]; for (const x of cands) { if (o.length === 4) break; if (x && o.indexOf(x) === -1) o.push(x); } return o.length === 4 ? o : null; }
+function nopts(c, cands, f){
+  f = f || D; const vals = [c], seen = new Set([f(c)]);
+  const push = v => { if (vals.length < 4 && isFinite(v) && v > 0 && !seen.has(f(v))) { seen.add(f(v)); vals.push(v); } };
+  cands.forEach(push);
+  const step = Math.max(1, Math.pow(10, Math.max(0, Math.floor(Math.log10(Math.abs(c) || 1)) - 1)));
+  for (let k = 1; vals.length < 4 && k < 60; k++) { push(c + k * step); push(c - k * step); }
+  return vals.map(f);
+}
+
+/* ===== question bank: add(chapter, kind, tag, generator) ===== */
+const BANK = [];
+const add = (ch, kind, tag, fn) => BANK.push({ch, kind, tag, fn});
+
+/* --- Chapter 1 --- */
+add(1, "t", "Q1", r => {
+  const it = pk(r, [
+    ["gross profit for the period", 0, "Gross profit = Sales − COGS, a subtotal on the income statement.", "Lãi gộp = Doanh thu − Giá vốn, là dòng tổng phụ trên báo cáo kết quả kinh doanh."],
+    ["revenues and expenses for a period", 0, "The income statement reports performance (revenues and expenses) for a period.", "Báo cáo kết quả kinh doanh trình bày doanh thu và chi phí của cả kỳ."],
+    ["assets, liabilities and equity at a specific date", 1, "The statement of financial position is a snapshot at one date.", "Bảng cân đối kế toán là ảnh chụp tại một thời điểm."],
+    ["dividends declared during the period", 2, "Dividends are distributions to owners, not expenses; they appear in the statement of changes in equity.", "Cổ tức là phân phối cho chủ sở hữu, không phải chi phí; trình bày trên báo cáo thay đổi vốn chủ."],
+    ["cash collected from customers during the year", 3, "Cash receipts and payments are reported in the statement of cash flows.", "Dòng tiền thu chi được trình bày trên báo cáo lưu chuyển tiền tệ."]
+  ]);
+  const S = ["the Income Statement", "the Statement of Financial Position", "the Statement of Changes in Equity", "the Statement of Cash Flows"];
+  return {q: "A company’s " + it[0] + " is reported on:", o: [S[it[1]]].concat(S.filter((_, i) => i !== it[1])), e: [it[3], it[2]]};
+});
+add(1, "t", "Q1", r => {
+  const notAsset = r() < 0.6;
+  const A = rsh(r, ["Inventory", "Cash", "Accounts receivable", "Prepaid insurance", "Equipment", "Supplies"]);
+  const L = rsh(r, ["Accounts payable", "Unearned revenue", "Salaries payable", "Notes payable"]);
+  if (notAsset) return {q: "Which of the following is NOT an asset?", o: [L[0], A[0], A[1], A[2]], e: [L[0] + " là nợ phải trả (nghĩa vụ phải trả), các khoản còn lại là tài sản.", L[0] + " is a liability (an obligation); the others are resources the company controls."]};
+  return {q: "Which of the following is NOT a liability?", o: [A[0], L[0], L[1], L[2]], e: [A[0] + " là tài sản; các khoản còn lại là nợ phải trả.", A[0] + " is an asset; the others are obligations (liabilities)."]};
+});
+add(1, "t", "Q1", r => {
+  const D_ = [
+    ["The entity is expected to keep operating long enough to use its existing assets and meet its commitments.", "Going concern"],
+    ["The organisation’s records are kept separate from those of its owners and other entities.", "Economic entity"],
+    ["Omitting or misstating the information could change users’ decisions.", "Materiality"],
+    ["Information is presented clearly and concisely for users with reasonable business knowledge.", "Understandability"],
+    ["Different knowledgeable observers would agree that the information is faithfully represented.", "Verifiability"],
+    ["Information reaches decision makers in time to influence their decisions.", "Timeliness"],
+    ["The information is complete, neutral and free from error.", "Faithful representation"]
+  ];
+  const it = pk(r, D_);
+  const pool = rsh(r, ["Going concern", "Economic entity", "Materiality", "Understandability", "Verifiability", "Timeliness", "Faithful representation", "Comparability", "Monetary unit"].filter(x => x !== it[1]));
+  return {q: "Which concept is described? “" + it[0] + "”", o: [it[1]].concat(pool.slice(0, 3)), e: ["Định nghĩa trên là " + it[1] + ".", "This is the definition of " + it[1].toLowerCase() + "."]};
+});
+add(1, "t", "Q1", r => {
+  const it = pk(r, [["A note receivable due in 60 days", 0], ["Prepaid insurance covering the next six months", 0], ["Equipment used in operations", 1], ["Accounts payable due next month", 2], ["A bank loan repayable in three years", 3], ["Salaries owed to employees at year end", 2]]);
+  const C = ["current asset", "non-current asset", "current liability", "non-current liability"];
+  return {q: it[0] + " is classified on the statement of financial position as a:", o: [C[it[1]]].concat(C.filter((_, i) => i !== it[1])), e: ["Phân loại theo bản chất (tài sản/nợ) và thời hạn (trong hay ngoài 12 tháng): " + C[it[1]] + ".", "Classify by nature (asset or liability) and timing (within 12 months or not): " + C[it[1]] + "."]};
+});
+add(1, "n", "Q1", r => {
+  const dA = ri(r, 100, 300) * 1000, up = r() < 0.65, dL = up ? ri(r, 20, Math.floor(dA / 1000) - 20) * 1000 : ri(r, 10, 80) * 1000;
+  const eq = up ? dA - dL : dA + dL;
+  const alt = up ? dA + dL : dA - dL;
+  const o = opts("increase by " + D(eq), ["decrease by " + D(alt), "decrease by " + D(eq), "increase by " + D(alt)]);
+  return {q: "During a period, a company’s total assets increase by " + D(dA) + " and its total liabilities " + (up ? "increase" : "decrease") + " by " + D(dL) + ". Shareholders’ equity must:", o: o,
+    e: ["A = L + E nên ΔE = ΔA − ΔL = " + D(dA) + (up ? " − " : " + ") + D(dL) + " = " + D(eq) + " (tăng).", "A = L + E, so ΔE = ΔA − ΔL = " + D(dA) + (up ? " − " : " + ") + D(dL) + " = " + D(eq) + " increase."]};
+});
+add(1, "n", "Q2", r => {
+  const B = ri(r, 30, 90) * 1000, loss = r() < 0.25, NI = loss ? ri(r, 3, 15) * 1000 : ri(r, 8, 40) * 1000, Dv = ri(r, 2, 12) * 1000;
+  const c = loss ? B - NI - Dv : B + NI - Dv;
+  return {q: pk(r, CO) + " began the year with retained earnings of " + D(B) + ". During the year it " + (loss ? "incurred a net loss of " : "earned profit of ") + D(NI) + " and declared dividends of " + D(Dv) + ". What is ending retained earnings?",
+    o: nopts(c, loss ? [B - NI + Dv, B + NI - Dv, B - Dv] : [B + NI + Dv, B - NI + Dv, B + NI]),
+    e: ["RE cuối = RE đầu " + (loss ? "− lỗ" : "+ lãi") + " − cổ tức = " + D(B) + (loss ? " − " : " + ") + D(NI) + " − " + D(Dv) + " = " + D(c) + ".", "Ending RE = Beginning RE " + (loss ? "− net loss" : "+ profit") + " − dividends = " + D(B) + (loss ? " − " : " + ") + D(NI) + " − " + D(Dv) + " = " + D(c) + "."]};
+});
+
+/* --- Chapter 2 --- */
+add(2, "t", "Q1", r => {
+  const it = pk(r, [
+    ["performed services for a customer on account", "This transaction increased assets and:", "increased revenues", ["decreased equity", "increased liabilities", "increased expenses"], "Dr Accounts Receivable; Cr Service Revenue."],
+    ["paid cash for an amount owed to a creditor", "This transaction decreased cash and:", "decreased liabilities", ["decreased revenues", "decreased expenses", "increased expenses"], "Dr Accounts Payable; Cr Cash. Settling a debt is not an expense."],
+    ["borrowed money from a bank by signing a note payable", "This transaction would:", "have no effect on shareholders’ equity", ["increase shareholders’ equity", "decrease liabilities", "increase profit"], "Dr Cash; Cr Notes Payable. Assets and liabilities rise equally."],
+    ["purchased supplies for cash", "This transaction:", "increases one asset and decreases another asset", ["increases assets and increases liabilities", "decreases assets and decreases equity", "increases expenses and decreases assets"], "Dr Supplies; Cr Cash. Total assets are unchanged."],
+    ["collected cash from a customer on account", "This transaction:", "increases one asset and decreases another asset", ["increases assets and increases revenue", "decreases liabilities", "increases shareholders’ equity"], "Dr Cash; Cr Accounts Receivable. The revenue was recorded earlier."],
+    ["paid cash dividends to its shareholders", "This transaction decreased cash and:", "decreased shareholders’ equity", ["increased expenses", "decreased liabilities", "decreased revenues"], "Dr Dividends; Cr Cash. Dividends reduce equity but are not expenses."]
+  ]);
+  return {q: "A company " + it[0] + ". " + it[1], o: [it[2]].concat(it[3]), e: ["Bút toán: " + it[4].replace("Dr ", "Nợ ").replace("; Cr ", "; Có "), "Entry: " + it[4]]};
+});
+add(2, "t", "Q1", r => {
+  const it = pk(r, [["A chronological record (history) of an entity’s transactions is called a:", "journal"], ["The record of all the changes in a particular asset, liability or equity item during a period is called a(n):", "account"], ["Transferring information from the journal to the individual accounts is called:", "posting"], ["A list of all accounts and their balances, used to check that total debits equal total credits, is a:", "trial balance"], ["The book that groups all the accounts of a business with their balances is the:", "ledger"]]);
+  const pool = rsh(r, ["journal", "account", "posting", "trial balance", "ledger", "journalizing", "T-account"].filter(x => x !== it[1]));
+  return {q: it[0], o: [it[1]].concat(pool.slice(0, 3)), e: ["Đáp án: " + it[1] + ". Journal ghi theo thời gian; ledger nhóm theo tài khoản; posting là chuyển từ journal sang ledger.", "Answer: " + it[1] + ". The journal is chronological; the ledger groups by account; posting moves entries from journal to ledger."]};
+});
+add(2, "t", "Q1", r => {
+  if (r() < 0.5) return {q: "Which of the following statements regarding T-accounts is FALSE?", o: ["The right side is the debit side.", "The left side is the debit side.", "The account title appears at the top of the T-account.", "The right side is the credit side."], e: ["Bên trái là Nợ, bên phải là Có, nên câu “bên phải là bên Nợ” sai.", "Left is debit and right is credit, so “the right side is the debit side” is false."]};
+  return {q: "Which of the following statements regarding T-accounts is TRUE?", o: ["The left side is the debit side.", "The right side is the debit side.", "Debits always mean increases.", "Credits always mean decreases."], e: ["Bên trái là Nợ. Nợ/Có không luôn nghĩa là tăng/giảm, tùy loại tài khoản.", "The left side is the debit side. Whether a debit increases or decreases depends on the account type."]};
+});
+add(2, "t", "site", r => {
+  const cr = r() < 0.5;
+  const C = rsh(r, ["Unearned revenue", "Accounts payable", "Share capital", "Service revenue", "Accumulated depreciation"]);
+  const Dr = rsh(r, ["Cash", "Dividends", "Rent expense", "Accounts receivable", "Prepaid insurance", "Supplies"]);
+  return cr ? {q: "Which account normally has a CREDIT balance?", o: [C[0], Dr[0], Dr[1], Dr[2]], e: ["L, E, Revenue (và tài khoản contra như Accumulated depreciation) có số dư Có.", "Liabilities, equity, revenue (and contra accounts such as accumulated depreciation) carry credit balances."]}
+            : {q: "Which account normally has a DEBIT balance?", o: [Dr[0], C[0], C[1], C[2]], e: ["DEA (Dividends, Expenses, Assets) có số dư Nợ.", "DEA — dividends, expenses and assets — carry debit balances."]};
+});
+add(2, "n", "Q1", r => {
+  const b = ri(r, 5, 20) * 1000, s = ri(r, 8, 30) * 1000, e = ri(r, 3, Math.floor((b + s) / 1000) - 2) * 1000, c = b + s - e;
+  return {q: pk(r, CO) + " had a beginning Accounts Receivable balance of " + D(b) + " and made " + D(s) + " of sales on account during the month. The ending Accounts Receivable balance was " + D(e) + ". Collections from customers on account during the month were:",
+    o: nopts(c, [s, b + s + e, Math.abs(e - b)]).slice(0, 3).concat(["cannot be determined from the information given"]),
+    e: ["Thu tiền = Đầu kỳ + Bán chịu − Cuối kỳ = " + D(b) + " + " + D(s) + " − " + D(e) + " = " + D(c) + ".", "Collections = Beginning + Credit sales − Ending = " + D(b) + " + " + D(s) + " − " + D(e) + " = " + D(c) + "."]};
+});
+add(2, "n", "Q1", r => {
+  const b = ri(r, 4, 15) * 1000, col = ri(r, 3, 12) * 1000, s = ri(r, Math.max(3, col / 1000 - b / 1000 + 2), 20) * 1000, e = b + s - col; let alt = Math.abs(b + col - s); if (!alt || alt === e) alt = b + s + col;
+  return {q: "The Accounts Receivable account of " + pk(r, CO) + " had a beginning balance of " + D(b) + ". During the month, customers paid " + D(col) + " and new sales on account were " + D(s) + ". The ending balance in Accounts Receivable is _____ and is a _____ balance.",
+    o: opts(D(e) + "; debit", [D(e) + "; credit", D(alt) + "; debit", D(alt) + "; credit"]),
+    e: ["Cuối kỳ = " + D(b) + " + " + D(s) + " − " + D(col) + " = " + D(e) + ". Phải thu là tài sản nên số dư Nợ.", "Ending = " + D(b) + " + " + D(s) + " − " + D(col) + " = " + D(e) + ". Receivables are assets, so the balance is a debit."]};
+});
+add(2, "n", "Q1", r => {
+  const b = ri(r, 8, 20) * 1000, rc = ri(r, 5, 15) * 1000, pay = r() < 0.5;
+  if (pay) { const e = ri(r, 2, Math.floor((b + rc) / 1000) - 2) * 1000, p = b + rc - e;
+    return {q: pk(r, CO) + " had a beginning cash balance of " + D(b) + ", received cash of " + D(rc) + " during the month and ended the month with " + D(e) + ". Cash payments for the month were:", o: nopts(p, [e, b + rc + e, rc]).slice(0, 3).concat(["cannot be determined from the information given"]), e: ["Chi = Đầu + Thu − Cuối = " + D(b) + " + " + D(rc) + " − " + D(e) + " = " + D(p) + ".", "Payments = Beginning + Receipts − Ending = " + D(b) + " + " + D(rc) + " − " + D(e) + " = " + D(p) + "."]}; }
+  const p = ri(r, 3, Math.floor((b + rc) / 1000) - 1) * 1000, e = b + rc - p;
+  return {q: pk(r, CO) + " had a beginning cash balance of " + D(b) + ". During the month it received " + D(rc) + " and paid " + D(p) + ". What is the ending cash balance?", o: nopts(e, [b + rc + p, b - rc + p, b + rc]), e: ["Cuối = " + D(b) + " + " + D(rc) + " − " + D(p) + " = " + D(e) + ".", "Ending cash = " + D(b) + " + " + D(rc) + " − " + D(p) + " = " + D(e) + "."]};
+});
+
+/* --- Chapter 3 --- */
+add(3, "t", "Q1", r => {
+  const cash = r() < 0.5;
+  return cash ? {q: "The method of accounting that records revenues when cash is received and expenses when cash is paid is the:", o: ["cash basis", "accrual basis", "deferral method", "hybrid method"], e: ["Cơ sở tiền mặt ghi theo dòng tiền.", "Cash-basis accounting follows cash receipts and payments."]}
+              : {q: "Under accrual accounting, revenue is generally recognized when:", o: ["the revenue is earned", "cash is received from the customer", "an invoice is paid", "the accounting period ends"], e: ["Dồn tích: ghi doanh thu khi đã thực hiện, không phụ thuộc thu tiền.", "Accrual accounting recognizes revenue when earned, regardless of cash."]};
+});
+add(3, "t", "Q1", r => {
+  const it = pk(r, [["The requirement to report accounting information at regular intervals is the:", "time-period concept"], ["Recording expenses in the same period as the revenues they helped generate is the:", "matching (expense recognition) principle"], ["An interim period is generally:", "less than one year"]]);
+  if (it[1] === "less than one year") return {q: it[0], o: ["less than one year", "more than one year", "more than one year but less than the life of the company", "half of the life of the company"], e: ["Kỳ giữa niên độ ngắn hơn một năm (tháng, quý).", "An interim period is shorter than a year (month, quarter)."]};
+  const pool = rsh(r, ["time-period concept", "matching (expense recognition) principle", "revenue recognition principle", "going-concern assumption", "interval concept"].filter(x => x !== it[1]));
+  return {q: it[0], o: [it[1]].concat(pool.slice(0, 3)), e: ["Đáp án: " + it[1] + ".", "Answer: " + it[1] + "."]};
+});
+add(3, "t", "Q1", r => {
+  const it = pk(r, [
+    ["failed to record the year-end adjusting entry for accrued salaries", "Profit for the period will be overstated.", ["Profit for the period will be understated.", "Assets for the period will be understated.", "Profit for the period will not be affected."], "Thiếu Nợ Salaries Expense / Có Salaries Payable: chi phí và nợ bị thiếu nên lãi bị thổi phồng.", "Missing Dr Salaries Expense; Cr Salaries Payable: expenses and liabilities are understated, so profit is overstated."],
+    ["failed to accrue interest that had been incurred but not yet paid", "Liabilities will be understated and profit overstated.", ["Liabilities will be overstated and profit understated.", "Assets will be understated and profit understated.", "Assets will be overstated and liabilities understated."], "Thiếu Nợ Interest Expense / Có Interest Payable.", "Missing Dr Interest Expense; Cr Interest Payable."],
+    ["did not adjust Unearned Revenue for work performed during the period", "Liabilities will be overstated and revenues understated.", ["Assets will be understated and expenses understated.", "Assets will be overstated and liabilities overstated.", "Liabilities will be understated and revenues understated."], "Thiếu Nợ Unearned Revenue / Có Service Revenue: nợ quá cao, doanh thu quá thấp.", "Missing Dr Unearned Revenue; Cr Service Revenue: the liability is too high and revenue too low."],
+    ["failed to record depreciation for the year", "Assets will be overstated and profit overstated.", ["Assets will be understated and profit understated.", "Liabilities will be understated and profit overstated.", "Profit will not be affected."], "Thiếu Nợ Depreciation Expense / Có Accumulated Depreciation: chi phí thấp, giá trị còn lại cao.", "Missing Dr Depreciation Expense; Cr Accumulated Depreciation: expenses too low, book value too high."],
+    ["failed to record service revenue earned but not yet billed", "Assets will be understated and profit understated.", ["Assets will be overstated and profit overstated.", "Liabilities will be understated and profit understated.", "Profit will not be affected."], "Thiếu Nợ Accounts Receivable / Có Service Revenue.", "Missing Dr Accounts Receivable; Cr Service Revenue."]
+  ]);
+  return {q: "An accountant " + it[0] + ". What is the effect of this error?", o: [it[1]].concat(it[2]), e: [it[3], it[4]]};
+});
+add(3, "t", "Q1", r => {
+  const it = pk(r, [["a debit to an expense and a credit to an asset (such as Prepaid Insurance)", "deferred expense"], ["a debit to a liability (Unearned Revenue) and a credit to revenue", "deferred revenue"], ["a debit to an expense and a credit to a liability", "accrued expense"], ["a debit to a receivable and a credit to revenue", "accrued revenue"]]);
+  const C = ["deferred expense", "deferred revenue", "accrued expense", "accrued revenue"];
+  return {q: "An adjusting journal entry contains " + it[0] + ". This is an example of a(n):", o: [it[1]].concat(C.filter(x => x !== it[1])), e: ["Tiền trước: deferred (prepaid/unearned). Tiền sau: accrued. Ở đây: " + it[1] + ".", "Cash first = deferred (prepaid/unearned); cash later = accrued. Here: " + it[1] + "."]};
+});
+add(3, "n", "Q1", r => {
+  const L = pk(r, [3, 4, 5, 6, 8, 10]), A = ri(r, 4, 15) * 1200, cost = A * L, s = ri(r, 3, 11), m = 12 - s + 1, x = A * m / 12;
+  const mo = MONTHS[s - 1];
+  return {q: "On " + mo + " 1, " + pk(r, CO) + " puts equipment costing " + D(cost) + " into use. Its useful life is " + L + " years with no residual value. It uses straight-line depreciation and records no depreciation before December 31. Which adjusting entry is required at December 31?",
+    o: opts("Debit Depreciation Expense " + D(x) + "; Credit Accumulated Depreciation " + D(x), ["Debit Depreciation Expense " + D(A / 12) + "; Credit Accumulated Depreciation " + D(A / 12), "Debit Accumulated Depreciation " + D(x) + "; Credit Depreciation Expense " + D(x), "Debit Depreciation Expense " + D(A) + "; Credit Accumulated Depreciation " + D(A)]),
+    e: ["Khấu hao năm = " + D(cost) + " ÷ " + L + " = " + D(A) + "; " + m + " tháng = " + D(A) + " × " + m + "/12 = " + D(x) + ".", "Annual = " + D(cost) + " ÷ " + L + " = " + D(A) + "; " + m + " months = " + D(A) + " × " + m + "/12 = " + D(x) + "."]};
+});
+add(3, "n", "Q1", r => {
+  const N = pk(r, [3, 4, 6, 12]), mo = ri(r, 3, 15) * 100, U = N * mo, s = ri(r, Math.max(1, 13 - N), 12), k = 12 - s + 1, earned = mo * k, rem = U - earned;
+  return {q: "On " + MONTHS[s - 1] + " 1, " + pk(r, CO) + " received " + D(U) + " in advance for services to be performed evenly over the next " + N + " months, and credited Unearned Service Revenue. The adjusting entry on December 31 of the same year would include a:",
+    o: opts("credit to Service Revenue of " + D(earned), ["credit to Unearned Service Revenue of " + D(earned), "debit to Unearned Service Revenue of " + D(rem || mo), "debit to Service Revenue of " + D(rem || mo)]),
+    e: ["Mỗi tháng " + D(U) + " ÷ " + N + " = " + D(mo) + "; đã làm " + k + " tháng = " + D(earned) + ". Nợ Unearned / Có Service Revenue " + D(earned) + ".", "Monthly " + D(U) + " ÷ " + N + " = " + D(mo) + "; " + k + " months earned = " + D(earned) + ". Dr Unearned / Cr Service Revenue " + D(earned) + "."]};
+});
+add(3, "n", "Q1", r => {
+  const ins = r() < 0.5, nm = ins ? "insurance" : "rent", acct = ins ? "Prepaid Insurance" : "Prepaid Rent", exp = ins ? "Insurance Expense" : "Rent Expense";
+  const N = pk(r, [6, 12]), mo = ri(r, 10, 30) * 50, Pd = N * mo, s = ri(r, 14 - N, 12), k = 12 - s + 1, used = mo * k, rem = Pd - used;
+  if (r() < 0.5) return {q: "On " + MONTHS[s - 1] + " 1, " + pk(r, CO) + " paid " + D(Pd) + " for " + N + " months of " + nm + " in advance and debited " + acct + ". The adjusted trial balance at December 31 would show a " + acct + " balance of:", o: nopts(rem, [Pd, used, rem + mo]), e: ["Mỗi tháng " + D(mo) + "; đã dùng " + k + " tháng = " + D(used) + "; còn lại " + D(Pd) + " − " + D(used) + " = " + D(rem) + ".", "Monthly " + D(mo) + "; " + k + " months used = " + D(used) + "; remaining " + D(Pd) + " − " + D(used) + " = " + D(rem) + "."]};
+  return {q: "On " + MONTHS[s - 1] + " 1, " + pk(r, CO) + " paid " + D(Pd) + " for " + N + " months of " + nm + " in advance and debited " + acct + ". Which account and amount will appear on the adjusted trial balance at December 31?", o: opts(exp + ", " + D(used), [exp + ", " + D(Pd), acct + ", " + D(Pd), acct + ", " + D(used), exp + ", " + D(rem)]), e: ["Đã dùng " + k + " tháng × " + D(mo) + " = " + D(used) + " → " + exp + " " + D(used) + "; " + acct + " còn " + D(rem) + ".", k + " months × " + D(mo) + " = " + D(used) + " → " + exp + " " + D(used) + "; " + acct + " left " + D(rem) + "."]};
+});
+add(3, "n", "Q1", r => {
+  const e1 = ri(r, 2, 8) * 1000, e2 = ri(r, 3, 12) * 1000, e3 = ri(r, 3, 12) * 1000, R = e1 + e2 + ri(r, 8, 30) * 1000, base = R - e1 - e2, acc = base + e3;
+  return {q: "In December, " + pk(r, CO) + " receives " + D(R) + " cash from customers, including " + D(e1) + " for services earned in November and " + D(e2) + " for January services not yet performed. It also earns " + D(e3) + " in December that will be collected in January. What is December service revenue under accrual accounting and under cash-basis accounting, respectively?",
+    o: opts("Accrual " + D(acc) + "; Cash basis " + D(R), ["Accrual " + D(acc) + "; Cash basis " + D(R - e1), "Accrual " + D(base) + "; Cash basis " + D(R), "Accrual " + D(base) + "; Cash basis " + D(R - e1)]),
+    e: ["Dồn tích = " + D(R) + " − " + D(e1) + " − " + D(e2) + " + " + D(e3) + " = " + D(acc) + "; tiền mặt = toàn bộ tiền thu " + D(R) + ".", "Accrual = " + D(R) + " − " + D(e1) + " − " + D(e2) + " + " + D(e3) + " = " + D(acc) + "; cash basis = all receipts " + D(R) + "."]};
+});
+add(3, "n", "Q1", r => {
+  const S = ri(r, 50, 150) * 100, R = ri(r, 10, S / 100 - 10) * 100, X = ri(r, 20, 40) * 1000, W = ri(r, 10, 40) * 100;
+  return {q: "Before adjustments, " + pk(r, CO) + " has Supplies " + D(S) + ", Supplies Expense $0 and Salary Expense " + D(X) + ". At year end, " + D(R) + " of supplies remain unused and employees are owed " + D(W) + " for work already performed (not yet recorded). Which expense balances appear on the adjusted trial balance?",
+    o: opts("Supplies Expense " + D(S - R) + "; Salary Expense " + D(X + W), ["Supplies Expense " + D(R) + "; Salary Expense " + D(X + W), "Supplies Expense " + D(S - R) + "; Salary Expense " + D(X - W), "Supplies Expense " + D(S) + "; Salary Expense " + D(X)]),
+    e: ["Vật tư đã dùng = " + D(S) + " − " + D(R) + " = " + D(S - R) + "; lương = " + D(X) + " + " + D(W) + " = " + D(X + W) + ".", "Supplies used = " + D(S) + " − " + D(R) + " = " + D(S - R) + "; salary = " + D(X) + " + " + D(W) + " = " + D(X + W) + "."]};
+});
+add(3, "n", "Q1", r => {
+  let dx = ri(r, -12, 12, 1); if (dx === 0) dx = 3; const Rv = ri(r, 30, 80) * 1000, Ex = Rv + dx * 1000, Dv = ri(r, 2, 9) * 1000, ch = Rv - Ex - Dv;
+  const txt = v => "Retained Earnings " + (v >= 0 ? "increases " : "decreases ") + D(v) + "; Accounts Receivable is carried forward.";
+  return {q: "After all adjustments, " + pk(r, CO) + " has Service Revenue " + D(Rv) + ", total expenses " + D(Ex) + " and Dividends " + D(Dv) + ". What is the combined effect of closing these temporary accounts on Retained Earnings, and what happens to Accounts Receivable?",
+    o: opts(txt(ch), [txt(Rv - Ex), txt(-Dv), txt(Rv - Ex + Dv), txt(-ch), txt(Rv + Ex - Dv), txt(ch - 1000)]),
+    e: ["Thay đổi RE = " + D(Rv) + " − " + D(Ex) + " − " + D(Dv) + " = " + (ch < 0 ? "−" : "+") + D(ch) + ". AR là tài khoản thường xuyên nên mang sang kỳ sau.", "Change in RE = " + D(Rv) + " − " + D(Ex) + " − " + D(Dv) + " = " + (ch < 0 ? "−" : "+") + D(ch) + ". AR is a permanent account, so it carries forward."]};
+});
+add(3, "n", "Q1", r => {
+  const C = ri(r, 30, 90) * 1000, B = ri(r, Math.floor(C / 2000), Math.floor(C * 0.8 / 1000)) * 1000, Dp = ri(r, 3, Math.floor(B / 2000)) * 500, e = B - Dp;
+  return {q: "At the beginning of the year, the book value of a piece of equipment was " + D(B) + ". The equipment originally cost " + D(C) + ". Depreciation expense for the year was " + D(Dp) + ". The book value of the equipment at the end of the year is:", o: nopts(e, [B + Dp, B, C - B, C - Dp]), e: ["Giá trị còn lại cuối = " + D(B) + " − " + D(Dp) + " = " + D(e) + " (nguyên giá chỉ là thông tin thừa).", "Ending book value = " + D(B) + " − " + D(Dp) + " = " + D(e) + " (the original cost is extra information)."]};
+});
+
+/* --- Chapter 4 --- */
+add(4, "t", "Q2", r => r() < 0.5
+  ? {q: "Current assets include cash and all other assets expected to become cash or be consumed:", o: ["within one year or one operating cycle, whichever is longer", "within one year", "within one operating cycle", "within one year or one operating cycle, whichever is shorter"], e: ["Ngắn hạn: trong 12 tháng hoặc một chu kỳ kinh doanh, lấy thời gian DÀI hơn.", "Within 12 months or the operating cycle, whichever is LONGER."]}
+  : {q: "IAS 1 requires an entity to prepare its financial statements (except the statement of cash flows) using the:", o: ["accrual basis of accounting", "cash basis of accounting", "current cost basis of accounting", "present value basis of accounting"], e: ["IAS 1: cơ sở dồn tích, trừ báo cáo lưu chuyển tiền tệ.", "IAS 1: accrual basis, except for the statement of cash flows."]});
+add(4, "t", "Q2", r => {
+  const it = pk(r, [
+    ["The statement of financial position reports:", "assets, liabilities and equity at a point in time", ["assets and liabilities for a period of time", "cash flows for a period of time", "net income at a point in time"], "Bảng cân đối: tài sản, nợ, vốn chủ tại một thời điểm.", "A snapshot of assets, liabilities and equity at one date."],
+    ["Other comprehensive income:", "appears in the statement of comprehensive income, in a separate section below profit", ["is a separate section of shareholders’ equity only", "appears below retained earnings on the statement of financial position only", "is included in revenue"], "OCI trình bày riêng dưới lợi nhuận trên SCI; OCI lũy kế nằm trong vốn chủ.", "OCI is shown separately below profit in the SCI; accumulated OCI sits in equity."],
+    ["Which of the following is NOT an asset?", "Issued capital", ["Property, plant and equipment", "Prepaid insurance", "Investments"], "Vốn phát hành là vốn chủ sở hữu.", "Issued capital is equity."],
+    ["Cash equivalents would NOT include:", "cash restricted and not available for current operations", ["treasury bills maturing within three months of purchase", "money market funds readily convertible to known amounts of cash", "a two-month bank term deposit"], "Tiền bị hạn chế sử dụng không phải tương đương tiền.", "Restricted cash is not a cash equivalent."],
+    ["An auditor concludes the statements are fairly presented except for one disagreement about a specific transaction. This opinion is:", "Qualified", ["Unqualified", "Adverse", "Interim"], "Qualified luôn đi với “except for”.", "Qualified always comes with “except for”."]
+  ]);
+  return {q: it[0], o: [it[1]].concat(it[2]), e: [it[3], it[4]]};
+});
+add(4, "n", "Q2", r => {
+  const c = ri(r, 4, 15) * 1000, a = ri(r, 6, 20) * 1000, i = ri(r, 8, 25) * 1000, pi = ri(r, 2, 6) * 1000, eq = ri(r, 30, 60) * 1000, lt = ri(r, 5, 15) * 1000, ca = c + a + i + pi;
+  return {q: pk(r, CO) + " reports: Cash " + D(c) + "; Accounts receivable " + D(a) + "; Inventory " + D(i) + "; Prepaid insurance (covers the next 12 months) " + D(pi) + "; Equipment " + D(eq) + "; Long-term investment " + D(lt) + ". Total current assets are:", o: nopts(ca, [ca - pi, ca + lt, ca + eq + lt]), e: ["Ngắn hạn = " + D(c) + " + " + D(a) + " + " + D(i) + " + " + D(pi) + " = " + D(ca) + ". Thiết bị và đầu tư dài hạn là dài hạn.", "Current = " + D(c) + " + " + D(a) + " + " + D(i) + " + " + D(pi) + " = " + D(ca) + ". Equipment and the long-term investment are non-current."]};
+});
+add(4, "n", "Q2", r => {
+  let dx = ri(r, -8, 8, 1); if (dx === 0) dx = 5; const rec = ri(r, 20, 60) * 1000, cor = rec + dx * 1000, d = Math.abs(cor - rec), down = cor > rec;
+  const yr = ri(r, 2023, 2026);
+  return {q: "In " + (yr + 1) + ", " + pk(r, CO) + " discovers that in " + yr + " it recorded an expense as " + D(rec) + " when the correct amount was " + D(cor) + ". Ignoring tax, how is this prior-period error shown in the " + (yr + 1) + " statement of changes in equity?",
+    o: opts("Opening retained earnings " + (down ? "decreases" : "increases") + " by " + D(d) + ".", ["Opening retained earnings " + (down ? "increases" : "decreases") + " by " + D(d) + ".", "Opening retained earnings " + (down ? "decreases" : "increases") + " by " + D(cor) + ".", "No adjustment; the " + D(d) + " is recorded in " + (yr + 1) + " profit."]),
+    e: ["Chi phí ghi " + (down ? "thiếu " : "thừa ") + D(d) + " → lợi nhuận năm trước bị " + (down ? "thổi phồng" : "khai thiếu") + " → " + (down ? "giảm" : "tăng") + " RE đầu kỳ " + D(d) + ".", "Expense " + (down ? "under" : "over") + "stated by " + D(d) + " → last year’s profit " + (down ? "over" : "under") + "stated → opening RE " + (down ? "decreases" : "increases") + " by " + D(d) + "."]};
+});
+add(4, "n", "site", r => {
+  const B = ri(r, 200, 500) * 1000, X = ri(r, 5, 30) * 1000, NI = ri(r, 60, 150) * 1000, Dv = ri(r, 10, 50) * 1000, e = B - X + NI - Dv;
+  return {q: pk(r, CO) + " reported retained earnings of " + D(B) + " at the start of the year. It then found that last year’s expenses were understated by " + D(X) + ". This year’s net income is " + D(NI) + " and dividends are " + D(Dv) + ". Ending retained earnings are:", o: nopts(e, [B + X + NI - Dv, B + NI - Dv, B - X + NI + Dv]), e: ["RE đầu điều chỉnh = " + D(B) + " − " + D(X) + "; cuối = " + D(B - X) + " + " + D(NI) + " − " + D(Dv) + " = " + D(e) + ".", "Adjusted opening RE = " + D(B) + " − " + D(X) + "; ending = " + D(B - X) + " + " + D(NI) + " − " + D(Dv) + " = " + D(e) + "."]};
+});
+
+/* --- Chapter 5 --- */
+add(5, "t", "Q2", r => {
+  const it = pk(r, [
+    ["The three main components of the fraud triangle are:", "pressure, opportunity and rationalization", ["rationalization, opportunity and greed", "opportunity, pressure and lack of ethics", "collusion, override and pressure"], "Áp lực, cơ hội, hợp lý hóa.", "Pressure, opportunity, rationalization."],
+    ["Which of the following is a limitation of internal control?", pk(r, ["Employee collusion", "Management override"]), ["Operational efficiency", "Accurate and reliable accounting records", "Safeguarding company assets"], "Các phương án còn lại là mục tiêu của kiểm soát nội bộ.", "The other options are objectives of internal control."],
+    ["Before approving a supplier payment, accounting should match:", "the purchase order, the receiving report and the supplier’s invoice", ["the invoice and the bank statement", "the purchase order and the check only", "the receiving report and the cash budget"], "Bộ hồ sơ thanh toán: PO + receiving report + invoice.", "The payment packet: purchase order + receiving report + invoice."]
+  ]);
+  return {q: it[0], o: [it[1]].concat(it[2]), e: [it[3], it[4]]};
+});
+add(5, "t", "Q2", r => {
+  const it = pk(r, [["An NSF check received from a customer", 2], ["A deposit in transit", 0], ["An outstanding check", 3], ["Interest earned on the bank balance", 1], ["A bank service charge", 2], ["A note receivable collected by the bank for the company", 1]]);
+  const C = ["added to the bank balance", "added to the book balance", "deducted from the book balance", "deducted from the bank balance"];
+  return {q: "In a bank reconciliation, " + it[0].charAt(0).toLowerCase() + it[0].slice(1) + " is:", o: [C[it[1]]].concat(C.filter((_, i) => i !== it[1])), e: ["Khoản ngân hàng chưa biết (DIT, séc chưa thanh toán) điều chỉnh bên ngân hàng; khoản công ty chưa biết (phí, lãi, NSF, thu hộ) điều chỉnh bên sổ.", "Items the bank doesn’t know yet adjust the bank side; items the company doesn’t know yet (fees, interest, NSF, collections) adjust the book side."]};
+});
+add(5, "t", "Q2", r => {
+  const sc = pk(r, ["One clerk opens the mail, deposits customer checks, records the collections and prepares the monthly bank reconciliation.", "The only cashier can open the cash drawer without ringing up a sale and records the day’s sales himself.", "The purchasing officer orders goods, signs for their receipt, approves the invoices and signs the checks."]);
+  return {q: sc + " Which element of the fraud triangle does this arrangement create?", o: ["Opportunity", "Pressure", "Rationalization", "Collusion"], e: ["Thiếu tách biệt nhiệm vụ tạo ra CƠ HỘI gian lận và che giấu.", "Missing separation of duties creates the OPPORTUNITY to commit and conceal fraud."]};
+});
+add(5, "n", "Q2", r => {
+  const B = ri(r, 80, 240) * 50, sc = ri(r, 3, 10) * 5, it = ri(r, 2, 12) * 5, nsf = ri(r, 4, 32) * 25, dit = ri(r, 20, 120) * 25, oc = ri(r, 16, 100) * 25, c = B + dit - oc;
+  return {q: "The bank statement balance is " + D(B) + ". The statement shows a service charge of " + D(sc) + ", interest earned of " + D(it) + " and an NSF check for " + D(nsf) + ". Deposits in transit total " + D(dit) + " and outstanding checks are " + D(oc) + ". What is the adjusted bank balance?", o: nopts(c, [B + dit - oc - sc - nsf + it, B - dit + oc, B + dit - oc - nsf]), e: ["Bên ngân hàng = " + D(B) + " + " + D(dit) + " − " + D(oc) + " = " + D(c) + ". Phí, lãi, NSF điều chỉnh bên sổ.", "Bank side = " + D(B) + " + " + D(dit) + " − " + D(oc) + " = " + D(c) + ". Fees, interest and NSF adjust the books."]};
+});
+add(5, "n", "Q2", r => {
+  const K = ri(r, 80, 240) * 50, oc = ri(r, 16, 60) * 25, dit = ri(r, 12, 60) * 25, sc = ri(r, 3, 10) * 5, nsf = ri(r, 4, 32) * 25, c = K - sc - nsf;
+  return {q: pk(r, CO) + "’s Cash account balance at month end was " + D(K) + ". Reconciling items: outstanding checks " + D(oc) + "; deposits in transit " + D(dit) + "; bank service charge " + D(sc) + "; NSF check " + D(nsf) + ". What is the adjusted book balance?", o: nopts(c, [K + dit - oc - sc - nsf, K - sc, K + dit - oc]), e: ["Bên sổ = " + D(K) + " − " + D(sc) + " − " + D(nsf) + " = " + D(c) + ".", "Book side = " + D(K) + " − " + D(sc) + " − " + D(nsf) + " = " + D(c) + "."]};
+});
+add(5, "n", "Q2", r => {
+  const E = ri(r, 10, 100) * 500, B = ri(r, 5, 40) * 100, debit = r() < 0.4, askEnd = r() < 0.5, adj = debit ? E + B : E - B;
+  const q = pk(r, CO) + " uses the aging-of-receivables method and estimates that " + D(E) + " of receivables will be uncollectible. Before adjustment, Allowance for Uncollectible Accounts has a " + (debit ? "debit" : "credit") + " balance of " + D(B) + ". ";
+  if (askEnd) return {q: q + "After adjustment, the balance of the allowance will be:", o: nopts(E, [E + B, E - B, B]), e: ["Phương pháp tuổi nợ: số dư cuối của dự phòng = số ước tính " + D(E) + ". Bút toán điều chỉnh mới là " + D(adj) + ".", "Aging method: the ending allowance equals the estimate, " + D(E) + ". The adjustment itself is " + D(adj) + "."]};
+  return {q: q + "The uncollectible-account expense to record is:", o: nopts(adj, [debit ? E - B : E + B, E, B]), e: ["Điều chỉnh = " + D(E) + (debit ? " + " : " − ") + D(B) + " = " + D(adj) + ".", "Adjustment = " + D(E) + (debit ? " + " : " − ") + D(B) + " = " + D(adj) + "."]};
+});
+add(5, "n", "Q2", r => {
+  if (r() < 0.5) {
+    const Pr = ri(r, 2, 20) * 6000, rate = pk(r, [6, 9, 12]), d = pk(r, [60, 90, 120]), I = Pr * rate / 100 * d / 360;
+    return {q: "The interest on a note is " + D(I) + ", the interest rate is " + rate + "% and the note is for " + d + " days. What is the principal of the note? (Use a 360-day year.)", o: opts(D(Pr), [D(Pr * d / 360), D(I * 360 / d), "It cannot be determined from the facts.", D(Pr * 2)]), e: ["Gốc = Lãi ÷ (lãi suất × thời gian) = " + D(I) + " ÷ (" + rate + "% × " + d + "/360) = " + D(Pr) + ".", "Principal = Interest ÷ (rate × time) = " + D(I) + " ÷ (" + rate + "% × " + d + "/360) = " + D(Pr) + "."]};
+  }
+  const Pr = ri(r, 2, 24) * 5000, rate = pk(r, [6, 7.5, 8, 9, 10, 12, 12.5]), m = ri(r, 3, 9), I = Math.round(Pr * rate / 100 * m / 12), MV = Pr + I;
+  return {q: "A note has a principal of " + D(Pr) + " and an interest rate of " + rate + "%. What is the maturity value of the note if it is outstanding for " + m + " months? (Round to the nearest dollar.)", o: nopts(MV, [I, Math.round(Pr * (1 + rate / 100)), Math.round(Pr * rate / 100 / 12)]), e: ["Lãi = " + D(Pr) + " × " + rate + "% × " + m + "/12 = " + D(I) + "; giá trị đáo hạn = " + D(MV) + ".", "Interest = " + D(Pr) + " × " + rate + "% × " + m + "/12 = " + D(I) + "; maturity value = " + D(MV) + "."]};
+});
+
+/* --- Chapter 6 --- */
+add(6, "t", "Q2", r => {
+  const it = pk(r, [
+    ["The lower of cost and net-realizable-value rule requires a company to report inventories at the lesser of:", "historical cost or estimated selling price less costs to sell", ["historical cost or current replacement cost", "current replacement cost or sales invoice price", "FIFO cost or LIFO cost"], "NRV = giá bán ước tính − chi phí hoàn thiện − chi phí bán.", "NRV = estimated selling price − costs to complete − costs to sell."],
+    ["Net sales is computed as:", "sales revenue less sales returns and allowances less sales discounts", ["sales revenue less freight-out", "sales revenue less sales returns and allowances plus sales discounts", "sales less cost of goods sold"], "Hàng trả lại và chiết khấu đều làm giảm doanh thu.", "Both returns and discounts reduce sales revenue."],
+    ["The cost of inventory includes the:", "purchase price, freight-in and non-refundable taxes paid on the purchase", ["purchase price, advertising costs and sales commissions", "purchase price, advertising costs and insurance while in transit", "purchase price, delivery costs to customers and sales commissions"], "Giá gốc gồm mọi chi phí đưa hàng về trạng thái sẵn sàng bán; quảng cáo, hoa hồng, cước bán hàng là chi phí bán hàng.", "Cost includes what brings goods to a saleable condition; advertising, commissions and freight-out are selling expenses."],
+    ["Goods shipped FOB shipping point are in transit at year end. They belong in the inventory of:", "the buyer", ["the seller", "the carrier", "both, split equally"], "FOB shipping point: quyền sở hữu chuyển khi hàng rời kho người bán.", "FOB shipping point: ownership passes when goods leave the seller."]
+  ]);
+  return {q: it[0], o: [it[1]].concat(it[2]), e: [it[3], it[4]]};
+});
+add(6, "t", "site", r => {
+  const it = pk(r, [["the highest gross profit", "FIFO"], ["the highest cost of goods sold", "LIFO"], ["the highest ending inventory", "FIFO"], ["the lowest cost of goods sold", "FIFO"]]);
+  return {q: "When prices are rising, which method reports " + it[0] + "?", o: [it[1]].concat(["FIFO", "LIFO", "Average cost", "All methods give the same result"].filter(x => x !== it[1])).slice(0, 4), e: ["Giá tăng: FIFO đưa giá cũ (rẻ) vào giá vốn → COGS thấp, lãi gộp và tồn kho cao; LIFO ngược lại.", "Rising prices: FIFO puts old, cheap costs into COGS → low COGS, high gross profit and inventory; LIFO the reverse."]};
+});
+add(6, "n", "Q2", r => {
+  const I = ri(r, 20, 90) * 100, t = pk(r, [[2, 10], [1, 15], [3, 10], [1, 10]]), d = ri(r, 1, 15), within = r() < 0.5, p = within ? d + ri(r, 2, t[1]) : d + ri(r, t[1] + 1, Math.min(30 - d, t[1] + 12)), disc = I * t[0] / 100, c = within ? disc : 0;
+  const yr = ri(r, 2025, 2027);
+  return {q: pk(r, CO) + " receives terms of " + t[0] + "/" + t[1] + ", n/30. On March " + d + ", " + yr + ", it purchased goods for " + D(I) + ". What purchase discount applies if it pays the invoice on March " + p + ", " + yr + "?", o: within ? [D(disc), "$0", D(I - disc), D(I)] : ["$0", D(disc), D(I - disc), D(I)],
+    e: ["Hạn chiết khấu là ngày " + (d + t[1]) + "/3. Trả ngày " + p + "/3 → " + (within ? "được chiết khấu " + D(disc) : "quá hạn, chiết khấu $0") + ".", "The discount deadline is March " + (d + t[1]) + ". Paying on March " + p + " → " + (within ? "discount " + D(disc) : "too late, discount $0") + "."]};
+});
+add(6, "n", "Q2", r => {
+  const b = ri(r, 5, 20) * 10, c1 = ri(r, 6, 12), pu = ri(r, b / 10, 2 * b / 10) * 10, c2 = c1 + ri(r, 1, 4), e = ri(r, 2, pu / 10 - 1) * 10, s = b + pu - e, sp = c2 + ri(r, 4, 8);
+  return {q: "Beginning inventory is " + b + " units at $" + c1 + "; purchases are " + pu + " units at $" + c2 + "; " + s + " units are sold at $" + sp + " each. What is ending inventory under FIFO?", o: nopts(e * c2, [e * c1, e * (c1 + c2) / 2, s * c1]), e: ["Còn " + e + " đơn vị; FIFO giữ giá mới nhất: " + e + " × $" + c2 + " = " + D(e * c2) + ".", e + " units left; FIFO keeps the latest costs: " + e + " × $" + c2 + " = " + D(e * c2) + "."]};
+});
+add(6, "n", "Q2", r => {
+  const C = ri(r, 16, 48) * 2500, wd = r() < 0.6, K = ri(r, 4, 16) * 1000, S = wd ? C - ri(r, 2, 12) * 1000 + K : C + ri(r, 2, 15) * 1000 + K, nrv = S - K, w = C - nrv;
+  const o = wd ? ["It will decrease ending inventory by " + D(w) + " and increase cost of goods sold by " + D(w) + ".", "It will increase both ending inventory and cost of goods sold by " + D(w) + ".", "It will increase ending inventory by " + D(w) + " and have no effect on cost of goods sold.", "It will have no effect on either ending inventory or cost of goods sold."]
+               : ["It will have no effect on either ending inventory or cost of goods sold.", "It will decrease ending inventory by " + D(-w) + " and increase cost of goods sold by " + D(-w) + ".", "It will increase ending inventory by " + D(-w) + " and decrease cost of goods sold by " + D(-w) + ".", "It will increase both ending inventory and cost of goods sold by " + D(-w) + "."];
+  return {q: pk(r, CO) + "’s ending inventory at cost was " + D(C) + ". It is expected to sell for " + D(S) + ", with costs to sell of " + D(K) + ". How will the lower-of-cost-and-NRV rule affect ending inventory and cost of goods sold?", o: o,
+    e: ["NRV = " + D(S) + " − " + D(K) + " = " + D(nrv) + (wd ? " < giá gốc → ghi giảm " + D(w) + " (cộng vào COGS)." : " > giá gốc → không điều chỉnh."), "NRV = " + D(S) + " − " + D(K) + " = " + D(nrv) + (wd ? " < cost → write down " + D(w) + " (added to COGS)." : " > cost → no adjustment.")]};
+});
+add(6, "n", "Q2", r => {
+  const S = ri(r, 10, 60) * 10000, g = ri(r, 4, 12) * 5, C = S * (100 - g) / 100;
+  return {q: pk(r, CO) + " has sales revenue " + D(S) + ", cost of goods sold " + D(C) + ", beginning inventory " + D(ri(r, 20, 90) * 1000) + " and ending inventory " + D(ri(r, 20, 90) * 1000) + ". The gross profit rate is:", o: nopts(g, [100 - g, g / 2, g + 10], P), e: ["Tỷ lệ lãi gộp = (" + D(S) + " − " + D(C) + ") ÷ " + D(S) + " = " + g + "%. Tồn kho là thông tin thừa.", "GP rate = (" + D(S) + " − " + D(C) + ") ÷ " + D(S) + " = " + g + "%. The inventory figures are extra."]};
+});
+add(6, "n", "Q2", r => {
+  const NI = ri(r, 40, 120) * 5000, X = ri(r, 2, 10) * 5000, over = r() < 0.6, c = over ? NI - X : NI + X;
+  return {q: pk(r, CO) + " reported net income of " + D(NI) + ". After the statements were prepared, it found that ending inventory had been " + (over ? "overstated" : "understated") + " by " + D(X) + ". Ignoring tax, the correct net income is:", o: nopts(c, [over ? NI + X : NI - X, NI, over ? NI - 2 * X : NI + 2 * X]), e: ["Tồn cuối " + (over ? "cao" : "thấp") + " → COGS " + (over ? "thấp" : "cao") + " → lãi bị " + (over ? "thổi phồng" : "khai thiếu") + " " + D(X) + " → đúng: " + D(c) + ".", "Ending inventory " + (over ? "over" : "under") + "stated → COGS " + (over ? "under" : "over") + "stated → profit " + (over ? "over" : "under") + "stated by " + D(X) + " → correct NI " + D(c) + "."]};
+});
+add(6, "n", "Q2", r => {
+  const BI = ri(r, 50, 150) * 1000, NP = ri(r, 200, 600) * 1000, g = pk(r, [20, 25, 30, 35, 40]), NS = ri(r, 30, Math.floor((BI + NP) / 1000 / (1 - g / 100)) - 10) * 1000, cogs = NS * (100 - g) / 100, EI = BI + NP - cogs, askC = r() < 0.5;
+  const q = "Data for " + pk(r, CO) + ": beginning inventory " + D(BI) + "; net sales revenue " + D(NS) + "; net purchases " + D(NP) + "; normal gross profit rate " + g + "%. Using the gross profit method, what is the estimated ";
+  return askC ? {q: q + "cost of goods sold?", o: nopts(cogs, [EI, NS * g / 100, BI + NP - NS * g / 100]), e: ["COGS ước tính = " + D(NS) + " × (1 − " + g + "%) = " + D(cogs) + ".", "Estimated COGS = " + D(NS) + " × (1 − " + g + "%) = " + D(cogs) + "."]}
+              : {q: q + "ending inventory?", o: nopts(EI, [cogs, BI + NP - NS * g / 100, BI + NP - NS]), e: ["COGS = " + D(NS) + " × " + (100 - g) + "% = " + D(cogs) + "; tồn cuối = " + D(BI) + " + " + D(NP) + " − " + D(cogs) + " = " + D(EI) + ".", "COGS = " + D(NS) + " × " + (100 - g) + "% = " + D(cogs) + "; ending inventory = " + D(BI) + " + " + D(NP) + " − " + D(cogs) + " = " + D(EI) + "."]};
+});
+add(6, "n", "Q2", r => {
+  const L = [[ri(r, 2, 6) * 10, ri(r, 10, 14)], [ri(r, 1, 4) * 10, 0], [ri(r, 1, 4) * 10, 0]]; L[1][1] = L[0][1] + ri(r, 1, 3); L[2][1] = L[1][1] + ri(r, 1, 3);
+  const U = L[0][0] + L[1][0] + L[2][0], cost = L.reduce((s, x) => s + x[0] * x[1], 0), avg = r2(cost / U), end = ri(r, 1, Math.floor(U / 20)) * 10, sold = U - end, pr = L[2][1] + ri(r, 3, 8), gp = r2(sold * pr - sold * avg);
+  const take = order => { let left = sold, c = 0; order.forEach(x => { const q = Math.min(left, x[0]); c += q * x[1]; left -= q; }); return c; };
+  return {q: "Beginning inventory " + L[0][0] + " units at $" + L[0][1] + "; purchases of " + L[1][0] + " units at $" + L[1][1] + " and " + L[2][0] + " units at $" + L[2][1] + "; ending inventory " + end + " units. Selling price $" + pr + " per unit. Using the weighted-average method (round the average unit cost to the nearest cent), gross profit is:",
+    o: nopts(gp, [sold * pr - take(L), sold * pr - take(L.slice().reverse()), sold * pr - sold * r2((L[0][1] + L[1][1] + L[2][1]) / 3)]),
+    e: ["Giá bình quân = " + D(cost) + " ÷ " + U + " = " + D(avg) + "; bán " + sold + " đv; lãi gộp = " + sold + " × ($" + pr + " − " + D(avg) + ") = " + D(gp) + ".", "Average = " + D(cost) + " ÷ " + U + " = " + D(avg) + "; " + sold + " units sold; gross profit = " + sold + " × ($" + pr + " − " + D(avg) + ") = " + D(gp) + "."]};
+});
+
+/* --- Chapter 7 (PPE & intangibles — assumed scope) --- */
+add(7, "t", "new", r => {
+  const bad = pk(r, ["Repairs made after the equipment was placed in service", "Insurance for the first year of operation after installation", "Training staff to operate the machine"]);
+  return {q: "Which cost should NOT be included in the cost of new equipment?", o: [bad].concat(rsh(r, ["Purchase price", "Freight-in to bring the machine to the factory", "Installation and testing costs", "Non-refundable import duties"]).slice(0, 3)), e: ["Giá gốc TSCĐ gồm mọi chi phí đến khi sẵn sàng sử dụng; chi phí phát sinh sau đó được ghi vào chi phí.", "PPE cost includes everything needed to get the asset ready for use; later costs are expensed."]};
+});
+add(7, "t", "new", r => {
+  const it = pk(r, [
+    ["Depreciation is best described as:", "allocating an asset’s cost to expense over its useful life", ["measuring the asset’s current market value", "setting aside cash to replace the asset", "recording increases in the asset’s value"], "Khấu hao là phân bổ giá gốc, không phải định giá.", "Depreciation is cost allocation, not valuation."],
+    ["Which of the following assets is NOT depreciated?", "Land", ["Buildings", "Equipment", "Land improvements"], "Đất không bị hao mòn.", "Land does not wear out."],
+    ["Under IFRS, goodwill is:", "not amortized, but tested for impairment at least annually", ["amortized over 40 years", "amortized over its legal life", "expensed immediately when acquired"], "IAS 36/38: goodwill không khấu trừ, kiểm tra suy giảm hằng năm.", "IAS 36/38: goodwill is not amortized; test it for impairment annually."],
+    ["An impairment loss on PPE is recognized when:", "the carrying amount exceeds the recoverable amount", ["the recoverable amount exceeds the carrying amount", "the market value rises above cost", "accumulated depreciation exceeds cost"], "Suy giảm khi giá trị ghi sổ > giá trị có thể thu hồi.", "Impairment arises when carrying amount > recoverable amount."],
+    ["Depletion is the allocation of cost for:", "natural resources", ["intangible assets", "land", "inventory"], "Depletion dùng cho tài nguyên thiên nhiên.", "Depletion applies to natural resources."],
+    ["Which depreciation method usually gives the highest expense in the first year?", "Double-declining-balance", ["Straight-line", "Units-of-production (in a low-use year)", "All methods give the same first-year expense"], "Phương pháp số dư giảm dần kép khấu hao nhanh ở năm đầu.", "Double-declining-balance front-loads depreciation."],
+    ["When land and a building are bought together for one price, the cost is:", "allocated to each asset based on relative fair values", ["recorded entirely as land", "recorded entirely as building", "split equally between the two assets"], "Phân bổ theo tỷ lệ giá trị hợp lý.", "Allocate using relative fair values."]
+  ]);
+  return {q: it[0], o: [it[1]].concat(it[2]), e: [it[3], it[4]]};
+});
+add(7, "t", "new", r => {
+  const it = pk(r, [["A major engine overhaul that extends a truck’s useful life by three years", 0], ["Routine oil changes and minor repairs", 1], ["Adding a new wing to an office building", 0], ["Repainting an office to keep it in normal condition", 1]]);
+  const C = ["Capitalize (add to the asset’s cost)", "Expense as incurred"];
+  return {q: "How should this expenditure be recorded? " + it[0] + ".", o: [C[it[1]], C[1 - it[1]], "Record it as a liability", "Record it directly in retained earnings"], e: ["Kéo dài thời gian sử dụng/tăng năng lực → vốn hóa; bảo trì thường xuyên → chi phí.", "Extends life or capacity → capitalize; routine maintenance → expense."]};
+});
+add(7, "n", "new", r => {
+  const p = ri(r, 40, 160) * 500, f = ri(r, 6, 40) * 50, i = ri(r, 5, 30) * 100, t = ri(r, 4, 30) * 50, ins = ri(r, 8, 30) * 50, rp = ri(r, 4, 20) * 50, c = p + f + i + t;
+  return {q: pk(r, CO) + " buys a machine: price " + D(p) + "; freight-in " + D(f) + "; installation " + D(i) + "; testing before use " + D(t) + "; insurance for the first year of operation " + D(ins) + "; repairs after three months of use " + D(rp) + ". The cost of the machine is:", o: nopts(c, [c + ins, c + ins + rp, p]), e: ["Vốn hóa = " + D(p) + " + " + D(f) + " + " + D(i) + " + " + D(t) + " = " + D(c) + "; bảo hiểm khi vận hành và sửa chữa sau đó là chi phí.", "Capitalize = " + D(p) + " + " + D(f) + " + " + D(i) + " + " + D(t) + " = " + D(c) + "; operating insurance and later repairs are expenses."]};
+});
+add(7, "n", "new", r => {
+  const L = pk(r, [4, 5, 8, 10]), A = ri(r, 3, 15) * 1000, R = ri(r, 0, 10) * 500, C = A * L + R;
+  return {q: "Equipment costs " + D(C) + ", has an estimated residual value of " + D(R) + " and a useful life of " + L + " years. Annual straight-line depreciation is:", o: nopts(A, [C / L, (C + R) / L, C * 2 / L]), e: ["(" + D(C) + " − " + D(R) + ") ÷ " + L + " = " + D(A) + ".", "(" + D(C) + " − " + D(R) + ") ÷ " + L + " = " + D(A) + "."]};
+});
+add(7, "n", "new", r => {
+  const rate = pk(r, [0.2, 0.25, 0.4, 0.5, 1, 2]), U = ri(r, 10, 40) * 10000, R = ri(r, 0, 8) * 1000, C = rate * U + R, u = ri(r, 1, Math.floor(U / 40000)) * 10000 + ri(r, 1, 9) * 1000, x = rate * u, L = pk(r, [4, 5, 6]);
+  return {q: "A delivery truck costs " + D(C) + ", has a residual value of " + D(R) + ", an estimated life of " + NUM(U) + " km (or " + L + " years). It is driven " + NUM(u) + " km this year. Units-of-production depreciation for the year is:", o: nopts(x, [C / U * u, (C - R) / L, (C - R) / U]), e: ["Mức/km = (" + D(C) + " − " + D(R) + ") ÷ " + NUM(U) + " = " + D(rate) + "; × " + NUM(u) + " = " + D(x) + ".", "Rate = (" + D(C) + " − " + D(R) + ") ÷ " + NUM(U) + " = " + D(rate) + " per km; × " + NUM(u) + " = " + D(x) + "."]};
+});
+add(7, "n", "new", r => {
+  const L = pk(r, [4, 5, 10]), rate = 2 / L, C = ri(r, 10, 100) * 1000, y1 = C * rate, y2 = (C - y1) * rate, ask2 = r() < 0.5;
+  return {q: "A machine costs " + D(C) + " with a useful life of " + L + " years. Using the double-declining-balance method, depreciation in year " + (ask2 ? 2 : 1) + " is:", o: ask2 ? nopts(y2, [y1, C / L, (C - y1) / L]) : nopts(y1, [C / L, y1 / 2, C * rate * 2]), e: ["Tỷ lệ = 2/" + L + " = " + P(rate * 100) + "; năm 1 = " + D(y1) + (ask2 ? "; năm 2 = (" + D(C) + " − " + D(y1) + ") × " + P(rate * 100) + " = " + D(y2) : "") + ".", "Rate = 2/" + L + " = " + P(rate * 100) + "; year 1 = " + D(y1) + (ask2 ? "; year 2 = (" + D(C) + " − " + D(y1) + ") × " + P(rate * 100) + " = " + D(y2) : "") + "."]};
+});
+add(7, "n", "new", r => {
+  const L = pk(r, [3, 4, 5, 6, 8]), A = ri(r, 3, 12) * 1200, R = ri(r, 0, 6) * 500, C = A * L + R, s = ri(r, 2, 11), m = 12 - s + 1, x = A * m / 12;
+  return {q: "On " + MONTHS[s - 1] + " 1, " + pk(r, CO) + " bought equipment for " + D(C) + " (residual value " + D(R) + ", useful life " + L + " years). Using straight-line depreciation, depreciation expense for the year ended December 31 is:", o: nopts(x, [A, A * (12 - m) / 12, A / 12]), e: ["Năm = (" + D(C) + " − " + D(R) + ") ÷ " + L + " = " + D(A) + "; " + m + " tháng → " + D(x) + ".", "Annual = (" + D(C) + " − " + D(R) + ") ÷ " + L + " = " + D(A) + "; " + m + " months → " + D(x) + "."]};
+});
+add(7, "n", "new", r => {
+  const C = ri(r, 40, 160) * 500, A = Math.round(C * ri(r, 30, 80) / 100 / 100) * 100, BV = C - A, d = (r() < 0.55 ? -1 : 1) * ri(r, 5, 50) * 100, S = Math.max(500, BV + d), g = S - BV;
+  const txt = v => v === 0 ? "No gain or loss" : (v > 0 ? "Gain of " : "Loss of ") + D(v);
+  return {q: pk(r, CO) + " sold equipment for " + D(S) + " cash. The equipment originally cost " + D(C) + " and its accumulated depreciation was " + D(A) + ". The sale results in a:", o: opts(txt(g), [txt(-g), txt(S - C), "No gain or loss", txt(S - A)]), e: ["Giá trị còn lại = " + D(C) + " − " + D(A) + " = " + D(BV) + "; " + D(S) + " − " + D(BV) + " → " + (g >= 0 ? "lãi " : "lỗ ") + D(g) + ".", "Book value = " + D(C) + " − " + D(A) + " = " + D(BV) + "; " + D(S) + " − " + D(BV) + " → " + (g >= 0 ? "gain " : "loss ") + D(g) + "."]};
+});
+add(7, "n", "new", r => {
+  const Pr = ri(r, 20, 80) * 10000, s = pk(r, [0.6, 0.7, 0.75, 0.8]), FV = Pr * pk(r, [1.1, 1.2, 1.25]), b = Pr * s;
+  return {q: pk(r, CO) + " pays " + D(Pr) + " for land and a building. Their fair values are: land " + D(FV * (1 - s)) + ", building " + D(FV * s) + ". The cost assigned to the building is:", o: nopts(b, [FV * s, Pr * (1 - s), Pr / 2]), e: ["Tỷ lệ nhà = " + P(s * 100) + "; " + D(Pr) + " × " + P(s * 100) + " = " + D(b) + ".", "Building share = " + P(s * 100) + "; " + D(Pr) + " × " + P(s * 100) + " = " + D(b) + "."]};
+});
+add(7, "n", "new", r => {
+  const L = pk(r, [5, 8, 10]), A = ri(r, 2, 12) * 1000, R = ri(r, 0, 10) * 500, C = A * L + R, n = ri(r, 2, L - 1), bv = C - n * A;
+  return {q: "Equipment cost " + D(C) + " (residual value " + D(R) + ", useful life " + L + " years, straight-line). What is its book value after " + n + " years?", o: nopts(bv, [C - n * C / L, C - R - n * A, n * A]), e: ["Khấu hao năm " + D(A) + "; lũy kế " + n + " năm = " + D(n * A) + "; giá trị còn lại = " + D(C) + " − " + D(n * A) + " = " + D(bv) + ".", "Annual " + D(A) + "; accumulated after " + n + " years = " + D(n * A) + "; book value = " + D(C) + " − " + D(n * A) + " = " + D(bv) + "."]};
+});
+
+/* site questions already on the page (QUIZ / QUIZ_EN) join the pool for Ch1–6 */
+QUIZ.forEach((q, i) => { const en = QUIZ_EN[i]; if (!en) return; add(q.ch, /\d,\d|\d{3}/.test(en[0]) ? "n" : "t", "site", () => ({q: en[0], o: en[1].slice(), e: [q.e, en[2]]})); });
+
+function instantiate(item, r){
+  for (let k = 0; k < 8; k++) {
+    const g = item.fn(r);
+    if (g && g.o && g.o.length === 4 && new Set(g.o).size === 4 && g.o.every(x => x && x.indexOf("NaN") === -1 && x.indexOf("Infinity") === -1)) {
+      const order = rsh(r, [0, 1, 2, 3]);
+      return {ch: item.ch, tag: item.tag, q: g.q, o: order.map(i => g.o[i]), a: order.indexOf(0), e: g.e};
+    }
+  }
+  return null;
+}
+function pickMCQ(r){
+  const plan = [[1, 1, 1], [2, 1, 1], [3, 1, 1], [4, 1, 1], [5, 1, 1], [6, 1, 1], [7, 1, 2]], out = [];
+  plan.forEach(p => {
+    const pool = BANK.filter(b => b.ch === p[0]), used = new Set();
+    const take = (kind, k) => {
+      for (let i = 0; i < k; i++) {
+        let cand = pool.filter(b => b.kind === kind && !used.has(b));
+        if (!cand.length) cand = pool.filter(b => !used.has(b));
+        if (!cand.length) break;
+        const w = cand.map(b => b.tag === "site" ? 1 : 2), tot = w.reduce((s, x) => s + x, 0);
+        let x = r() * tot, j = 0; while (j < w.length - 1 && x >= w[j]) { x -= w[j]; j++; }
+        used.add(cand[j]);
+        const q = instantiate(cand[j], r);
+        if (q) out.push(q); else i--;
+        if (used.size >= pool.length) break;
+      }
+    };
+    take("t", p[1]); take("n", p[2]);
+  });
+  return out;
+}
+
+/* ===== Part II: financial statements question ===== */
+const AC = {
+  cash: ["Cash", "A", 1], ar: ["Accounts receivable", "A", 2], inv: ["Inventory", "A", 3], sup: ["Supplies", "A", 4], pins: ["Prepaid insurance", "A", 5],
+  land: ["Land", "A", 10], equip: ["Equipment", "A", 11], ad: ["Accumulated depreciation", "CA", 12],
+  ap: ["Accounts payable", "L", 20], unr: ["Unearned revenue", "L", 21], spay: ["Salaries payable", "L", 22], ipay: ["Interest payable", "L", 23], stn: ["Notes payable (short-term)", "L", 24], ltn: ["Notes payable (long-term)", "L", 30],
+  sc: ["Share capital", "E", 40], re: ["Retained earnings", "E", 41], div: ["Dividends", "D", 42],
+  sales: ["Sales revenue", "R", 50], sdisc: ["Sales discounts", "CR", 51], gain: ["Gain on sale of equipment", "G", 52],
+  cogs: ["Cost of goods sold", "X", 60], salx: ["Salaries expense", "X", 61], rentx: ["Rent expense", "X", 62], insx: ["Insurance expense", "X", 63], utilx: ["Utilities expense", "X", 64], depx: ["Depreciation expense", "X", 65],
+  intx: ["Interest expense", "OX", 70], loss: ["Loss on sale of equipment", "OX", 71]
+};
+const AKEYS = Object.keys(AC).sort((a, b) => AC[a][2] - AC[b][2]);
+const TEMP = ["sales", "sdisc", "gain", "cogs", "salx", "rentx", "insx", "utilx", "depx", "intx", "loss"];
+const nm = k => AC[k][0];
+const PERSON = ["Latte Company", "Minh Phat Co.", "Viet Paper Co.", "Song Hong Machinery", "An Khang Co.", "Hoa Binh Co."];
+const FIRMS = ["Mely Industries", "Sen Vang Trading", "Lotus Craft Co.", "Bamboo Tech", "Saigon Supplies", "Hanoi Print Co.", "Mekong Foods", "Pho Viet Ltd", "Ruby Furniture", "Delta Logistics", "Coral Studio", "Tay Ho Ceramics"];
+
+function genOpening(r){
+  const b = {};
+  b.cash = ri(r, 150, 400) * 100; b.ar = ri(r, 30, 90) * 100; b.inv = ri(r, 10, 60) * 100;
+  if (r() < 0.35) b.sup = ri(r, 4, 15) * 100;
+  if (r() < 0.3) b.land = ri(r, 20, 60) * 1000;
+  b.equip = ri(r, 60, 120) * 1000; b.ad = -Math.round(b.equip * ri(r, 20, 40) / 100 / 500) * 500;
+  b.ap = -ri(r, 8, 50) * 100; if (r() < 0.3) b.spay = -ri(r, 5, 20) * 100;
+  b.ltn = -ri(r, 20, 100) * 100;
+  b.salx = ri(r, 80, 150) * 100; b.rentx = ri(r, 20, 50) * 100; b.insx = ri(r, 8, 20) * 100; if (r() < 0.5) b.utilx = ri(r, 5, 15) * 100;
+  const exp = b.salx + b.rentx + b.insx + (b.utilx || 0);
+  b.sales = -(exp + ri(r, 30, 150) * 100);
+  b.div = ri(r, 10, 50) * 100;
+  const targetRE = ri(r, 120, 350) * 100;
+  let sum = Object.keys(b).reduce((s, k) => s + b[k], 0);
+  if (sum < targetRE + 30000) { b.cash += Math.ceil((targetRE + 30000 - sum) / 100) * 100; sum = Object.keys(b).reduce((s, k) => s + b[k], 0); }
+  let sc = Math.round((sum - targetRE) / 1000) * 1000, re = sum - sc;
+  while (re < 5000) { sc -= 1000; re += 1000; }
+  b.sc = -sc; b.re = -re;
+  return b;
+}
+const TXDEF = {
+  adv: {d: [1, 3]}, rent: {d: [2, 4]}, ins: {d: [2, 5]}, invBuy: {d: [3, 7]}, shares: {d: [3, 12]}, equipBuy: {d: [4, 9]},
+  collectOld: {d: [6, 18]}, payAP: {d: [6, 18]}, sale: {d: [8, 14]}, collect: {d: [0, 0]}, dividends: {d: [15, 25]}, utilities: {d: [18, 27]},
+  salaries: {d: [25, 28]}, sellEquip: {d: [20, 30]}, dep: {d: [31, 31]}, accrInt: {d: [31, 31]}, accrSal: {d: [31, 31]}, earnAdv: {d: [31, 31]}
+};
+const ADJ = ["dep", "accrInt", "accrSal", "earnAdv"];
+function chooseTx(r, n){
+  const ch = ["sale"];
+  if (r() < (n >= 8 ? 1 : 0.6)) ch.push("collect");
+  const c7 = rsh(r, ["equipBuy", "sellEquip"]); ch.push(c7[0]); if (n >= 8) ch.push(c7[1]);
+  const nAdj = n >= 8 ? 2 : 1;
+  rsh(r, ADJ).forEach(a => { if (ch.filter(x => ADJ.indexOf(x) !== -1).length < nAdj) ch.push(a); });
+  if (ch.indexOf("earnAdv") !== -1) ch.push("adv");
+  rsh(r, ["adv", "ins", "invBuy", "collectOld", "payAP", "salaries", "rent", "utilities", "dividends", "shares"]).forEach(f => { if (ch.length < n && ch.indexOf(f) === -1) ch.push(f); });
+  return ch.slice(0, n);
+}
+function genPart2(r, n){
+  const co = pk(r, FIRMS), year = ri(r, 2024, 2027), open = genOpening(r);
+  const ni0 = -TEMP.reduce((s, k) => s + (open[k] || 0), 0), reEnd = -open.re + ni0 - (open.div || 0);
+  const bal = {}; Object.keys(open).forEach(k => { if (TEMP.indexOf(k) === -1 && k !== "div") bal[k] = open[k]; }); bal.re = -reEnd;
+  const ids = chooseTx(r, n), days = {};
+  ids.forEach(id => { if (id !== "collect") days[id] = ri(r, TXDEF[id].d[0], TXDEF[id].d[1]); });
+  const within = r() < 0.65;
+  if (ids.indexOf("collect") !== -1) days.collect = days.sale + (within ? ri(r, 3, 10) : ri(r, 11, Math.min(20, 31 - days.sale)));
+  const order = ids.slice().sort((a, b) => days[a] - days[b] || ids.indexOf(a) - ids.indexOf(b));
+  const ctx = {sale: null, adv: null}, txs = [];
+  const g = k => bal[k] || 0, ap = lines => lines.forEach(l => { bal[l[0]] = (bal[l[0]] || 0) + l[1]; });
+  const sup = pk(r, PERSON), cust = pk(r, ["T", "K", "M", "P", "Q", "H"]), eqLetter = pk(r, ["A", "B", "C", "X"]);
+  order.forEach(id => {
+    const d = days[id]; let t = null, x;
+    switch (id) {
+      case "adv": x = ri(r, 10, 30) * 100; ctx.adv = {d: d, x: x}; t = {text: "Recorded advance payments from customers of " + D(x) + ".", lines: [["cash", x], ["unr", -x]], note: ["Nhận tiền trước khi giao hàng → nợ phải trả (Unearned revenue), chưa phải doanh thu.", "Cash received before delivery → a liability (unearned revenue), not revenue yet."]}; break;
+      case "ins": x = 12 * ri(r, 5, 15) * 10; t = {text: "Paid the premium on a one-year insurance policy, " + D(x) + ".", lines: [["pins", x], ["cash", -x]], note: ["Trả trước → tài sản Prepaid insurance (đề yêu cầu bỏ qua phần hết hạn).", "Paid in advance → Prepaid insurance, an asset (ignore expiry as instructed)."]}; break;
+      case "rent": x = ri(r, 5, 12) * 100; t = {text: "Paid rent for January, " + D(x) + ".", lines: [["rentx", x], ["cash", -x]], note: ["Tiền thuê của chính tháng 1 → chi phí.", "Rent for January itself → an expense."]}; break;
+      case "invBuy": x = ri(r, 10, 40) * 100; t = {text: "Purchased inventory on account from " + sup + ", " + D(x) + ".", lines: [["inv", x], ["ap", -x]], note: ["Perpetual: mua hàng ghi thẳng vào Inventory.", "Perpetual system: purchases go straight to Inventory."]}; break;
+      case "shares": x = ri(r, 5, 20) * 1000; t = {text: "Issued shares to investors for " + D(x) + " cash.", lines: [["cash", x], ["sc", -x]], note: ["Góp vốn → tăng tiền và vốn cổ phần.", "Owners invest → Cash and Share capital increase."]}; break;
+      case "equipBuy": { const dn = ri(r, 10, 30) * 100, m = ri(r, 6, 18) * 50, tot = dn + 12 * m; t = {text: "Purchased equipment from " + sup + ", " + D(tot) + ". Terms were " + D(dn) + " down and " + D(m) + " per month for one year. First payment is due Feb 1.", lines: [["equip", tot], ["cash", -dn], ["stn", -12 * m]], note: ["Ghi đủ nguyên giá " + D(tot) + "; phần còn nợ 12 × " + D(m) + " = " + D(12 * m) + " trả trong 12 tháng → nợ ngắn hạn.", "Record the full cost " + D(tot) + "; the 12 × " + D(m) + " = " + D(12 * m) + " still owed within 12 months → a current liability."]}; break; }
+      case "collectOld": x = Math.max(100, Math.round(open.ar * ri(r, 30, 80) / 100 / 100) * 100); t = {text: "Collected " + D(x) + " from customers on account (December balances).", lines: [["cash", x], ["ar", -x]], note: ["Thu nợ cũ không phải doanh thu.", "Collecting old receivables is not revenue."]}; break;
+      case "payAP": x = Math.max(100, Math.round(-g("ap") * ri(r, 30, 90) / 100 / 100) * 100); t = {text: "Paid " + D(x) + " to suppliers on account.", lines: [["ap", x], ["cash", -x]], note: ["Trả nợ không phải chi phí.", "Paying a payable is not an expense."]}; break;
+      case "sale": { const all = r() < 0.5 || g("inv") < 1000, c = all ? g("inv") : Math.max(100, Math.round(g("inv") * ri(r, 40, 80) / 100 / 100) * 100), pr = Math.round(c * ri(r, 16, 30) / 10 / 100) * 100, rt = pk(r, [1, 2, 3]);
+        ctx.sale = {d: d, p: pr, rt: rt};
+        t = {text: (all ? "Sold all inventory" : "Sold inventory costing " + D(c)) + " to Customer " + cust + " at an invoice price of " + D(pr) + "; terms " + rt + "/10, n/30.", lines: [["ar", pr], ["sales", -pr], ["cogs", c], ["inv", -c]], note: ["Perpetual: hai bút toán — doanh thu theo giá bán " + D(pr) + ", giá vốn theo giá gốc " + D(c) + (all ? " (toàn bộ tồn kho hiện có)." : "."), "Perpetual: two entries — revenue at the selling price " + D(pr) + ", COGS at cost " + D(c) + (all ? " (all inventory on hand)." : ".")]}; break; }
+      case "collect": { const s = ctx.sale, dl = s.d + 10, ok = d <= dl, ds = s.p * s.rt / 100;
+        t = {text: "Collected payment in full from Customer " + cust + " for the Jan " + s.d + " sale.", lines: ok ? [["cash", s.p - ds], ["sdisc", ds], ["ar", -s.p]] : [["cash", s.p], ["ar", -s.p]], note: ok ? ["Hạn chiết khấu là ngày " + dl + "/1; thu ngày " + d + "/1 → được giảm " + s.rt + "% = " + D(ds) + " (Sales discounts).", "The discount deadline is Jan " + dl + "; collected on Jan " + d + " → " + s.rt + "% discount = " + D(ds) + " (Sales discounts)."] : ["Hạn chiết khấu là ngày " + dl + "/1; thu ngày " + d + "/1 là quá hạn → thu đủ " + D(s.p) + ".", "The discount deadline was Jan " + dl + "; Jan " + d + " is too late → collect the full " + D(s.p) + "."]}; break; }
+      case "dividends": x = ri(r, 5, 20) * 100; t = {text: "Declared and paid cash dividends of " + D(x) + ".", lines: [["div", x], ["cash", -x]], note: ["Cổ tức giảm lợi nhuận giữ lại nhưng không lên báo cáo kết quả kinh doanh.", "Dividends reduce retained earnings but are not on the income statement."]}; break;
+      case "utilities": x = ri(r, 3, 9) * 100; t = {text: "Paid the January utility bill, " + D(x) + ".", lines: [["utilx", x], ["cash", -x]], note: ["Chi phí của tháng 1.", "A January expense."]}; break;
+      case "salaries": x = ri(r, 10, 25) * 100; t = {text: "Paid salaries for January, " + D(x) + ".", lines: [["salx", x], ["cash", -x]], note: ["Chi phí lương của tháng 1.", "January salary expense."]}; break;
+      case "sellEquip": { const c = Math.max(5000, Math.round(g("equip") * ri(r, 15, 30) / 100 / 500) * 500), a = Math.max(500, Math.min(Math.round(c * ri(r, 40, 75) / 100 / 500) * 500, Math.floor((-g("ad") - 500) / 500) * 500)), bv = c - a, dd = (r() < 0.6 ? -1 : 1) * ri(r, 5, 40) * 100, s = Math.max(500, bv + dd), gl = s - bv;
+        const lines = [["cash", s], ["ad", a]]; if (gl < 0) lines.push(["loss", -gl]); lines.push(["equip", -c]); if (gl > 0) lines.push(["gain", -gl]);
+        t = {text: "Sold equipment " + eqLetter + " for " + D(s) + " cash. Original cost, " + D(c) + "; accumulated depreciation, " + D(a) + ".", lines: lines, note: ["Xóa nguyên giá " + D(c) + " và khấu hao lũy kế " + D(a) + "; giá trị còn lại " + D(bv) + "; " + (gl < 0 ? "lỗ " : "lãi ") + D(gl) + ".", "Remove cost " + D(c) + " and accumulated depreciation " + D(a) + "; book value " + D(bv) + "; " + (gl < 0 ? "loss " : "gain ") + D(gl) + "."]}; break; }
+      case "dep": x = ri(r, 6, 24) * 50; t = {text: "Recorded depreciation expense on equipment of " + D(x) + ".", lines: [["depx", x], ["ad", -x]], note: ["Điều chỉnh: chi phí khấu hao, ghi Có khấu hao lũy kế (contra).", "Adjustment: depreciation expense, credit accumulated depreciation (contra)."]}; break;
+      case "accrInt": { const L = -g("ltn"), calc = r() < 0.5; x = calc ? L / 100 : ri(r, 10, 50) * 10;
+        t = {text: calc ? "The long-term note payable carries interest at 12% per year. Accrued interest for January has not been recorded." : "Accrued interest expense on the note payable to the bank was " + D(x) + ".", lines: [["intx", x], ["ipay", -x]], note: [calc ? "Lãi = " + D(L) + " × 12% × 1/12 = " + D(x) + "; chưa trả → Interest payable." : "Chi phí lãi đã phát sinh, chưa trả → Interest payable.", calc ? "Interest = " + D(L) + " × 12% × 1/12 = " + D(x) + "; unpaid → Interest payable." : "Interest incurred but unpaid → Interest payable."]}; break; }
+      case "accrSal": x = ri(r, 5, 20) * 100; t = {text: "Salaries earned by employees but not yet paid at Jan 31 were " + D(x) + ".", lines: [["salx", x], ["spay", -x]], note: ["Chi phí dồn tích → Salaries payable.", "Accrued expense → Salaries payable."]}; break;
+      case "earnAdv": { const a = ctx.adv; x = Math.max(100, Math.min(a.x - 100, Math.round(a.x * pk(r, [0.25, 0.5, 0.75]) / 100) * 100)); t = {text: "By Jan 31, goods worth " + D(x) + " had been delivered to the customers who paid in advance on Jan " + a.d + ".", lines: [["unr", x], ["sales", -x]], note: ["Đã giao hàng → chuyển phần đã thực hiện từ Unearned revenue sang Sales revenue. (Bỏ qua giá vốn vì đề không cho.)", "Goods delivered → move the earned part from unearned revenue to sales revenue. (No cost data, so no COGS entry.)"]}; break; }
+    }
+    t.day = d; t.id = id; ap(t.lines); txs.push(t);
+  });
+  /* statements */
+  const tbKeys = AKEYS.filter(k => bal[k]);
+  const tb = {rows: tbKeys.map(k => ({id: k, dr: bal[k] > 0 ? bal[k] : 0, cr: bal[k] < 0 ? -bal[k] : 0}))};
+  tb.td = tb.rows.reduce((s, x) => s + x.dr, 0); tb.tc = tb.rows.reduce((s, x) => s + x.cr, 0);
+  const isr = isRows(bal), niJan = isr.ni, reJan = reEnd + niJan - (bal.div || 0);
+  return {co: co, year: year, open: open, ni0: ni0, reEnd: reEnd, openRows: sfpRows(open, reEnd), txs: txs, end: bal, tb: tb, isRows: isr.rows, ni: niJan, reJan: reJan, sfpRows: sfpRows(bal, reJan)};
+}
+/* fixed statement templates: every possible line is shown, lines that do not apply stay blank */
+function sfpRows(b, re){
+  const g = k => b[k] || 0, rows = [];
+  const ca = ["cash", "ar", "inv", "sup", "pins"], cl = ["ap", "unr", "spay", "ipay", "stn"];
+  const tca = ca.reduce((s, k) => s + g(k), 0), net = g("equip") + g("ad"), tnca = g("land") + net, ta = tca + tnca;
+  const tcl = -cl.reduce((s, k) => s + g(k), 0), tl = tcl - g("ltn"), te = -g("sc") + re;
+  rows.push({h: "Current assets"}); ca.forEach(k => rows.push({id: k, label: nm(k), v: g(k), ind: 1}));
+  rows.push({id: "tca", label: "Total current assets", v: tca, tot: 1});
+  rows.push({h: "Non-current assets"}); rows.push({id: "land", label: "Land", v: g("land"), ind: 1}); rows.push({id: "equip", label: "Equipment", v: g("equip"), ind: 1});
+  rows.push({id: "ad", label: "Less: Accumulated depreciation", v: -g("ad"), ind: 1, abs: 1}); rows.push({id: "neteq", label: "Equipment, net", v: net, ind: 1, tot: 1});
+  rows.push({id: "tnca", label: "Total non-current assets", v: tnca, tot: 1}); rows.push({id: "ta", label: "Total assets", v: ta, tot: 1, dbl: 1});
+  rows.push({h: "Current liabilities"}); cl.forEach(k => rows.push({id: k, label: nm(k), v: -g(k), ind: 1}));
+  rows.push({id: "tcl", label: "Total current liabilities", v: tcl, tot: 1});
+  rows.push({h: "Non-current liabilities"}); rows.push({id: "ltn", label: nm("ltn"), v: -g("ltn"), ind: 1});
+  rows.push({id: "tl", label: "Total liabilities", v: tl, tot: 1});
+  rows.push({h: "Equity"}); rows.push({id: "sc", label: "Share capital", v: -g("sc"), ind: 1}); rows.push({id: "re", label: "Retained earnings", v: re, ind: 1});
+  rows.push({id: "te", label: "Total equity", v: te, tot: 1}); rows.push({id: "tle", label: "Total liabilities and equity", v: tl + te, tot: 1, dbl: 1});
+  return rows;
+}
+function isRows(b){
+  const g = k => b[k] || 0, rows = [];
+  const sales = -g("sales"), disc = g("sdisc"), net = sales - disc, cogs = g("cogs"), gp = net - cogs;
+  const ox = ["salx", "rentx", "insx", "utilx", "depx"], top = ox.reduce((s, k) => s + g(k), 0), oi = gp - top;
+  const ni = oi - g("gain") - g("intx") - g("loss");
+  rows.push({id: "sales", label: "Sales revenue", v: sales, abs: 1}); rows.push({id: "sdisc", label: "Less: Sales discounts", v: disc, abs: 1, ind: 1});
+  rows.push({id: "net", label: "Net sales", v: net, tot: 1, opt: disc === 0}); rows.push({id: "cogs", label: "Less: Cost of goods sold", v: cogs, abs: 1, ind: 1});
+  rows.push({id: "gp", label: "Gross profit", v: gp, tot: 1}); rows.push({h: "Operating expenses"});
+  ox.forEach(k => rows.push({id: k, label: nm(k), v: g(k), abs: 1, ind: 1}));
+  rows.push({id: "top", label: "Total operating expenses", v: top, tot: 1}); rows.push({id: "oi", label: "Operating income (loss)", v: oi, tot: 1});
+  rows.push({h: "Other items"}); rows.push({id: "gain", label: "Gain on sale of equipment", v: -g("gain"), abs: 1, ind: 1});
+  rows.push({id: "intx", label: "Less: Interest expense", v: g("intx"), abs: 1, ind: 1}); rows.push({id: "loss", label: "Less: Loss on sale of equipment", v: g("loss"), abs: 1, ind: 1});
+  rows.push({id: "ni", label: "Net income (loss)", v: ni, tot: 1, dbl: 1});
+  return {rows: rows, ni: ni};
+}
+function build(seed, n){ const r = rngFrom(seed); const mcq = pickMCQ(r); const p2 = genPart2(r, n); return {seed: seed >>> 0, code: codeOf(seed), n: n, mcq: mcq, p2: p2}; }
+
+/* ===== grading ===== */
+function parseNum(v){ if (v == null) return null; let s = String(v).replace(/[\s$,]/g, "").replace(/[−–]/g, "-"); if (!s) return null; let neg = false; if (/^\(.*\)$/.test(s)) { neg = true; s = s.slice(1, -1); } const x = Number(s); return isFinite(x) ? (neg ? -x : x) : NaN; }
+function gradeRows(prefix, rows, ans){
+  let ok = 0, cnt = 0; const res = {};
+  rows.forEach(rw => { if (rw.h) return; const u = parseNum(ans[prefix + rw.id]), uv = u == null ? 0 : u, ev = rw.v;
+    if (rw.opt && u == null) return;
+    if (ev === 0 && uv === 0) return;
+    cnt++; const good = rw.abs ? Math.abs(uv) === Math.abs(ev) : r2(uv) === r2(ev); if (good) ok++; res[rw.id] = good; });
+  return {score: cnt ? ok / cnt : 1, res: res, ok: ok, cnt: cnt};
+}
+function gradeJE(E, ans){
+  return E.p2.txs.map((t, ti) => {
+    const exp = t.lines.map(l => l[0] + "|" + (l[1] > 0 ? "D" : "C") + "|" + Math.abs(l[1]));
+    const rows = +(ans["rows-" + ti] || 4), user = [];
+    for (let k = 0; k < rows; k++) { const a = ans["ex-je-" + ti + "-" + k + "-a"], dv = parseNum(ans["ex-je-" + ti + "-" + k + "-d"]), cv = parseNum(ans["ex-je-" + ti + "-" + k + "-c"]);
+      if (!a && dv == null && cv == null) continue;
+      const side = dv && !cv ? "D" : cv && !dv ? "C" : "?"; user.push(a + "|" + side + "|" + Math.abs(side === "D" ? dv : side === "C" ? cv : 0)); }
+    const pool = exp.slice(); let m = 0; user.forEach(u => { const i = pool.indexOf(u); if (i !== -1) { m++; pool.splice(i, 1); } });
+    return Math.max(exp.length, user.length) ? m / Math.max(exp.length, user.length) : 0;
+  });
+}
+function gradeTB(E, ans){
+  let ok = 0, cnt = 0; const res = {};
+  AKEYS.forEach(k => { const row = E.p2.tb.rows.find(x => x.id === k) || {dr: 0, cr: 0}, ud = parseNum(ans["ex-tb-" + k + "-d"]) || 0, uc = parseNum(ans["ex-tb-" + k + "-c"]) || 0;
+    if (!row.dr && !row.cr && !ud && !uc) return; cnt++; const good = ud === row.dr && uc === row.cr; if (good) ok++; res[k] = good; });
+  const td = parseNum(ans["ex-tb-tot-d"]), tc = parseNum(ans["ex-tb-tot-c"]); cnt++; const gt = td === E.p2.tb.td && tc === E.p2.tb.tc; if (gt) ok++; res.tot = gt;
+  return {score: cnt ? ok / cnt : 0, res: res};
+}
+function grade(){
+  const E = S.exam, a = S.ans;
+  const mc = E.mcq.map((q, i) => +a["mcq-" + i] === q.a && a["mcq-" + i] != null && a["mcq-" + i] !== "");
+  const byCh = {}; E.mcq.forEach((q, i) => { byCh[q.ch] = byCh[q.ch] || [0, 0]; byCh[q.ch][1]++; if (mc[i]) byCh[q.ch][0]++; });
+  const r1 = gradeRows("ex-r1-", E.p2.openRows, a), je = gradeJE(E, a), r3 = gradeTB(E, a);
+  const r4is = gradeRows("ex-r4i-", E.p2.isRows, a), r4bs = gradeRows("ex-r4b-", E.p2.sfpRows, a);
+  const r4 = (r4is.ok + r4bs.ok) / Math.max(1, r4is.cnt + r4bs.cnt);
+  const m = [mc.filter(Boolean).length * MCQ_MARK, r2(r1.score * REQ_MARKS[0]), r2(je.reduce((s, x) => s + x, 0) / je.length * REQ_MARKS[1]), r2(r3.score * REQ_MARKS[2]), r2(r4 * REQ_MARKS[3])];
+  return {mc: mc, byCh: byCh, r1: r1, je: je, r3: r3, r4is: r4is, r4bs: r4bs, marks: m, total: r2(m.reduce((s, x) => s + x, 0)), mins: Math.round((Date.now() - S.started) / 60000)};
+}
+
+/* ===== state, persistence, rendering ===== */
+let S = null, armed = null, saveT = null;
+const save = () => { if (!S) { try { localStorage.removeItem(KEY); } catch (e) {} return; } store.set(KEY, {seed: S.seed, n: S.n, timer: S.timer, started: S.started, submitted: S.submitted, ans: S.ans}); };
+const saveSoon = () => { clearTimeout(saveT); saveT = setTimeout(() => { saveT = null; save(); }, 300); };
+function start(seed, n, timer){ S = {seed: seed >>> 0, n: n, timer: timer, started: Date.now(), submitted: false, ans: {}, exam: build(seed, n), res: null}; save(); }
+function restore(){ const d = store.get(KEY, null); if (!d || d.seed == null) return; try { S = {seed: d.seed, n: d.n || 5, timer: d.timer !== false, started: d.started || Date.now(), submitted: !!d.submitted, ans: d.ans || {}, exam: build(d.seed, d.n || 5), res: null}; if (S.submitted) S.res = grade(); } catch (e) { S = null; } }
+function submit(){
+  if (!S || S.submitted) return;
+  S.submitted = true; S.res = grade(); save();
+  const h = store.get(HKEY, []); h.unshift({code: S.exam.code, n: S.n, at: Date.now(), total: S.res.total, marks: S.res.marks, byCh: S.res.byCh, mins: S.res.mins}); store.set(HKEY, h.slice(0, 30));
+  render(); window.scrollTo(0, 0);
+}
+const fmtDate = t => { const d = new Date(t); return d.toLocaleDateString(LANG === "en" ? "en-GB" : "vi-VN") + " " + d.toLocaleTimeString(LANG === "en" ? "en-GB" : "vi-VN", {hour: "2-digit", minute: "2-digit"}); };
+const tagLabel = t => t === "Q1" ? T("Dạng Quiz 1", "Quiz 1 style") : t === "Q2" ? T("Dạng Quiz 2", "Quiz 2 style") : t === "new" ? T("Ch7 · PPE (giả định)", "Ch7 · PPE (assumed)") : T("Ngân hàng của trang", "Site bank");
+
+function histHTML(){
+  const h = store.get(HKEY, []);
+  if (!h.length) return '<p class="muted">' + T("Chưa có bài nào. Điểm, thời gian làm và kết quả từng chương sẽ hiện ở đây sau khi bạn nộp bài.", "No attempts yet. Scores, time taken and chapter results appear here after you submit.") + "</p>";
+  const agg = {}; h.forEach(x => Object.keys(x.byCh || {}).forEach(c => { agg[c] = agg[c] || [0, 0]; agg[c][0] += x.byCh[c][0]; agg[c][1] += x.byCh[c][1]; }));
+  const req = [0, 0, 0, 0]; h.forEach(x => { for (let i = 0; i < 4; i++) req[i] += (x.marks[i + 1] || 0) / REQ_MARKS[i]; });
+  const best = Math.max.apply(null, h.map(x => x.total)), avg = r2(h.reduce((s, x) => s + x.total, 0) / h.length);
+  let s = '<div class="totals"><div class="box"><span class="lab">' + T("Điểm cao nhất", "Best score") + '</span><span class="n mono">' + best + '/100</span></div><div class="box"><span class="lab">' + T("Điểm trung bình", "Average") + '</span><span class="n mono">' + avg + '/100</span><span class="statline">' + h.length + T(" bài", " attempts") + "</span></div></div>";
+  s += "<h3>" + T("Phần trắc nghiệm theo chương (cộng dồn)", "Multiple choice by chapter (all attempts)") + '</h3><div class="weak">';
+  for (let c = 1; c <= 7; c++) { const v = agg[c] || [0, 0], p = v[1] ? Math.round(v[0] / v[1] * 100) : null; s += '<div class="row"><span>Ch' + c + '</span><span class="bar"><i style="width:' + (p || 0) + '%"' + (p != null && p < 60 ? ' class="low"' : "") + '></i></span><span class="mono">' + (p == null ? "—" : p + "%") + "</span></div>"; }
+  s += "</div><h3>" + T("Phần tự luận theo yêu cầu (trung bình)", "Long-form requirements (average)") + '</h3><div class="weak">';
+  ["(1) SFP " + T("đầu kỳ", "opening"), "(2) " + T("Bút toán", "Journal entries"), "(3) Trial balance", "(4) IS + SFP"].forEach((l, i) => { const p = Math.round(req[i] / h.length * 100); s += '<div class="row"><span>' + l + '</span><span class="bar"><i style="width:' + p + '%"' + (p < 60 ? ' class="low"' : "") + '></i></span><span class="mono">' + p + "%</span></div>"; });
+  s += '</div><div class="scroll"><table class="data hist"><thead><tr><th>' + T("Lúc", "When") + "</th><th>" + T("Mã đề", "Code") + "</th><th>" + T("Điểm", "Score") + "</th><th>Part I</th><th>Part II</th><th>" + T("Phút", "Min") + "</th></tr></thead><tbody>";
+  h.slice(0, 10).forEach(x => { s += "<tr><td>" + fmtDate(x.at) + '</td><td class="mono"><button type="button" class="linkbtn" data-mid="open" data-code="' + x.code + '" data-n="' + x.n + '">' + x.code + '</button></td><td class="mono">' + x.total + '</td><td class="mono">' + x.marks[0] + '/45</td><td class="mono">' + r2(x.marks[1] + x.marks[2] + x.marks[3] + x.marks[4]) + '/55</td><td class="mono">' + x.mins + "</td></tr>"; });
+  s += "</tbody></table></div>";
+  return s;
+}
+function idleHTML(){
+  const d = store.get(KEY, null);
+  let s = '<p class="eyebrow"><span class="tag">' + T("Giữa kỳ", "Midterm") + "</span>" + T("Đề thi thử ngẫu nhiên · đúng cấu trúc đề thật", "Randomized mock exam · real exam structure") + "</p>";
+  s += "<h1>" + T("Tạo đề thi thử giữa kỳ", "Generate a mock midterm") + "</h1>";
+  s += '<p class="prose">' + T("Mỗi đề gồm 15 câu trắc nghiệm (Ch1–6 mỗi chương 2 câu, Ch7 3 câu, mỗi câu 3 điểm) và một bài lập báo cáo tài chính 55 điểm với 4 yêu cầu như đề thật. Câu hỏi được rút từ ngân hàng dựa trên Quiz 1, Quiz 2 và các chương của trang; số liệu, tên công ty, nghiệp vụ và thứ tự đáp án thay đổi mỗi lần. Đề thi thật bằng tiếng Anh nên đề giữ tiếng Anh; lời giải theo ngôn ngữ bạn chọn.", "Each exam has 15 multiple-choice questions (2 per chapter for Ch1–6, 3 for Ch7, 3 marks each) and a 55-mark financial statements question with the same 4 requirements as the real exam. Questions are drawn from a bank built on Quiz 1, Quiz 2 and the chapters on this site; numbers, company names, transactions and answer order change every time.") + "</p>";
+  s += '<div class="mid-cta"><div class="opt-grp" role="radiogroup" aria-label="Part II"><span class="lab">' + T("Số nghiệp vụ ở Part II", "Transactions in Part II") + '</span><label for="mid-n5"><input type="radio" name="mid-n" id="mid-n5" value="5" checked> 5 · ' + T("theo cấu trúc chính thức", "official structure") + '</label><label for="mid-n8"><input type="radio" name="mid-n" id="mid-n8" value="8"> 8 · ' + T("như đề thi thử Mely", "like the Mely mock") + '</label></div><label class="opt-grp" for="mid-timer"><span class="lab">' + T("Bấm giờ", "Timer") + '</span><span><input type="checkbox" id="mid-timer" checked> ' + T("90 phút, tự nộp khi hết giờ", "90 minutes, auto-submit at the end") + '</span></label><button type="button" class="btn pri big" data-mid="new">' + T("Tạo đề mới", "Generate a new exam") + "</button></div>";
+  s += '<div class="toolbar"><label for="mid-code">' + T("Có mã đề?", "Have a code?") + ' <input type="text" id="mid-code" maxlength="7" placeholder="VD 1A2B3C4" autocomplete="off" style="width:9rem;font-family:var(--f-mono);text-transform:uppercase"></label><button type="button" class="btn" data-mid="code">' + T("Mở đề theo mã", "Open by code") + '</button><span class="statline" id="mid-code-msg"></span></div>';
+  if (d && d.seed != null) s += '<div class="box" style="max-width:680px"><b>' + (d.submitted ? T("Bài đã nộp gần nhất", "Last submitted exam") : T("Đề đang làm dở", "Exam in progress")) + '</b> · <span class="mono">' + codeOf(d.seed) + '</span><div class="fc-actions" style="margin-top:.5rem"><button type="button" class="btn pri" data-mid="resume">' + (d.submitted ? T("Xem lại bài", "Review it") : T("Làm tiếp", "Continue")) + "</button></div></div>";
+  s += "<h2>" + T("Lịch sử và điểm yếu", "History and weak spots") + "</h2>" + histHTML();
+  return s;
+}
+function stmtHTML(prefix, rows, rev, gr){
+  let s = '<div class="scroll"><table class="ex-tbl stmt"><tbody>';
+  rows.forEach(rw => {
+    if (rw.h) { s += '<tr class="sec"><td colspan="3">' + rw.h + "</td></tr>"; return; }
+    const id = prefix + rw.id, v = S.ans[id] == null ? "" : S.ans[id], st = rev && gr && gr.res[rw.id] != null ? (gr.res[rw.id] ? " ok" : " bad") : "";
+    const show = rev && (st === " bad" || (gr.res[rw.id] == null && rw.v !== 0));
+    s += '<tr class="' + (rw.tot ? "tot" : "") + (rw.dbl ? " dbl" : "") + '"><td class="' + (rw.ind ? "ind" : "") + '"><label for="' + id + '">' + rw.label + '</label></td><td><input type="text" inputmode="decimal" id="' + id + '" value="' + esc(v) + '" class="' + st + '"' + (rev ? " readonly" : "") + ' autocomplete="off"></td><td class="exp">' + (show ? "→ " + NUM(rw.abs ? Math.abs(rw.v) : rw.v) : "") + "</td></tr>";
+  });
+  return s + "</tbody></table></div>";
+}
+function accOptions(sel){ const groups = [["A", "CA"], ["L"], ["E", "D"], ["R", "CR", "G"], ["X", "OX"]], gl = [T("Tài sản", "Assets"), T("Nợ phải trả", "Liabilities"), T("Vốn chủ", "Equity"), T("Doanh thu, thu nhập", "Revenue & gains"), T("Chi phí, lỗ", "Expenses & losses")];
+  return '<option value="">' + T("Chọn tài khoản…", "Choose an account…") + "</option>" + groups.map((g, i) => '<optgroup label="' + gl[i] + '">' + AKEYS.filter(k => g.indexOf(AC[k][1]) !== -1).map(k => '<option value="' + k + '"' + (sel === k ? " selected" : "") + ">" + nm(k) + "</option>").join("") + "</optgroup>").join(""); }
+function jeAnswerHTML(t){ return '<div class="scroll"><table class="jr mini"><thead><tr><th>' + T("Tài khoản", "Account") + '</th><th class="dr">Dr</th><th class="cr">Cr</th></tr></thead><tbody>' + t.lines.map(l => "<tr><td" + (l[1] < 0 ? ' class="ind"' : "") + ">" + nm(l[0]) + '</td><td class="n">' + (l[1] > 0 ? NUM(l[1]) : "") + '</td><td class="n">' + (l[1] < 0 ? NUM(-l[1]) : "") + "</td></tr>").join("") + "</tbody></table></div>"; }
+function examHTML(){
+  const E = S.exam, P2 = E.p2, rev = S.submitted, R = S.res, L = LANG === "en" ? 1 : 0;
+  let s = '<div class="ex-head"><div><p class="lab">ACCT2010 · ' + T("Đề thi thử giữa kỳ", "Mock midterm exam") + '</p><h1 style="margin:.15rem 0 0">' + T("Mã đề ", "Code ") + '<span class="ex-code">' + E.code + '</span></h1><p class="statline" style="margin:.3rem 0 0">' + T("Closed-book · 90 phút · Part I 45 điểm · Part II 55 điểm", "Closed book · 90 minutes · Part I 45 marks · Part II 55 marks") + "</p></div>" +
+    '<div class="fc-actions">' + (rev ? '<button type="button" class="btn pri" data-mid="new-same-opts">' + T("Tạo đề mới", "New exam") + '</button><button type="button" class="btn" data-mid="retry">' + T("Làm lại đề này", "Retry this exam") + "</button>" : "") + '<button type="button" class="btn" data-mid="quit">' + (rev ? T("Đóng", "Close") : T("Bỏ đề", "Abandon")) + "</button></div></div>";
+  if (rev) {
+    s += '<div class="ex-score"><div><span class="lab">' + T("Tổng điểm", "Total") + '</span><span class="big mono">' + R.total + '<small>/100</small></span><span class="statline">' + R.mins + T(" phút", " min") + "</span></div>" +
+      '<table class="data"><tbody><tr><td>Part I · MCQ</td><td class="mono">' + R.mc.filter(Boolean).length + '/15</td><td class="mono">' + R.marks[0] + '/45</td></tr><tr><td>(1) SFP ' + T("đầu kỳ", "opening") + '</td><td></td><td class="mono">' + R.marks[1] + '/10</td></tr><tr><td>(2) ' + T("Bút toán", "Journal entries") + '</td><td></td><td class="mono">' + R.marks[2] + '/10</td></tr><tr><td>(3) Trial balance</td><td></td><td class="mono">' + R.marks[3] + '/10</td></tr><tr><td>(4) IS + SFP</td><td></td><td class="mono">' + R.marks[4] + "/25</td></tr></tbody></table>" +
+      '<div class="chres">' + [1, 2, 3, 4, 5, 6, 7].map(c => { const v = R.byCh[c] || [0, 0]; return '<span class="tagc' + (v[0] < v[1] ? " hot" : "") + '">Ch' + c + " " + v[0] + "/" + v[1] + "</span>"; }).join("") + "</div></div>";
+  }
+  s += '<h2><span class="sec">I</span>' + T("Trắc nghiệm · 15 câu × 3 điểm · gợi ý 30 phút", "Multiple choice · 15 × 3 marks · suggested 30 minutes") + "</h2>";
+  E.mcq.forEach((q, i) => {
+    const pick = S.ans["mcq-" + i];
+    s += '<div class="ex-q" id="exq-' + i + '"><div class="meta"><span class="mono">Q' + (i + 1) + '</span><span class="tagc">Ch' + q.ch + '</span><span class="tagc' + (q.tag === "Q1" || q.tag === "Q2" ? " hot" : "") + '">' + tagLabel(q.tag) + '</span></div><p class="qz-q">' + esc(q.q) + '</p><div class="ex-opts">';
+    q.o.forEach((o, j) => { const id = "ex-q" + i + "-" + j, cls = rev ? (j === q.a ? " right" : (String(j) === String(pick) ? " wrong" : "")) : "";
+      s += '<label class="ex-opt' + cls + '" for="' + id + '"><input type="radio" name="mcq-' + i + '" id="' + id + '" value="' + j + '"' + (String(j) === String(pick) ? " checked" : "") + (rev ? " disabled" : "") + '><span class="L mono">' + "ABCD"[j] + "</span><span>" + esc(o) + "</span></label>"; });
+    s += "</div>" + (rev ? '<div class="fb ' + (R.mc[i] ? "ok" : "no") + '"><b class="v">' + (R.mc[i] ? T("Đúng.", "Correct.") : (pick == null ? T("Chưa trả lời. ", "Not answered. ") : "") + T("Đáp án: ", "Answer: ") + "ABCD"[q.a]) + "</b>" + esc(q.e[L]) + "</div>" : "") + "</div>";
+  });
+  s += '<h2><span class="sec">II</span>' + T("Lập báo cáo tài chính · 55 điểm · gợi ý 60 phút", "Preparation of financial statements · 55 marks · suggested 60 minutes") + "</h2>";
+  s += '<p class="prose">At the end of December ' + P2.year + ", " + P2.co + "’s account balances showed the following:</p>";
+  const ok = AKEYS.filter(k => P2.open[k]).map(k => [k === "re" ? "Retained earnings (beginning)" : k === "ltn" ? "Notes payable (3 years)" : nm(k), Math.abs(P2.open[k])]);
+  const half = Math.ceil(ok.length / 2), sh = rsh(rngFrom(E.seed + 7), ok);
+  s += '<div class="bal-grid">' + [sh.slice(0, half), sh.slice(half)].map(col => '<table class="ex-tbl"><tbody>' + col.map(x => "<tr><td>" + x[0] + '</td><td class="n mono">' + D(x[1]) + "</td></tr>").join("") + "</tbody></table>").join("") + "</div>";
+  s += '<p class="prose">During Jan ' + (P2.year + 1) + ', the following selected transactions were completed:</p><div class="scroll"><table class="ex-tbl tx"><tbody>' + P2.txs.map(t => '<tr><td class="mono">Jan ' + t.day + "</td><td>" + esc(t.text) + "</td></tr>").join("") + "</tbody></table></div>";
+  s += '<p class="prose muted" style="font-size:.9rem">Note: ' + P2.co + " uses a perpetual inventory system. Record only the transactions and month-end adjustments listed above; ignore any other adjustments (e.g. expiry of prepaid insurance). Leave lines that do not apply blank. Enter a net loss as a negative number.</p>";
+  s += '<ol class="prose" style="font-size:.95rem"><li>Prepare the Statement of Financial Position as at Dec 31, ' + P2.year + ". (10 marks)</li><li>Prepare journal entries to record the January transactions. (10 marks)</li><li>Prepare the Trial Balance as at Jan 31, " + (P2.year + 1) + ". (10 marks)</li><li>Prepare the Income Statement for the month ended Jan 31, " + (P2.year + 1) + " and the Statement of Financial Position as at Jan 31, " + (P2.year + 1) + ". (25 marks)</li></ol>";
+  // requirement 1
+  s += '<div class="ex-req"><h3>(1) Statement of Financial Position · Dec 31, ' + P2.year + (rev ? ' <span class="tagc">' + R.marks[1] + "/10</span>" : "") + "</h3>" + stmtHTML("ex-r1-", P2.openRows, rev, R && R.r1);
+  if (rev) s += '<p class="hint-sol">' + T("Mẹo: RE cuối năm = RE đầu + (Doanh thu − Chi phí) − Cổ tức = ", "Key step: ending RE = beginning RE + (revenue − expenses) − dividends = ") + D(-P2.open.re) + " + " + D(P2.ni0) + " − " + D(P2.open.div || 0) + " = " + D(P2.reEnd) + ".</p>";
+  s += "</div>";
+  // requirement 2
+  s += '<div class="ex-req"><h3>(2) Journal entries' + (rev ? ' <span class="tagc">' + R.marks[2] + "/10</span>" : "") + "</h3>";
+  P2.txs.forEach((t, ti) => {
+    const rows = Math.max(4, +(S.ans["rows-" + ti] || 4));
+    s += '<div class="je-block"><p class="je-title"><span class="mono">Jan ' + t.day + "</span> " + esc(t.text) + (rev ? ' <span class="tagc' + (R.je[ti] === 1 ? "" : " hot") + '">' + Math.round(R.je[ti] * 100) + "%</span>" : "") + '</p><div class="scroll"><table class="ex-tbl je"><thead><tr><th>' + T("Tài khoản", "Account") + '</th><th class="dr">Debit</th><th class="cr">Credit</th></tr></thead><tbody>';
+    for (let k = 0; k < rows; k++) { const b = "ex-je-" + ti + "-" + k; s += '<tr><td><select id="' + b + '-a" aria-label="Account"' + (rev ? " disabled" : "") + ">" + accOptions(S.ans[b + "-a"]) + '</select></td><td><input type="text" inputmode="decimal" id="' + b + '-d" aria-label="Debit" value="' + esc(S.ans[b + "-d"] || "") + '"' + (rev ? " readonly" : "") + ' autocomplete="off"></td><td><input type="text" inputmode="decimal" id="' + b + '-c" aria-label="Credit" value="' + esc(S.ans[b + "-c"] || "") + '"' + (rev ? " readonly" : "") + ' autocomplete="off"></td></tr>'; }
+    s += "</tbody></table></div>" + (rev ? '<div class="sol"><span class="lab">' + T("Đáp án", "Answer") + "</span>" + jeAnswerHTML(t) + '<p class="hint-sol">' + esc(t.note[L]) + "</p></div>" : '<button type="button" class="linkbtn" data-mid="addrow" data-t="' + ti + '">+ ' + T("Thêm dòng", "Add a line") + "</button>") + "</div>";
+  });
+  s += "</div>";
+  // requirement 3
+  s += '<div class="ex-req"><h3>(3) Trial Balance · Jan 31, ' + (P2.year + 1) + (rev ? ' <span class="tagc">' + R.marks[3] + "/10</span>" : "") + '</h3><p class="statline">' + T("Để trống các tài khoản có số dư bằng 0. Doanh thu, chi phí và cổ tức năm trước đã được khóa sổ vào Retained earnings.", "Leave zero-balance accounts blank. Last year’s revenues, expenses and dividends were closed to retained earnings.") + '</p><div class="scroll"><table class="ex-tbl tb"><thead><tr><th>Account</th><th class="dr">Debit</th><th class="cr">Credit</th><th></th></tr></thead><tbody>';
+  AKEYS.forEach(k => { const row = P2.tb.rows.find(x => x.id === k) || {dr: 0, cr: 0}, st = rev && R.r3.res[k] != null ? (R.r3.res[k] ? " ok" : " bad") : "", b = "ex-tb-" + k;
+    s += "<tr><td>" + nm(k) + '</td><td><input type="text" inputmode="decimal" id="' + b + '-d" aria-label="' + nm(k) + ' debit" value="' + esc(S.ans[b + "-d"] || "") + '" class="' + st + '"' + (rev ? " readonly" : "") + ' autocomplete="off"></td><td><input type="text" inputmode="decimal" id="' + b + '-c" aria-label="' + nm(k) + ' credit" value="' + esc(S.ans[b + "-c"] || "") + '" class="' + st + '"' + (rev ? " readonly" : "") + ' autocomplete="off"></td><td class="exp">' + (rev && st === " bad" ? "→ " + (row.dr ? "Dr " + NUM(row.dr) : row.cr ? "Cr " + NUM(row.cr) : "0") : "") + "</td></tr>"; });
+  const tst = rev ? (R.r3.res.tot ? " ok" : " bad") : "";
+  s += '<tr class="tot dbl"><td>Total</td><td><input type="text" inputmode="decimal" id="ex-tb-tot-d" aria-label="Total debits" value="' + esc(S.ans["ex-tb-tot-d"] || "") + '" class="' + tst + '"' + (rev ? " readonly" : "") + '></td><td><input type="text" inputmode="decimal" id="ex-tb-tot-c" aria-label="Total credits" value="' + esc(S.ans["ex-tb-tot-c"] || "") + '" class="' + tst + '"' + (rev ? " readonly" : "") + '></td><td class="exp">' + (rev && !R.r3.res.tot ? "→ " + NUM(P2.tb.td) : "") + "</td></tr></tbody></table></div></div>";
+  // requirement 4
+  s += '<div class="ex-req"><h3>(4) Income Statement · month ended Jan 31, ' + (P2.year + 1) + (rev ? ' <span class="tagc">' + R.marks[4] + "/25</span>" : "") + "</h3>" + stmtHTML("ex-r4i-", P2.isRows, rev, R && R.r4is);
+  s += "<h3>Statement of Financial Position · Jan 31, " + (P2.year + 1) + "</h3>" + stmtHTML("ex-r4b-", P2.sfpRows, rev, R && R.r4bs);
+  if (rev) s += '<p class="hint-sol">' + T("RE 31/1 = ", "RE at Jan 31 = ") + D(P2.reEnd) + (P2.ni < 0 ? " − " : " + ") + D(P2.ni) + (P2.end.div ? " − " + D(P2.end.div) : "") + " = " + D(P2.reJan) + ".</p>";
+  s += "</div>";
+  if (!rev) s += '<div class="fc-actions" style="margin-top:1.5rem"><button type="button" class="btn pri big" data-mid="submit">' + T("Nộp bài và chấm điểm", "Submit and grade") + "</button></div>";
+  if (!rev) s += '<div class="ex-dock"><span class="t" id="ex-clock"></span><span class="d" id="ex-prog"></span><button type="button" class="btn pri" data-mid="submit">' + T("Nộp bài", "Submit") + "</button></div>";
+  return s;
+}
+function render(){
+  const root = document.getElementById("ex-root"); if (!root) return;
+  root.innerHTML = S ? examHTML() : idleHTML();
+  const sheet = root.closest(".sheet"); if (sheet) sheet.classList.toggle("has-dock", !!(S && !S.submitted));
+  tick();
+}
+function tick(){
+  if (!S || S.submitted) return;
+  const el = document.getElementById("ex-clock"); const pr = document.getElementById("ex-prog");
+  const used = Date.now() - S.started, left = EXAM_MIN * 60000 - used, mmss = ms => { const t = Math.max(0, Math.floor(ms / 1000)); return String(Math.floor(t / 60)).padStart(2, "0") + ":" + String(t % 60).padStart(2, "0"); };
+  if (el) { el.textContent = S.timer ? T("Còn ", "Left ") + mmss(left) : T("Đã làm ", "Elapsed ") + mmss(used); el.classList.toggle("warn", S.timer && left < 10 * 60000); }
+  if (pr) pr.textContent = T("Trắc nghiệm ", "MCQ ") + S.exam.mcq.filter((_, i) => S.ans["mcq-" + i] != null).length + "/15";
+  if (S.timer && left <= 0) submit();
+}
+function onInput(e){
+  const t = e.target; if (!S || S.submitted || !t.id) return;
+  if (t.name && t.name.indexOf("mcq-") === 0) S.ans[t.name] = t.value;
+  else if (t.id.indexOf("ex-") === 0) S.ans[t.id] = t.value;
+  else return;
+  saveSoon(); tick();
+}
+function onClick(e){
+  const b = e.target.closest("[data-mid]"); if (!b) return;
+  const act = b.dataset.mid;
+  const opts = () => ({n: (document.querySelector("input[name=mid-n]:checked") || {value: 5}).value === "8" ? 8 : 5, timer: !document.getElementById("mid-timer") || document.getElementById("mid-timer").checked});
+  const go = () => { render(); if (location.hash !== "#thi-thu") location.hash = "thi-thu"; else window.scrollTo(0, 0); };
+  if (act === "new") { const o = opts(); start(Math.floor(Math.random() * 4294967296), o.n, o.timer); go(); }
+  else if (act === "new-same-opts") { start(Math.floor(Math.random() * 4294967296), S ? S.n : 5, S ? S.timer : true); go(); }
+  else if (act === "retry") { start(S.seed, S.n, S.timer); go(); }
+  else if (act === "code") { const v = seedOf((document.getElementById("mid-code") || {}).value); if (v == null) { const m = document.getElementById("mid-code-msg"); if (m) m.textContent = T("Mã gồm 1–7 chữ cái hoặc chữ số.", "A code is 1–7 letters or digits."); return; } const o = opts(); start(v, o.n, o.timer); go(); }
+  else if (act === "open") { start(seedOf(b.dataset.code), +b.dataset.n === 8 ? 8 : 5, true); go(); }
+  else if (act === "resume") { restore(); go(); }
+  else if (act === "start-default") { start(Math.floor(Math.random() * 4294967296), 5, true); go(); }
+  else if (act === "addrow") { const k = "rows-" + b.dataset.t; S.ans[k] = Math.max(4, +(S.ans[k] || 4)) + 1; saveSoon(); render(); const el = document.getElementById("ex-je-" + b.dataset.t + "-" + (S.ans[k] - 1) + "-a"); if (el) el.focus(); }
+  else if (act === "submit" || act === "quit") {
+    if (act === "quit" && S && S.submitted) { S = null; render(); window.scrollTo(0, 0); return; }
+    if (armed === act) { armed = null; if (act === "submit") submit(); else { S = null; save(); render(); window.scrollTo(0, 0); } return; }
+    armed = act; const old = b.textContent; b.textContent = act === "submit" ? T("Bấm lần nữa để nộp", "Click again to submit") : T("Bấm lần nữa để bỏ đề", "Click again to abandon");
+    setTimeout(() => { if (armed === act) armed = null; if (b.isConnected) b.textContent = old; }, 4000);
+  }
+}
+function init(){
+  restore();
+  document.addEventListener("click", onClick);
+  document.addEventListener("input", e => { if (e.target.closest && e.target.closest("#ex-root")) onInput(e); });
+  document.addEventListener("change", e => { if (e.target.closest && e.target.closest("#ex-root")) onInput(e); });
+  const flush = () => { if (saveT) { clearTimeout(saveT); saveT = null; save(); } };
+  window.addEventListener("pagehide", flush);
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flush(); });
+  setInterval(tick, 1000);
+  render();
+}
+return {init: init, render: render, _build: build, _grade: () => S && grade(), _bank: BANK};
+})();
+
 /* ---------- progress, language & routing ---------- */
 function updatePill(){ $("#pill-known").textContent = FC.known.size + "/" + CARDS.length + T(" thẻ đã nhớ", " cards known"); }
 function renderProgress(){
@@ -3177,7 +4394,7 @@ function setLang(l){
 }
 function applyLang(l){
   setLang(l);
-  FC.paint(); QZ.paint(); DR.relang(); INV.relang(); RC.relang();
+  FC.paint(); QZ.paint(); DR.relang(); INV.relang(); RC.relang(); MID.render();
   updatePill(); renderProgress();
 }
 const VIEWS = Array.from(new Set($$("[data-view]").map(v => v.dataset.view)));
@@ -3192,6 +4409,7 @@ function route(){
   $$("[data-view]").forEach(v => { v.hidden = v.dataset.view !== h; });
   $$(".nav a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + h));
   if (h === "ban-do") renderProgress();
+  if (h === "thi-thu") MID.render();
   if (anchor && anchor.offsetParent !== null) anchor.scrollIntoView({block: "start"}); else window.scrollTo(0, 0);
   const on = $(".nav a.on");
   if (on && window.innerWidth < 980) { const nav = $(".nav"); nav.scrollLeft = on.offsetLeft - nav.clientWidth / 2 + on.clientWidth / 2; }
@@ -3221,7 +4439,7 @@ document.addEventListener("keydown", e => {
 
 setLang(LANG);
 renderJE(); renderTA();
-FC.init(); QZ.init(); DR.init(); INV.init(); RC.init();
+FC.init(); QZ.init(); DR.init(); INV.init(); RC.init(); MID.init();
 updatePill(); renderProgress();
 window.addEventListener("hashchange", route);
 route();
