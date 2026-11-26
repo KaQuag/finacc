@@ -253,6 +253,24 @@ input[type=number]{font-family:var(--f-mono);text-align:right}
 .stack .ei{background:repeating-linear-gradient(45deg,var(--chip) 0 6px,var(--sheet) 6px 12px);display:flex;align-items:center;justify-content:flex-end;padding:0 .4rem;white-space:nowrap;overflow:hidden}
 .legend{display:flex;gap:14px;font-family:var(--f-mono);font-size:.75rem;color:var(--muted);flex-wrap:wrap}
 .legend i{display:inline-block;width:12px;height:12px;border:1px solid var(--ink);vertical-align:-2px;margin-right:4px}
+.dep td,.dep th{padding:.3rem .45rem;border-bottom:1px solid var(--rule)}
+.dep th{font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500;text-align:right;white-space:nowrap}
+.dep th:first-child,.dep td:first-child{text-align:left}
+.dep td.n{text-align:right;font-family:var(--f-mono);font-size:.88rem;white-space:nowrap}
+.dep tr.tot td{border-top:1.5px solid var(--ink);border-bottom:4px double var(--ink);font-weight:600}
+.dep thead tr.g th{text-align:center;color:var(--ink);border-bottom:1.5px solid var(--ink)}
+.dep input{width:6.2rem}
+.depbars{margin:.8rem 0;display:grid;gap:10px}
+.depbars .yr{display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:8px;align-items:center;font-family:var(--f-mono);font-size:.78rem}
+.depbars .tr{display:grid;gap:3px}
+.depbars .bar{display:flex;align-items:center;height:16px;border:1px solid var(--ink);border-radius:3px;overflow:hidden;background:var(--sheet)}
+.depbars .bar b{display:block;height:100%}
+.depbars .bar span{padding:0 .35rem;white-space:nowrap;color:var(--muted);font-size:.72rem}
+.depbars .m0{background:var(--accent)}
+.depbars .m1{background:repeating-linear-gradient(45deg,var(--dr) 0 4px,var(--sheet) 4px 8px)}
+.depbars .m2{background:var(--cr)}
+.legend .l1{background:repeating-linear-gradient(45deg,var(--dr) 0 3px,var(--sheet) 3px 6px)}
+.dispres .je-note{margin-top:.5rem}
 .recon-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 14px;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--rule)}
 .recon-item .t{font-size:.92rem}
 .recon-item .t .n{font-weight:600;margin-left:.3rem}
@@ -346,7 +364,7 @@ a.btn{text-decoration:none;display:inline-block}
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="#ban-do"><b><span data-l="vi">Sổ Tay Kế Toán Tài Chính</span><span data-l="en">Financial Accounting Handbook</span></b><span>Introduction to Financial Accounting · IFRS · Ch1–6</span></a>
+  <a class="brand" href="#ban-do"><b><span data-l="vi">Sổ Tay Kế Toán Tài Chính</span><span data-l="en">Financial Accounting Handbook</span></b><span>Introduction to Financial Accounting · IFRS · Ch1–7</span></a>
   <div class="top-r"><span class="pill" id="pill-known"></span><div class="lang" role="group" aria-label="Ngôn ngữ / Language"><button type="button" data-setlang="vi" aria-pressed="true" title="Tiếng Việt">VI</button><button type="button" data-setlang="en" aria-pressed="false" title="English">EN</button></div></div>
 </header>
 
@@ -363,20 +381,21 @@ a.btn{text-decoration:none;display:inline-block}
   <a href="#ch4"><span class="k">CH4</span><span class="lbl"><span data-l="vi">Trình bày BCTC (IAS 1)</span><span data-l="en">Presentation (IAS 1)</span></span></a>
   <a href="#ch5"><span class="k">CH5</span><span class="lbl"><span data-l="vi">Kiểm soát nội bộ, tiền, phải thu</span><span data-l="en">Control, cash, receivables</span></span></a>
   <a href="#ch6"><span class="k">CH6</span><span class="lbl"><span data-l="vi">Hàng tồn kho</span><span data-l="en">Inventory</span></span></a>
+  <a href="#ch7"><span class="k">CH7</span><span class="lbl"><span data-l="vi">Tài sản cố định (PPE)</span><span data-l="en">Property, plant &amp; equipment</span></span></a>
   <span class="grp"><span data-l="vi">Luyện tập</span><span data-l="en">Practice</span></span>
   <a href="#flashcards"><span class="k"><span data-l="vi">THẺ</span><span data-l="en">CARDS</span></span><span class="lbl">Flashcards</span></a>
   <a href="#trac-nghiem"><span class="k">QUIZ</span><span class="lbl"><span data-l="vi">Trắc nghiệm</span><span data-l="en">Quiz</span></span></a>
   <a href="#no-co"><span class="k"><span data-l="vi">NỢ/CÓ</span><span data-l="en">DR/CR</span></span><span class="lbl"><span data-l="vi">Luyện định khoản</span><span data-l="en">Debit/credit drill</span></span></a>
-  <a href="#cong-cu"><span class="k">LAB</span><span class="lbl"><span data-l="vi">Tồn kho &amp; đối chiếu NH</span><span data-l="en">Inventory &amp; bank rec</span></span></a>
+  <a href="#cong-cu"><span class="k">LAB</span><span class="lbl"><span data-l="vi">Tồn kho, NH &amp; khấu hao</span><span data-l="en">Inventory, bank &amp; depreciation</span></span></a>
 </nav>
 
 <main>
 <!-- ======================= OVERVIEW ======================= -->
 <section class="sheet" data-view="ban-do" data-l="vi">
-  <p class="eyebrow"><span class="tag">Bản đồ</span>Tóm tắt slide Chương 1–6</p>
-  <h1>Sáu chương, một phương trình</h1>
+  <p class="eyebrow"><span class="tag">Bản đồ</span>Tóm tắt slide Chương 1–7</p>
+  <h1>Bảy chương, một phương trình</h1>
   <div class="hero-eq" aria-label="Assets bằng Liabilities cộng Equity">A <span class="op">=</span> L <span class="op">+</span> E</div>
-  <p class="prose">Mọi thứ trong 6 chương đều quay về một câu: <b>tài sản của doanh nghiệp đến từ nợ phải trả hoặc vốn chủ sở hữu</b>. Ghi sổ kép (Ch2) giữ cho phương trình luôn cân. Kế toán dồn tích (Ch3) quyết định <i>khi nào</i> ghi. IAS 1 (Ch4) quyết định <i>trình bày</i> ra sao. Ch5 và Ch6 áp dụng tất cả vào ba tài khoản quan trọng: tiền, phải thu và hàng tồn kho.</p>
+  <p class="prose">Mọi thứ trong 7 chương đều quay về một câu: <b>tài sản của doanh nghiệp đến từ nợ phải trả hoặc vốn chủ sở hữu</b>. Ghi sổ kép (Ch2) giữ cho phương trình luôn cân. Kế toán dồn tích (Ch3) quyết định <i>khi nào</i> ghi. IAS 1 (Ch4) quyết định <i>trình bày</i> ra sao. Ch5 và Ch6 áp dụng tất cả vào ba tài khoản quan trọng: tiền, phải thu và hàng tồn kho. Ch7 thêm nhóm tài sản dài hạn: ghi theo giá gốc, rồi phân bổ dần thành chi phí khấu hao.</p>
 
   <div class="mid-cta"><div style="flex:1 1 260px"><b style="font-family:var(--f-display);font-size:1.15rem">Thi giữa kỳ · tuần 11</b><p style="margin:.3rem 0 0;font-size:.93rem">15 câu trắc nghiệm và 1 bài lập báo cáo tài chính trong 90 phút. Xem cấu trúc đề, lời giải đề thi thử Mely và tạo đề thi thử ngẫu nhiên.</p></div><div class="fc-actions"><a class="btn pri" href="#giua-ky">Mở mục Giữa kỳ</a><button type="button" class="btn" data-mid="start-default">Tạo đề ngay</button></div></div>
 
@@ -407,6 +426,7 @@ a.btn{text-decoration:none;display:inline-block}
     <a class="chcard" href="#ch4"><span class="k">CH4</span><b>Trình bày BCTC (IAS 1)</b><p>Bộ BCTC đầy đủ và các nguyên tắc chung: trọng yếu, không bù trừ, thông tin so sánh, nhất quán.</p><span class="prog" data-prog="4"></span></a>
     <a class="chcard" href="#ch5"><span class="k">CH5</span><b>Kiểm soát nội bộ, tiền, phải thu</b><p>Kiểm soát nội bộ chặn cơ hội gian lận. Đối chiếu ngân hàng làm hai số dư khớp nhau. Phải thu trình bày theo số dự kiến thu được.</p><span class="prog" data-prog="5"></span></a>
     <a class="chcard" href="#ch6"><span class="k">CH6</span><b>Hàng tồn kho</b><p>FIFO, LIFO và bình quân chỉ chia “hàng có để bán” thành giá vốn và tồn kho cuối kỳ. Tồn kho ghi theo giá thấp hơn giữa giá gốc và NRV.</p><span class="prog" data-prog="6"></span></a>
+    <a class="chcard" href="#ch7"><span class="k">CH7</span><b>Tài sản cố định (PPE)</b><p>Ghi theo giá gốc gồm mọi chi phí để tài sản sẵn sàng dùng, rồi phân bổ thành khấu hao. Khi thanh lý, lãi hoặc lỗ tính so với book value.</p><span class="prog" data-prog="7"></span></a>
   </div>
 
   <h2>Công thức phải thuộc</h2>
@@ -424,9 +444,13 @@ a.btn{text-decoration:none;display:inline-block}
       <tr><td>BI + Purchases − EI = COGS</td><td>Mô hình giá vốn; đảo vế để ước tính tồn kho cuối kỳ</td><td>6</td></tr>
       <tr><td>Gross profit % = Gross profit ÷ Net sales</td><td>Phương pháp lãi gộp ước tính tồn kho</td><td>6</td></tr>
       <tr><td>NRV = Giá bán ước tính − Chi phí hoàn thiện &amp; bán</td><td>Tồn kho ghi theo giá thấp hơn giữa Cost và NRV</td><td>6</td></tr>
+      <tr><td>Đường thẳng = (Cost − Residual) ÷ Life</td><td>Mỗi năm như nhau: (41,000 − 1,000) ÷ 5 = 8,000</td><td>7</td></tr>
+      <tr><td>UOP = (Cost − Residual) ÷ Tổng đơn vị × Đơn vị dùng</td><td>0.40/dặm × 30,000 dặm = 12,000</td><td>7</td></tr>
+      <tr><td>DDB = (2 ÷ Life) × Book value đầu năm</td><td>40% × 41,000 = 16,400; bỏ qua residual, năm cuối là số plug</td><td>7</td></tr>
+      <tr><td>Lãi/lỗ thanh lý = Tiền thu − Book value</td><td>7,300 − 6,250 = lãi 1,050</td><td>7</td></tr>
     </tbody>
   </table></div>
-  <p class="muted" style="font-size:.88rem">Lịch kiểm tra theo đề cương: Quiz 1 (tuần 4) gồm Ch1–3; Quiz 2 (tuần 9) gồm Ch4–6; giữa kỳ (tuần 11) gồm Ch1–7. Trang này chưa có Ch7.</p>
+  <p class="muted" style="font-size:.88rem">Lịch kiểm tra theo đề cương: Quiz 1 (tuần 4) gồm Ch1–3; Quiz 2 (tuần 9) gồm Ch4–6; giữa kỳ (tuần 11) gồm Ch1–7.</p>
 </section>
 
 <!-- ======================= CH1 ======================= -->
@@ -1359,15 +1383,244 @@ Accounts Payable | | 1,000
     <details><summary>Bán món hàng giá gốc 15 với giá 25 tiền mặt. Hai bút toán?</summary><p>Nợ Cash 25 / Có Sales Revenue 25; Nợ COGS 15 / Có Inventory 15.</p></details>
   </div>
   <div class="practice"><button class="btn pri" type="button" data-go="cong-cu" data-ch="6">Mở phòng thí nghiệm FIFO/LIFO</button><button class="btn" type="button" data-go="no-co" data-ch="6">Luyện Nợ/Có Ch6</button><button class="btn" type="button" data-go="flashcards" data-ch="6">Flashcards Ch6</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="6">Trắc nghiệm Ch6</button></div>
-  <div class="pager"><a href="#ch5">← Ch5</a><a href="#flashcards">Luyện tập · Flashcards →</a></div>
+  <div class="pager"><a href="#ch5">← Ch5</a><a href="#ch7">Ch7 →</a></div>
+</section>
+
+<!-- ======================= CH7 ======================= -->
+<!-- ======================= CH7 (VI) ======================= -->
+<section class="sheet" data-view="ch7" data-l="vi" hidden>
+  <p class="eyebrow"><span class="tag">Ch7</span>PPE and Intangibles</p>
+  <h1>Tài sản cố định (PPE) và tài sản vô hình</h1>
+  <div class="core"><span class="lab">Cốt lõi</span><p>PPE được ghi nhận theo <b>giá gốc = tổng mọi chi phí để đưa tài sản đến trạng thái sẵn sàng sử dụng</b>. Sau đó <b>khấu hao</b> phân bổ giá gốc ấy thành chi phí qua đời sống hữu dụng: đó là phân bổ chi phí, không phải định giá và không phải để dành tiền. Khi thanh lý, <b>lãi hoặc lỗ = tiền thu được − giá trị còn lại</b>.</p></div>
+  <ul class="lo">
+    <li><a href="#ch7-71"><b>7.1</b>Các loại tài sản dài hạn</a></li>
+    <li><a href="#ch7-72"><b>7.2</b>Giá gốc khi ghi nhận</a></li>
+    <li><a href="#ch7-73"><b>7.3</b>Chi phí phát sinh sau</a></li>
+    <li><a href="#ch7-74"><b>7.4</b>Khấu hao</a></li>
+    <li><a href="#ch7-75"><b>7.5</b>Thanh lý PPE</a></li>
+    <li><a href="#ch7-76"><b>7.6–7.7</b>Vô hình &amp; dòng tiền</a></li>
+  </ul>
+
+  <div class="prose">
+  <h2 id="ch7-71"><span class="sec">7.1</span>Các loại tài sản dài hạn</h2>
+  <p>Mỗi nhóm tài sản dài hạn có một tài khoản chi phí đi kèm. <b>Giá gốc của bất kỳ tài sản nào là tổng mọi chi phí để đưa nó đến trạng thái sẵn sàng sử dụng</b>: giá mua, thuế, hoa hồng và các chi phí khác để tài sản dùng được.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Tài sản (balance sheet)</th><th>Chi phí đi kèm (income statement)</th></tr></thead>
+    <tbody>
+      <tr><td>Land (đất)</td><td><b>Không có</b>, đất không khấu hao</td></tr>
+      <tr><td>Buildings, Machinery, Equipment, Furniture and fixtures, Land improvements</td><td>Depreciation expense</td></tr>
+      <tr><td>Natural resources (tài nguyên thiên nhiên)</td><td>Depletion expense (đi qua giá vốn hàng bán)</td></tr>
+      <tr><td>Intangible assets (tài sản vô hình)</td><td>Amortization expense</td></tr>
+    </tbody>
+  </table></div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Hữu hình: Depreciation. Tài nguyên: Depletion. Vô hình: Amortization. Đất: không gì cả.</span>
+    <p>Ba chữ cùng một ý (phân bổ giá gốc thành chi phí), chỉ khác loại tài sản. Chỉ có <b>đất</b> không bị phân bổ vì không hao mòn.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch7-72"><span class="sec">7.2</span>Giá gốc khi ghi nhận ban đầu</h2>
+  <p>Quy tắc chung: chi phí nào cần để tài sản <b>sẵn sàng dùng</b> thì cộng vào giá gốc. Chi phí không cần cho việc đó (bảo vệ, lát sân, chiếu sáng quanh đất) thuộc về tài sản khác.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Land</h3><ul><li>Giá mua, hoa hồng môi giới</li><li>Phí đo đạc, phí pháp lý</li><li>Thuế bất động sản còn nợ (back property taxes)</li><li>San lấp, dọn dẹp mặt bằng</li><li>Phá dỡ công trình không cần</li></ul><p class="muted">Không gồm hàng rào, lát sân, hệ thống an ninh, chiếu sáng.</p></div>
+    <div class="box"><h3>Land improvements &amp; Leasehold improvements</h3><ul><li><b>Land improvements:</b> đường vào, biển hiệu, hàng rào, hệ thống tưới</li><li><b>Leasehold improvements:</b> cải tạo trên tài sản đi thuê</li></ul><p>Cả hai đều <b>khấu hao</b>; leasehold improvements khấu hao theo <b>thời hạn thuê</b>.</p></div>
+    <div class="box"><h3>Xây dựng tòa nhà</h3><ul><li>Phí kiến trúc, giấy phép xây dựng</li><li>Chi phí nhà thầu</li><li>Vật liệu, nhân công, chi phí chung</li><li><b>Lãi vay dùng để xây dựng</b></li></ul></div>
+    <div class="box"><h3>Mua tòa nhà</h3><ul><li>Giá mua, hoa hồng môi giới</li><li>Thuế mua bán và thuế khác</li><li>Chi phí sửa chữa, cải tạo để dùng đúng mục đích</li></ul></div>
+  </div>
+  <div class="box" style="margin-top:1rem"><h3>Machinery &amp; Equipment</h3><ul><li>Giá mua <b>trừ chiết khấu</b></li><li>Vận chuyển từ người bán, bảo hiểm khi vận chuyển</li><li>Thuế mua hàng, hoa hồng mua</li><li><b>Lắp đặt</b>, chi phí <b>chạy thử trước khi đưa vào dùng</b>, bệ đỡ đặc biệt</li></ul></div>
+
+  <div class="prose">
+  <h3>Ví dụ: mua đất của Airbus</h3>
+  <p>Airbus ký giấy nhận nợ €300,000 để mua đất xây điểm logistics. Airbus trả tiền mặt hoa hồng €10,000, thuế trước bạ (stamp duty) €13,000, phí đo đạc €1,000 và €16,000 lát bãi đậu xe. Giá gốc của đất là bao nhiêu?</p>
+  </div>
+  <div class="scroll"><table class="fs" style="max-width:560px">
+    <tr class="h"><td>Giá gốc của đất</td><td class="n"></td><td class="n">€</td></tr>
+    <tr><td>Purchase price</td><td></td><td class="n">300,000</td></tr>
+    <tr><td class="ind">Real estate commission</td><td class="n">10,000</td><td></td></tr>
+    <tr><td class="ind">Stamp duty</td><td class="n">13,000</td><td></td></tr>
+    <tr><td class="ind">Survey fee</td><td class="n">1,000</td><td></td></tr>
+    <tr class="sub"><td>Chi phí liên quan</td><td></td><td class="n">24,000</td></tr>
+    <tr class="tot"><td>Total cost of land</td><td></td><td class="n">324,000</td></tr>
+  </table></div>
+  <pre class="je">@Mua đất
+Land | 324,000 |
+Notes Payable | | 300,000
+Cash | | 24,000
+# 300,000 + 10,000 + 13,000 + 1,000. Bãi đậu xe 16,000 KHÔNG vào giá đất
+@Lát sân
+Land Improvements | 16,000 |
+Cash | | 16,000
+# Land improvements là tài sản riêng và được khấu hao</pre>
+
+  <div class="prose">
+  <h3>Mua gộp nhiều tài sản (lump-sum / basket purchase)</h3>
+  <p>Khi mua nhiều tài sản với một giá chung, chia tổng giá theo <b>tỷ lệ giá trị hợp lý (relative-sales-value method)</b>. Airbus mua đất và tòa nhà ở Luxembourg với giá chung €2.7 triệu. Thẩm định cho thấy đất €1 triệu, nhà €2 triệu.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Tài sản</th><th class="n">Giá trị hợp lý</th><th class="n">Tỷ trọng</th><th class="n">Giá gốc ghi nhận</th></tr></thead>
+    <tbody>
+      <tr><td>Land</td><td class="mono n">1,000,000</td><td class="mono n">1/3</td><td class="mono n"><b>900,000</b></td></tr>
+      <tr><td>Building</td><td class="mono n">2,000,000</td><td class="mono n">2/3</td><td class="mono n"><b>1,800,000</b></td></tr>
+      <tr><td>Tổng</td><td class="mono n">3,000,000</td><td class="mono n">100%</td><td class="mono n"><b>2,700,000</b></td></tr>
+    </tbody>
+  </table></div>
+  <pre class="je">@Mua gộp
+Land | 900,000 |
+Building | 1,800,000 |
+Cash | | 2,700,000
+# Giá gốc = giá mua chung × (giá trị hợp lý của từng tài sản ÷ tổng giá trị hợp lý)</pre>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Giá gốc = giá mua + mọi chi phí để sẵn sàng dùng.</span>
+    <p>Hỏi “có cần để tài sản dùng được không?” Lắp đặt, chạy thử, vận chuyển: <b>có</b>. Bảo trì sau khi đã dùng, lát sân, rào quanh đất: <b>không</b> (chi phí hoặc land improvements). Mua gộp thì chia theo <b>giá trị hợp lý</b>, không chia đôi.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch7-73"><span class="sec">7.3</span>Chi phí phát sinh sau khi đã đưa vào dùng</h2>
+  <p><b>Capital expenditure</b> làm tăng năng lực hoặc kéo dài đời sống hữu dụng của tài sản, nên được <b>vốn hóa (capitalized)</b>: cộng vào tài khoản tài sản thay vì ghi chi phí ngay. Chi phí không làm tăng năng lực hay kéo dài đời sống (bảo trì, sửa chữa thường xuyên) ghi vào <b>chi phí</b> ngay trong kỳ.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Vốn hóa (Dr Asset)</h3><ul><li>Đại tu động cơ kéo dài đời xe thêm 3 năm</li><li>Xây thêm một cánh nhà cho tòa nhà văn phòng</li></ul></div>
+    <div class="box"><h3>Ghi chi phí (Dr Expense)</h3><ul><li>Thay dầu, sửa chữa nhỏ định kỳ</li><li>Sơn lại văn phòng để giữ tình trạng bình thường</li></ul></div>
+  </div>
+  <p class="muted" style="font-size:.88rem">Các ví dụ trên là ví dụ minh họa cho định nghĩa trong slide (slide chỉ nêu định nghĩa).</p>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <p><b>“Tăng năng lực hoặc kéo dài tuổi thọ” = vốn hóa.</b> Chỉ giữ cho tài sản chạy như cũ = chi phí. Vốn hóa sai làm lợi nhuận kỳ này bị thổi phồng và tài sản bị thổi phồng.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch7-74"><span class="sec">7.4</span>Đo lường và ghi nhận khấu hao</h2>
+  <p><b>Book value (carrying amount) = Cost − Accumulated depreciation.</b> Khấu hao là quá trình phân bổ giá gốc của tài sản thành chi phí qua đời sống của nó, đối ứng với doanh thu mà tài sản giúp tạo ra. Khấu hao hiện trên income statement. <b>Đất không khấu hao.</b></p>
+  <p>Khấu hao <b>không phải</b> là định giá lại tài sản, và <b>không có nghĩa</b> là để dành tiền thay thế tài sản khi nó hỏng. Nguyên nhân là hao mòn vật lý hoặc lỗi thời.</p>
+  <p>Ba dữ liệu cần có: <b>Cost</b> (đã biết), <b>Estimated useful life</b> (ước tính), <b>Estimated residual value</b> (giá trị còn lại ước tính khi hết đời sống, ước tính).</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Phương pháp</th><th>Cách tính</th><th>Hợp với tài sản</th></tr></thead>
+    <tbody>
+      <tr><td><b>Straight-line</b> (đường thẳng)</td><td class="mono">(Cost − Residual) ÷ Life (năm)</td><td>Tạo doanh thu đều theo thời gian</td></tr>
+      <tr><td><b>Units-of-production</b></td><td class="mono">(Cost − Residual) ÷ tổng đơn vị = mức/đơn vị; × số đơn vị dùng trong kỳ</td><td>Hao mòn theo mức sử dụng</td></tr>
+      <tr><td><b>Double-declining-balance</b></td><td class="mono">Tỷ lệ = (1 ÷ Life) × 2; × book value đầu năm</td><td>Tạo nhiều doanh thu hơn ở những năm đầu</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <h3>Dữ liệu Exhibit 7-6: xe tải của Airbus</h3>
+  <p>Cost €41,000; residual €1,000, nên <b>depreciable cost = €40,000</b>. Đời sống 5 năm hoặc 100,000 dặm. Ví dụ dự kiến chạy 20,000 / 30,000 / 25,000 / 15,000 / 10,000 dặm qua 5 năm.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Năm</th><th class="n">Dặm</th><th class="n">Straight-line</th><th class="n">Units-of-production</th><th class="n">Double-declining</th></tr></thead>
+    <tbody>
+      <tr><td>20X5</td><td class="mono n">20,000</td><td class="mono n">8,000</td><td class="mono n">8,000</td><td class="mono n">16,400</td></tr>
+      <tr><td>20X6</td><td class="mono n">30,000</td><td class="mono n">8,000</td><td class="mono n">12,000</td><td class="mono n">9,840</td></tr>
+      <tr><td>20X7</td><td class="mono n">25,000</td><td class="mono n">8,000</td><td class="mono n">10,000</td><td class="mono n">5,904</td></tr>
+      <tr><td>20X8</td><td class="mono n">15,000</td><td class="mono n">8,000</td><td class="mono n">6,000</td><td class="mono n">3,542</td></tr>
+      <tr><td>20X9</td><td class="mono n">10,000</td><td class="mono n">8,000</td><td class="mono n">4,000</td><td class="mono n">4,314 <span class="muted">(plug)</span></td></tr>
+      <tr><td><b>Tổng</b></td><td class="mono n">100,000</td><td class="mono n"><b>40,000</b></td><td class="mono n"><b>40,000</b></td><td class="mono n"><b>40,000</b></td></tr>
+      <tr><td>Book value cuối 20X9</td><td></td><td class="mono n">1,000</td><td class="mono n">1,000</td><td class="mono n">1,000</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <ul>
+    <li><b>Straight-line:</b> (41,000 − 1,000) ÷ 5 = <b>8,000/năm</b> (tỷ lệ 20%).</li>
+    <li><b>Units-of-production:</b> (41,000 − 1,000) ÷ 100,000 = <b>€0.40/dặm</b>; năm 1: 0.40 × 20,000 = 8,000.</li>
+    <li><b>Double-declining-balance:</b> tỷ lệ = 1/5 × 2 = <b>40%</b>; năm 1: 40% × 41,000 = 16,400; năm 2: 40% × (41,000 − 16,400) = 40% × 24,600 = 9,840; năm 3: 40% × 14,760 = 5,904; năm 4: 40% × 8,856 = 3,542. Năm cuối là <b>số “plug”</b>: book value 5,314 − residual 1,000 = <b>4,314</b>.</li>
+  </ul>
+  </div>
+  <pre class="je">@31/12
+Depreciation Expense | 8,000 |
+Accumulated Depreciation | | 8,000
+# Mọi phương pháp dùng cùng một bút toán, chỉ số tiền khác nhau</pre>
+  <div class="grid2">
+    <div class="box"><h3>DDB khác hai phương pháp kia ở hai điểm</h3><ul><li>Năm đầu <b>bỏ qua residual</b>: nhân tỷ lệ với book value, không phải depreciable cost</li><li>Năm cuối là <b>plug</b> để book value = residual</li></ul></div>
+    <div class="box"><h3>Khấu hao theo tháng</h3><p>Mua giữa năm thì tính theo tháng: <b>Khấu hao năm × số tháng ÷ 12</b>. Ví dụ 10,000 ÷ 10 năm × 9/12 = 750.</p></div>
+  </div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Ba phương pháp: tổng khấu hao bằng nhau, chỉ khác thời điểm.</span>
+    <p>Tổng khấu hao trọn đời luôn là depreciable cost (40,000). Straight-line phẳng, UOP lên xuống theo mức dùng, DDB dồn nhiều ở những năm đầu. Với UOP, nếu năm đó dùng nhiều thì khấu hao nhiều.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch7-75"><span class="sec">7.5</span>Thanh lý PPE (disposal)</h2>
+  <p>Trước khi thanh lý, <b>cập nhật khấu hao đến ngày thanh lý</b>: để có book value cuối cùng và ghi đủ chi phí đến ngày đó. Sau đó xóa cả <b>nguyên giá</b> và <b>khấu hao lũy kế</b> khỏi sổ.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Hết khấu hao, không thu tiền</h3><p>Máy nguyên giá 60,000, residual 0, vừa ghi khấu hao năm cuối. Không có lãi hay lỗ.</p></div>
+    <div class="box"><h3>Chưa hết khấu hao, không thu tiền</h3><p>Thiết bị nguyên giá 60,000, khấu hao lũy kế 50,000, book value 10,000. Book value còn lại là <b>lỗ 10,000</b>.</p></div>
+  </div>
+  <pre class="je">@Bỏ đi (1)
+Accumulated Depreciation, Machinery | 60,000 |
+Machinery | | 60,000
+@Bỏ đi (2)
+Accumulated Depreciation, Equipment | 50,000 |
+Loss on Disposal of Equipment | 10,000 |
+Equipment | | 60,000
+# Lỗ = book value 10,000 vì không thu được đồng nào</pre>
+  <div class="prose">
+  <h3>Bán PPE: ví dụ Zar Zar Trading</h3>
+  <p>Ngày 30/9/20X8 bán thiết bị được <b>$7,300 tiền mặt</b>. Thiết bị nguyên giá $10,000, mua ngày 1/1/20X5, khấu hao đường thẳng, đời sống 10 năm, không có residual.</p>
+  </div>
+  <pre class="je">@30/9 (1)
+Depreciation Expense | 750 |
+Accumulated Depreciation, Equipment | | 750
+# Bước 1: cập nhật khấu hao. 10,000 ÷ 10 năm × 9/12 = 750
+@30/9 (2)
+Cash | 7,300 |
+Accumulated Depreciation, Equipment | 3,750 |
+Equipment | | 10,000
+Gain on Sale of Equipment | | 1,050
+# Bước 2: ghi nhận bán. Lãi 1,050 = 7,300 − 6,250 (book value)</pre>
+  <div class="scroll"><table class="fs" style="max-width:560px">
+    <tr class="h"><td>Tính lãi/lỗ khi bán</td><td class="n"></td><td class="n">$</td></tr>
+    <tr><td>Cash received from sale</td><td></td><td class="n">7,300</td></tr>
+    <tr><td>Cost</td><td class="n">10,000</td><td></td></tr>
+    <tr><td class="ind">Less: Accumulated depreciation (1,000 × 3 năm + 750)</td><td class="n">(3,750)</td><td></td></tr>
+    <tr class="sub"><td>Book value of asset sold</td><td></td><td class="n">(6,250)</td></tr>
+    <tr class="tot"><td>Gain on sale of the asset</td><td></td><td class="n">1,050</td></tr>
+  </table></div>
+  <div class="anchor"><span class="lab">Neo nhớ</span>
+    <span class="big">Lãi/lỗ = Tiền thu − Book value. Không phải − nguyên giá.</span>
+    <p>Bán trên book value là <b>lãi</b> (ghi Có), dưới book value là <b>lỗ</b> (ghi Nợ). Bút toán luôn: Nợ Cash, Nợ Accumulated Depreciation, Có Equipment (nguyên giá), rồi cân bằng bằng lãi hoặc lỗ.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch7-76"><span class="sec">7.6–7.7</span>Tài sản vô hình và báo cáo dòng tiền</h2>
+  </div>
+  <div class="box"><h3>Ngoài slide: đọc thêm trong giáo trình</h3>
+    <p>Mục tiêu học tập 7.6 (ghi nhận và đo lường tài sản vô hình) và 7.7 (trình bày nghiệp vụ tài sản dài hạn trong báo cáo lưu chuyển tiền tệ) có trong danh sách mục tiêu của slide, nhưng bộ slide Ch7 <b>không có nội dung cho hai mục này</b>. Slide chỉ nhắc rằng tài sản vô hình đi kèm chi phí <b>amortization</b>. Các điểm dưới đây là kiến thức chuẩn theo IFRS, hãy đối chiếu với giáo trình trước khi ôn thi.</p>
+    <ul>
+      <li>Tài sản vô hình có thời hạn hữu hạn được <b>amortize</b> đều theo đời sống hữu dụng. Tài sản vô hình có thời hạn không xác định và goodwill <b>không amortize</b>, mà kiểm tra suy giảm giá trị.</li>
+      <li>Trong báo cáo lưu chuyển tiền tệ: mua PPE là <b>dòng tiền chi từ hoạt động đầu tư</b>; tiền thu từ bán PPE là <b>dòng tiền thu từ hoạt động đầu tư</b> (số tiền thu được, không phải lãi/lỗ); khấu hao là chi phí không bằng tiền nên được cộng lại ở hoạt động kinh doanh (phương pháp gián tiếp).</li>
+    </ul>
+  </div>
+
+  <div class="traps"><span class="stamp">Bẫy hay gặp</span>
+    <ul>
+      <li>Giá gốc đất <b>không gồm</b> lát sân, hàng rào, hệ thống an ninh, chiếu sáng. Đó là land improvements. <b>Có gồm</b> phí đo đạc, môi giới, pháp lý, san lấp, phá dỡ.</li>
+      <li>Lãi vay <b>dùng để xây dựng</b> tòa nhà được tính vào giá gốc. Chi phí thử máy trước khi đưa vào dùng cũng vậy.</li>
+      <li>Mua gộp: chia theo <b>tỷ lệ giá trị hợp lý</b>, không chia đôi. Giá trị hợp lý không nhất thiết bằng giá mua chung.</li>
+      <li>DDB: tỷ lệ nhân với <b>book value</b> đầu năm, <b>không trừ residual</b>; năm cuối là plug để chạm residual.</li>
+      <li>UOP: mức/đơn vị = (Cost − Residual) ÷ <b>tổng đơn vị</b>, không phải số năm.</li>
+      <li>Mua giữa năm: khấu hao theo <b>tháng</b>. Quên bước cập nhật khấu hao đến ngày bán thì book value và lãi/lỗ sẽ sai.</li>
+      <li>Lãi/lỗ tính trên <b>book value</b>, không phải nguyên giá. Khấu hao <b>không phải</b> định giá, cũng <b>không phải</b> để dành tiền.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Hỏi nhanh</span>
+    <details><summary>Trả €300,000 mua đất, thêm €24,000 hoa hồng, thuế, đo đạc và €16,000 lát sân. Giá gốc đất?</summary><p>€324,000. Lát sân 16,000 là land improvements.</p></details>
+    <details><summary>Mua gộp đất và nhà €2.7 triệu; giá trị hợp lý đất €1 triệu, nhà €2 triệu. Nhà ghi bao nhiêu?</summary><p>€1,800,000 (2/3 × 2.7 triệu). Đất €900,000.</p></details>
+    <details><summary>Cost 41,000, residual 1,000, 5 năm. DDB năm 1 và năm 2?</summary><p>40% × 41,000 = 16,400. Năm 2: 40% × 24,600 = 9,840.</p></details>
+    <details><summary>Nguyên giá 60,000, khấu hao lũy kế 50,000, bỏ đi không thu tiền. Bút toán?</summary><p>Nợ Accumulated Depreciation 50,000, Nợ Loss on Disposal 10,000, Có Equipment 60,000.</p></details>
+    <details><summary>Bán thiết bị book value 6,250 được 7,300. Lãi hay lỗ?</summary><p>Lãi 1,050 (7,300 − 6,250).</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="cong-cu" data-ch="7">Mở công cụ khấu hao</button><button class="btn" type="button" data-go="no-co" data-ch="7">Luyện Nợ/Có Ch7</button><button class="btn" type="button" data-go="flashcards" data-ch="7">Flashcards Ch7</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="7">Trắc nghiệm Ch7</button></div>
+  <div class="pager"><a href="#ch6">← Ch6</a><a href="#giua-ky">Thi giữa kỳ →</a></div>
 </section>
 
 <!-- ======================= OVERVIEW (EN) ======================= -->
 <section class="sheet" data-view="ban-do" data-l="en">
-  <p class="eyebrow"><span class="tag">Map</span>Summary of the slides, Chapters 1–6</p>
-  <h1>Six chapters, one equation</h1>
+  <p class="eyebrow"><span class="tag">Map</span>Summary of the slides, Chapters 1–7</p>
+  <h1>Seven chapters, one equation</h1>
   <div class="hero-eq" aria-label="Assets equal Liabilities plus Equity">A <span class="op">=</span> L <span class="op">+</span> E</div>
-  <p class="prose">Everything in these six chapters comes back to one sentence: <b>a business’s assets are financed either by liabilities or by equity</b>. Double-entry bookkeeping (Ch2) keeps the equation in balance. Accrual accounting (Ch3) decides <i>when</i> to record. IAS 1 (Ch4) decides how to <i>present</i>. Ch5 and Ch6 apply all of it to three key accounts: cash, receivables and inventory.</p>
+  <p class="prose">Everything in these seven chapters comes back to one sentence: <b>a business’s assets are financed either by liabilities or by equity</b>. Double-entry bookkeeping (Ch2) keeps the equation in balance. Accrual accounting (Ch3) decides <i>when</i> to record. IAS 1 (Ch4) decides how to <i>present</i>. Ch5 and Ch6 apply all of it to three key accounts: cash, receivables and inventory. Ch7 adds long-term assets: record them at cost, then spread that cost over time as depreciation expense.</p>
 
   <div class="mid-cta"><div style="flex:1 1 260px"><b style="font-family:var(--f-display);font-size:1.15rem">Midterm · week 11</b><p style="margin:.3rem 0 0;font-size:.93rem">15 multiple-choice questions and one financial statements question in 90 minutes. See the structure, the Mely mock solution, and generate random mock exams.</p></div><div class="fc-actions"><a class="btn pri" href="#giua-ky">Open the Midterm section</a><button type="button" class="btn" data-mid="start-default">Start a mock exam</button></div></div>
 
@@ -1398,6 +1651,7 @@ Accounts Payable | | 1,000
     <a class="chcard" href="#ch4"><span class="k">CH4</span><b>Presentation (IAS 1)</b><p>The complete set of statements and the general features: materiality, no offsetting, comparatives, consistency.</p><span class="prog" data-prog="4"></span></a>
     <a class="chcard" href="#ch5"><span class="k">CH5</span><b>Internal control, cash, receivables</b><p>Internal control removes the opportunity for fraud. A bank reconciliation makes two balances agree. Receivables are shown at the amount expected to be collected.</p><span class="prog" data-prog="5"></span></a>
     <a class="chcard" href="#ch6"><span class="k">CH6</span><b>Inventory</b><p>FIFO, LIFO and average cost only split goods available into COGS and ending inventory. Inventory is carried at the lower of cost and NRV.</p><span class="prog" data-prog="6"></span></a>
+    <a class="chcard" href="#ch7"><span class="k">CH7</span><b>Property, plant and equipment</b><p>Record at cost, including everything needed to get the asset ready for use, then allocate it as depreciation. On disposal, gain or loss is measured against book value.</p><span class="prog" data-prog="7"></span></a>
   </div>
 
   <h2>Formulas to know by heart</h2>
@@ -1415,9 +1669,13 @@ Accounts Payable | | 1,000
       <tr><td>BI + Purchases − EI = COGS</td><td>The COGS model; rearrange it to estimate ending inventory</td><td>6</td></tr>
       <tr><td>Gross profit % = Gross profit ÷ Net sales</td><td>Gross profit method for estimating inventory</td><td>6</td></tr>
       <tr><td>NRV = Estimated selling price − Costs to complete &amp; sell</td><td>Inventory at the lower of cost and NRV</td><td>6</td></tr>
+      <tr><td>Straight-line = (Cost − Residual) ÷ Life</td><td>The same every year: (41,000 − 1,000) ÷ 5 = 8,000</td><td>7</td></tr>
+      <tr><td>UOP = (Cost − Residual) ÷ Total units × Units used</td><td>0.40 per mile × 30,000 miles = 12,000</td><td>7</td></tr>
+      <tr><td>DDB = (2 ÷ Life) × Beginning book value</td><td>40% × 41,000 = 16,400; ignore the residual, last year is a plug</td><td>7</td></tr>
+      <tr><td>Gain/loss on disposal = Proceeds − Book value</td><td>7,300 − 6,250 = gain of 1,050</td><td>7</td></tr>
     </tbody>
   </table></div>
-  <p class="muted" style="font-size:.88rem">Assessment schedule from the syllabus: Quiz 1 (week 4) covers Ch1–3; Quiz 2 (week 9) covers Ch4–6; the midterm (week 11) covers Ch1–7. Ch7 is not on this page yet.</p>
+  <p class="muted" style="font-size:.88rem">Assessment schedule from the syllabus: Quiz 1 (week 4) covers Ch1–3; Quiz 2 (week 9) covers Ch4–6; the midterm (week 11) covers Ch1–7.</p>
 </section>
 
 <!-- ======================= CH1 (EN) ======================= -->
@@ -2350,7 +2608,236 @@ Accounts Payable | | 1,000
     <details><summary>An item costing 15 is sold for 25 cash. The two entries?</summary><p>Dr Cash 25 / Cr Sales Revenue 25; Dr COGS 15 / Cr Inventory 15.</p></details>
   </div>
   <div class="practice"><button class="btn pri" type="button" data-go="cong-cu" data-ch="6">Open the FIFO/LIFO lab</button><button class="btn" type="button" data-go="no-co" data-ch="6">Ch6 debit/credit drill</button><button class="btn" type="button" data-go="flashcards" data-ch="6">Ch6 flashcards</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="6">Ch6 quiz</button></div>
-  <div class="pager"><a href="#ch5">← Ch5</a><a href="#flashcards">Practice · Flashcards →</a></div>
+  <div class="pager"><a href="#ch5">← Ch5</a><a href="#ch7">Ch7 →</a></div>
+</section>
+
+<!-- ======================= CH7 (EN) ======================= -->
+<!-- ======================= CH7 (EN) ======================= -->
+<section class="sheet" data-view="ch7" data-l="en" hidden>
+  <p class="eyebrow"><span class="tag">Ch7</span>PPE and Intangibles</p>
+  <h1>Property, plant and equipment (PPE) and intangibles</h1>
+  <div class="core"><span class="lab">Core idea</span><p>PPE is recorded at <b>cost = the sum of all costs needed to bring the asset to its intended use</b>. <b>Depreciation</b> then spreads that cost into expense over the asset’s useful life: it is cost allocation, not valuation, and not a way of saving cash. On disposal, <b>gain or loss = proceeds − book value</b>.</p></div>
+  <ul class="lo">
+    <li><a href="#ch7-71-en"><b>7.1</b>Types of long-term assets</a></li>
+    <li><a href="#ch7-72-en"><b>7.2</b>Cost on initial recognition</a></li>
+    <li><a href="#ch7-73-en"><b>7.3</b>Subsequent costs</a></li>
+    <li><a href="#ch7-74-en"><b>7.4</b>Depreciation</a></li>
+    <li><a href="#ch7-75-en"><b>7.5</b>Disposals</a></li>
+    <li><a href="#ch7-76-en"><b>7.6–7.7</b>Intangibles &amp; cash flows</a></li>
+  </ul>
+
+  <div class="prose">
+  <h2 id="ch7-71-en"><span class="sec">7.1</span>Types of long-term assets</h2>
+  <p>Each group of long-term assets has a related expense account. <b>The cost of any asset is the sum of all the costs incurred to bring it to its intended use</b>: purchase price, taxes, commissions and any other cost of making the asset ready for use.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Asset (balance sheet)</th><th>Related expense (income statement)</th></tr></thead>
+    <tbody>
+      <tr><td>Land</td><td><b>None</b>: land is not depreciated</td></tr>
+      <tr><td>Buildings, Machinery, Equipment, Furniture and fixtures, Land improvements</td><td>Depreciation expense</td></tr>
+      <tr><td>Natural resources</td><td>Depletion expense (through cost of goods sold)</td></tr>
+      <tr><td>Intangible assets</td><td>Amortization expense</td></tr>
+    </tbody>
+  </table></div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Tangible: depreciation. Resources: depletion. Intangible: amortization. Land: nothing.</span>
+    <p>Three words, one idea (allocating cost to expense); only the asset type changes. Only <b>land</b> is not allocated, because it does not wear out.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch7-72-en"><span class="sec">7.2</span>Cost on initial recognition</h2>
+  <p>General rule: any cost needed to make the asset <b>ready for use</b> goes into its cost. A cost that is not needed for that (security, paving, lighting around the land) belongs to a different asset.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Land</h3><ul><li>Purchase price, brokerage commission</li><li>Survey and legal fees</li><li>Back property taxes</li><li>Grading and clearing the land</li><li>Removing unwanted buildings</li></ul><p class="muted">Not included: fencing, paving, security systems, lighting.</p></div>
+    <div class="box"><h3>Land improvements &amp; leasehold improvements</h3><ul><li><b>Land improvements:</b> driveways, signs, fences, sprinkler systems</li><li><b>Leasehold improvements:</b> improvements made to leased property</li></ul><p>Both are <b>depreciated</b>; leasehold improvements over the <b>lease term</b>.</p></div>
+    <div class="box"><h3>Constructing a building</h3><ul><li>Architectural fees, building permits</li><li>Contractors’ charges</li><li>Materials, labor and overhead</li><li><b>Interest on money borrowed to finance construction</b></li></ul></div>
+    <div class="box"><h3>Purchasing a building</h3><ul><li>Purchase price, brokerage commission</li><li>Sales and other taxes</li><li>Repairs and renovation needed for its intended purpose</li></ul></div>
+  </div>
+  <div class="box" style="margin-top:1rem"><h3>Machinery &amp; equipment</h3><ul><li>Purchase price <b>less any discounts</b></li><li>Transportation from the seller, insurance in transit</li><li>Sales and other taxes, purchase commission</li><li><b>Installation</b>, <b>testing before the asset is placed in service</b>, special platforms</li></ul></div>
+
+  <div class="prose">
+  <h3>Example: Airbus buys land</h3>
+  <p>Airbus signs a €300,000 note payable to buy land for a new logistics site. It also pays in cash €10,000 of real estate commission, €13,000 of stamp duty, a €1,000 survey fee and €16,000 to pave the parking lot. What is the cost of the land?</p>
+  </div>
+  <div class="scroll"><table class="fs" style="max-width:560px">
+    <tr class="h"><td>Cost of land</td><td class="n"></td><td class="n">€</td></tr>
+    <tr><td>Purchase price</td><td></td><td class="n">300,000</td></tr>
+    <tr><td class="ind">Real estate commission</td><td class="n">10,000</td><td></td></tr>
+    <tr><td class="ind">Stamp duty</td><td class="n">13,000</td><td></td></tr>
+    <tr><td class="ind">Survey fee</td><td class="n">1,000</td><td></td></tr>
+    <tr class="sub"><td>Related costs</td><td></td><td class="n">24,000</td></tr>
+    <tr class="tot"><td>Total cost of land</td><td></td><td class="n">324,000</td></tr>
+  </table></div>
+  <pre class="je">@Buy land
+Land | 324,000 |
+Notes Payable | | 300,000
+Cash | | 24,000
+# 300,000 + 10,000 + 13,000 + 1,000. The 16,000 for paving is NOT part of land
+@Paving
+Land Improvements | 16,000 |
+Cash | | 16,000
+# Land improvements are a separate asset and are depreciated</pre>
+
+  <div class="prose">
+  <h3>Lump-sum (basket) purchases</h3>
+  <p>When several assets are bought for one price, split the total by <b>relative fair values (relative-sales-value method)</b>. Airbus buys land and a building in Luxembourg for a combined €2.7 million. An appraisal says the land is worth €1 million and the building €2 million.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Asset</th><th class="n">Fair value</th><th class="n">Share</th><th class="n">Cost recorded</th></tr></thead>
+    <tbody>
+      <tr><td>Land</td><td class="mono n">1,000,000</td><td class="mono n">1/3</td><td class="mono n"><b>900,000</b></td></tr>
+      <tr><td>Building</td><td class="mono n">2,000,000</td><td class="mono n">2/3</td><td class="mono n"><b>1,800,000</b></td></tr>
+      <tr><td>Total</td><td class="mono n">3,000,000</td><td class="mono n">100%</td><td class="mono n"><b>2,700,000</b></td></tr>
+    </tbody>
+  </table></div>
+  <pre class="je">@Lump sum
+Land | 900,000 |
+Building | 1,800,000 |
+Cash | | 2,700,000
+# Cost = total price × (asset’s fair value ÷ total fair value)</pre>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Cost = purchase price + every cost to get it ready for use.</span>
+    <p>Ask “is it needed to make the asset usable?” Installation, testing, freight: <b>yes</b>. Maintenance after use, paving, fencing around land: <b>no</b> (expense, or land improvements). A basket purchase is split by <b>fair value</b>, not in half.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch7-73-en"><span class="sec">7.3</span>Costs after the asset is in use</h2>
+  <p>A <b>capital expenditure</b> increases the asset’s capacity or extends its useful life, so it is <b>capitalized</b>: added to the asset account instead of being expensed at once. A cost that neither adds capacity nor extends life (routine maintenance and repairs) is an <b>expense</b> in the period.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Capitalize (Dr Asset)</h3><ul><li>An engine overhaul that extends a truck’s life by three years</li><li>Adding a new wing to an office building</li></ul></div>
+    <div class="box"><h3>Expense (Dr Expense)</h3><ul><li>Routine oil changes and minor repairs</li><li>Repainting an office to keep it in normal condition</li></ul></div>
+  </div>
+  <p class="muted" style="font-size:.88rem">These examples illustrate the definition in the slides (the slides give only the definition).</p>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <p><b>“Adds capacity or extends life” = capitalize.</b> Merely keeping the asset running as before = expense. Capitalizing wrongly overstates this period’s profit and the asset.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch7-74-en"><span class="sec">7.4</span>Measuring and recording depreciation</h2>
+  <p><b>Book value (carrying amount) = Cost − Accumulated depreciation.</b> Depreciation allocates an asset’s cost to expense over its life, matching it against the revenue the asset helps earn. It is reported on the income statement. <b>Land is not depreciated.</b></p>
+  <p>Depreciation is <b>not</b> a revaluation of the asset, and it does <b>not</b> mean setting cash aside to replace the asset. The causes are physical wear and tear or obsolescence.</p>
+  <p>Three inputs: <b>Cost</b> (a known amount), <b>estimated useful life</b> (an estimate), <b>estimated residual value</b> (the expected cash value at the end of the life, an estimate).</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Method</th><th>Calculation</th><th>Best for assets that…</th></tr></thead>
+    <tbody>
+      <tr><td><b>Straight-line</b></td><td class="mono">(Cost − Residual) ÷ Life in years</td><td>Generate revenue evenly over time</td></tr>
+      <tr><td><b>Units-of-production</b></td><td class="mono">(Cost − Residual) ÷ total units = rate per unit; × units used in the period</td><td>Wear out because of use</td></tr>
+      <tr><td><b>Double-declining-balance</b></td><td class="mono">Rate = (1 ÷ Life) × 2; × book value at start of year</td><td>Generate more revenue early in their life</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <h3>Exhibit 7-6 data: Airbus’s truck</h3>
+  <p>Cost €41,000; residual €1,000, so <b>depreciable cost = €40,000</b>. Life 5 years or 100,000 miles. The truck is expected to be driven 20,000 / 30,000 / 25,000 / 15,000 / 10,000 miles over the five years.</p>
+  </div>
+  <div class="scroll"><table class="data">
+    <thead><tr><th>Year</th><th class="n">Miles</th><th class="n">Straight-line</th><th class="n">Units-of-production</th><th class="n">Double-declining</th></tr></thead>
+    <tbody>
+      <tr><td>20X5</td><td class="mono n">20,000</td><td class="mono n">8,000</td><td class="mono n">8,000</td><td class="mono n">16,400</td></tr>
+      <tr><td>20X6</td><td class="mono n">30,000</td><td class="mono n">8,000</td><td class="mono n">12,000</td><td class="mono n">9,840</td></tr>
+      <tr><td>20X7</td><td class="mono n">25,000</td><td class="mono n">8,000</td><td class="mono n">10,000</td><td class="mono n">5,904</td></tr>
+      <tr><td>20X8</td><td class="mono n">15,000</td><td class="mono n">8,000</td><td class="mono n">6,000</td><td class="mono n">3,542</td></tr>
+      <tr><td>20X9</td><td class="mono n">10,000</td><td class="mono n">8,000</td><td class="mono n">4,000</td><td class="mono n">4,314 <span class="muted">(plug)</span></td></tr>
+      <tr><td><b>Total</b></td><td class="mono n">100,000</td><td class="mono n"><b>40,000</b></td><td class="mono n"><b>40,000</b></td><td class="mono n"><b>40,000</b></td></tr>
+      <tr><td>Book value, end of 20X9</td><td></td><td class="mono n">1,000</td><td class="mono n">1,000</td><td class="mono n">1,000</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+  <ul>
+    <li><b>Straight-line:</b> (41,000 − 1,000) ÷ 5 = <b>8,000 a year</b> (a 20% rate).</li>
+    <li><b>Units-of-production:</b> (41,000 − 1,000) ÷ 100,000 = <b>€0.40 per mile</b>; year 1: 0.40 × 20,000 = 8,000.</li>
+    <li><b>Double-declining-balance:</b> rate = 1/5 × 2 = <b>40%</b>; year 1: 40% × 41,000 = 16,400; year 2: 40% × (41,000 − 16,400) = 40% × 24,600 = 9,840; year 3: 40% × 14,760 = 5,904; year 4: 40% × 8,856 = 3,542. The last year is a <b>“plug”</b>: book value 5,314 − residual 1,000 = <b>4,314</b>.</li>
+  </ul>
+  </div>
+  <pre class="je">@Dec 31
+Depreciation Expense | 8,000 |
+Accumulated Depreciation | | 8,000
+# Every method uses the same entry; only the amount differs</pre>
+  <div class="grid2">
+    <div class="box"><h3>DDB differs from the other two in two ways</h3><ul><li>It <b>ignores the residual</b> at first: the rate is applied to book value, not to depreciable cost</li><li>The final year is a <b>plug</b> so that book value ends at the residual</li></ul></div>
+    <div class="box"><h3>Partial years</h3><p>If the asset is bought or sold mid-year, depreciate by the <b>month</b>: <b>annual depreciation × months ÷ 12</b>. Example: 10,000 ÷ 10 years × 9/12 = 750.</p></div>
+  </div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Three methods: the total depreciation is identical; only the timing differs.</span>
+    <p>Lifetime depreciation is always the depreciable cost (40,000). Straight-line is flat, UOP rises and falls with use, DDB front-loads. Under UOP, a heavy-use year means more depreciation.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch7-75-en"><span class="sec">7.5</span>Disposing of PPE</h2>
+  <p>Before accounting for a disposal, <b>bring depreciation up to date</b>: this gives the final book value and records the expense up to the date of disposal. Then remove both the <b>cost</b> and the <b>accumulated depreciation</b> from the books.</p>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>Fully depreciated, no proceeds</h3><p>A machine cost 60,000, residual value 0, and the last year’s depreciation has just been recorded. There is no gain or loss.</p></div>
+    <div class="box"><h3>Not fully depreciated, no proceeds</h3><p>Equipment cost 60,000, accumulated depreciation 50,000, book value 10,000. The remaining book value is a <b>loss of 10,000</b>.</p></div>
+  </div>
+  <pre class="je">@Scrap (1)
+Accumulated Depreciation, Machinery | 60,000 |
+Machinery | | 60,000
+@Scrap (2)
+Accumulated Depreciation, Equipment | 50,000 |
+Loss on Disposal of Equipment | 10,000 |
+Equipment | | 60,000
+# Loss = book value of 10,000 because nothing was received</pre>
+  <div class="prose">
+  <h3>Selling PPE: Zar Zar Trading</h3>
+  <p>On September 30, 20X8 the company sells equipment for <b>$7,300 cash</b>. The equipment cost $10,000, was bought on January 1, 20X5, and is depreciated straight-line over 10 years with no residual value.</p>
+  </div>
+  <pre class="je">@Sep 30 (1)
+Depreciation Expense | 750 |
+Accumulated Depreciation, Equipment | | 750
+# Step 1: update depreciation. 10,000 ÷ 10 years × 9/12 = 750
+@Sep 30 (2)
+Cash | 7,300 |
+Accumulated Depreciation, Equipment | 3,750 |
+Equipment | | 10,000
+Gain on Sale of Equipment | | 1,050
+# Step 2: record the sale. Gain 1,050 = 7,300 − 6,250 (book value)</pre>
+  <div class="scroll"><table class="fs" style="max-width:560px">
+    <tr class="h"><td>Working out the gain or loss on sale</td><td class="n"></td><td class="n">$</td></tr>
+    <tr><td>Cash received from sale</td><td></td><td class="n">7,300</td></tr>
+    <tr><td>Cost</td><td class="n">10,000</td><td></td></tr>
+    <tr><td class="ind">Less: accumulated depreciation (1,000 × 3 years + 750)</td><td class="n">(3,750)</td><td></td></tr>
+    <tr class="sub"><td>Book value of asset sold</td><td></td><td class="n">(6,250)</td></tr>
+    <tr class="tot"><td>Gain on sale of the asset</td><td></td><td class="n">1,050</td></tr>
+  </table></div>
+  <div class="anchor"><span class="lab">Memory hook</span>
+    <span class="big">Gain/loss = proceeds − book value. Not − cost.</span>
+    <p>Selling above book value is a <b>gain</b> (credit); below book value is a <b>loss</b> (debit). The entry is always: debit Cash, debit Accumulated Depreciation, credit Equipment (at cost), then balance with the gain or loss.</p>
+  </div>
+
+  <div class="prose">
+  <h2 id="ch7-76-en"><span class="sec">7.6–7.7</span>Intangible assets and the statement of cash flows</h2>
+  </div>
+  <div class="box"><h3>Not in the slides: read the textbook</h3>
+    <p>Learning objectives 7.6 (recognition and measurement of intangible assets) and 7.7 (reporting long-term asset transactions on the statement of cash flows) appear in the slides’ list of objectives, but the Ch7 deck <b>has no content for either</b>. The slides only note that intangible assets carry <b>amortization</b> expense. The points below are standard IFRS knowledge; check them against the textbook before you revise.</p>
+    <ul>
+      <li>An intangible asset with a finite life is <b>amortized</b> evenly over its useful life. An intangible with an indefinite life, and goodwill, are <b>not amortized</b> but tested for impairment.</li>
+      <li>On the statement of cash flows: buying PPE is an <b>investing outflow</b>; cash received from selling PPE is an <b>investing inflow</b> (the cash received, not the gain or loss); depreciation is a non-cash expense, so it is added back in operating activities (indirect method).</li>
+    </ul>
+  </div>
+
+  <div class="traps"><span class="stamp">Common traps</span>
+    <ul>
+      <li>The cost of land <b>excludes</b> paving, fencing, security systems and lighting: those are land improvements. It <b>includes</b> survey, brokerage, legal fees, grading and clearing, and demolition.</li>
+      <li>Interest on money borrowed <b>to construct</b> a building is part of its cost. So is the cost of testing a machine before it is put into service.</li>
+      <li>Basket purchase: split by <b>relative fair value</b>, not in half. Fair values need not add up to the combined price.</li>
+      <li>DDB: the rate is applied to <b>beginning book value</b>, <b>without subtracting the residual</b>; the last year is a plug to reach the residual.</li>
+      <li>UOP: rate per unit = (Cost − Residual) ÷ <b>total units</b>, not years.</li>
+      <li>Mid-year purchases: depreciate by the <b>month</b>. Skipping the depreciation update before a sale makes book value and the gain or loss wrong.</li>
+      <li>Gain or loss is measured against <b>book value</b>, not cost. Depreciation is <b>not</b> valuation and <b>not</b> saving cash.</li>
+    </ul>
+  </div>
+  <div class="recall"><span class="lab">Quick check</span>
+    <details><summary>€300,000 for land, plus €24,000 of commission, taxes and survey, and €16,000 of paving. Cost of the land?</summary><p>€324,000. The 16,000 for paving is land improvements.</p></details>
+    <details><summary>Land and building for €2.7 million combined; fair values land €1 million, building €2 million. Building recorded at?</summary><p>€1,800,000 (2/3 × 2.7 million). Land €900,000.</p></details>
+    <details><summary>Cost 41,000, residual 1,000, 5 years. DDB depreciation in years 1 and 2?</summary><p>40% × 41,000 = 16,400. Year 2: 40% × 24,600 = 9,840.</p></details>
+    <details><summary>Cost 60,000, accumulated depreciation 50,000, scrapped for nothing. Entry?</summary><p>Dr Accumulated Depreciation 50,000, Dr Loss on Disposal 10,000, Cr Equipment 60,000.</p></details>
+    <details><summary>Equipment with book value 6,250 is sold for 7,300. Gain or loss?</summary><p>Gain of 1,050 (7,300 − 6,250).</p></details>
+  </div>
+  <div class="practice"><button class="btn pri" type="button" data-go="cong-cu" data-ch="7">Open the depreciation lab</button><button class="btn" type="button" data-go="no-co" data-ch="7">Ch7 debit/credit drill</button><button class="btn" type="button" data-go="flashcards" data-ch="7">Ch7 flashcards</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="7">Ch7 quiz</button></div>
+  <div class="pager"><a href="#ch6">← Ch6</a><a href="#giua-ky">Midterm exam →</a></div>
 </section>
 
 <!-- ======================= FLASHCARDS ======================= -->
@@ -2410,8 +2897,8 @@ Accounts Payable | | 1,000
 
 <!-- ======================= TOOLS ======================= -->
 <section class="sheet" data-view="cong-cu" hidden>
-  <p class="eyebrow"><span class="tag"><span data-l="vi">Luyện tập</span><span data-l="en">Practice</span></span><span data-l="vi">Hai công cụ thực hành</span><span data-l="en">Two hands-on tools</span></p>
-  <h1><span data-l="vi">Phòng thí nghiệm tồn kho và đối chiếu ngân hàng</span><span data-l="en">Inventory lab and bank reconciliation</span></h1>
+  <p class="eyebrow"><span class="tag"><span data-l="vi">Luyện tập</span><span data-l="en">Practice</span></span><span data-l="vi">Ba công cụ thực hành</span><span data-l="en">Three hands-on tools</span></p>
+  <h1><span data-l="vi">Phòng thí nghiệm tồn kho, đối chiếu ngân hàng và khấu hao</span><span data-l="en">Inventory, bank reconciliation and depreciation labs</span></h1>
 
   <h2 id="lab-inv"><span class="sec">6.3</span><span data-l="vi">FIFO, LIFO, bình quân: tự đổi số và xem kết quả</span><span data-l="en">FIFO, LIFO, average: change the numbers, watch the results</span></h2>
   <p class="prose" data-l="vi">Mặc định là dữ liệu Exhibit 6-7 (giá tăng). Đổi số lượng, đơn giá, số bán hoặc doanh thu, kết quả sẽ tính lại ngay. Thử bộ “Giá giảm” để thấy FIFO và LIFO đổi vai.</p>
@@ -2441,6 +2928,40 @@ Accounts Payable | | 1,000
   </div>
   <div class="fc-actions"><button class="btn pri" type="button" id="rc-check"><span data-l="vi">Kiểm tra và xem bút toán</span><span data-l="en">Check and show entries</span></button><button class="btn" type="button" id="rc-reset"><span data-l="vi">Làm lại</span><span data-l="en">Start over</span></button></div>
   <div id="rc-fb"></div>
+
+  <h2 id="lab-dep"><span class="sec">7.4</span><span data-l="vi">Khấu hao: ba phương pháp cạnh nhau</span><span data-l="en">Depreciation: the three methods side by side</span></h2>
+  <p class="prose" data-l="vi">Mặc định là xe tải của Airbus (Exhibit 7-6): nguyên giá 41,000, residual 1,000, đời sống 5 năm, quãng đường 20,000 / 30,000 / 25,000 / 15,000 / 10,000 dặm. Đổi bất kỳ số nào, ba lịch khấu hao tính lại ngay. Hãy để ý: <b>tổng khấu hao của cả ba luôn bằng nhau</b>, chỉ khác thời điểm.</p>
+  <p class="prose" data-l="en">It starts with Airbus’s truck (Exhibit 7-6): cost 41,000, residual value 1,000, life 5 years, driven 20,000 / 30,000 / 25,000 / 15,000 / 10,000 miles. Change any number and the three schedules recalculate. Notice that <b>total depreciation is the same under all three methods</b>; only the timing differs.</p>
+  <div class="toolbar"><button class="btn" type="button" id="dep-reset"><span data-l="vi">Về dữ liệu Airbus</span><span data-l="en">Back to the Airbus data</span></button></div>
+  <div class="drill-sel" style="max-width:900px">
+    <label for="dep-cost"><span><span data-l="vi">Nguyên giá (Cost)</span><span data-l="en">Cost</span></span><input type="number" id="dep-cost" min="0" step="100" value="41000"></label>
+    <label for="dep-res"><span><span data-l="vi">Giá trị thanh lý (Residual)</span><span data-l="en">Residual value</span></span><input type="number" id="dep-res" min="0" step="100" value="1000"></label>
+    <label for="dep-life"><span><span data-l="vi">Đời sống (năm, 1–10)</span><span data-l="en">Useful life (years, 1–10)</span></span><input type="number" id="dep-life" min="1" max="10" step="1" value="5"></label>
+  </div>
+  <div class="scroll"><table class="inv" aria-label="Units of production">
+    <thead><tr><th><span data-l="vi">Năm</span><span data-l="en">Year</span></th><th><span data-l="vi">Số đơn vị dùng (dặm)</span><span data-l="en">Units used (miles)</span></th></tr></thead>
+    <tbody id="dep-units"></tbody>
+  </table></div>
+  <div id="dep-msg" class="statline"></div>
+  <div class="scroll"><table class="dep" id="dep-res-tbl"></table></div>
+  <div class="depbars" id="dep-bars"></div>
+  <div class="legend"><span><i style="background:var(--accent)"></i><span data-l="vi">Đường thẳng</span><span data-l="en">Straight-line</span></span><span><i class="l1"></i><span data-l="vi">UOP</span><span data-l="en">UOP</span></span><span><i style="background:var(--cr)"></i>DDB</span></div>
+  <p class="statline" id="dep-insight"></p>
+
+  <h2 id="lab-disp"><span class="sec">7.5</span><span data-l="vi">Thanh lý thiết bị: lãi hay lỗ?</span><span data-l="en">Disposing of equipment: gain or loss?</span></h2>
+  <p class="prose" data-l="vi">Mặc định là ví dụ Zar Zar Trading: nguyên giá 10,000, đời sống 10 năm, không residual, đã khấu hao đủ 3 năm, bán ngày 30/9 (9 tháng của năm thứ 4) với giá 7,300. Đổi số để xem lãi hoặc lỗ và hai bút toán: cập nhật khấu hao, rồi ghi nhận thanh lý. Đặt tiền thu bằng 0 để xem trường hợp bỏ đi không thu tiền.</p>
+  <p class="prose" data-l="en">It starts with the Zar Zar Trading example: cost 10,000, life 10 years, no residual value, three full years of depreciation, sold on September 30 (9 months into year 4) for 7,300. Change the numbers to see the gain or loss and the two entries: update depreciation, then record the disposal. Set proceeds to 0 for the scrapped-for-nothing case.</p>
+  <div class="toolbar"><button class="btn" type="button" id="disp-reset"><span data-l="vi">Về ví dụ Zar Zar</span><span data-l="en">Back to the Zar Zar example</span></button></div>
+  <div class="drill-sel" style="max-width:900px">
+    <label for="disp-cost"><span><span data-l="vi">Nguyên giá</span><span data-l="en">Cost</span></span><input type="number" id="disp-cost" min="0" step="100" value="10000"></label>
+    <label for="disp-res"><span>Residual</span><input type="number" id="disp-res" min="0" step="100" value="0"></label>
+    <label for="disp-life"><span><span data-l="vi">Đời sống (năm)</span><span data-l="en">Useful life (years)</span></span><input type="number" id="disp-life" min="1" max="40" step="1" value="10"></label>
+    <label for="disp-yrs"><span><span data-l="vi">Số năm đã khấu hao đủ</span><span data-l="en">Full years already depreciated</span></span><input type="number" id="disp-yrs" min="0" max="40" step="1" value="3"></label>
+    <label for="disp-mo"><span><span data-l="vi">Tháng khấu hao thêm (0–11)</span><span data-l="en">Extra months to date (0–11)</span></span><input type="number" id="disp-mo" min="0" max="11" step="1" value="9"></label>
+    <label for="disp-cash"><span><span data-l="vi">Tiền thu từ bán</span><span data-l="en">Cash proceeds</span></span><input type="number" id="disp-cash" min="0" step="50" value="7300"></label>
+  </div>
+  <div id="disp-msg" class="statline"></div>
+  <div class="dispres" id="disp-out"></div>
 </section>
 <!-- ======================= MIDTERM (VI) ======================= -->
 <section class="sheet" data-view="giua-ky" data-l="vi" hidden>
@@ -2620,12 +3141,12 @@ Equipment | | 21,500
 
   <div class="prose">
   <h2 id="mid-ch7"><span class="sec">6</span>Ôn nhanh Ch7: tài sản cố định (PPE)</h2>
-  <p class="muted">Trang chưa có slide Ch7. Phần này và các câu Ch7 trong đề thi thử dựa trên kiến thức chuẩn về TSCĐ theo IFRS (IAS 16, 36, 38), vì đề thi thử Mely có mua, khấu hao và thanh lý thiết bị. Gửi slide Ch7 để mình chỉnh cho khớp.</p>
+  <p class="muted">Tóm tắt theo slide Ch7, mục 7.1–7.5. Slide chưa có nội dung cho 7.6–7.7 (tài sản vô hình, dòng tiền) nên các câu Ch7 trong đề thi thử xoay quanh nguyên giá, khấu hao và thanh lý. <a href="#ch7">Đọc đầy đủ Ch7</a>.</p>
   </div>
   <div class="grid2">
-    <div class="box"><h3>Nguyên giá</h3><ul><li>Gồm mọi chi phí để tài sản sẵn sàng sử dụng: giá mua, vận chuyển, lắp đặt, chạy thử, thuế không hoàn lại.</li><li>Không gồm: sửa chữa sau khi đưa vào dùng, bảo hiểm khi vận hành, đào tạo.</li><li>Mua gộp đất và nhà: phân bổ theo tỷ lệ giá trị hợp lý.</li><li>Kéo dài tuổi thọ hoặc tăng năng lực → vốn hóa; bảo trì thường xuyên → chi phí.</li></ul></div>
-    <div class="box"><h3>Khấu hao</h3><ul><li>Đường thẳng: (Cost − Residual) ÷ Life</li><li>Theo sản lượng: (Cost − Residual) ÷ Tổng sản lượng × Sản lượng kỳ này</li><li>Số dư giảm dần kép: 2/Life × giá trị còn lại đầu năm (chưa trừ giá trị thu hồi)</li><li>Mua giữa năm: × số tháng/12. Đất không khấu hao.</li></ul></div>
-    <div class="box"><h3>Thanh lý, vô hình, suy giảm</h3><ul><li>Thanh lý: Nợ Cash + Nợ Accumulated depreciation; Có Equipment (nguyên giá); chênh lệch so với giá trị còn lại là lãi hoặc lỗ.</li><li>Tài sản vô hình có thời hạn: khấu trừ (amortize). Goodwill: không khấu trừ, kiểm tra suy giảm hằng năm.</li><li>Suy giảm khi giá trị ghi sổ &gt; giá trị có thể thu hồi.</li><li>Tài nguyên thiên nhiên: depletion.</li></ul></div>
+    <div class="box"><h3>Nguyên giá</h3><ul><li>Gồm mọi chi phí để tài sản sẵn sàng sử dụng: giá mua (trừ chiết khấu), vận chuyển, bảo hiểm khi vận chuyển, thuế, lắp đặt, chạy thử.</li><li>Đất: giá mua + hoa hồng + đo đạc + thuế còn nợ + san lấp. Lát sân, hàng rào là land improvements (khấu hao riêng).</li><li>Xây nhà: gồm cả lãi vay tài trợ xây dựng.</li><li>Mua gộp: chia theo tỷ lệ giá trị hợp lý.</li><li>Kéo dài đời sống hoặc tăng năng lực → vốn hóa; bảo trì thường xuyên → chi phí.</li></ul></div>
+    <div class="box"><h3>Khấu hao</h3><ul><li>Đường thẳng: (Cost − Residual) ÷ Life</li><li>UOP: (Cost − Residual) ÷ Tổng đơn vị × Đơn vị dùng trong kỳ</li><li>DDB: (2 ÷ Life) × book value đầu năm; bỏ qua residual lúc đầu, năm cuối là số plug</li><li>Mua giữa năm: × số tháng/12. Đất không khấu hao.</li><li>Tổng khấu hao trọn đời của ba phương pháp bằng nhau.</li></ul></div>
+    <div class="box"><h3>Thanh lý</h3><ul><li>Trước hết cập nhật khấu hao đến ngày thanh lý.</li><li>Lãi/lỗ = Tiền thu − Book value (Cost − Accumulated depreciation).</li><li>Bút toán: Nợ Cash, Nợ Accumulated depreciation (và Loss); Có Equipment theo nguyên giá (và Gain).</li><li>Bỏ đi không thu tiền: lỗ bằng book value.</li><li>Tài nguyên thiên nhiên: depletion.</li></ul></div>
   </div>
   <div class="practice"><button class="btn pri" type="button" data-mid="start-default">Tạo đề thi thử</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="all">Trắc nghiệm toàn bộ</button><button class="btn" type="button" data-go="no-co" data-ch="all">Luyện Nợ/Có</button></div>
   <div class="pager"><a href="#ban-do">← Bản đồ</a><a href="#thi-thu">Đề thi thử →</a></div>
@@ -2809,12 +3330,12 @@ Equipment | | 21,500
 
   <div class="prose">
   <h2 id="mid-ch7-en"><span class="sec">6</span>Ch7 quick review: property, plant and equipment</h2>
-  <p class="muted">This site does not have the Ch7 slides yet. This section and the Ch7 questions in the mock exams use standard IFRS PPE material (IAS 16, 36, 38), since the Mely mock includes buying, depreciating and selling equipment. Send the Ch7 slides to align it exactly.</p>
+  <p class="muted">A summary of the Ch7 slides, sections 7.1–7.5. The slides have no content for 7.6–7.7 (intangibles, cash flows), so the Ch7 questions in the mock exams focus on cost, depreciation and disposal. <a href="#ch7">Read the full Ch7</a>.</p>
   </div>
   <div class="grid2">
-    <div class="box"><h3>Cost</h3><ul><li>Everything needed to get the asset ready for use: price, freight, installation, testing, non-refundable taxes.</li><li>Not included: repairs after it is in service, operating insurance, staff training.</li><li>Land and building bought together: allocate by relative fair values.</li><li>Extends life or capacity → capitalize; routine maintenance → expense.</li></ul></div>
-    <div class="box"><h3>Depreciation</h3><ul><li>Straight-line: (Cost − Residual) ÷ Life</li><li>Units-of-production: (Cost − Residual) ÷ Total units × Units this period</li><li>Double-declining-balance: 2/Life × opening book value (ignore residual until the end)</li><li>Mid-year purchase: × months/12. Land is not depreciated.</li></ul></div>
-    <div class="box"><h3>Disposal, intangibles, impairment</h3><ul><li>Disposal: Dr Cash + Dr Accumulated depreciation; Cr Equipment (cost); the difference from book value is a gain or loss.</li><li>Finite-life intangibles are amortized. Goodwill is not amortized; test it for impairment annually.</li><li>Impairment when carrying amount &gt; recoverable amount.</li><li>Natural resources: depletion.</li></ul></div>
+    <div class="box"><h3>Cost</h3><ul><li>Everything needed to get the asset ready for use: price (less discounts), transport, insurance in transit, taxes, installation, testing.</li><li>Land: price + commission + survey + back taxes + grading. Paving and fences are land improvements (depreciated separately).</li><li>Constructing a building includes interest on money borrowed to finance it.</li><li>Basket purchase: split by relative fair values.</li><li>Extends life or capacity → capitalize; routine maintenance → expense.</li></ul></div>
+    <div class="box"><h3>Depreciation</h3><ul><li>Straight-line: (Cost − Residual) ÷ Life</li><li>UOP: (Cost − Residual) ÷ Total units × Units used in the period</li><li>DDB: (2 ÷ Life) × beginning book value; ignore the residual at first, last year is a plug</li><li>Mid-year purchase: × months/12. Land is not depreciated.</li><li>Total lifetime depreciation is the same under all three methods.</li></ul></div>
+    <div class="box"><h3>Disposal</h3><ul><li>First bring depreciation up to date to the date of disposal.</li><li>Gain/loss = Proceeds − Book value (Cost − Accumulated depreciation).</li><li>Entry: Dr Cash, Dr Accumulated depreciation (and Loss); Cr Equipment at cost (and Gain).</li><li>Scrapped for nothing: the loss equals book value.</li><li>Natural resources: depletion.</li></ul></div>
   </div>
   <div class="practice"><button class="btn pri" type="button" data-mid="start-default">Start a mock exam</button><button class="btn" type="button" data-go="trac-nghiem" data-ch="all">Full quiz</button><button class="btn" type="button" data-go="no-co" data-ch="all">Debit/credit drill</button></div>
   <div class="pager"><a href="#ban-do">← Map</a><a href="#thi-thu">Mock exam →</a></div>
@@ -2893,7 +3414,7 @@ function renderTA(){
 }
 
 /* ---------- data ---------- */
-const CH_NAMES = {1:"Ch1 · Khung khái niệm", 2:"Ch2 · Ghi nhận giao dịch", 3:"Ch3 · Dồn tích", 4:"Ch4 · Trình bày BCTC", 5:"Ch5 · Tiền & phải thu", 6:"Ch6 · Tồn kho"};
+const CH_NAMES = {1:"Ch1 · Khung khái niệm", 2:"Ch2 · Ghi nhận giao dịch", 3:"Ch3 · Dồn tích", 4:"Ch4 · Trình bày BCTC", 5:"Ch5 · Tiền & phải thu", 6:"Ch6 · Tồn kho", 7:"Ch7 · Tài sản cố định"};
 
 const CARDS_RAW = {
 1: [
@@ -2990,7 +3511,26 @@ const CARDS_RAW = {
  ["Tồn cuối kỳ 1 bị thổi phồng thì sao?", "Kỳ 1: COGS thấp, lãi cao. Kỳ 2: COGS cao, lãi thấp. Sau hai kỳ thì tự triệt tiêu."],
  ["Điều khoản “2/10, n/30” nghĩa là gì?", "Giảm 2% nếu trả trong 10 ngày, nếu không thì trả đủ trong 30 ngày."],
  ["Mô hình giá vốn (COGS model)?", "Tồn đầu + Mua vào = Hàng có để bán; − Tồn cuối = COGS."]
-]};
+],
+7: [
+ ["Giá gốc của bất kỳ tài sản nào gồm những gì?", "Tổng mọi chi phí để đưa tài sản đến trạng thái sẵn sàng sử dụng: giá mua, thuế, hoa hồng và các chi phí khác để tài sản dùng được."],
+ ["Tài khoản chi phí đi kèm từng loại tài sản dài hạn?", "Land: không có. Buildings, machinery, equipment, furniture, land improvements: Depreciation. Natural resources: Depletion (qua COGS). Intangibles: Amortization."],
+ ["Giá gốc của đất gồm gì và không gồm gì?", "Gồm: giá mua, hoa hồng, đo đạc, pháp lý, thuế còn nợ, san lấp, phá dỡ công trình không cần. Không gồm: hàng rào, lát sân, hệ thống an ninh, chiếu sáng (đó là land improvements)."],
+ ["Land improvements và leasehold improvements là gì?", "Land improvements: đường vào, biển hiệu, hàng rào, hệ thống tưới. Leasehold improvements: cải tạo trên tài sản đi thuê. Cả hai đều khấu hao; leasehold theo thời hạn thuê."],
+ ["Giá gốc khi xây dựng một tòa nhà gồm gì?", "Phí kiến trúc, giấy phép, chi phí nhà thầu, vật liệu, nhân công, chi phí chung, và lãi vay dùng để xây dựng."],
+ ["Giá gốc của thiết bị gồm gì?", "Giá mua (trừ chiết khấu), vận chuyển, bảo hiểm khi vận chuyển, thuế, hoa hồng mua, lắp đặt, chạy thử trước khi đưa vào dùng, bệ đỡ đặc biệt."],
+ ["Mua gộp nhiều tài sản với một giá (lump-sum) chia thế nào?", "Theo tỷ lệ giá trị hợp lý (relative-sales-value method). Ví dụ giá chung 2.7 triệu, đất 1 triệu, nhà 2 triệu: đất 900,000, nhà 1,800,000."],
+ ["Capital expenditure là gì và xử lý thế nào?", "Chi phí làm tăng năng lực hoặc kéo dài đời sống tài sản: vốn hóa (cộng vào tài sản). Còn lại (bảo trì, sửa chữa thường xuyên): ghi chi phí."],
+ ["Book value tính thế nào?", "Cost − Accumulated depreciation."],
+ ["Khấu hao là gì và KHÔNG phải là gì?", "Là phân bổ giá gốc thành chi phí qua đời sống hữu dụng. Không phải định giá, không phải để dành tiền thay tài sản. Đất không khấu hao."],
+ ["Công thức của ba phương pháp khấu hao?", "Straight-line: (Cost − Residual) ÷ Life. UOP: (Cost − Residual) ÷ tổng đơn vị, nhân số đơn vị dùng trong kỳ. DDB: (1 ÷ Life) × 2, nhân book value đầu năm."],
+ ["DDB khác hai phương pháp kia ở đâu?", "Lúc đầu bỏ qua residual (nhân tỷ lệ với book value), và khấu hao năm cuối là số plug để book value chạm residual."],
+ ["So sánh tổng khấu hao của ba phương pháp?", "Tổng bằng nhau (bằng depreciable cost); chỉ khác thời điểm. Straight-line đều, UOP theo mức dùng, DDB dồn về những năm đầu."],
+ ["Phương pháp nào hợp với loại tài sản nào?", "Straight-line: tạo doanh thu đều. UOP: hao mòn theo mức sử dụng. DDB: tạo nhiều doanh thu hơn ở những năm đầu."],
+ ["Trước khi thanh lý PPE phải làm gì?", "Cập nhật khấu hao đến ngày thanh lý, để có book value cuối cùng và ghi đủ chi phí đến ngày đó."],
+ ["Tính lãi/lỗ khi thanh lý PPE?", "Tiền thu − book value. Trên book value là lãi (Có), dưới là lỗ (Nợ). Bút toán: Nợ Cash, Nợ Accumulated Depreciation (và Loss), Có Equipment theo nguyên giá (và Gain)."]
+]
+};
 const CARDS = [];
 Object.keys(CARDS_RAW).forEach(ch => CARDS_RAW[ch].forEach((c, i) => CARDS.push({id: ch + "-" + i, ch: +ch, f: c[0], b: c[1]})));
 
@@ -3045,15 +3585,29 @@ const QUIZ = [
  {ch:6, q:"Cuối năm có hàng đang đi đường, mua theo FOB shipping point. Hàng thuộc tồn kho của:", o:["Người mua","Người bán","Hãng vận chuyển","Chia đôi"], a:0, e:"Quyền sở hữu chuyển khi hàng rời kho người bán."},
  {ch:6, q:"Tồn kho cuối kỳ 1 bị thổi phồng 5,000. Ảnh hưởng:", o:["Lãi kỳ 1 bị thổi phồng, lãi kỳ 2 bị khai thiếu","Lãi kỳ 1 bị khai thiếu, lãi kỳ 2 bị thổi phồng","Chỉ ảnh hưởng kỳ 1","Không ảnh hưởng lãi"], a:0, e:"Tồn cuối cao làm COGS thấp, lãi cao ở kỳ 1. Kỳ 2 thì ngược lại."},
  {ch:6, q:"1,000 chip giá gốc $250, NRV $200. Tồn kho ghi:", o:["200,000","250,000","50,000","225,000"], a:0, e:"Lower of cost and NRV: 1,000 × 200 = 200,000."},
- {ch:6, q:"Tồn đầu 38,000; mua 72,000; doanh thu thuần 100,000; tỷ lệ lãi gộp 35%. Tồn kho cuối ước tính:", o:["45,000","65,000","10,000","35,000"], a:0, e:"COGS ước tính = 100,000 × 65% = 65,000. Tồn cuối = 110,000 − 65,000 = 45,000."}
+ {ch:6, q:"Tồn đầu 38,000; mua 72,000; doanh thu thuần 100,000; tỷ lệ lãi gộp 35%. Tồn kho cuối ước tính:", o:["45,000","65,000","10,000","35,000"], a:0, e:"COGS ước tính = 100,000 × 65% = 65,000. Tồn cuối = 110,000 − 65,000 = 45,000."},
+ {ch:7, q:"Airbus ký giấy nhận nợ €300,000 mua đất, trả tiền mặt hoa hồng €10,000, thuế trước bạ €13,000 và phí đo đạc €1,000 (lát bãi đậu xe €16,000 trả riêng). Giá gốc của đất:", o:["€324,000","€340,000","€300,000","€313,000"], a:0, e:"300,000 + 10,000 + 13,000 + 1,000 = 324,000. Lát bãi đậu xe là land improvements, không vào giá đất."},
+ {ch:7, q:"Khoản nào KHÔNG được tính vào giá gốc của đất?", o:["Lát sân bãi đậu xe","Phí đo đạc","Hoa hồng môi giới","San lấp mặt bằng"], a:0, e:"Hàng rào, lát sân, hệ thống an ninh, chiếu sáng là land improvements: tài sản riêng và được khấu hao."},
+ {ch:7, q:"Mua gộp đất và nhà €2.7 triệu. Giá trị hợp lý: đất €1 triệu, nhà €2 triệu. Giá gốc ghi cho nhà:", o:["€1,800,000","€2,000,000","€1,350,000","€900,000"], a:0, e:"Nhà chiếm 2/3 tổng giá trị hợp lý: 2.7 triệu × 2/3 = 1,800,000. Đất 900,000."},
+ {ch:7, q:"Lãi vay dùng để tài trợ cho việc xây dựng một tòa nhà được xử lý thế nào?", o:["Tính vào giá gốc tòa nhà","Ghi vào chi phí lãi vay ngay","Tính vào giá gốc đất","Không ghi nhận"], a:0, e:"Giá gốc xây dựng gồm cả lãi vay dùng để tài trợ cho việc xây dựng."},
+ {ch:7, q:"Xe tải cost €41,000, residual €1,000, đời sống 5 năm. Khấu hao đường thẳng mỗi năm:", o:["€8,000","€8,200","€40,000","€16,400"], a:0, e:"(41,000 − 1,000) ÷ 5 = 8,000. Nhớ trừ residual trước khi chia."},
+ {ch:7, q:"Cùng xe tải đó, tổng đời sống 100,000 dặm, năm 2 chạy 30,000 dặm. Khấu hao UOP năm 2:", o:["€12,000","€8,000","€12,300","€9,840"], a:0, e:"Mức/dặm = (41,000 − 1,000) ÷ 100,000 = 0.40; × 30,000 = 12,000."},
+ {ch:7, q:"Cùng xe tải đó, khấu hao double-declining-balance năm 1:", o:["€16,400","€16,000","€8,000","€20,500"], a:0, e:"Tỷ lệ = (1 ÷ 5) × 2 = 40%, nhân với book value đầu năm 41,000 (không trừ residual) = 16,400."},
+ {ch:7, q:"Điểm nào đúng khi so sánh ba phương pháp khấu hao trên cùng một tài sản?", o:["Tổng khấu hao trọn đời bằng nhau, chỉ khác thời điểm","Double-declining cho tổng khấu hao lớn nhất","Straight-line cho tổng khấu hao nhỏ nhất","UOP không bao giờ chạm residual"], a:0, e:"Cả ba đều phân bổ cùng depreciable cost (40,000); khác nhau ở khấu hao từng năm."},
+ {ch:7, q:"Thiết bị nguyên giá 10,000, khấu hao lũy kế (đã cập nhật) 3,750, bán 7,300 tiền mặt. Kết quả:", o:["Lãi 1,050","Lỗ 1,050","Lãi 3,550","Lỗ 2,700"], a:0, e:"Book value = 10,000 − 3,750 = 6,250. Lãi = 7,300 − 6,250 = 1,050."},
+ {ch:7, q:"Thiết bị nguyên giá 60,000, khấu hao lũy kế 50,000, bỏ đi không thu được gì. Ghi:", o:["Lỗ thanh lý 10,000","Lãi thanh lý 10,000","Lỗ thanh lý 60,000","Không ghi lãi lỗ"], a:0, e:"Book value 10,000 bị xóa mà không thu tiền, nên là lỗ 10,000. Nợ Accumulated Depreciation 50,000, Nợ Loss 10,000, Có Equipment 60,000."},
+ {ch:7, q:"Bước đầu tiên trước khi ghi bút toán bán một thiết bị vào giữa năm là:", o:["Cập nhật khấu hao đến ngày bán","Ghi lãi lỗ","Xóa nguyên giá khỏi sổ","Đánh giá lại thiết bị theo giá thị trường"], a:0, e:"Phải có book value cuối cùng và ghi đủ chi phí khấu hao đến ngày bán."},
+ {ch:7, q:"Chi phí nào được vốn hóa (cộng vào tài sản)?", o:["Đại tu động cơ kéo dài đời xe thêm 3 năm","Thay dầu định kỳ","Sơn lại văn phòng","Sửa chữa nhỏ hằng tháng"], a:0, e:"Capital expenditure làm tăng năng lực hoặc kéo dài đời sống tài sản; bảo trì thường xuyên là chi phí."},
+ {ch:7, q:"Tài khoản chi phí đi kèm với tài nguyên thiên nhiên là:", o:["Depletion expense","Depreciation expense","Amortization expense","Không có"], a:0, e:"Natural resources: depletion (đi qua COGS). Hữu hình: depreciation. Vô hình: amortization. Đất: không có."},
+ {ch:7, q:"Phát biểu nào về khấu hao là đúng?", o:["Là phân bổ giá gốc thành chi phí, không phải định giá","Là việc để dành tiền mặt để thay tài sản","Phản ánh giá thị trường hiện tại của tài sản","Áp dụng cho cả đất"], a:0, e:"Khấu hao không phải định giá và không phải để dành tiền; đất không khấu hao."}
 ];
 
 const ACCOUNTS = [
- ["Tài sản", ["Cash","Accounts Receivable","Notes Receivable","Interest Receivable","Supplies","Prepaid Rent","Inventory","Land","Equipment","Accumulated Depreciation","Allowance for Uncollectible Accounts"]],
+ ["Tài sản", ["Cash","Accounts Receivable","Notes Receivable","Interest Receivable","Supplies","Prepaid Rent","Inventory","Land","Land Improvements","Equipment","Accumulated Depreciation","Allowance for Uncollectible Accounts"]],
  ["Nợ phải trả", ["Accounts Payable","Salary Payable","Unearned Service Revenue","Income Tax Payable","Notes Payable"]],
  ["Vốn chủ sở hữu", ["Share Capital","Retained Earnings","Dividends"]],
  ["Doanh thu, thu nhập", ["Service Revenue","Sales Revenue","Interest Revenue","Dividend Revenue","Gain on Sale of Land"]],
- ["Chi phí", ["Cost of Goods Sold","Rent Expense","Salary Expense","Supplies Expense","Utilities Expense","Insurance Expense","Depreciation Expense","Uncollectible-Account Expense","Income Tax Expense","Miscellaneous Expense"]],
+ ["Chi phí", ["Cost of Goods Sold","Rent Expense","Salary Expense","Supplies Expense","Utilities Expense","Insurance Expense","Depreciation Expense","Repairs Expense","Uncollectible-Account Expense","Income Tax Expense","Miscellaneous Expense"]],
  ["Khác", ["Không ghi bút toán"]]
 ];
 const NONE = "Không ghi bút toán";
@@ -3090,11 +3644,18 @@ const DRILL = [
  {ch:6, t:"Trả lại người bán lô hàng lỗi trị giá 100, được trừ vào số nợ.", dr:"Accounts Payable", cr:"Inventory", e:"Hàng trả lại làm giảm tồn kho và giảm nợ người bán.", q:"A −100 = L −100 + E 0"},
  {ch:6, t:"Bán bộ đồ có giá gốc 15. Ghi phần giá vốn.", dr:"Cost of Goods Sold", cr:"Inventory", e:"Đây là bút toán thứ hai của nghiệp vụ bán. Bút toán thứ nhất là Nợ Cash 25 / Có Sales Revenue 25.", q:"A −15 = L 0 + E −15"},
  {ch:6, t:"Bán bộ đồ đó với giá 25, thu tiền mặt. Ghi phần doanh thu.", dr:"Cash", cr:"Sales Revenue", e:"Doanh thu ghi theo giá bán, còn giá vốn ghi theo giá gốc.", q:"A +25 = L 0 + E +25"},
- {ch:6, t:"Tồn kho giá gốc 1,000, NRV chỉ còn 400. Ghi giảm xuống NRV.", dr:"Cost of Goods Sold", cr:"Inventory", e:"Ghi giảm 600 và cộng vào giá vốn (2,000 + 600 = 2,600 như Exhibit 6-10).", q:"A −600 = L 0 + E −600"}
+ {ch:6, t:"Tồn kho giá gốc 1,000, NRV chỉ còn 400. Ghi giảm xuống NRV.", dr:"Cost of Goods Sold", cr:"Inventory", e:"Ghi giảm 600 và cộng vào giá vốn (2,000 + 600 = 2,600 như Exhibit 6-10).", q:"A −600 = L 0 + E −600"},
+ {ch:7, t:"Ký giấy nhận nợ 300,000 để mua đất (bỏ qua các chi phí khác).", dr:"Land", cr:"Notes Payable", e:"Đất là tài sản, ghi Nợ theo giá gốc. Giấy nhận nợ phải trả là nợ, ghi Có.", q:"A +300,000 = L +300,000 + E 0"},
+ {ch:7, t:"Trả 16,000 tiền mặt để lát bãi đậu xe của khu đất.", dr:"Land Improvements", cr:"Cash", e:"Lát sân không vào giá đất. Đó là land improvements, một tài sản riêng và được khấu hao.", q:"A +16,000 − 16,000 = L 0 + E 0"},
+ {ch:7, t:"Trả 2,500 tiền mặt phí lắp đặt và chạy thử một máy mới trước khi đưa vào dùng.", dr:"Equipment", cr:"Cash", e:"Lắp đặt và chạy thử trước khi dùng là chi phí để tài sản sẵn sàng dùng, nên vốn hóa vào thiết bị.", q:"A +2,500 − 2,500 = L 0 + E 0"},
+ {ch:7, t:"Trả 20,000 tiền mặt đại tu động cơ, kéo dài đời xe tải thêm 3 năm.", dr:"Equipment", cr:"Cash", e:"Chi phí làm tăng đời sống hữu dụng là capital expenditure: vốn hóa vào tài sản thay vì ghi chi phí.", q:"A +20,000 − 20,000 = L 0 + E 0"},
+ {ch:7, t:"Ghi khấu hao đường thẳng của thiết bị năm nay: 8,000.", dr:"Depreciation Expense", cr:"Accumulated Depreciation", e:"Chi phí khấu hao ghi Nợ; khấu hao lũy kế là tài khoản đối ứng (contra asset) ghi Có.", q:"A −8,000 = L 0 + E −8,000"},
+ {ch:7, t:"Bỏ đi một máy nguyên giá 60,000 đã khấu hao hết (residual bằng 0), không thu tiền.", dr:"Accumulated Depreciation", cr:"Equipment", e:"Xóa nguyên giá và khấu hao lũy kế 60,000. Book value bằng 0 nên không có lãi hay lỗ.", q:"A +60,000 − 60,000 = L 0 + E 0"},
+ {ch:7, t:"Trả 400 tiền mặt thay dầu và bảo trì định kỳ cho xe tải.", dr:"Repairs Expense", cr:"Cash", e:"Bảo trì thường xuyên không tăng năng lực hay kéo dài đời sống, nên ghi chi phí ngay.", q:"A −400 = L 0 + E −400"}
 ];
 
 /* ---------- English data (same order as the Vietnamese arrays) ---------- */
-const CH_NAMES_EN = {1:"Ch1 · Framework", 2:"Ch2 · Recording transactions", 3:"Ch3 · Accrual", 4:"Ch4 · Presentation", 5:"Ch5 · Cash & receivables", 6:"Ch6 · Inventory"};
+const CH_NAMES_EN = {1:"Ch1 · Framework", 2:"Ch2 · Recording transactions", 3:"Ch3 · Accrual", 4:"Ch4 · Presentation", 5:"Ch5 · Cash & receivables", 6:"Ch6 · Inventory", 7:"Ch7 · PPE"};
 const ACC_GROUPS_EN = ["Assets", "Liabilities", "Equity", "Revenue & income", "Expenses", "Other"];
 
 const CARDS_EN = {
@@ -3192,7 +3753,26 @@ const CARDS_EN = {
  ["Period 1 ending inventory overstated: effects?", "Period 1: COGS too low, profit too high. Period 2: COGS too high, profit too low. It self-corrects after two periods."],
  ["What does “2/10, n/30” mean?", "2% off if paid within 10 days; otherwise the full amount is due within 30 days."],
  ["The COGS model?", "Beginning inventory + purchases = goods available; − ending inventory = COGS."]
-]};
+],
+7: [
+ ["What does the cost of any asset include?", "The sum of all costs incurred to bring the asset to its intended use: purchase price, taxes, commissions and other costs of making the asset ready for use."],
+ ["The expense account that goes with each long-term asset?", "Land: none. Buildings, machinery, equipment, furniture, land improvements: depreciation. Natural resources: depletion (through COGS). Intangibles: amortization."],
+ ["What is and is not part of the cost of land?", "Included: purchase price, commission, survey and legal fees, back taxes, grading and clearing, demolishing unwanted buildings. Not included: fencing, paving, security systems, lighting (those are land improvements)."],
+ ["Land improvements vs leasehold improvements?", "Land improvements: driveways, signs, fences, sprinkler systems. Leasehold improvements: improvements to leased property. Both are depreciated; leasehold improvements over the lease term."],
+ ["What does the cost of constructing a building include?", "Architectural fees, permits, contractors’ charges, materials, labor, overhead, and interest on money borrowed to finance construction."],
+ ["What does the cost of equipment include?", "Purchase price (less discounts), transportation, insurance in transit, taxes, purchase commission, installation, testing before it is placed in service, special platforms."],
+ ["How is a lump-sum (basket) purchase split?", "By relative fair values (the relative-sales-value method). Example: combined price 2.7 million, land 1 million, building 2 million: land 900,000, building 1,800,000."],
+ ["What is a capital expenditure and how is it treated?", "A cost that increases capacity or extends useful life: capitalize it (add it to the asset). Anything else (routine maintenance and repairs): expense it."],
+ ["How is book value calculated?", "Cost − accumulated depreciation."],
+ ["What is depreciation, and what is it NOT?", "Allocating an asset’s cost to expense over its useful life. Not valuation, and not setting cash aside to replace the asset. Land is not depreciated."],
+ ["The formulas for the three depreciation methods?", "Straight-line: (cost − residual) ÷ life. UOP: (cost − residual) ÷ total units, times units used in the period. DDB: (1 ÷ life) × 2, times beginning book value."],
+ ["How does DDB differ from the other two methods?", "It ignores the residual at first (the rate is applied to book value), and the last year’s depreciation is a plug so that book value ends at the residual."],
+ ["Compare total depreciation under the three methods.", "The totals are equal (depreciable cost); only the timing differs. Straight-line is level, UOP follows use, DDB is front-loaded."],
+ ["Which method suits which kind of asset?", "Straight-line: revenue earned evenly. UOP: assets that wear out through use. DDB: assets that generate more revenue early in their life."],
+ ["What must you do before accounting for a disposal of PPE?", "Bring depreciation up to date, so you have the final book value and have recorded the expense up to the disposal date."],
+ ["How do you compute the gain or loss on disposal?", "Proceeds − book value. Above book value is a gain (credit), below is a loss (debit). Entry: debit Cash, debit Accumulated Depreciation (and Loss), credit Equipment at cost (and Gain)."]
+]
+};
 
 const QUIZ_EN = [
  ["Financial accounting mainly serves which users?", ["Investors, creditors and other outside parties","Managers inside the company","Only the tax authority","Production staff"], "Financial accounting is for outside decision makers. Managerial accounting is for managers inside the company."],
@@ -3245,7 +3825,21 @@ const QUIZ_EN = [
  ["At year end, goods are in transit, shipped FOB shipping point. They belong in the inventory of:", ["The buyer","The seller","The carrier","Both, split equally"], "Ownership passes when the goods leave the seller’s dock."],
  ["Period 1 ending inventory is overstated by 5,000. The effect:", ["Period 1 profit overstated, period 2 profit understated","Period 1 profit understated, period 2 profit overstated","Only period 1 is affected","Profit is not affected"], "High ending inventory makes COGS low and profit high in period 1. Period 2 reverses."],
  ["1,000 chips cost $250 each; NRV is $200. Inventory is carried at:", ["200,000","250,000","50,000","225,000"], "Lower of cost and NRV: 1,000 × 200 = 200,000."],
- ["Beginning inventory 38,000; purchases 72,000; net sales 100,000; gross profit rate 35%. Estimated ending inventory:", ["45,000","65,000","10,000","35,000"], "Estimated COGS = 100,000 × 65% = 65,000. Ending inventory = 110,000 − 65,000 = 45,000."]
+ ["Beginning inventory 38,000; purchases 72,000; net sales 100,000; gross profit rate 35%. Estimated ending inventory:", ["45,000","65,000","10,000","35,000"], "Estimated COGS = 100,000 × 65% = 65,000. Ending inventory = 110,000 − 65,000 = 45,000."],
+ ["Airbus signs a €300,000 note to buy land and pays in cash €10,000 commission, €13,000 stamp duty and a €1,000 survey fee (€16,000 to pave the parking lot is paid separately). The cost of the land is:", ["€324,000","€340,000","€300,000","€313,000"], "300,000 + 10,000 + 13,000 + 1,000 = 324,000. Paving is land improvements, not part of the land."],
+ ["Which item is NOT part of the cost of land?", ["Paving the parking lot","Survey fees","Brokerage commission","Grading and clearing"], "Fencing, paving, security systems and lighting are land improvements: a separate asset that is depreciated."],
+ ["Land and a building are bought together for €2.7 million. Fair values: land €1 million, building €2 million. The cost recorded for the building is:", ["€1,800,000","€2,000,000","€1,350,000","€900,000"], "The building is 2/3 of total fair value: 2.7 million × 2/3 = 1,800,000. Land is 900,000."],
+ ["How is interest on money borrowed to finance the construction of a building treated?", ["Added to the cost of the building","Expensed immediately as interest expense","Added to the cost of land","Not recorded"], "The cost of constructing a building includes interest on money borrowed to finance the construction."],
+ ["A truck costs €41,000, residual value €1,000, life 5 years. Straight-line depreciation per year is:", ["€8,000","€8,200","€40,000","€16,400"], "(41,000 − 1,000) ÷ 5 = 8,000. Subtract the residual before dividing."],
+ ["Same truck, total life 100,000 miles, 30,000 miles driven in year 2. Units-of-production depreciation for year 2:", ["€12,000","€8,000","€12,300","€9,840"], "Rate per mile = (41,000 − 1,000) ÷ 100,000 = 0.40; × 30,000 = 12,000."],
+ ["Same truck: double-declining-balance depreciation in year 1:", ["€16,400","€16,000","€8,000","€20,500"], "Rate = (1 ÷ 5) × 2 = 40%, applied to beginning book value of 41,000 (residual not subtracted) = 16,400."],
+ ["Which statement is correct when comparing the three depreciation methods on the same asset?", ["Total lifetime depreciation is the same; only the timing differs","Double-declining gives the largest total depreciation","Straight-line gives the smallest total depreciation","UOP never reaches the residual value"], "All three allocate the same depreciable cost (40,000); they differ in the amount each year."],
+ ["Equipment costing 10,000 with accumulated depreciation (already updated) of 3,750 is sold for 7,300 cash. The result is:", ["Gain of 1,050","Loss of 1,050","Gain of 3,550","Loss of 2,700"], "Book value = 10,000 − 3,750 = 6,250. Gain = 7,300 − 6,250 = 1,050."],
+ ["Equipment costing 60,000 with accumulated depreciation of 50,000 is scrapped and nothing is received. Record:", ["A loss on disposal of 10,000","A gain on disposal of 10,000","A loss on disposal of 60,000","No gain or loss"], "The book value of 10,000 is written off with no proceeds, so it is a 10,000 loss. Dr Accumulated Depreciation 50,000, Dr Loss 10,000, Cr Equipment 60,000."],
+ ["The first step before recording the sale of equipment in the middle of the year is to:", ["Bring depreciation up to date to the date of sale","Record the gain or loss","Remove the cost from the books","Revalue the equipment at market price"], "You need the final book value and the depreciation expense up to the date of sale."],
+ ["Which cost is capitalized (added to the asset)?", ["An engine overhaul that extends the truck’s life by three years","Routine oil changes","Repainting an office","Minor monthly repairs"], "A capital expenditure increases capacity or extends useful life; routine maintenance is an expense."],
+ ["The expense account that goes with natural resources is:", ["Depletion expense","Depreciation expense","Amortization expense","None"], "Natural resources: depletion (through COGS). Tangible assets: depreciation. Intangibles: amortization. Land: none."],
+ ["Which statement about depreciation is correct?", ["It allocates cost to expense and is not a valuation","It means setting cash aside to replace the asset","It reflects the asset’s current market value","It applies to land as well"], "Depreciation is neither valuation nor saving cash; land is not depreciated."]
 ];
 
 const DRILL_EN = [
@@ -3281,7 +3875,14 @@ const DRILL_EN = [
  ["Returned 100 of defective goods to the supplier, reducing the amount owed.", "Returns reduce inventory and the payable to the supplier."],
  ["Sold an outfit that cost 15. Record the cost side.", "This is the second entry of a sale. The first is Dr Cash 25 / Cr Sales Revenue 25."],
  ["Sold that outfit for 25 cash. Record the revenue side.", "Revenue is recorded at selling price; COGS is recorded at cost."],
- ["Inventory costing 1,000 has an NRV of only 400. Write it down to NRV.", "Write down 600 and add it to cost of goods sold (2,000 + 600 = 2,600, as in Exhibit 6-10)."]
+ ["Inventory costing 1,000 has an NRV of only 400. Write it down to NRV.", "Write down 600 and add it to cost of goods sold (2,000 + 600 = 2,600, as in Exhibit 6-10)."],
+ ["Signed a 300,000 note payable to buy land (ignore other costs).", "Land is an asset, debited at cost. The note payable is a liability, credited."],
+ ["Paid 16,000 cash to pave the parking lot on the land.", "Paving is not part of the land’s cost. It is land improvements, a separate asset that is depreciated."],
+ ["Paid 2,500 cash to install and test a new machine before it was put into use.", "Installation and testing before use are costs of making the asset ready for use, so they are capitalized into equipment."],
+ ["Paid 20,000 cash for an engine overhaul that extends the truck’s life by three years.", "A cost that extends useful life is a capital expenditure: capitalize it instead of expensing it."],
+ ["Recorded this year’s straight-line depreciation on equipment: 8,000.", "Depreciation expense is debited; accumulated depreciation is a contra-asset account, credited."],
+ ["Scrapped a fully depreciated machine (cost 60,000, residual value 0) and received nothing.", "Remove the cost and the accumulated depreciation of 60,000. Book value is zero, so there is no gain or loss."],
+ ["Paid 400 cash for routine oil changes and maintenance on the truck.", "Routine maintenance neither adds capacity nor extends life, so it is expensed at once."]
 ];
 
 const RC_EN = [
@@ -3328,7 +3929,7 @@ const FC = {
   ch: "all", onlyNew: true, queue: [], cur: null, flipped: false,
   known: new Set(store.get("stk-known", [])),
   init(){
-    makeChips($("#fc-chips"), ["all","1","2","3","4","5","6"], this.ch, v => { this.ch = v; this.build(); });
+    makeChips($("#fc-chips"), ["all","1","2","3","4","5","6","7"], this.ch, v => { this.ch = v; this.build(); });
     $("#fc-only").addEventListener("change", e => { this.onlyNew = e.target.checked; this.build(); });
     $("#fc-card").addEventListener("click", () => this.flip());
     $("#fc-card").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); this.flip(); } });
@@ -3379,7 +3980,7 @@ const QZ = {
   ch: "all", list: [], i: 0, score: 0, wrong: [], picked: null,
   best: store.get("stk-quiz", {}),
   init(){
-    makeChips($("#qz-chips"), ["all","1","2","3","4","5","6"], this.ch, v => { this.ch = v; this.start(); });
+    makeChips($("#qz-chips"), ["all","1","2","3","4","5","6","7"], this.ch, v => { this.ch = v; this.start(); });
     $("#qz-restart").addEventListener("click", () => this.start());
     this.start();
   },
@@ -3434,7 +4035,7 @@ const DR = {
   ch: "all", list: [], i: 0, right: 0, done: 0, checked: false, last: null,
   init(){
     this.fillSelects();
-    makeChips($("#dr-chips"), ["all","2","3","5","6"], this.ch, v => { this.ch = v; this.start(); });
+    makeChips($("#dr-chips"), ["all","2","3","5","6","7"], this.ch, v => { this.ch = v; this.start(); });
     $("#dr-check").addEventListener("click", () => this.check());
     $("#dr-next").addEventListener("click", () => this.next());
     this.start();
@@ -3540,6 +4141,95 @@ const INV = {
     else if (last < first) ins += T("Giá đang giảm: kết quả đảo chiều, LIFO cho lãi gộp cao nhất, FIFO thấp nhất.", "Prices are falling: the results flip — LIFO gives the highest gross profit, FIFO the lowest.");
     else ins += T("Giá không đổi: ba phương pháp cho cùng kết quả.", "Prices are flat: all three methods give the same result.");
     $("#inv-insight").textContent = ins;
+  }
+};
+
+/* ---------- depreciation + disposal lab ---------- */
+const DEP = {
+  def: {cost: 41000, res: 1000, life: 5, units: [20000, 30000, 25000, 15000, 10000]},
+  units: [20000, 30000, 25000, 15000, 10000],
+  init(){
+    $("#dep-reset").addEventListener("click", () => this.reset());
+    ["#dep-cost", "#dep-res", "#dep-life"].forEach(s => $(s).addEventListener("input", () => { if (s === "#dep-life") this.rows(); this.calc(); }));
+    this.rows(); this.calc();
+    DISP.init();
+  },
+  reset(){
+    $("#dep-cost").value = this.def.cost; $("#dep-res").value = this.def.res; $("#dep-life").value = this.def.life;
+    this.units = this.def.units.slice(); this.rows(); this.calc();
+  },
+  life(){ return Math.min(10, Math.max(1, Math.round(+$("#dep-life").value || 1))); },
+  rows(){
+    const n = this.life();
+    $$("#dep-units input").forEach(el => { this.units[+el.dataset.i] = Math.max(0, +el.value || 0); });
+    while (this.units.length < n) this.units.push(this.units.length ? this.units[this.units.length - 1] : 10000);
+    $("#dep-units").innerHTML = Array.from({length: n}, (_, i) => '<tr><td>' + T("Năm ", "Year ") + (i + 1) + '</td><td><input type="number" min="0" step="1000" data-i="' + i + '" value="' + this.units[i] + '" aria-label="' + T("Số dặm năm ", "Miles, year ") + (i + 1) + '"></td></tr>').join("");
+    $$("#dep-units input").forEach(el => el.addEventListener("input", () => { this.units[+el.dataset.i] = Math.max(0, +el.value || 0); this.calc(); }));
+  },
+  relang(){ this.rows(); this.calc(); DISP.calc(); },
+  calc(){
+    const cost = Math.max(0, +$("#dep-cost").value || 0), res = Math.max(0, +$("#dep-res").value || 0), n = this.life();
+    const msg = $("#dep-msg"), clear = () => { $("#dep-res-tbl").innerHTML = ""; $("#dep-bars").innerHTML = ""; $("#dep-insight").textContent = ""; };
+    if (res > cost) { msg.textContent = T("Residual (" + fmt(res) + ") lớn hơn nguyên giá (" + fmt(cost) + "). Hãy giảm residual.", "Residual value (" + fmt(res) + ") is more than cost (" + fmt(cost) + "). Lower the residual value."); clear(); return; }
+    const dc = cost - res, us = this.units.slice(0, n), tu = us.reduce((s, u) => s + u, 0);
+    if (!tu) { msg.textContent = T("Nhập số đơn vị dùng ít nhất một năm cho phương pháp UOP.", "Enter units used in at least one year for the UOP method."); clear(); return; }
+    const rate = dc / tu, ddbr = 2 / n;
+    const sl = [], uop = [], ddb = [];
+    let bv = cost;
+    for (let i = 0; i < n; i++) {
+      sl.push(dc / n);
+      uop.push(rate * us[i]);
+      const d = i === n - 1 ? bv - res : Math.round(bv * ddbr);
+      ddb.push(Math.max(0, d)); bv -= Math.max(0, d);
+    }
+    msg.textContent = T("Depreciable cost = " + fmt(cost) + " − " + fmt(res) + " = " + fmt(dc) + ". Đường thẳng: " + fmt(dc) + " ÷ " + n + " = " + fmt(dc / n) + "/năm. UOP: " + fmt(dc) + " ÷ " + fmt(tu) + " = " + fmt(rate) + "/đơn vị. DDB: (1 ÷ " + n + ") × 2 = " + fmt(ddbr * 100) + "% nhân book value đầu năm (làm tròn đến đồng như slide); năm cuối là số plug.",
+      "Depreciable cost = " + fmt(cost) + " − " + fmt(res) + " = " + fmt(dc) + ". Straight-line: " + fmt(dc) + " ÷ " + n + " = " + fmt(dc / n) + "/year. UOP: " + fmt(dc) + " ÷ " + fmt(tu) + " = " + fmt(rate) + "/unit. DDB: (1 ÷ " + n + ") × 2 = " + fmt(ddbr * 100) + "% of beginning book value (rounded to the dollar, as in the slides); the last year is a plug.");
+    const M = [sl, uop, ddb], bvs = M.map(a => { let b = cost; return a.map(d => (b -= d)); });
+    let h = '<thead><tr class="g"><th></th><th colspan="2">' + T("Đường thẳng", "Straight-line") + '</th><th colspan="2">UOP</th><th colspan="2">DDB</th></tr><tr><th>' + T("Năm", "Year") + '</th>' + [0,1,2].map(() => "<th>" + T("Khấu hao", "Depreciation") + "</th><th>" + T("Còn lại", "Book value") + "</th>").join("") + "</tr></thead><tbody>";
+    for (let i = 0; i < n; i++) h += "<tr><td>" + (i + 1) + "</td>" + M.map((a, k) => '<td class="n">' + fmt(a[i]) + '</td><td class="n">' + fmt(bvs[k][i]) + "</td>").join("") + "</tr>";
+    h += '<tr class="tot"><td>' + T("Tổng", "Total") + "</td>" + M.map((a, k) => '<td class="n">' + fmt(a.reduce((s, x) => s + x, 0)) + '</td><td class="n">' + fmt(bvs[k][n - 1]) + "</td>").join("") + "</tr></tbody>";
+    $("#dep-res-tbl").innerHTML = h;
+    const mx = Math.max.apply(null, sl.concat(uop, ddb)) || 1;
+    $("#dep-bars").innerHTML = Array.from({length: n}, (_, i) => '<div class="yr"><span>' + T("Năm ", "Yr ") + (i + 1) + '</span><div class="tr">' + M.map((a, k) => '<div class="bar"><b class="m' + k + '" style="width:' + (a[i] / mx * 100) + '%"></b><span>' + fmt(a[i]) + "</span></div>").join("") + "</div></div>").join("");
+    let ins = T("Cả ba cho tổng khấu hao " + fmt(dc) + " và book value cuối cùng " + fmt(res) + ". ", "All three give total depreciation of " + fmt(dc) + " and a final book value of " + fmt(res) + ". ");
+    ins += ddb[0] > sl[0] + 0.005 ? T("DDB ghi nhiều nhất ở năm 1 (" + fmt(ddb[0]) + " so với " + fmt(sl[0]) + "), vì bỏ qua residual và nhân với book value còn nguyên. Năm cuối là số plug.", "DDB records the most in year 1 (" + fmt(ddb[0]) + " versus " + fmt(sl[0]) + "), because it ignores the residual and applies the rate to the full book value. The last year is a plug.") : T("Với đời sống 1 năm, ba phương pháp trùng nhau.", "With a one-year life the three methods coincide.");
+    $("#dep-insight").textContent = ins;
+  }
+};
+
+const DISP = {
+  def: {cost: 10000, res: 0, life: 10, yrs: 3, mo: 9, cash: 7300},
+  ids: ["cost", "res", "life", "yrs", "mo", "cash"],
+  init(){
+    this.ids.forEach(k => $("#disp-" + k).addEventListener("input", () => this.calc()));
+    $("#disp-reset").addEventListener("click", () => { this.ids.forEach(k => { $("#disp-" + k).value = this.def[k]; }); this.calc(); });
+    this.calc();
+  },
+  calc(){
+    const g = k => Math.max(0, +$("#disp-" + k).value || 0);
+    const cost = g("cost"), res = g("res"), life = Math.max(1, Math.round(g("life"))), yrs = Math.round(g("yrs")), mo = Math.min(11, Math.round(g("mo"))), cash = g("cash");
+    const msg = $("#disp-msg"), out = $("#disp-out");
+    if (res > cost) { msg.textContent = T("Residual lớn hơn nguyên giá. Hãy giảm residual.", "Residual value is more than cost. Lower the residual value."); out.innerHTML = ""; return; }
+    if (yrs + mo / 12 > life + 1e-9) { msg.textContent = T("Thời gian đã khấu hao (" + yrs + " năm " + mo + " tháng) vượt đời sống " + life + " năm.", "Time depreciated (" + yrs + " years " + mo + " months) exceeds the " + life + "-year life."); out.innerHTML = ""; return; }
+    msg.textContent = "";
+    const sgn = v => (v < -0.005 ? "−" : "") + fmt(Math.abs(v));
+    const perYear = (cost - res) / life, upd = perYear * mo / 12, acc = perYear * yrs + upd, bv = cost - acc, gl = cash - bv;
+    const row = (a, d, c, ind) => "<tr><td" + (ind ? ' class="ind"' : "") + ">" + a + '</td><td class="n">' + (d ? fmt(d) : "") + '</td><td class="n">' + (c ? fmt(c) : "") + "</td></tr>";
+    const jr = (title, rows, memo) => '<div class="scroll"><table class="jr"><thead><tr><th>' + title + '</th><th class="dr">Dr</th><th class="cr">Cr</th></tr></thead><tbody>' + rows + '</tbody></table></div>' + (memo ? '<p class="statline">' + memo + "</p>" : "");
+    let h = "";
+    if (upd > 0.005) h += jr(T("Bước 1: cập nhật khấu hao đến ngày bán", "Step 1: update depreciation to the date of sale"), row("Depreciation Expense", upd, 0) + row("Accumulated Depreciation, Equipment", 0, upd, 1), fmt(perYear) + " × " + mo + "/12 = " + fmt(upd));
+    else h += '<p class="statline">' + T("Bước 1: không cần ghi khấu hao thêm vì đã cập nhật đến ngày bán.", "Step 1: no extra depreciation to record, because it is already up to date.") + "</p>";
+    const gain = gl > 0.005, loss = gl < -0.005;
+    let rows = "";
+    if (cash > 0) rows += row("Cash", cash, 0);
+    if (acc > 0.005) rows += row("Accumulated Depreciation, Equipment", acc, 0);
+    if (loss) rows += row("Loss on Disposal of Equipment", -gl, 0);
+    rows += row("Equipment", 0, cost, 1);
+    if (gain) rows += row("Gain on Sale of Equipment", 0, gl, 1);
+    h += jr(T("Bước 2: ghi nhận thanh lý", "Step 2: record the disposal"), rows, "");
+    h += '<div class="fb ' + (gain ? "ok" : loss ? "no" : "ok") + '"><b class="v">' + (gain ? T("Lãi " + fmt(gl), "Gain of " + fmt(gl)) : loss ? T("Lỗ " + fmt(-gl), "Loss of " + fmt(-gl)) : T("Không có lãi hay lỗ", "No gain or loss")) + "</b>" +
+      T("Tiền thu " + fmt(cash) + " − book value " + fmt(bv) + " (" + fmt(cost) + " − " + fmt(acc) + ") = " + sgn(gl) + ". Lãi/lỗ so với <b>book value</b>, không so với nguyên giá.", "Proceeds " + fmt(cash) + " − book value " + fmt(bv) + " (" + fmt(cost) + " − " + fmt(acc) + ") = " + sgn(gl) + ". Compare with <b>book value</b>, not with cost.") + "</div>";
+    out.innerHTML = h;
   }
 };
 
@@ -3938,63 +4628,81 @@ add(6, "n", "Q2", r => {
     e: ["Giá bình quân = " + D(cost) + " ÷ " + U + " = " + D(avg) + "; bán " + sold + " đv; lãi gộp = " + sold + " × ($" + pr + " − " + D(avg) + ") = " + D(gp) + ".", "Average = " + D(cost) + " ÷ " + U + " = " + D(avg) + "; " + sold + " units sold; gross profit = " + sold + " × ($" + pr + " − " + D(avg) + ") = " + D(gp) + "."]};
 });
 
-/* --- Chapter 7 (PPE & intangibles — assumed scope) --- */
-add(7, "t", "new", r => {
+/* --- Chapter 7 (PPE, slides 7.1–7.5) --- */
+add(7, "t", "c7", r => {
   const bad = pk(r, ["Repairs made after the equipment was placed in service", "Insurance for the first year of operation after installation", "Training staff to operate the machine"]);
-  return {q: "Which cost should NOT be included in the cost of new equipment?", o: [bad].concat(rsh(r, ["Purchase price", "Freight-in to bring the machine to the factory", "Installation and testing costs", "Non-refundable import duties"]).slice(0, 3)), e: ["Giá gốc TSCĐ gồm mọi chi phí đến khi sẵn sàng sử dụng; chi phí phát sinh sau đó được ghi vào chi phí.", "PPE cost includes everything needed to get the asset ready for use; later costs are expensed."]};
+  return {q: "Which cost should NOT be included in the cost of new equipment?", o: [bad].concat(rsh(r, ["Purchase price", "Transportation to the site", "Installation and testing costs", "Sales tax paid on the purchase"]).slice(0, 3)), e: ["Giá gốc TSCĐ gồm mọi chi phí để tài sản sẵn sàng sử dụng; chi phí phát sinh sau đó được ghi vào chi phí.", "PPE cost includes everything needed to get the asset ready for use; later costs are expensed."]};
 });
-add(7, "t", "new", r => {
+add(7, "t", "c7", r => {
   const it = pk(r, [
     ["Depreciation is best described as:", "allocating an asset’s cost to expense over its useful life", ["measuring the asset’s current market value", "setting aside cash to replace the asset", "recording increases in the asset’s value"], "Khấu hao là phân bổ giá gốc, không phải định giá.", "Depreciation is cost allocation, not valuation."],
-    ["Which of the following assets is NOT depreciated?", "Land", ["Buildings", "Equipment", "Land improvements"], "Đất không bị hao mòn.", "Land does not wear out."],
-    ["Under IFRS, goodwill is:", "not amortized, but tested for impairment at least annually", ["amortized over 40 years", "amortized over its legal life", "expensed immediately when acquired"], "IAS 36/38: goodwill không khấu trừ, kiểm tra suy giảm hằng năm.", "IAS 36/38: goodwill is not amortized; test it for impairment annually."],
-    ["An impairment loss on PPE is recognized when:", "the carrying amount exceeds the recoverable amount", ["the recoverable amount exceeds the carrying amount", "the market value rises above cost", "accumulated depreciation exceeds cost"], "Suy giảm khi giá trị ghi sổ > giá trị có thể thu hồi.", "Impairment arises when carrying amount > recoverable amount."],
+    ["Which of the following assets is NOT depreciated?", "Land", ["Buildings", "Equipment", "Land improvements"], "Đất không bị hao mòn nên không khấu hao.", "Land does not wear out, so it is not depreciated."],
+    ["Which of the following is a land improvement rather than part of the cost of the land itself?", "Paving the parking lot", ["The agent’s commission on the purchase", "A survey fee", "Back taxes owed by the seller and paid by the buyer"], "Lát sân là land improvements (tài sản riêng, được khấu hao). Hoa hồng, đo đạc, thuế còn nợ vào giá đất.", "Paving is a land improvement (a separate, depreciable asset). Commission, survey fees and back taxes are part of the land’s cost."],
     ["Depletion is the allocation of cost for:", "natural resources", ["intangible assets", "land", "inventory"], "Depletion dùng cho tài nguyên thiên nhiên.", "Depletion applies to natural resources."],
-    ["Which depreciation method usually gives the highest expense in the first year?", "Double-declining-balance", ["Straight-line", "Units-of-production (in a low-use year)", "All methods give the same first-year expense"], "Phương pháp số dư giảm dần kép khấu hao nhanh ở năm đầu.", "Double-declining-balance front-loads depreciation."],
-    ["When land and a building are bought together for one price, the cost is:", "allocated to each asset based on relative fair values", ["recorded entirely as land", "recorded entirely as building", "split equally between the two assets"], "Phân bổ theo tỷ lệ giá trị hợp lý.", "Allocate using relative fair values."]
+    ["Which depreciation method usually gives the highest expense in the first year?", "Double-declining-balance", ["Straight-line", "Units-of-production (in a low-use year)", "All methods give the same first-year expense"], "Số dư giảm dần kép khấu hao nhanh ở năm đầu.", "Double-declining-balance front-loads depreciation."],
+    ["When land and a building are bought together for one price, the cost is:", "allocated to each asset based on relative fair values", ["recorded entirely as land", "recorded entirely as building", "split equally between the two assets"], "Phân bổ theo tỷ lệ giá trị hợp lý.", "Allocate using relative fair values."],
+    ["Over the whole life of an asset, total depreciation under straight-line, units-of-production and double-declining-balance is:", "the same under all three methods", ["highest under double-declining-balance", "lowest under straight-line", "highest under units-of-production"], "Cả ba phân bổ cùng depreciable cost; chỉ khác khấu hao từng năm.", "All three allocate the same depreciable cost; only the yearly amounts differ."],
+    ["Which depreciation method is best for an asset that wears out because of use?", "Units-of-production", ["Straight-line", "Double-declining-balance", "None; depreciation never depends on use"], "UOP gắn khấu hao với mức sử dụng; đường thẳng hợp tài sản tạo doanh thu đều.", "UOP ties depreciation to use; straight-line suits assets that generate revenue evenly."],
+    ["Before recording the disposal of equipment, a business should:", "bring depreciation up to date to the date of disposal", ["revalue the equipment at market price", "remove the cost but keep the accumulated depreciation", "record the gain or loss first"], "Cập nhật khấu hao để có book value cuối cùng và ghi đủ chi phí đến ngày thanh lý.", "Update depreciation to get the final book value and record the expense up to the disposal date."],
+    ["Interest on money borrowed to finance the construction of a building is:", "included in the cost of the building", ["expensed immediately as interest expense", "added to the cost of the land", "ignored until the building is sold"], "Giá gốc xây dựng gồm cả lãi vay dùng để tài trợ cho việc xây dựng.", "The cost of construction includes interest on money borrowed to finance it."]
   ]);
   return {q: it[0], o: [it[1]].concat(it[2]), e: [it[3], it[4]]};
 });
-add(7, "t", "new", r => {
+add(7, "t", "c7", r => {
   const it = pk(r, [["A major engine overhaul that extends a truck’s useful life by three years", 0], ["Routine oil changes and minor repairs", 1], ["Adding a new wing to an office building", 0], ["Repainting an office to keep it in normal condition", 1]]);
   const C = ["Capitalize (add to the asset’s cost)", "Expense as incurred"];
   return {q: "How should this expenditure be recorded? " + it[0] + ".", o: [C[it[1]], C[1 - it[1]], "Record it as a liability", "Record it directly in retained earnings"], e: ["Kéo dài thời gian sử dụng/tăng năng lực → vốn hóa; bảo trì thường xuyên → chi phí.", "Extends life or capacity → capitalize; routine maintenance → expense."]};
 });
-add(7, "n", "new", r => {
+add(7, "n", "c7", r => {
   const p = ri(r, 40, 160) * 500, f = ri(r, 6, 40) * 50, i = ri(r, 5, 30) * 100, t = ri(r, 4, 30) * 50, ins = ri(r, 8, 30) * 50, rp = ri(r, 4, 20) * 50, c = p + f + i + t;
   return {q: pk(r, CO) + " buys a machine: price " + D(p) + "; freight-in " + D(f) + "; installation " + D(i) + "; testing before use " + D(t) + "; insurance for the first year of operation " + D(ins) + "; repairs after three months of use " + D(rp) + ". The cost of the machine is:", o: nopts(c, [c + ins, c + ins + rp, p]), e: ["Vốn hóa = " + D(p) + " + " + D(f) + " + " + D(i) + " + " + D(t) + " = " + D(c) + "; bảo hiểm khi vận hành và sửa chữa sau đó là chi phí.", "Capitalize = " + D(p) + " + " + D(f) + " + " + D(i) + " + " + D(t) + " = " + D(c) + "; operating insurance and later repairs are expenses."]};
 });
-add(7, "n", "new", r => {
+add(7, "n", "c7", r => {
+  const P0 = ri(r, 40, 200) * 1000, com = ri(r, 2, 12) * 1000, tax = ri(r, 2, 10) * 500, sv = ri(r, 1, 6) * 500, pv = ri(r, 5, 25) * 1000, c = P0 + com + tax + sv;
+  return {q: pk(r, CO) + " buys land for " + D(P0) + " on account. It pays cash for the agent’s commission of " + D(com) + ", transfer taxes of " + D(tax) + " and a survey fee of " + D(sv) + ", and separately pays " + D(pv) + " to pave a parking lot on the land. The cost of the land is:", o: nopts(c, [c + pv, P0, P0 + com]), e: ["Giá đất = " + D(P0) + " + " + D(com) + " + " + D(tax) + " + " + D(sv) + " = " + D(c) + "; lát bãi đậu xe " + D(pv) + " là land improvements, không vào giá đất.", "Land = " + D(P0) + " + " + D(com) + " + " + D(tax) + " + " + D(sv) + " = " + D(c) + "; paving " + D(pv) + " is a land improvement, not part of the land."]};
+});
+add(7, "n", "c7", r => {
   const L = pk(r, [4, 5, 8, 10]), A = ri(r, 3, 15) * 1000, R = ri(r, 0, 10) * 500, C = A * L + R;
   return {q: "Equipment costs " + D(C) + ", has an estimated residual value of " + D(R) + " and a useful life of " + L + " years. Annual straight-line depreciation is:", o: nopts(A, [C / L, (C + R) / L, C * 2 / L]), e: ["(" + D(C) + " − " + D(R) + ") ÷ " + L + " = " + D(A) + ".", "(" + D(C) + " − " + D(R) + ") ÷ " + L + " = " + D(A) + "."]};
 });
-add(7, "n", "new", r => {
+add(7, "n", "c7", r => {
   const rate = pk(r, [0.2, 0.25, 0.4, 0.5, 1, 2]), U = ri(r, 10, 40) * 10000, R = ri(r, 0, 8) * 1000, C = rate * U + R, u = ri(r, 1, Math.floor(U / 40000)) * 10000 + ri(r, 1, 9) * 1000, x = rate * u, L = pk(r, [4, 5, 6]);
   return {q: "A delivery truck costs " + D(C) + ", has a residual value of " + D(R) + ", an estimated life of " + NUM(U) + " km (or " + L + " years). It is driven " + NUM(u) + " km this year. Units-of-production depreciation for the year is:", o: nopts(x, [C / U * u, (C - R) / L, (C - R) / U]), e: ["Mức/km = (" + D(C) + " − " + D(R) + ") ÷ " + NUM(U) + " = " + D(rate) + "; × " + NUM(u) + " = " + D(x) + ".", "Rate = (" + D(C) + " − " + D(R) + ") ÷ " + NUM(U) + " = " + D(rate) + " per km; × " + NUM(u) + " = " + D(x) + "."]};
 });
-add(7, "n", "new", r => {
+add(7, "n", "c7", r => {
   const L = pk(r, [4, 5, 10]), rate = 2 / L, C = ri(r, 10, 100) * 1000, y1 = C * rate, y2 = (C - y1) * rate, ask2 = r() < 0.5;
   return {q: "A machine costs " + D(C) + " with a useful life of " + L + " years. Using the double-declining-balance method, depreciation in year " + (ask2 ? 2 : 1) + " is:", o: ask2 ? nopts(y2, [y1, C / L, (C - y1) / L]) : nopts(y1, [C / L, y1 / 2, C * rate * 2]), e: ["Tỷ lệ = 2/" + L + " = " + P(rate * 100) + "; năm 1 = " + D(y1) + (ask2 ? "; năm 2 = (" + D(C) + " − " + D(y1) + ") × " + P(rate * 100) + " = " + D(y2) : "") + ".", "Rate = 2/" + L + " = " + P(rate * 100) + "; year 1 = " + D(y1) + (ask2 ? "; year 2 = (" + D(C) + " − " + D(y1) + ") × " + P(rate * 100) + " = " + D(y2) : "") + "."]};
 });
-add(7, "n", "new", r => {
+add(7, "n", "c7", r => {
   const L = pk(r, [3, 4, 5, 6, 8]), A = ri(r, 3, 12) * 1200, R = ri(r, 0, 6) * 500, C = A * L + R, s = ri(r, 2, 11), m = 12 - s + 1, x = A * m / 12;
   return {q: "On " + MONTHS[s - 1] + " 1, " + pk(r, CO) + " bought equipment for " + D(C) + " (residual value " + D(R) + ", useful life " + L + " years). Using straight-line depreciation, depreciation expense for the year ended December 31 is:", o: nopts(x, [A, A * (12 - m) / 12, A / 12]), e: ["Năm = (" + D(C) + " − " + D(R) + ") ÷ " + L + " = " + D(A) + "; " + m + " tháng → " + D(x) + ".", "Annual = (" + D(C) + " − " + D(R) + ") ÷ " + L + " = " + D(A) + "; " + m + " months → " + D(x) + "."]};
 });
-add(7, "n", "new", r => {
+add(7, "n", "c7", r => {
   const C = ri(r, 40, 160) * 500, A = Math.round(C * ri(r, 30, 80) / 100 / 100) * 100, BV = C - A, d = (r() < 0.55 ? -1 : 1) * ri(r, 5, 50) * 100, S = Math.max(500, BV + d), g = S - BV;
   const txt = v => v === 0 ? "No gain or loss" : (v > 0 ? "Gain of " : "Loss of ") + D(v);
   return {q: pk(r, CO) + " sold equipment for " + D(S) + " cash. The equipment originally cost " + D(C) + " and its accumulated depreciation was " + D(A) + ". The sale results in a:", o: opts(txt(g), [txt(-g), txt(S - C), "No gain or loss", txt(S - A)]), e: ["Giá trị còn lại = " + D(C) + " − " + D(A) + " = " + D(BV) + "; " + D(S) + " − " + D(BV) + " → " + (g >= 0 ? "lãi " : "lỗ ") + D(g) + ".", "Book value = " + D(C) + " − " + D(A) + " = " + D(BV) + "; " + D(S) + " − " + D(BV) + " → " + (g >= 0 ? "gain " : "loss ") + D(g) + "."]};
 });
-add(7, "n", "new", r => {
+add(7, "n", "c7", r => {
+  const L = pk(r, [5, 8, 10]), A = ri(r, 1, 4) * 1000, C = A * L, n = ri(r, 1, L - 2), m = pk(r, [3, 6, 9]), y0 = ri(r, 2023, 2025), dt = {3: "March 31", 6: "June 30", 9: "September 30"}[m];
+  const upd = A * m / 12, acc = A * n + upd, bv = C - acc, S = Math.max(500, bv + (r() < 0.5 ? -1 : 1) * ri(r, 2, 15) * 100), g = S - bv;
+  const txt = v => v === 0 ? "No gain or loss" : (v > 0 ? "Gain of " : "Loss of ") + D(v);
+  return {q: pk(r, CO) + " bought equipment costing " + D(C) + " on January 1, " + y0 + " (useful life " + L + " years, no residual value, straight-line depreciation). On " + dt + ", " + (y0 + n) + ", it sold the equipment for " + D(S) + " cash. Depreciation for " + (y0 + n) + " has not yet been recorded. The gain or loss on the sale is:", o: opts(txt(g), [txt(-g), txt(S - (C - A * n)), txt(S - C), "No gain or loss"]),
+    e: ["Cập nhật khấu hao: " + D(A) + " × " + m + "/12 = " + D(upd) + "; khấu hao lũy kế = " + D(A * n) + " + " + D(upd) + " = " + D(acc) + "; book value = " + D(C) + " − " + D(acc) + " = " + D(bv) + "; " + D(S) + " − " + D(bv) + " → " + (g > 0 ? "lãi " : "lỗ ") + D(g) + ".", "Update depreciation: " + D(A) + " × " + m + "/12 = " + D(upd) + "; accumulated = " + D(A * n) + " + " + D(upd) + " = " + D(acc) + "; book value = " + D(C) + " − " + D(acc) + " = " + D(bv) + "; " + D(S) + " − " + D(bv) + " → " + (g > 0 ? "gain " : "loss ") + D(g) + "."]};
+});
+add(7, "n", "c7", r => {
+  const C = ri(r, 20, 120) * 1000, A = Math.round(C * ri(r, 60, 95) / 100 / 1000) * 1000, bv = C - A;
+  return {q: pk(r, CO) + " discards equipment that cost " + D(C) + " and has accumulated depreciation of " + D(A) + ". It receives nothing for it. The disposal is recorded as a:", o: opts("Loss of " + D(bv), ["Loss of " + D(C), "Loss of " + D(A), "No gain or loss", "Gain of " + D(bv)]), e: ["Book value = " + D(C) + " − " + D(A) + " = " + D(bv) + "; không thu tiền nên lỗ = " + D(bv) + ". Nợ Accumulated depreciation " + D(A) + ", Nợ Loss " + D(bv) + ", Có Equipment " + D(C) + ".", "Book value = " + D(C) + " − " + D(A) + " = " + D(bv) + "; with no proceeds the loss is " + D(bv) + ". Dr Accumulated depreciation " + D(A) + ", Dr Loss " + D(bv) + ", Cr Equipment " + D(C) + "."]};
+});
+add(7, "n", "c7", r => {
   const Pr = ri(r, 20, 80) * 10000, s = pk(r, [0.6, 0.7, 0.75, 0.8]), FV = Pr * pk(r, [1.1, 1.2, 1.25]), b = Pr * s;
   return {q: pk(r, CO) + " pays " + D(Pr) + " for land and a building. Their fair values are: land " + D(FV * (1 - s)) + ", building " + D(FV * s) + ". The cost assigned to the building is:", o: nopts(b, [FV * s, Pr * (1 - s), Pr / 2]), e: ["Tỷ lệ nhà = " + P(s * 100) + "; " + D(Pr) + " × " + P(s * 100) + " = " + D(b) + ".", "Building share = " + P(s * 100) + "; " + D(Pr) + " × " + P(s * 100) + " = " + D(b) + "."]};
 });
-add(7, "n", "new", r => {
+add(7, "n", "c7", r => {
   const L = pk(r, [5, 8, 10]), A = ri(r, 2, 12) * 1000, R = ri(r, 0, 10) * 500, C = A * L + R, n = ri(r, 2, L - 1), bv = C - n * A;
   return {q: "Equipment cost " + D(C) + " (residual value " + D(R) + ", useful life " + L + " years, straight-line). What is its book value after " + n + " years?", o: nopts(bv, [C - n * C / L, C - R - n * A, n * A]), e: ["Khấu hao năm " + D(A) + "; lũy kế " + n + " năm = " + D(n * A) + "; giá trị còn lại = " + D(C) + " − " + D(n * A) + " = " + D(bv) + ".", "Annual " + D(A) + "; accumulated after " + n + " years = " + D(n * A) + "; book value = " + D(C) + " − " + D(n * A) + " = " + D(bv) + "."]};
 });
 
-/* site questions already on the page (QUIZ / QUIZ_EN) join the pool for Ch1–6 */
+/* site questions already on the page (QUIZ / QUIZ_EN) join the pool for Ch1–7 */
 QUIZ.forEach((q, i) => { const en = QUIZ_EN[i]; if (!en) return; add(q.ch, /\d,\d|\d{3}/.test(en[0]) ? "n" : "t", "site", () => ({q: en[0], o: en[1].slice(), e: [q.e, en[2]]})); });
 
 function instantiate(item, r){
@@ -4101,7 +4809,7 @@ function genPart2(r, n){
       case "rent": x = ri(r, 5, 12) * 100; t = {text: "Paid rent for January, " + D(x) + ".", lines: [["rentx", x], ["cash", -x]], note: ["Tiền thuê của chính tháng 1 → chi phí.", "Rent for January itself → an expense."]}; break;
       case "invBuy": x = ri(r, 10, 40) * 100; t = {text: "Purchased inventory on account from " + sup + ", " + D(x) + ".", lines: [["inv", x], ["ap", -x]], note: ["Perpetual: mua hàng ghi thẳng vào Inventory.", "Perpetual system: purchases go straight to Inventory."]}; break;
       case "shares": x = ri(r, 5, 20) * 1000; t = {text: "Issued shares to investors for " + D(x) + " cash.", lines: [["cash", x], ["sc", -x]], note: ["Góp vốn → tăng tiền và vốn cổ phần.", "Owners invest → Cash and Share capital increase."]}; break;
-      case "equipBuy": { const dn = ri(r, 10, 30) * 100, m = ri(r, 6, 18) * 50, tot = dn + 12 * m; t = {text: "Purchased equipment from " + sup + ", " + D(tot) + ". Terms were " + D(dn) + " down and " + D(m) + " per month for one year. First payment is due Feb 1.", lines: [["equip", tot], ["cash", -dn], ["stn", -12 * m]], note: ["Ghi đủ nguyên giá " + D(tot) + "; phần còn nợ 12 × " + D(m) + " = " + D(12 * m) + " trả trong 12 tháng → nợ ngắn hạn.", "Record the full cost " + D(tot) + "; the 12 × " + D(m) + " = " + D(12 * m) + " still owed within 12 months → a current liability."]}; break; }
+      case "equipBuy": { const dn = ri(r, 10, 30) * 100, m = ri(r, 6, 18) * 50, tot = dn + 12 * m, inst = r() < 0.4 ? ri(r, 2, 8) * 100 : 0, all = tot + inst; t = {text: "Purchased equipment from " + sup + ", " + D(tot) + ". Terms were " + D(dn) + " down and " + D(m) + " per month for one year. First payment is due Feb 1." + (inst ? " It also paid " + D(inst) + " cash to install and test the equipment before use." : ""), lines: [["equip", all], ["cash", -dn - inst], ["stn", -12 * m]], note: ["Ghi đủ nguyên giá " + D(tot) + (inst ? " + lắp đặt và chạy thử " + D(inst) + " (cũng vốn hóa) = " + D(all) : "") + "; phần còn nợ 12 × " + D(m) + " = " + D(12 * m) + " trả trong 12 tháng → nợ ngắn hạn.", "Record the full cost " + D(tot) + (inst ? " + installation and testing " + D(inst) + " (also capitalized) = " + D(all) : "") + "; the 12 × " + D(m) + " = " + D(12 * m) + " still owed within 12 months → a current liability."]}; break; }
       case "collectOld": x = Math.max(100, Math.round(open.ar * ri(r, 30, 80) / 100 / 100) * 100); t = {text: "Collected " + D(x) + " from customers on account (December balances).", lines: [["cash", x], ["ar", -x]], note: ["Thu nợ cũ không phải doanh thu.", "Collecting old receivables is not revenue."]}; break;
       case "payAP": x = Math.max(100, Math.round(-g("ap") * ri(r, 30, 90) / 100 / 100) * 100); t = {text: "Paid " + D(x) + " to suppliers on account.", lines: [["ap", x], ["cash", -x]], note: ["Trả nợ không phải chi phí.", "Paying a payable is not an expense."]}; break;
       case "sale": { const all = r() < 0.5 || g("inv") < 1000, c = all ? g("inv") : Math.max(100, Math.round(g("inv") * ri(r, 40, 80) / 100 / 100) * 100), pr = Math.round(c * ri(r, 16, 30) / 10 / 100) * 100, rt = pk(r, [1, 2, 3]);
@@ -4115,7 +4823,8 @@ function genPart2(r, n){
       case "sellEquip": { const c = Math.max(5000, Math.round(g("equip") * ri(r, 15, 30) / 100 / 500) * 500), a = Math.max(500, Math.min(Math.round(c * ri(r, 40, 75) / 100 / 500) * 500, Math.floor((-g("ad") - 500) / 500) * 500)), bv = c - a, dd = (r() < 0.6 ? -1 : 1) * ri(r, 5, 40) * 100, s = Math.max(500, bv + dd), gl = s - bv;
         const lines = [["cash", s], ["ad", a]]; if (gl < 0) lines.push(["loss", -gl]); lines.push(["equip", -c]); if (gl > 0) lines.push(["gain", -gl]);
         t = {text: "Sold equipment " + eqLetter + " for " + D(s) + " cash. Original cost, " + D(c) + "; accumulated depreciation, " + D(a) + ".", lines: lines, note: ["Xóa nguyên giá " + D(c) + " và khấu hao lũy kế " + D(a) + "; giá trị còn lại " + D(bv) + "; " + (gl < 0 ? "lỗ " : "lãi ") + D(gl) + ".", "Remove cost " + D(c) + " and accumulated depreciation " + D(a) + "; book value " + D(bv) + "; " + (gl < 0 ? "loss " : "gain ") + D(gl) + "."]}; break; }
-      case "dep": x = ri(r, 6, 24) * 50; t = {text: "Recorded depreciation expense on equipment of " + D(x) + ".", lines: [["depx", x], ["ad", -x]], note: ["Điều chỉnh: chi phí khấu hao, ghi Có khấu hao lũy kế (contra).", "Adjustment: depreciation expense, credit accumulated depreciation (contra)."]}; break;
+      case "dep": { const L = pk(r, [5, 8, 10]), sl = r() < 0.5; x = sl ? Math.round(open.equip / L / 12) : ri(r, 6, 24) * 50;
+        t = {text: sl ? "Equipment that cost " + D(open.equip) + " at December 31 is depreciated straight-line over " + L + " years with no residual value. Record January’s depreciation expense (round to the nearest dollar)." : "Recorded depreciation expense on equipment of " + D(x) + ".", lines: [["depx", x], ["ad", -x]], note: [sl ? "Khấu hao tháng = " + D(open.equip) + " ÷ " + L + " ÷ 12 = " + D(x) + "; Nợ chi phí khấu hao, Có khấu hao lũy kế (contra)." : "Điều chỉnh: chi phí khấu hao, ghi Có khấu hao lũy kế (contra).", sl ? "Monthly depreciation = " + D(open.equip) + " ÷ " + L + " ÷ 12 = " + D(x) + "; debit depreciation expense, credit accumulated depreciation (contra)." : "Adjustment: depreciation expense, credit accumulated depreciation (contra)."]}; break; }
       case "accrInt": { const L = -g("ltn"), calc = r() < 0.5; x = calc ? L / 100 : ri(r, 10, 50) * 10;
         t = {text: calc ? "The long-term note payable carries interest at 12% per year. Accrued interest for January has not been recorded." : "Accrued interest expense on the note payable to the bank was " + D(x) + ".", lines: [["intx", x], ["ipay", -x]], note: [calc ? "Lãi = " + D(L) + " × 12% × 1/12 = " + D(x) + "; chưa trả → Interest payable." : "Chi phí lãi đã phát sinh, chưa trả → Interest payable.", calc ? "Interest = " + D(L) + " × 12% × 1/12 = " + D(x) + "; unpaid → Interest payable." : "Interest incurred but unpaid → Interest payable."]}; break; }
       case "accrSal": x = ri(r, 5, 20) * 100; t = {text: "Salaries earned by employees but not yet paid at Jan 31 were " + D(x) + ".", lines: [["salx", x], ["spay", -x]], note: ["Chi phí dồn tích → Salaries payable.", "Accrued expense → Salaries payable."]}; break;
@@ -4218,7 +4927,7 @@ function submit(){
   render(); window.scrollTo(0, 0);
 }
 const fmtDate = t => { const d = new Date(t); return d.toLocaleDateString(LANG === "en" ? "en-GB" : "vi-VN") + " " + d.toLocaleTimeString(LANG === "en" ? "en-GB" : "vi-VN", {hour: "2-digit", minute: "2-digit"}); };
-const tagLabel = t => t === "Q1" ? T("Dạng Quiz 1", "Quiz 1 style") : t === "Q2" ? T("Dạng Quiz 2", "Quiz 2 style") : t === "new" ? T("Ch7 · PPE (giả định)", "Ch7 · PPE (assumed)") : T("Ngân hàng của trang", "Site bank");
+const tagLabel = t => t === "Q1" ? T("Dạng Quiz 1", "Quiz 1 style") : t === "Q2" ? T("Dạng Quiz 2", "Quiz 2 style") : t === "c7" ? T("Ch7 · Tài sản cố định", "Ch7 · PPE") : T("Ngân hàng của trang", "Site bank");
 
 function histHTML(){
   const h = store.get(HKEY, []);
@@ -4394,7 +5103,7 @@ function setLang(l){
 }
 function applyLang(l){
   setLang(l);
-  FC.paint(); QZ.paint(); DR.relang(); INV.relang(); RC.relang(); MID.render();
+  FC.paint(); QZ.paint(); DR.relang(); INV.relang(); DEP.relang(); RC.relang(); MID.render();
   updatePill(); renderProgress();
 }
 const VIEWS = Array.from(new Set($$("[data-view]").map(v => v.dataset.view)));
@@ -4422,7 +5131,7 @@ document.addEventListener("click", e => {
   if (go === "flashcards") { FC.ch = ch; setChip($("#fc-chips"), ch); FC.build(); }
   if (go === "trac-nghiem") { QZ.ch = ch; setChip($("#qz-chips"), ch); QZ.start(); }
   if (go === "no-co") { DR.ch = ch; setChip($("#dr-chips"), ch); DR.start(); }
-  if (go === "cong-cu") { location.hash = ch === "5" ? "lab-bank" : "lab-inv"; return; }
+  if (go === "cong-cu") { location.hash = ch === "5" ? "lab-bank" : ch === "7" ? "lab-dep" : "lab-inv"; return; }
   location.hash = go;
 });
 document.addEventListener("keydown", e => {
@@ -4439,7 +5148,7 @@ document.addEventListener("keydown", e => {
 
 setLang(LANG);
 renderJE(); renderTA();
-FC.init(); QZ.init(); DR.init(); INV.init(); RC.init(); MID.init();
+FC.init(); QZ.init(); DR.init(); INV.init(); DEP.init(); RC.init(); MID.init();
 updatePill(); renderProgress();
 window.addEventListener("hashchange", route);
 route();
